@@ -1,94 +1,122 @@
 import { useEffect, useMemo, useState } from 'react'
-import type { CSSProperties, ReactNode } from 'react'
+import type { CSSProperties } from 'react'
 import { animate, stagger } from 'animejs'
-import {
-  Activity,
-  ArrowDownRight,
-  ArrowUpRight,
-  Bell,
-  GitFork,
-  Globe2,
-  Radar,
-  Search,
-  ShieldCheck,
-  Sparkles,
-  Zap,
-} from 'lucide-react'
+import { Activity, ArrowUpRight, GitFork, Radar, Search, ShieldCheck, Sparkles, Zap } from 'lucide-react'
 import './App.css'
-import { companies, rankingMoves, signals, sourceTypes, timeline } from './data'
-import type { ConfidenceLevel, ModelSignal, WatchCompany } from './types'
+import { categories, releaseFrames, signals } from './data'
+import type { ConfidenceLevel, FrontierSignal } from './types'
+
+const ALL_CATEGORIES = '全部'
 
 const levelLabels: Record<ConfidenceLevel, string> = {
   official: '官方确认',
-  platform: '第三方接入',
-  document: '文档信号',
-  community: '社区传闻',
+  platform: '平台接入',
+  docs: '文档信号',
+  rumor: '社区传闻',
 }
 
-function App() {
-  const [selectedCompany, setSelectedCompany] = useState('全部')
+const navItems = [
+  { label: '信号', href: '#signals' },
+  { label: '生态', href: '#frontier' },
+  { label: '榜单', href: '#rankings' },
+  { label: '信号源', href: '#sources' },
+]
 
-  const filteredSignals = useMemo(() => {
-    if (selectedCompany === '全部') {
+function App() {
+  const [selectedCategory, setSelectedCategory] = useState(ALL_CATEGORIES)
+  const [selectedSignalId, setSelectedSignalId] = useState(signals[0].id)
+
+  const visibleSignals = useMemo(() => {
+    if (selectedCategory === ALL_CATEGORIES) {
       return signals
     }
 
-    return signals.filter((signal) => signal.company === selectedCompany)
-  }, [selectedCompany])
+    return signals.filter((signal) => signal.category === selectedCategory)
+  }, [selectedCategory])
 
-  const selectedCompanyData = companies.find((company) => company.name === selectedCompany)
+  const selectedSignal = signals.find((signal) => signal.id === selectedSignalId) ?? signals[0]
 
   useEffect(() => {
-    animate('.signal-card', {
+    animate('.hero-copy > *', {
       opacity: [0, 1],
+      translateY: [18, 0],
+      delay: stagger(80),
+      duration: 680,
+      easing: 'outCubic',
+    })
+
+    animate('.signal-node', {
+      opacity: [0, 1],
+      translateX: [-18, 0],
+      delay: stagger(90),
+      duration: 620,
+      easing: 'outCubic',
+    })
+
+    animate('.release-card', {
       translateY: [12, 0],
-      delay: stagger(55),
-      duration: 460,
-      easing: 'outQuad',
-    })
-  }, [selectedCompany])
-
-  useEffect(() => {
-    animate('.radar-point', {
-      scale: [0.88, 1.18, 0.96],
-      opacity: [0.72, 1, 0.82],
-      delay: stagger(120),
-      duration: 2200,
-      loop: true,
-      easing: 'inOutSine',
-    })
-
-    animate('.sweep-line', {
-      rotate: '360deg',
-      duration: 6800,
-      loop: true,
-      easing: 'linear',
+      opacity: [0, 1],
+      delay: stagger(60),
+      duration: 520,
+      easing: 'outCubic',
     })
   }, [])
 
+  useEffect(() => {
+    animate('.inspector-shell', {
+      opacity: [0.75, 1],
+      translateX: [10, 0],
+      duration: 360,
+      easing: 'outQuad',
+    })
+  }, [selectedSignalId])
+
   return (
     <main className="app-shell">
+      <AmbientField />
       <Header />
 
-      <section className="command-strip" aria-label="模型观察过滤器">
-        <div className="title-block">
-          <p>AI 模型发布雷达</p>
-          <h1>追踪头部模型发布、榜单变化与发布前信号</h1>
+      <section className="experience-grid">
+        <div className="hero-copy">
+          <h1>AI 前沿雷达</h1>
+          <p>追踪模型、工具、Agent 与 AI 编程生态的发布信号</p>
+          <div className="live-row">
+            <span className="live-dot" />
+            <strong>实时</strong>
+            <span>追踪 128 个前沿对象</span>
+            <span>36 个信号源</span>
+            <span>28 秒前更新</span>
+          </div>
         </div>
-        <CompanyFilters selected={selectedCompany} onSelect={setSelectedCompany} />
+
+        <div className="filter-row" aria-label="前沿类别筛选">
+          {categories.map((category) => (
+            <button
+              type="button"
+              key={category}
+              className={selectedCategory === category ? 'active' : ''}
+              onClick={() => {
+                setSelectedCategory(category)
+                const first = category === ALL_CATEGORIES ? signals[0] : signals.find((signal) => signal.category === category)
+                if (first) {
+                  setSelectedSignalId(first.id)
+                }
+              }}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        <SignalCinema
+          selectedSignalId={selectedSignalId}
+          signals={visibleSignals}
+          onSelect={setSelectedSignalId}
+        />
+        <SignalInspector signal={selectedSignal} />
       </section>
 
-      <section className="dashboard-grid">
-        <SignalFeed signals={filteredSignals} />
-        <RadarPanel selectedCompany={selectedCompanyData} />
-        <RankingPanel />
-      </section>
-
-      <section className="lower-grid">
-        <LifecyclePanel />
-        <WatchPoolPanel />
-        <SourcePanel />
-      </section>
+      <ReleaseStrip selectedSignalId={selectedSignalId} onSelect={setSelectedSignalId} />
     </main>
   )
 }
@@ -96,29 +124,32 @@ function App() {
 function Header() {
   return (
     <header className="topbar">
-      <a className="brand" href="/" aria-label="AI Model Radar 首页">
+      <a className="brand" href="/" aria-label="AI 前沿雷达首页">
         <span className="brand-mark">
-          <Radar size={18} />
+          <Radar size={21} />
         </span>
         <span>
-          <strong>AI Model Radar</strong>
-          <small>模型雷达</small>
+          <strong>AI 前沿雷达</strong>
+          <small>AI Frontier Radar</small>
         </span>
       </a>
+
       <nav className="nav-links" aria-label="主导航">
-        {['雷达', '发布', '榜单', '模型库', '信号源'].map((item) => (
-          <a href={`#${item}`} key={item}>
-            {item}
+        {navItems.map((item) => (
+          <a href={item.href} key={item.href}>
+            {item.label}
           </a>
         ))}
       </nav>
-      <label className="search-box" htmlFor="model-search">
+
+      <label className="search-box" htmlFor="search">
         <Search size={16} />
-        <input id="model-search" type="search" placeholder="搜索模型、公司或信号" />
+        <input id="search" type="search" placeholder="搜索模型、工具、Agent、公司或信号..." />
       </label>
+
       <a
         className="github-button"
-        href="https://github.com/Yueyuyu/ai-model-radar"
+        href="https://github.com/Yueyuyu/ai-frontier-radar"
         target="_blank"
         rel="noreferrer"
       >
@@ -129,224 +160,177 @@ function Header() {
   )
 }
 
-function CompanyFilters({
-  selected,
-  onSelect,
-}: {
-  selected: string
-  onSelect: (company: string) => void
-}) {
+function AmbientField() {
   return (
-    <div className="company-filters">
-      {['全部', ...companies.map((company) => company.name)].map((company) => (
-        <button
-          key={company}
-          className={selected === company ? 'active' : ''}
-          type="button"
-          onClick={() => onSelect(company)}
-        >
-          {company}
-        </button>
-      ))}
+    <div className="ambient-field" aria-hidden="true">
+      <span className="scan-band" />
+      <span className="signal-thread thread-a" />
+      <span className="signal-thread thread-b" />
+      <span className="signal-thread thread-c" />
     </div>
   )
 }
 
-function SignalFeed({ signals: visibleSignals }: { signals: ModelSignal[] }) {
+function SignalCinema({
+  selectedSignalId,
+  signals: visibleSignals,
+  onSelect,
+}: {
+  selectedSignalId: string
+  signals: FrontierSignal[]
+  onSelect: (id: string) => void
+}) {
   return (
-    <article className="panel signal-feed" id="发布">
-      <PanelHeader
-        icon={<Bell size={18} />}
-        title="最新信号流"
-        action={`${visibleSignals.length} 条`}
-      />
-      <div className="signal-list">
+    <section className="cinema-stage" id="signals" aria-label="AI 前沿信号播放器">
+      <div className="stage-toolbar">
+        <div>
+          <Activity size={18} />
+          <span>前沿信号流</span>
+        </div>
+        <div className="stage-controls">
+          <button type="button">1x</button>
+          <button type="button">当前</button>
+        </div>
+      </div>
+
+      <div className="time-ruler">
+        <span>09:00</span>
+        <span>09:15</span>
+        <span>09:37</span>
+        <span>09:45</span>
+        <span>10:00</span>
+        <span>10:15</span>
+        <span>10:30</span>
+      </div>
+
+      <div className="signal-lanes">
         {visibleSignals.map((signal) => (
-          <button className="signal-card" type="button" key={signal.id}>
-            <div className="signal-card-top">
-              <span className={`level ${signal.level}`}>{levelLabels[signal.level]}</span>
-              <span>{signal.time}</span>
-            </div>
-            <h2>{signal.model}</h2>
-            <p>{signal.title}</p>
-            <div className="signal-meta">
-              <span>{signal.source}</span>
-              <strong>{signal.confidence}%</strong>
-            </div>
-            <small>{signal.impact}</small>
+          <button
+            type="button"
+            key={signal.id}
+            className={selectedSignalId === signal.id ? 'signal-node active' : 'signal-node'}
+            style={
+              {
+                '--lane': signal.lane,
+                '--offset': `${signal.offset}%`,
+                '--accent': signal.accent,
+              } as CSSProperties
+            }
+            onClick={() => onSelect(signal.id)}
+          >
+            <span className={`tag ${signal.level}`}>{levelLabels[signal.level]}</span>
+            <strong>{signal.name}</strong>
+            <small>
+              {signal.provider} / {signal.category}
+            </small>
+            <b>{signal.confidence}%</b>
           </button>
         ))}
       </div>
-    </article>
+    </section>
   )
 }
 
-function RadarPanel({ selectedCompany }: { selectedCompany?: WatchCompany }) {
+function SignalInspector({ signal }: { signal: FrontierSignal }) {
   return (
-    <article className="panel radar-panel" id="雷达">
-      <PanelHeader
-        icon={<Activity size={18} />}
-        title={selectedCompany ? `${selectedCompany.name} 观察窗口` : 'P0 模型雷达'}
-        action="Live"
-      />
-      <div className="radar-stage">
-        <div className="radar-core">
-          <div className="radar-ring ring-one" />
-          <div className="radar-ring ring-two" />
-          <div className="radar-ring ring-three" />
-          <div className="sweep-line" />
-          {companies.map((company, index) => (
-            <RadarPoint company={company} index={index} key={company.name} />
-          ))}
-          <div className="core-orb">
-            <Sparkles size={18} />
-            <strong>Radar</strong>
-            <span>可信度扫描</span>
-          </div>
-        </div>
+    <aside className="inspector-shell" aria-label="选中信号详情">
+      <div className="inspector-top">
+        <span>选中信号</span>
+        <Sparkles size={16} />
       </div>
-      <div className="radar-summary">
-        <div>
-          <span>活跃公司</span>
-          <strong>{companies.length}</strong>
+
+      <div className="selected-model">
+        <div className="model-glyph" style={{ '--accent': signal.accent } as CSSProperties}>
+          {signal.provider.slice(0, 1)}
         </div>
         <div>
-          <span>今日信号</span>
-          <strong>{signals.length}</strong>
+          <h2>{signal.name}</h2>
+          <p>
+            {signal.provider} / {signal.category}
+          </p>
+        </div>
+        <div className="confidence">
+          <strong>{signal.confidence}%</strong>
+          <span>可信度</span>
+        </div>
+      </div>
+
+      <p className="summary">{signal.summary}</p>
+
+      <div className="meta-grid">
+        <div>
+          <span>首次发现</span>
+          <strong>{signal.firstSeen}</strong>
         </div>
         <div>
-          <span>平均可信度</span>
-          <strong>76%</strong>
+          <span>最近更新</span>
+          <strong>{signal.lastUpdate}</strong>
+        </div>
+        <div>
+          <span>发布窗口</span>
+          <strong>{signal.releaseWindow}</strong>
         </div>
       </div>
-    </article>
-  )
-}
 
-function RadarPoint({ company, index }: { company: WatchCompany; index: number }) {
-  const positions = [
-    ['55%', '17%'],
-    ['75%', '31%'],
-    ['70%', '65%'],
-    ['44%', '78%'],
-    ['24%', '60%'],
-    ['20%', '33%'],
-    ['47%', '45%'],
-    ['61%', '55%'],
-  ]
-  const [left, top] = positions[index] ?? ['50%', '50%']
-
-  return (
-    <span
-      className="radar-point"
-      style={{ left, top, '--point-color': company.accent } as CSSProperties}
-    >
-      <b>{company.name}</b>
-      <small>{company.activeSignals}</small>
-    </span>
-  )
-}
-
-function RankingPanel() {
-  return (
-    <article className="panel ranking-panel" id="榜单">
-      <PanelHeader icon={<Zap size={18} />} title="榜单变化" action="聚合口径" />
-      <div className="ranking-list">
-        {rankingMoves.map((item) => (
-          <div className="ranking-row" key={item.model}>
+      <div className="source-list">
+        {signal.sources.map((source) => (
+          <div className="source-item" key={`${signal.id}-${source.name}`}>
             <div>
-              <strong>{item.model}</strong>
-              <span>
-                {item.company} / {item.board}
-              </span>
+              <ShieldCheck size={16} />
+              <strong>{source.name}</strong>
+              <span className={`tag ${source.type}`}>{levelLabels[source.type]}</span>
             </div>
-            <div className={item.change >= 0 ? 'move up' : 'move down'}>
-              {item.change >= 0 ? <ArrowUpRight size={16} /> : <ArrowDownRight size={16} />}
-              {item.change >= 0 ? `+${item.change}` : item.change}
-            </div>
-            <span className="score">{item.score}</span>
+            <p>{source.detail}</p>
+            <progress value={source.strength} max="100" />
           </div>
         ))}
       </div>
-    </article>
+
+      <button className="report-button" type="button">
+        查看完整报告
+        <ArrowUpRight size={16} />
+      </button>
+    </aside>
   )
 }
 
-function LifecyclePanel() {
-  return (
-    <article className="panel lifecycle-panel">
-      <PanelHeader icon={<Globe2 size={18} />} title="模型生命周期" action="从传闻到上榜" />
-      <div className="timeline">
-        {timeline.map((step) => (
-          <div className={`timeline-step ${step.status}`} key={step.label}>
-            <span />
-            <strong>{step.label}</strong>
-            <p>{step.detail}</p>
-          </div>
-        ))}
-      </div>
-    </article>
-  )
-}
-
-function WatchPoolPanel() {
-  return (
-    <article className="panel watch-pool-panel" id="模型库">
-      <PanelHeader icon={<ShieldCheck size={18} />} title="P0 观察池" action="Notion AI 种子" />
-      <div className="watch-grid">
-        {companies.map((company) => (
-          <div className="watch-card" key={company.name}>
-            <span style={{ background: company.accent }} />
-            <strong>{company.name}</strong>
-            <small>{company.family}</small>
-            <p>{company.focus}</p>
-            <div>
-              <b>{company.score}</b>
-              <em>{company.status}</em>
-            </div>
-          </div>
-        ))}
-      </div>
-    </article>
-  )
-}
-
-function SourcePanel() {
-  return (
-    <article className="panel source-panel" id="信号源">
-      <PanelHeader icon={<Radar size={18} />} title="可信度系统" action="证据链" />
-      <div className="source-bars">
-        {sourceTypes.map((source) => (
-          <div className="source-row" key={source.label}>
-            <div>
-              <span className={`level ${source.level}`}>{source.label}</span>
-              <strong>{source.value}%</strong>
-            </div>
-            <progress value={source.value} max="100" />
-          </div>
-        ))}
-      </div>
-    </article>
-  )
-}
-
-function PanelHeader({
-  icon,
-  title,
-  action,
+function ReleaseStrip({
+  selectedSignalId,
+  onSelect,
 }: {
-  icon: ReactNode
-  title: string
-  action: string
+  selectedSignalId: string
+  onSelect: (id: string) => void
 }) {
   return (
-    <div className="panel-header">
-      <div>
-        {icon}
-        <h2>{title}</h2>
+    <section className="release-strip" id="frontier" aria-label="AI 前沿发布胶片">
+      <div className="strip-label">
+        <Zap size={16} />
+        <span>最新与即将变化</span>
       </div>
-      <span>{action}</span>
-    </div>
+      <div className="release-track">
+        {releaseFrames.map((frame) => {
+          const signal = signals.find((item) => item.name === frame.name)
+          const isActive = signal?.id === selectedSignalId
+          return (
+            <button
+              className={isActive ? 'release-card active' : 'release-card'}
+              type="button"
+              key={frame.name}
+              style={{ '--accent': frame.accent } as CSSProperties}
+              onClick={() => signal && onSelect(signal.id)}
+            >
+              <span>{frame.window}</span>
+              <strong>{frame.name}</strong>
+              <small>
+                {frame.provider} / {frame.category}
+              </small>
+              <b>{frame.confidence ? `${frame.confidence}%` : '观察中'}</b>
+            </button>
+          )
+        })}
+      </div>
+      <div className="scroll-hint">继续向下探索更多 AI 前沿情报</div>
+    </section>
   )
 }
 

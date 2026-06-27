@@ -1,15 +1,15 @@
 {
-  "name": "ai-model-radar",
+  "name": "ai-frontier-radar",
   "private": false,
   "version": "0.0.0",
-  "description": "中文友好的开源 AI 模型发布、榜单变化与可信度信号雷达。",
+  "description": "开源 AI 前沿情报雷达，追踪模型、AI 编程工具、Agent、Skill/插件、榜单变化与发布信号。",
   "license": "MIT",
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Yueyuyu/ai-model-radar.git"
+    "url": "git+https://github.com/Yueyuyu/ai-frontier-radar.git"
   },
-  "homepage": "https://github.com/Yueyuyu/ai-model-radar#readme",
+  "homepage": "https://github.com/Yueyuyu/ai-frontier-radar#readme",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

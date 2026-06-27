@@ -1,38 +1,37 @@
-export type ConfidenceLevel = 'official' | 'platform' | 'document' | 'community'
+export type ConfidenceLevel = 'official' | 'platform' | 'docs' | 'rumor'
 
-export type ModelSignal = {
-  id: number
-  company: string
-  model: string
-  title: string
+export type FrontierCategory = '模型' | 'AI 编程' | 'Agent' | 'Skill / 插件' | '平台'
+
+export type SignalSource = {
+  name: string
+  type: ConfidenceLevel
+  detail: string
+  strength: number
+}
+
+export type FrontierSignal = {
+  id: string
+  provider: string
+  name: string
+  category: FrontierCategory
   level: ConfidenceLevel
   confidence: number
-  source: string
-  stage: string
-  time: string
-  impact: string
-}
-
-export type WatchCompany = {
-  name: string
-  family: string
-  focus: string
-  status: string
-  score: number
-  activeSignals: number
+  firstSeen: string
+  lastUpdate: string
+  releaseWindow: string
+  title: string
+  summary: string
+  lane: number
+  offset: number
   accent: string
+  sources: SignalSource[]
 }
 
-export type RankingMove = {
-  model: string
-  company: string
-  board: string
-  change: number
-  score: string
-}
-
-export type TimelineStep = {
-  label: string
-  status: 'done' | 'active' | 'pending'
-  detail: string
+export type ReleaseFrame = {
+  name: string
+  provider: string
+  category: FrontierCategory
+  confidence: number | null
+  window: string
+  accent: string
 }
