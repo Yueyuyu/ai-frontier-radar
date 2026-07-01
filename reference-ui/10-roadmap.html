@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>路线图 - Frontier Intel Reference UI</title>
+  <link rel="stylesheet" href="assets/reference-ui.css">
+</head>
+<body>
+<div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-mark"><span>FI</span><strong>AI 前沿情报站</strong><small>Frontier Intel</small></div>
+        <nav class="nav-list"><a class="nav-item " href="01-overview.html"><span>情报总览</span><small>#overview</small></a>
+<a class="nav-item " href="02-signal-feed.html"><span>前沿信号流</span><small>#signals</small></a>
+<a class="nav-item " href="03-model-map.html"><span>模型地图</span><small>#model-rankings</small></a>
+<a class="nav-item " href="04-agent-market.html"><span>Agent 市场</span><small>#agent-rankings</small></a>
+<a class="nav-item " href="05-skill-plugin.html"><span>Skill / 插件</span><small>#tool-rankings</small></a>
+<a class="nav-item " href="06-data-operations.html"><span>数据洞察</span><small>#source-runs</small></a>
+<a class="nav-item " href="07-rankings.html"><span>榜单</span><small>#rankings</small></a>
+<a class="nav-item " href="08-release-calendar.html"><span>发布日历</span><small>#calendar</small></a>
+<a class="nav-item " href="09-trusted-sources.html"><span>可信来源</span><small>#sources</small></a>
+<a class="nav-item is-active" href="10-roadmap.html"><span>路线图</span><small>#roadmap</small></a></nav>
+      </aside>
+      <main class="workspace">
+        <header class="command-bar">
+          <div>
+            <span class="section-kicker">Frontier Intel</span>
+            <h1>路线图</h1>
+          </div>
+          <div class="command-actions">
+            <span class="badge badge-teal">来源健康</span>
+            <span class="badge badge-blue">证据链</span>
+            <span class="search-box">搜索模型、Agent、工具、来源</span>
+          </div>
+        </header>
+        <!-- reference image: design-concepts/complete-ui/pages/10-roadmap.png; fixture: docs/ui-implementation-package/fixtures/frontier-intel-fixture.json -->
+        <section class="roadmap">
+    <article class="phase-card">
+        <div><span class="badge badge-teal">in-progress</span><strong>UI 还原实施包</strong></div>
+        <div class="progress"><span style="width:65%"></span></div>
+        <p>影响：screen specs、reference-ui、fixture</p>
+      </article><article class="phase-card">
+        <div><span class="badge badge-blue">next</span><strong>数据契约与命名迁移</strong></div>
+        <div class="progress"><span style="width:20%"></span></div>
+        <p>影响：types、dataRuntime、frontier-intel-data.json</p>
+      </article><article class="phase-card">
+        <div><span class="badge badge-blue">next</span><strong>多源刷新脚本</strong></div>
+        <div class="progress"><span style="width:15%"></span></div>
+        <p>影响：refresh-data、sources、source-runs</p>
+      </article><article class="phase-card">
+        <div><span class="badge badge-blue">planned</span><strong>前端工作台页面</strong></div>
+        <div class="progress"><span style="width:5%"></span></div>
+        <p>影响：React shell、10 pages、mobile</p>
+      </article>
+  </section>
+  <section class="panel">
+    <h2>验收节点</h2>
+    <ul class="check-list">
+      <li>每页有 screen spec、reference UI 和 imagegen 对照。</li>
+      <li>先实现数据契约和状态，再进入真实 React 页面。</li>
+      <li>每阶段运行 lint、build、数据刷新或截图验证。</li>
+    </ul>
+  </section>
+      </main>
+      
+    </div>
+</body>
+</html>

@@ -1,0 +1,640 @@
+{
+  "schemaVersion": "1.0.0",
+  "updatedAt": "2026-06-30",
+  "documentation": {
+    "readme": "README.md",
+    "systemOverview": "docs/system-overview.md",
+    "dataSources": "docs/data-sources.md",
+    "informationArchitecture": "docs/ui-information-architecture.md",
+    "completeUiDesign": "docs/complete-ui-design.md",
+    "implementationRoadmap": "docs/implementation-roadmap.md"
+  },
+  "product": {
+    "name": "AI 前沿情报站",
+    "englishName": "Frontier Intel",
+    "purpose": "追踪模型、AI 编程工具、Agent、MCP / Skill 插件、榜单变化、来源健康与发布信号。",
+    "primaryExperience": "持续刷新的 AI 前沿情报工作台",
+    "visualReference": "design-concepts/ui-blueprint-workspace-intel.png",
+    "completeUiDesign": {
+      "figmaFile": "https://www.figma.com/design/BrCkDbTQn8W3LB6nm7p1KQ",
+      "figmaCoverageScreenshot": "design-concepts/complete-ui/figma-coverage-map.png",
+      "imagegenBoard": "design-concepts/complete-ui/imagegen-complete-ui-board.png",
+      "imagegenPageDirectory": "design-concepts/complete-ui/pages"
+    }
+  },
+  "dataSources": {
+    "runtimeDataset": "/data/frontier-intel-data.json",
+    "fallbackDataset": "src/data.ts",
+    "typescriptContract": "src/types.ts",
+    "refreshBehavior": {
+      "pollMs": 60000,
+      "mergeStrategy": "remote fields override fallback while empty arrays keep fallback values"
+    },
+    "principles": [
+      "official docs and APIs confirm facts",
+      "leaderboards and benchmarks rank capability",
+      "GitHub Product Hunt HN Hugging Face measure ecosystem heat",
+      "X is required as an early propagation signal but cannot confirm releases by itself",
+      "source health is a first-class UI object"
+    ],
+    "sourceGroups": [
+      {
+        "id": "official-confirmation",
+        "label": "官方确认",
+        "purpose": "确认模型发布、API 上线、弃用、价格和文档变化",
+        "uiUsage": ["发布日历", "信号可信度", "事实确认"],
+        "sources": [
+          { "name": "OpenAI News", "status": "implemented", "access": "official-page" },
+          { "name": "OpenAI API Changelog", "status": "implemented", "access": "official-page" },
+          { "name": "Anthropic Newsroom", "status": "planned", "access": "official-page" },
+          { "name": "Claude Release Notes", "status": "implemented", "access": "official-page" },
+          { "name": "Claude Code Changelog", "status": "planned", "access": "official-page" },
+          { "name": "Gemini API Changelog", "status": "implemented", "access": "official-page" },
+          { "name": "Gemini Blog", "status": "planned", "access": "official-page" },
+          { "name": "Mistral Docs Changelog", "status": "implemented", "access": "official-page" },
+          { "name": "DeepSeek API Docs", "status": "implemented", "access": "official-page" },
+          { "name": "DeepSeek Models / Pricing", "status": "planned", "access": "official-page" },
+          { "name": "Kimi API Docs", "status": "implemented", "access": "official-page" },
+          { "name": "Qwen Blog / ModelScope", "status": "planned", "access": "official-page" },
+          { "name": "ZAI Docs / BigModel", "status": "planned", "access": "official-page" }
+        ]
+      },
+      {
+        "id": "model-capability",
+        "label": "模型能力",
+        "purpose": "衡量模型可用性、能力、价格、上下文、模态和趋势",
+        "uiUsage": ["模型地图", "模型排行", "趋势"],
+        "sources": [
+          { "name": "OpenRouter Models API", "status": "implemented", "access": "public-api" },
+          { "name": "Artificial Analysis Data API", "status": "configured-optional", "access": "api-key", "env": ["ARTIFICIAL_ANALYSIS_API_KEY", "ARTIFICIAL_ANALYSIS_API_URL"] },
+          { "name": "Arena / LMArena", "status": "planned", "access": "html-page" },
+          { "name": "SWE-bench", "status": "planned", "access": "html-page" },
+          { "name": "Hugging Face Hub API", "status": "implemented", "access": "public-api" },
+          { "name": "Vals AI", "status": "planned", "access": "html-page" }
+        ]
+      },
+      {
+        "id": "agent-capability",
+        "label": "Agent 能力",
+        "purpose": "衡量浏览器、代码、电脑使用、研究类 Agent 能力",
+        "uiUsage": ["Agent 市场", "Agent 榜单"],
+        "sources": [
+          { "name": "Steel.dev Agent Leaderboards", "status": "implemented-health-check", "access": "html-page" },
+          { "name": "Agent Arena", "status": "implemented-health-check", "access": "html-page" },
+          { "name": "HAL Princeton", "status": "implemented-health-check", "access": "html-page" },
+          { "name": "SkillsBench", "status": "implemented-health-check", "access": "html-page" },
+          { "name": "OSWorld", "status": "implemented-health-check", "access": "html-page" },
+          { "name": "WebArena", "status": "implemented-health-check", "access": "html-page" }
+        ]
+      },
+      {
+        "id": "tool-ecosystem-heat",
+        "label": "工具与生态热度",
+        "purpose": "衡量工具、插件、MCP Server、Agent Skill 的产品和开源热度",
+        "uiUsage": ["Skill / 插件", "工具榜", "生态热度"],
+        "sources": [
+          { "name": "GitHub REST API", "status": "implemented", "access": "public-api" },
+          { "name": "OSSInsight AI Trending", "status": "planned", "access": "public-page" },
+          { "name": "Product Hunt API", "status": "configured-optional", "access": "api-key", "env": ["PRODUCT_HUNT_TOKEN"] },
+          { "name": "Hacker News Algolia API", "status": "implemented", "access": "public-api" },
+          { "name": "Futurepedia", "status": "planned", "access": "html-page" },
+          { "name": "There is An AI For That", "status": "planned", "access": "html-page" }
+        ]
+      },
+      {
+        "id": "research-trends",
+        "label": "研究趋势",
+        "purpose": "识别论文和研究方向变化",
+        "uiUsage": ["前沿信号流", "研究型信号"],
+        "sources": [
+          { "name": "arXiv API", "status": "implemented", "access": "public-api" },
+          { "name": "Semantic Scholar API", "status": "planned", "access": "public-api" }
+        ]
+      },
+      {
+        "id": "early-propagation",
+        "label": "早期传播",
+        "purpose": "识别传播热度和传闻，不能单独确认事实",
+        "uiUsage": ["热度变化", "早期传闻"],
+        "sources": [
+          { "name": "X Recent Search", "status": "configured-optional", "access": "api-key", "env": ["X_BEARER_TOKEN"] },
+          { "name": "X Filtered Stream", "status": "planned", "access": "api-key", "env": ["X_BEARER_TOKEN"] }
+        ]
+      }
+    ],
+    "scoringRules": {
+      "model": [
+        { "factor": "capabilityLeaderboard", "weight": 35 },
+        { "factor": "apiAvailability", "weight": 20 },
+        { "factor": "priceContextSpeedLatency", "weight": 15 },
+        { "factor": "officialConfirmation", "weight": 15 },
+        { "factor": "heatGrowth", "weight": 15 }
+      ],
+      "agent": [
+        { "factor": "benchmarkSuccess", "weight": 40 },
+        { "factor": "realSessionComplexityComputerUse", "weight": 20 },
+        { "factor": "githubOrProductGrowth", "weight": 15 },
+        { "factor": "xOrHnHeat", "weight": 15 },
+        { "factor": "officialAvailability", "weight": 10 }
+      ],
+      "tool": [
+        { "factor": "github28DayGrowth", "weight": 30 },
+        { "factor": "productHuntOrHnHeat", "weight": 25 },
+        { "factor": "xPropagation", "weight": 20 },
+        { "factor": "docsAndReleaseActivity", "weight": 15 },
+        { "factor": "directoryAndEcosystemDependency", "weight": 10 }
+      ]
+    }
+  },
+  "designTokens": {
+    "colors": {
+      "page": "#f6fbff",
+      "pageGradient": "linear-gradient(115deg, rgba(255, 255, 255, 0.96), rgba(241, 250, 255, 0.94) 44%, rgba(233, 249, 255, 0.9))",
+      "surface": "rgba(255, 255, 255, 0.78)",
+      "surfaceSolid": "#ffffff",
+      "line": "rgba(122, 153, 180, 0.24)",
+      "textStrong": "#0b1d35",
+      "textBody": "#52657b",
+      "textMuted": "#8798ab",
+      "neutralInk": "#0b1d35",
+      "teal": "#17c9c0",
+      "blue": "#3d8cff",
+      "coral": "#ff7c4d",
+      "purple": "#9b6df5",
+      "green": "#3fcf73",
+      "warning": "#f6b64a",
+      "danger": "#ef5b5b"
+    },
+    "themeRules": [
+      "整体页面和应用壳必须使用浅色主题",
+      "不得使用黑色或深蓝色作为主背景",
+      "暗色只允许用于文字、图标、局部图表或高对比小面积元素",
+      "主面板使用白色或半透明白，边框使用浅蓝灰半透明线"
+    ],
+    "typography": {
+      "sans": "Inter, Microsoft YaHei, system-ui, sans-serif",
+      "display": "Outfit, Inter, system-ui, sans-serif",
+      "mono": "SFMono-Regular, Consolas, Liberation Mono, monospace",
+      "letterSpacing": "0",
+      "sizes": {
+        "pageTitle": "32px",
+        "workspaceTitle": "22px",
+        "panelTitle": "18px",
+        "cardTitle": "16px",
+        "body": "14px",
+        "caption": "12px",
+        "control": "13px"
+      }
+    },
+    "layout": {
+      "sidebarWidth": "232px",
+      "desktopGutter": "24px",
+      "panelGap": "16px",
+      "cardRadius": "8px",
+      "controlRadius": "8px",
+      "desktopBreakpoint": 1180,
+      "tabletBreakpoint": 900,
+      "mobileBreakpoint": 640
+    },
+    "motion": {
+      "fast": "120ms ease",
+      "normal": "180ms ease",
+      "slow": "280ms ease",
+      "reducedMotion": "disable non-essential animation"
+    }
+  },
+  "navigation": [
+    {
+      "id": "overview",
+      "label": "情报总览",
+      "href": "#overview",
+      "icon": "LayoutDashboard",
+      "priority": "primary"
+    },
+    {
+      "id": "signals",
+      "label": "前沿信号流",
+      "href": "#signals",
+      "icon": "Activity",
+      "priority": "primary"
+    },
+    {
+      "id": "models",
+      "label": "模型地图",
+      "href": "#model-rankings",
+      "icon": "Layers3",
+      "priority": "secondary"
+    },
+    {
+      "id": "agents",
+      "label": "Agent 市场",
+      "href": "#agent-rankings",
+      "icon": "Sparkles",
+      "priority": "secondary"
+    },
+    {
+      "id": "skills",
+      "label": "Skill / 插件",
+      "href": "#tool-rankings",
+      "icon": "GitFork",
+      "priority": "secondary"
+    },
+    {
+      "id": "data",
+      "label": "数据洞察",
+      "href": "#source-runs",
+      "icon": "Database",
+      "priority": "primary"
+    },
+    {
+      "id": "rankings",
+      "label": "榜单",
+      "href": "#rankings",
+      "icon": "BarChart3",
+      "priority": "primary"
+    },
+    {
+      "id": "calendar",
+      "label": "发布日历",
+      "href": "#calendar",
+      "icon": "CalendarDays",
+      "priority": "secondary"
+    },
+    {
+      "id": "sources",
+      "label": "可信来源",
+      "href": "#sources",
+      "icon": "ShieldCheck",
+      "priority": "primary"
+    },
+    {
+      "id": "roadmap",
+      "label": "路线图",
+      "href": "#roadmap",
+      "icon": "Layers3",
+      "priority": "secondary"
+    }
+  ],
+  "screens": [
+    {
+      "id": "overview",
+      "route": "#overview",
+      "title": "情报总览",
+      "userGoal": "一屏判断当前 AI 前沿态势。",
+      "layout": "desktop shell with sidebar, command bar, central signal matrix, right inspector, lower summary panels",
+      "regions": [
+        {
+          "id": "summary",
+          "component": "OverviewSummary",
+          "data": ["stats.totalEntities", "stats.totalSources", "stats.verifiedSources", "generatedAt"]
+        },
+        {
+          "id": "signalMatrix",
+          "component": "SignalMatrix",
+          "data": ["signals", "categoryMeta", "selectedSignalId"]
+        },
+        {
+          "id": "signalInspector",
+          "component": "SignalInspector",
+          "data": ["selectedSignal", "selectedSignal.sources"]
+        },
+        {
+          "id": "topSignals",
+          "component": "SignalDock",
+          "data": ["signals"]
+        },
+        {
+          "id": "rankings",
+          "component": "RankingPanel",
+          "data": ["rankingItems"]
+        },
+        {
+          "id": "sourceHealth",
+          "component": "SourceHealthPanel",
+          "data": ["sourceHealth"]
+        },
+        {
+          "id": "sourceRuns",
+          "component": "SourceRunPanel",
+          "data": ["sourceRuns"]
+        }
+      ],
+      "interactions": ["selectSignal", "filterCategory", "openSourceUrl", "goToFullList"]
+    },
+    {
+      "id": "signals",
+      "route": "#signals",
+      "title": "前沿信号流",
+      "userGoal": "筛选、排序和验证全部前沿信号。",
+      "layout": "two column list and inspector",
+      "regions": [
+        {
+          "id": "filters",
+          "component": "SignalFilterBar",
+          "data": ["categories", "confidenceLevels", "sourceTypes", "releaseWindows"]
+        },
+        {
+          "id": "signalList",
+          "component": "SignalList",
+          "data": ["filteredSignals"]
+        },
+        {
+          "id": "detail",
+          "component": "SignalInspector",
+          "data": ["selectedSignal"]
+        }
+      ],
+      "states": ["loading", "emptyFiltered", "degradedDataset", "mobileDetailDrawer"]
+    },
+    {
+      "id": "models",
+      "route": "#model-rankings",
+      "title": "模型地图",
+      "userGoal": "查看模型发布、模型榜单和官方来源覆盖。",
+      "layout": "feature header, ranking table, related signal list, data panel",
+      "dataFilter": {
+        "rankingItems.kind": "model",
+        "signals.category": "模型",
+        "dataPanels.id": "model-rankings"
+      }
+    },
+    {
+      "id": "agents",
+      "route": "#agent-rankings",
+      "title": "Agent 市场",
+      "userGoal": "观察 Agent 产品、运行时和评测榜单。",
+      "layout": "feature header, agent ranking table, signal list, source coverage",
+      "dataFilter": {
+        "rankingItems.kind": "agent",
+        "signals.category": "Agent",
+        "dataPanels.id": "agent-rankings"
+      }
+    },
+    {
+      "id": "skills",
+      "route": "#tool-rankings",
+      "title": "Skill / 插件",
+      "userGoal": "追踪 MCP、Skill、开发者插件和工具生态。",
+      "layout": "feature header, tool ranking table, ecosystem signals, source distribution",
+      "dataFilter": {
+        "rankingItems.kind": "tool",
+        "signals.category": ["Skill / 插件", "AI 编程"],
+        "dataPanels.id": "tool-rankings"
+      }
+    },
+    {
+      "id": "data",
+      "route": "#source-runs",
+      "title": "数据洞察",
+      "userGoal": "检查刷新任务、数据库状态、数据分栏和失败来源。",
+      "layout": "status header, source run list, data panel directory, missing credentials panel",
+      "regions": [
+        {
+          "id": "databaseStatus",
+          "component": "DatabaseStatusCard",
+          "data": ["stats.databaseStatus"]
+        },
+        {
+          "id": "sourceRuns",
+          "component": "SourceRunList",
+          "data": ["sourceRuns"]
+        },
+        {
+          "id": "dataPanels",
+          "component": "DataPanelGrid",
+          "data": ["dataPanels"]
+        }
+      ]
+    },
+    {
+      "id": "rankings",
+      "route": "#rankings",
+      "title": "榜单",
+      "userGoal": "比较模型、Agent、工具和综合信号热度。",
+      "layout": "segmented table view with trend sparklines",
+      "regions": [
+        {
+          "id": "segments",
+          "component": "RankingSegmentControl",
+          "data": ["all", "model", "agent", "tool", "signal"]
+        },
+        {
+          "id": "rankingTable",
+          "component": "RankingTable",
+          "data": ["rankingItems"]
+        }
+      ]
+    },
+    {
+      "id": "calendar",
+      "route": "#calendar",
+      "title": "发布日历",
+      "userGoal": "按时间窗口查看发布、预览、文档更新和观察信号。",
+      "layout": "grouped timeline by release window",
+      "regions": [
+        {
+          "id": "releaseGroups",
+          "component": "ReleaseCalendar",
+          "data": ["releaseFrames", "signals"]
+        }
+      ]
+    },
+    {
+      "id": "sources",
+      "route": "#sources",
+      "title": "可信来源",
+      "userGoal": "审核每个来源的覆盖率、影响力、状态和最近检查时间。",
+      "layout": "source directory with health bands",
+      "regions": [
+        {
+          "id": "sourceDirectory",
+          "component": "SourceDirectory",
+          "data": ["sourceHealth"]
+        }
+      ]
+    },
+    {
+      "id": "roadmap",
+      "route": "#roadmap",
+      "title": "路线图",
+      "userGoal": "了解系统数据接入、产品化和自动化更新计划。",
+      "layout": "version list with status and impacted screens",
+      "regions": [
+        {
+          "id": "roadmapList",
+          "component": "RoadmapList",
+          "data": ["roadmapItems"]
+        }
+      ]
+    }
+  ],
+  "componentInventory": [
+    {
+      "name": "AppShell",
+      "responsibility": "应用框架、导航、响应式布局",
+      "props": ["navigation", "activeScreen", "children"]
+    },
+    {
+      "name": "CommandBar",
+      "responsibility": "当前视图标题、全局搜索、筛选入口、外部操作",
+      "props": ["title", "subtitle", "searchValue", "filters", "actions"]
+    },
+    {
+      "name": "CategoryRail",
+      "responsibility": "类别筛选",
+      "props": ["categories", "categoryMeta", "selectedCategory"]
+    },
+    {
+      "name": "SignalMatrix",
+      "responsibility": "分组信号表、置信度、趋势、证据摘要和选中态",
+      "props": ["signals", "selectedSignalId", "onSelectSignal"]
+    },
+    {
+      "name": "SignalCard",
+      "responsibility": "信号摘要",
+      "props": ["signal", "variant", "selected"]
+    },
+    {
+      "name": "SignalInspector",
+      "responsibility": "信号详情和证据链",
+      "props": ["signal"]
+    },
+    {
+      "name": "SourceEvidenceCard",
+      "responsibility": "单条信号来源证据",
+      "props": ["source"]
+    },
+    {
+      "name": "RankingTable",
+      "responsibility": "榜单表格",
+      "props": ["items", "kind", "sort"]
+    },
+    {
+      "name": "TrendSparkline",
+      "responsibility": "小趋势图",
+      "props": ["values", "accent"]
+    },
+    {
+      "name": "SourceHealthPanel",
+      "responsibility": "来源健康摘要",
+      "props": ["sources"]
+    },
+    {
+      "name": "SourceRunList",
+      "responsibility": "刷新任务列表",
+      "props": ["runs"]
+    },
+    {
+      "name": "StatusBadge",
+      "responsibility": "可信度、健康状态、路线图状态",
+      "props": ["tone", "label", "icon"]
+    },
+    {
+      "name": "EmptyState",
+      "responsibility": "空结果和错误兜底",
+      "props": ["title", "description", "action"]
+    }
+  ],
+  "interactions": {
+    "selectSignal": {
+      "trigger": "click signal row or signal card",
+      "stateChange": "selectedSignalId",
+      "affectedRegions": ["signalMatrix", "signalInspector", "topSignals"]
+    },
+    "filterCategory": {
+      "trigger": "click category chip",
+      "stateChange": "selectedCategory",
+      "affectedRegions": ["signalMatrix", "signalList", "topSignals"]
+    },
+    "search": {
+      "trigger": "type in command bar search input",
+      "stateChange": "searchQuery",
+      "affectedRegions": ["signals", "rankings", "sources"],
+      "emptyState": "没有匹配信号，提供重置筛选"
+    },
+    "openSourceUrl": {
+      "trigger": "click source or ranking external link",
+      "stateChange": "none",
+      "behavior": "open new tab when url exists"
+    },
+    "mobileOpenDetail": {
+      "trigger": "tap signal card on mobile",
+      "stateChange": "detailDrawerOpen",
+      "affectedRegions": ["mobileSignalDetailDrawer"]
+    }
+  },
+  "statusRules": {
+    "confidenceLevel": {
+      "official": { "label": "官方", "tone": "teal" },
+      "docs": { "label": "文档", "tone": "blue" },
+      "platform": { "label": "平台", "tone": "blue" },
+      "benchmark": { "label": "榜单", "tone": "purple" },
+      "social": { "label": "社区", "tone": "warning" },
+      "rumor": { "label": "传闻", "tone": "danger" }
+    },
+    "sourceStatus": {
+      "ok": { "label": "健康", "tone": "green" },
+      "skipped": { "label": "待配置", "tone": "warning" },
+      "error": { "label": "失败", "tone": "danger" }
+    },
+    "roadmapStatus": {
+      "done": { "label": "已完成", "tone": "green" },
+      "active": { "label": "进行中", "tone": "teal" },
+      "planned": { "label": "规划中", "tone": "blue" }
+    }
+  },
+  "responsive": {
+    "desktop": {
+      "minWidth": 1180,
+      "layout": "sidebar plus full workspace grid",
+      "overviewGrid": "central signal matrix 8 columns, inspector 4 columns, lower panels 3 columns"
+    },
+    "tablet": {
+      "minWidth": 900,
+      "layout": "compact sidebar, inspector below signal matrix when width is constrained"
+    },
+    "mobile": {
+      "maxWidth": 640,
+      "layout": "top brand bar, bottom primary nav, single column content",
+      "primaryNav": ["overview", "signals", "rankings", "sources"],
+      "detailPattern": "bottom drawer for signal details"
+    }
+  },
+  "implementationPlan": [
+    {
+      "phase": "tokens",
+      "title": "收敛设计变量",
+      "tasks": ["extract CSS custom properties", "replace repeated colors", "define typography and spacing scale"]
+    },
+    {
+      "phase": "shell",
+      "title": "重建应用壳",
+      "tasks": ["AppShell", "CommandBar", "responsive navigation", "mobile bottom nav"]
+    },
+    {
+      "phase": "overview",
+      "title": "升级情报总览",
+      "tasks": ["SignalMatrix", "SignalInspector", "SignalDock", "RankingPanel", "SourceHealthPanel"]
+    },
+    {
+      "phase": "workflows",
+      "title": "补齐核心工作流页面",
+      "tasks": ["SignalFeed", "RankingCenter", "SourceDirectory", "DataOperations"]
+    },
+    {
+      "phase": "polish",
+      "title": "补状态和移动端",
+      "tasks": ["empty states", "loading states", "error states", "mobile detail drawer", "screenshot QA"]
+    }
+  ],
+  "acceptanceCriteria": [
+    "npm run lint passes",
+    "npm run build passes",
+    "desktop 1440px has no overlapping primary content",
+    "mobile 390px has no horizontal scroll",
+    "signals, rankings, sources and data pages all render from the current dataset contract",
+    "source failures and missing credentials are visible and not treated as official confirmations",
+    "visual structure matches design-concepts/ui-blueprint-workspace-intel.png while exact copy follows docs/ui-information-architecture.md",
+    "overall background uses the existing light system theme, not a dark workspace"
+  ]
+}

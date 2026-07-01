@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>数据洞察 - Frontier Intel Reference UI</title>
+  <link rel="stylesheet" href="assets/reference-ui.css">
+</head>
+<body>
+<div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-mark"><span>FI</span><strong>AI 前沿情报站</strong><small>Frontier Intel</small></div>
+        <nav class="nav-list"><a class="nav-item " href="01-overview.html"><span>情报总览</span><small>#overview</small></a>
+<a class="nav-item " href="02-signal-feed.html"><span>前沿信号流</span><small>#signals</small></a>
+<a class="nav-item " href="03-model-map.html"><span>模型地图</span><small>#model-rankings</small></a>
+<a class="nav-item " href="04-agent-market.html"><span>Agent 市场</span><small>#agent-rankings</small></a>
+<a class="nav-item " href="05-skill-plugin.html"><span>Skill / 插件</span><small>#tool-rankings</small></a>
+<a class="nav-item is-active" href="06-data-operations.html"><span>数据洞察</span><small>#source-runs</small></a>
+<a class="nav-item " href="07-rankings.html"><span>榜单</span><small>#rankings</small></a>
+<a class="nav-item " href="08-release-calendar.html"><span>发布日历</span><small>#calendar</small></a>
+<a class="nav-item " href="09-trusted-sources.html"><span>可信来源</span><small>#sources</small></a>
+<a class="nav-item " href="10-roadmap.html"><span>路线图</span><small>#roadmap</small></a></nav>
+      </aside>
+      <main class="workspace">
+        <header class="command-bar">
+          <div>
+            <span class="section-kicker">Frontier Intel</span>
+            <h1>数据洞察</h1>
+          </div>
+          <div class="command-actions">
+            <span class="badge badge-teal">来源健康</span>
+            <span class="badge badge-blue">证据链</span>
+            <span class="search-box">搜索模型、Agent、工具、来源</span>
+          </div>
+        </header>
+        <!-- reference image: design-concepts/complete-ui/pages/06-data-operations.png; fixture: docs/ui-implementation-package/fixtures/frontier-intel-fixture.json -->
+        <section class="metric-grid">
+    <article class="metric-card"><span class="metric-label">frontier-intel-data</span><strong>target</strong><p>public/data/frontier-intel-data.json</p></article><article class="metric-card"><span class="metric-label">signals</span><strong>target</strong><p>public/data/signals.json</p></article><article class="metric-card"><span class="metric-label">sources</span><strong>target</strong><p>public/data/sources.json</p></article><article class="metric-card"><span class="metric-label">source-runs</span><strong>target</strong><p>public/data/source-runs.json</p></article><article class="metric-card"><span class="metric-label">radar-data</span><strong>compatibility fallback</strong><p>public/data/radar-data.json</p></article>
+  </section>
+  <section class="two-column">
+    <div class="panel">
+      <h2>缺失密钥</h2>
+      <div class="stacked-list">
+        <article class="source-card"><strong>ARTIFICIAL_ANALYSIS_API_KEY</strong><p>Artificial Analysis API · 模型能力榜</p><span class="badge badge-warning">skipped</span></article><article class="source-card"><strong>PRODUCT_HUNT_TOKEN</strong><p>Product Hunt API · 工具新品热度</p><span class="badge badge-warning">skipped</span></article><article class="source-card"><strong>X_BEARER_TOKEN</strong><p>X Recent Search · 早期传播</p><span class="badge badge-warning">skipped</span></article>
+      </div>
+    </div>
+    <div class="panel">
+      <h2>刷新任务</h2>
+      <table class="data-table">
+    <thead><tr><th>来源</th><th>状态</th><th>数量</th><th>耗时</th><th>原因</th></tr></thead>
+    <tbody>
+      <tr>
+            <td><strong>OpenAI News</strong><span>2026-06-30T12:40:00+08:00</span></td>
+            <td><span class="badge badge-green">成功</span></td>
+            <td>12</td>
+            <td>842ms</td>
+            <td>正常完成</td>
+          </tr>
+<tr>
+            <td><strong>OpenRouter Models API</strong><span>2026-06-30T12:38:00+08:00</span></td>
+            <td><span class="badge badge-green">成功</span></td>
+            <td>221</td>
+            <td>1260ms</td>
+            <td>正常完成</td>
+          </tr>
+<tr>
+            <td><strong>Artificial Analysis API</strong><span>2026-06-30T12:35:00+08:00</span></td>
+            <td><span class="badge badge-warning">待配置</span></td>
+            <td>0</td>
+            <td>0ms</td>
+            <td>缺少 ARTIFICIAL_ANALYSIS_API_KEY 或 ARTIFICIAL_ANALYSIS_API_URL</td>
+          </tr>
+<tr>
+            <td><strong>Product Hunt API</strong><span>2026-06-30T12:36:00+08:00</span></td>
+            <td><span class="badge badge-warning">待配置</span></td>
+            <td>0</td>
+            <td>0ms</td>
+            <td>缺少 PRODUCT_HUNT_TOKEN</td>
+          </tr>
+<tr>
+            <td><strong>X Recent Search</strong><span>2026-06-30T12:36:00+08:00</span></td>
+            <td><span class="badge badge-warning">待配置</span></td>
+            <td>0</td>
+            <td>0ms</td>
+            <td>缺少 X_BEARER_TOKEN</td>
+          </tr>
+    </tbody>
+  </table>
+    </div>
+  </section>
+      </main>
+      
+    </div>
+</body>
+</html>

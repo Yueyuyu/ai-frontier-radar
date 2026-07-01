@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>榜单 - Frontier Intel Reference UI</title>
+  <link rel="stylesheet" href="assets/reference-ui.css">
+</head>
+<body>
+<div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-mark"><span>FI</span><strong>AI 前沿情报站</strong><small>Frontier Intel</small></div>
+        <nav class="nav-list"><a class="nav-item " href="01-overview.html"><span>情报总览</span><small>#overview</small></a>
+<a class="nav-item " href="02-signal-feed.html"><span>前沿信号流</span><small>#signals</small></a>
+<a class="nav-item " href="03-model-map.html"><span>模型地图</span><small>#model-rankings</small></a>
+<a class="nav-item " href="04-agent-market.html"><span>Agent 市场</span><small>#agent-rankings</small></a>
+<a class="nav-item " href="05-skill-plugin.html"><span>Skill / 插件</span><small>#tool-rankings</small></a>
+<a class="nav-item " href="06-data-operations.html"><span>数据洞察</span><small>#source-runs</small></a>
+<a class="nav-item is-active" href="07-rankings.html"><span>榜单</span><small>#rankings</small></a>
+<a class="nav-item " href="08-release-calendar.html"><span>发布日历</span><small>#calendar</small></a>
+<a class="nav-item " href="09-trusted-sources.html"><span>可信来源</span><small>#sources</small></a>
+<a class="nav-item " href="10-roadmap.html"><span>路线图</span><small>#roadmap</small></a></nav>
+      </aside>
+      <main class="workspace">
+        <header class="command-bar">
+          <div>
+            <span class="section-kicker">Frontier Intel</span>
+            <h1>榜单</h1>
+          </div>
+          <div class="command-actions">
+            <span class="badge badge-teal">来源健康</span>
+            <span class="badge badge-blue">证据链</span>
+            <span class="search-box">搜索模型、Agent、工具、来源</span>
+          </div>
+        </header>
+        <!-- reference image: design-concepts/complete-ui/pages/07-rankings.png; fixture: docs/ui-implementation-package/fixtures/frontier-intel-fixture.json -->
+        <section class="panel">
+    <div class="filter-bar"><span class="badge badge-teal">综合榜</span><span class="badge badge-blue">模型</span><span class="badge badge-blue">Agent</span><span class="badge badge-blue">工具</span><span class="badge badge-blue">插件</span></div>
+    <table class="data-table">
+    <thead><tr><th>排名</th><th>对象</th><th>类型</th><th>分数</th><th>变化</th><th>依据</th></tr></thead>
+    <tbody>
+      <tr>
+            <td>#1</td>
+            <td><strong>OpenAI frontier model</strong><span>OpenAI</span></td>
+            <td><span class="badge badge-teal">model</span></td>
+            <td>94</td>
+            <td>+2</td>
+            <td>官方确认、API 可用性、OpenRouter 覆盖</td>
+          </tr>
+<tr>
+            <td>#2</td>
+            <td><strong>Gemini API model</strong><span>Google</span></td>
+            <td><span class="badge badge-teal">model</span></td>
+            <td>88</td>
+            <td>+1</td>
+            <td>Gemini changelog、模型目录、生态热度</td>
+          </tr>
+<tr>
+            <td>#1</td>
+            <td><strong>Claude Code</strong><span>Anthropic</span></td>
+            <td><span class="badge badge-blue">agent</span></td>
+            <td>86</td>
+            <td>+3</td>
+            <td>release notes、SkillsBench、开发者活跃度</td>
+          </tr>
+<tr>
+            <td>#2</td>
+            <td><strong>Browser / computer-use agents</strong><span>Benchmark cluster</span></td>
+            <td><span class="badge badge-blue">agent</span></td>
+            <td>81</td>
+            <td>0</td>
+            <td>Steel、Agent Arena、HAL、OSWorld、WebArena</td>
+          </tr>
+<tr>
+            <td>#1</td>
+            <td><strong>MCP / Skill ecosystem</strong><span>Open ecosystem</span></td>
+            <td><span class="badge badge-purple">tool</span></td>
+            <td>79</td>
+            <td>+5</td>
+            <td>GitHub、OSSInsight、HN、目录站</td>
+          </tr>
+<tr>
+            <td>#2</td>
+            <td><strong>Coding Agent tools</strong><span>GitHub ecosystem</span></td>
+            <td><span class="badge badge-purple">tool</span></td>
+            <td>74</td>
+            <td>+1</td>
+            <td>GitHub 28 天增长、release 活跃、HN 讨论</td>
+          </tr>
+    </tbody>
+  </table>
+  </section>
+  <section class="panel">
+    <h2>评分构成</h2>
+    <div class="score-grid">
+      <article class="source-card"><strong>模型</strong><p>能力榜 35% / API 20% / 价格上下文 15% / 官方确认 15% / 热度 15%</p></article><article class="source-card"><strong>Agent</strong><p>benchmark 40% / 真实任务 20% / GitHub 15% / 热度 15% / 官方可用 10%</p></article><article class="source-card"><strong>工具</strong><p>GitHub 30% / PH-HN 25% / X 20% / 发布活跃 15% / 生态依赖 10%</p></article>
+    </div>
+  </section>
+      </main>
+      
+    </div>
+</body>
+</html>

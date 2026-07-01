@@ -1,0 +1,145 @@
+[
+  {
+    "page": "00-coverage-map",
+    "source_size": [
+      1536,
+      1024
+    ],
+    "react_size": [
+      1536,
+      1024
+    ]
+  },
+  {
+    "page": "01-overview",
+    "source_size": [
+      1536,
+      1024
+    ],
+    "react_size": [
+      1536,
+      1024
+    ]
+  },
+  {
+    "page": "02-signal-feed",
+    "source_size": [
+      1536,
+      1024
+    ],
+    "react_size": [
+      1536,
+      1024
+    ]
+  },
+  {
+    "page": "03-model-map",
+    "source_size": [
+      1536,
+      1024
+    ],
+    "react_size": [
+      1536,
+      1024
+    ]
+  },
+  {
+    "page": "04-agent-market",
+    "source_size": [
+      1536,
+      1024
+    ],
+    "react_size": [
+      1536,
+      1024
+    ]
+  },
+  {
+    "page": "05-skill-plugin",
+    "source_size": [
+      1536,
+      1024
+    ],
+    "react_size": [
+      1536,
+      1024
+    ]
+  },
+  {
+    "page": "06-data-operations",
+    "source_size": [
+      1579,
+      996
+    ],
+    "react_size": [
+      1536,
+      1024
+    ]
+  },
+  {
+    "page": "07-rankings",
+    "source_size": [
+      1586,
+      992
+    ],
+    "react_size": [
+      1536,
+      1024
+    ]
+  },
+  {
+    "page": "08-release-calendar",
+    "source_size": [
+      1586,
+      992
+    ],
+    "react_size": [
+      1536,
+      1024
+    ]
+  },
+  {
+    "page": "09-trusted-sources",
+    "source_size": [
+      1536,
+      1024
+    ],
+    "react_size": [
+      1536,
+      1024
+    ]
+  },
+  {
+    "page": "10-roadmap",
+    "source_size": [
+      1586,
+      992
+    ],
+    "react_size": [
+      1536,
+      1024
+    ]
+  },
+  {
+    "page": "11-mobile-390",
+    "source_size": [
+      874,
+      1800
+    ],
+    "react_size": [
+      390,
+      844
+    ]
+  },
+  {
+    "page": "12-components-states",
+    "source_size": [
+      1536,
+      1024
+    ],
+    "react_size": [
+      1536,
+      1024
+    ]
+  }
+]

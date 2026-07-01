@@ -1,0 +1,146 @@
+[
+  {
+    "page": "01-overview",
+    "source_size": [
+      1536,
+      1024
+    ],
+    "react_size": [
+      1536,
+      1024
+    ],
+    "rms_after_resize": 64.32
+  },
+  {
+    "page": "02-signal-feed",
+    "source_size": [
+      1536,
+      1024
+    ],
+    "react_size": [
+      1536,
+      1024
+    ],
+    "rms_after_resize": 64.23
+  },
+  {
+    "page": "03-model-map",
+    "source_size": [
+      1536,
+      1024
+    ],
+    "react_size": [
+      1536,
+      1024
+    ],
+    "rms_after_resize": 69.25
+  },
+  {
+    "page": "04-agent-market",
+    "source_size": [
+      1536,
+      1024
+    ],
+    "react_size": [
+      1536,
+      1024
+    ],
+    "rms_after_resize": 73.07
+  },
+  {
+    "page": "05-skill-plugin",
+    "source_size": [
+      1536,
+      1024
+    ],
+    "react_size": [
+      1536,
+      1024
+    ],
+    "rms_after_resize": 66.27
+  },
+  {
+    "page": "06-data-operations",
+    "source_size": [
+      1579,
+      996
+    ],
+    "react_size": [
+      1536,
+      1024
+    ],
+    "rms_after_resize": 69.34
+  },
+  {
+    "page": "07-rankings",
+    "source_size": [
+      1586,
+      992
+    ],
+    "react_size": [
+      1536,
+      1024
+    ],
+    "rms_after_resize": 62.08
+  },
+  {
+    "page": "08-release-calendar",
+    "source_size": [
+      1586,
+      992
+    ],
+    "react_size": [
+      1536,
+      1024
+    ],
+    "rms_after_resize": 54.7
+  },
+  {
+    "page": "09-trusted-sources",
+    "source_size": [
+      1536,
+      1024
+    ],
+    "react_size": [
+      1536,
+      1024
+    ],
+    "rms_after_resize": 71.83
+  },
+  {
+    "page": "10-roadmap",
+    "source_size": [
+      1586,
+      992
+    ],
+    "react_size": [
+      1536,
+      1024
+    ],
+    "rms_after_resize": 61.41
+  },
+  {
+    "page": "11-mobile-390",
+    "source_size": [
+      874,
+      1800
+    ],
+    "react_size": [
+      390,
+      844
+    ],
+    "rms_after_resize": 95.02
+  },
+  {
+    "page": "12-components-states",
+    "source_size": [
+      1536,
+      1024
+    ],
+    "react_size": [
+      1536,
+      1024
+    ],
+    "rms_after_resize": 71.62
+  }
+]

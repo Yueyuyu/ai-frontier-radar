@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "1.0.0",
+  "updatedAt": "2026-06-30",
+  "id": "07-rankings",
+  "title": "榜单",
+  "route": "#rankings",
+  "purpose": "统一展示模型、Agent、工具和插件榜单，说明评分构成。",
+  "referenceImage": "design-concepts/complete-ui/pages/07-rankings.png",
+  "fixture": "docs/ui-implementation-package/fixtures/frontier-intel-fixture.json",
+  "designTokens": "docs/ui-implementation-package/design-tokens.json",
+  "staticReference": "reference-ui/07-rankings.html",
+  "viewport": {
+    "width": 1440,
+    "minHeight": 960,
+    "mode": "desktop"
+  },
+  "layoutGrid": {
+    "columns": 12,
+    "gutter": 24,
+    "sidebar": "232px",
+    "content": "minmax(0, 1fr)",
+    "rightRail": "optional"
+  },
+  "regions": [
+    {
+      "id": "sidebar",
+      "role": "全局导航",
+      "width": "232px"
+    },
+    {
+      "id": "command-bar",
+      "role": "搜索、刷新状态、语言和外链",
+      "height": "72px"
+    },
+    {
+      "id": "main-content",
+      "role": "页面主工作区",
+      "width": "fluid"
+    },
+    {
+      "id": "right-context",
+      "role": "详情、来源、状态或说明",
+      "width": "320px optional"
+    }
+  ],
+  "components": [
+    {
+      "name": "SegmentedControl",
+      "contract": "组件尺寸、状态和数据字段以本 screen spec、fixture、reference-ui 为准。"
+    },
+    {
+      "name": "RankingTable",
+      "contract": "组件尺寸、状态和数据字段以本 screen spec、fixture、reference-ui 为准。"
+    },
+    {
+      "name": "ScoreBreakdown",
+      "contract": "组件尺寸、状态和数据字段以本 screen spec、fixture、reference-ui 为准。"
+    },
+    {
+      "name": "TrendSparkline",
+      "contract": "组件尺寸、状态和数据字段以本 screen spec、fixture、reference-ui 为准。"
+    }
+  ],
+  "dataBindings": {
+    "stats": "fixture.stats",
+    "signals": "fixture.signals",
+    "rankingItems": "fixture.rankingItems",
+    "sourceHealth": "fixture.sourceHealth",
+    "sourceRuns": "fixture.sourceRuns",
+    "releaseFrames": "fixture.releaseFrames",
+    "roadmapItems": "fixture.roadmapItems"
+  },
+  "states": [
+    {
+      "id": "normal",
+      "description": "有数据且来源健康。"
+    },
+    {
+      "id": "loading",
+      "description": "骨架屏保留布局高度，不造成跳动。"
+    },
+    {
+      "id": "empty",
+      "description": "筛选无结果时显示清空筛选入口。"
+    },
+    {
+      "id": "degraded",
+      "description": "远程数据不可用或部分来源缺密钥时显示降级提示。"
+    },
+    {
+      "id": "error",
+      "description": "来源失败时显示来源、错误原因和最后检查时间。"
+    }
+  ],
+  "interactions": [
+    "点击导航切换 hash 路由，旧 #radar 映射到 #overview。",
+    "点击信号卡打开详情 Inspector 或移动端底部抽屉。",
+    "筛选和搜索只改变当前页数据视图，不修改原始 fixture。",
+    "来源、证据链和健康状态必须可见，不隐藏到后台。"
+  ],
+  "acceptanceChecklist": [
+    "页面使用浅色系统主题，不出现暗色整页背景。",
+    "不出现雷达、靶心、扫描、中心放射或中心 hub 视觉。",
+    "首屏是可操作工作台，不是营销式 hero。",
+    "所有关键卡片能追溯到 fixture 字段或真实数据字段。",
+    "来源健康、证据链、缺失密钥或降级数据状态至少有一个显性入口。",
+    "React 实现截图需与 reference-ui 结构一致，再和 imagegen 图做视觉对照。"
+  ]
+}

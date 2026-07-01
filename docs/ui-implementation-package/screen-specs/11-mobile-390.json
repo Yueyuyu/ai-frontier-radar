@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "1.0.0",
+  "updatedAt": "2026-06-30",
+  "id": "11-mobile-390",
+  "title": "移动端 390px",
+  "route": "responsive://390",
+  "purpose": "定义移动端顶部栏、信号卡、底部导航和详情抽屉的还原标准。",
+  "referenceImage": "design-concepts/complete-ui/pages/11-mobile-390.png",
+  "fixture": "docs/ui-implementation-package/fixtures/frontier-intel-fixture.json",
+  "designTokens": "docs/ui-implementation-package/design-tokens.json",
+  "staticReference": "reference-ui/11-mobile-390.html",
+  "viewport": {
+    "width": 390,
+    "minHeight": 844,
+    "mode": "mobile"
+  },
+  "layoutGrid": {
+    "columns": 1,
+    "gutter": 16,
+    "safeArea": "top 16px, bottom 80px",
+    "fixedRegions": [
+      "MobileTopBar",
+      "MobileBottomNav"
+    ]
+  },
+  "regions": [
+    {
+      "id": "mobile-topbar",
+      "role": "品牌、搜索入口、刷新状态",
+      "height": "64px"
+    },
+    {
+      "id": "mobile-content",
+      "role": "单列信号卡和核心数据",
+      "width": "100%"
+    },
+    {
+      "id": "mobile-drawer",
+      "role": "详情和证据链",
+      "behavior": "从底部弹出，圆角 20px"
+    },
+    {
+      "id": "mobile-bottom-nav",
+      "role": "4 项主导航",
+      "height": "68px"
+    }
+  ],
+  "components": [
+    {
+      "name": "MobileTopBar",
+      "contract": "组件尺寸、状态和数据字段以本 screen spec、fixture、reference-ui 为准。"
+    },
+    {
+      "name": "MobileSignalCard",
+      "contract": "组件尺寸、状态和数据字段以本 screen spec、fixture、reference-ui 为准。"
+    },
+    {
+      "name": "MobileBottomNav",
+      "contract": "组件尺寸、状态和数据字段以本 screen spec、fixture、reference-ui 为准。"
+    },
+    {
+      "name": "MobileDetailDrawer",
+      "contract": "组件尺寸、状态和数据字段以本 screen spec、fixture、reference-ui 为准。"
+    }
+  ],
+  "dataBindings": {
+    "stats": "fixture.stats",
+    "signals": "fixture.signals",
+    "rankingItems": "fixture.rankingItems",
+    "sourceHealth": "fixture.sourceHealth",
+    "sourceRuns": "fixture.sourceRuns",
+    "releaseFrames": "fixture.releaseFrames",
+    "roadmapItems": "fixture.roadmapItems"
+  },
+  "states": [
+    {
+      "id": "normal",
+      "description": "有数据且来源健康。"
+    },
+    {
+      "id": "loading",
+      "description": "骨架屏保留布局高度，不造成跳动。"
+    },
+    {
+      "id": "empty",
+      "description": "筛选无结果时显示清空筛选入口。"
+    },
+    {
+      "id": "degraded",
+      "description": "远程数据不可用或部分来源缺密钥时显示降级提示。"
+    },
+    {
+      "id": "error",
+      "description": "来源失败时显示来源、错误原因和最后检查时间。"
+    }
+  ],
+  "interactions": [
+    "点击导航切换 hash 路由，旧 #radar 映射到 #overview。",
+    "点击信号卡打开详情 Inspector 或移动端底部抽屉。",
+    "筛选和搜索只改变当前页数据视图，不修改原始 fixture。",
+    "来源、证据链和健康状态必须可见，不隐藏到后台。"
+  ],
+  "acceptanceChecklist": [
+    "页面使用浅色系统主题，不出现暗色整页背景。",
+    "不出现雷达、靶心、扫描、中心放射或中心 hub 视觉。",
+    "首屏是可操作工作台，不是营销式 hero。",
+    "所有关键卡片能追溯到 fixture 字段或真实数据字段。",
+    "来源健康、证据链、缺失密钥或降级数据状态至少有一个显性入口。",
+    "React 实现截图需与 reference-ui 结构一致，再和 imagegen 图做视觉对照。"
+  ]
+}

@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>情报总览 - AI 前沿情报站 Reference UI</title>
+  <link rel="stylesheet" href="assets/reference-ui.css">
+</head>
+<body class="strict-ref-body">
+  <div class="strict-app">
+    <aside class="strict-sidebar">
+      <div class="strict-brand">
+        <span>A</span>
+        <div>
+          <strong>AI 前沿情报站</strong>
+          <small>Frontier Intel</small>
+        </div>
+      </div>
+      <nav class="strict-nav" aria-label="主导航">
+        <a class="is-active" href="01-overview.html"><span>▣</span>情报总览</a>
+        <a href="02-signal-feed.html"><span>⌁</span>前沿信号流</a>
+        <a href="03-model-map.html"><span>◎</span>模型地图</a>
+        <a href="04-agent-market.html"><span>⌘</span>Agent 市场</a>
+        <a href="05-skill-plugin.html"><span>□</span>Skill / 插件</a>
+        <a href="06-data-operations.html"><span>×</span>数据洞察</a>
+        <a href="07-rankings.html"><span>♕</span>榜单</a>
+        <a href="08-release-calendar.html"><span>◫</span>发布日历</a>
+        <a href="09-trusted-sources.html"><span>◉</span>可信来源</a>
+        <a href="10-roadmap.html"><span>✓</span>路线图</a>
+      </nav>
+      <nav class="strict-nav strict-secondary" aria-label="辅助导航">
+        <a href="#"><span>☆</span>收藏夹</a>
+        <a href="#"><span>⌘</span>自定义视图</a>
+        <a href="#"><span>✉</span>订阅管理</a>
+        <a href="#"><span>⚙</span>设置</a>
+        <a href="#"><span>?</span>帮助与文档</a>
+      </nav>
+      <div class="strict-user">
+        <span></span>
+        <div>
+          <strong>智能小明</strong>
+          <small>Enterprise</small>
+        </div>
+      </div>
+    </aside>
+
+    <main class="strict-main">
+      <header class="strict-command">
+        <div>
+          <div class="strict-title"><span>01</span><h1>情报总览</h1></div>
+          <p>把握 AI 前沿动态与变化，识别机会与风险</p>
+        </div>
+        <label class="strict-search">
+          <span>⌕</span>
+          <input type="search" value="" placeholder="搜索信号、模型、Agent、来源、主题...">
+          <kbd>/</kbd>
+        </label>
+        <div class="strict-filter">
+          <button type="button">⌯</button>
+          <button class="is-active" type="button">全部</button>
+          <button type="button">官方</button>
+          <button type="button">榜单</button>
+        </div>
+        <div class="strict-refresh"><i></i><strong>刷新中</strong><em>· 2 分钟前</em></div>
+        <div class="strict-icons"><button>12</button><button>?</button><button>↗</button><button>⇥</button></div>
+      </header>
+
+      <section class="strict-workspace">
+        <div class="strict-left">
+          <section class="strict-kpis" aria-label="关键指标">
+            <article><i class="teal">⌁</i><div><span>总信号</span><strong>1,256</strong><small>较昨日 +125 ↑</small></div></article>
+            <article><i class="blue">◇</i><div><span>可验证来源</span><strong>328</strong><small>较昨日 +18 ↑</small></div></article>
+            <article><i class="purple">★</i><div><span>高置信信号</span><strong>82</strong><small>占比 6.5%</small></div></article>
+            <article><i class="orange">∞</i><div><span>待配置来源</span><strong>24</strong><small>较昨日 +3 ↑</small></div></article>
+          </section>
+          <section class="strict-panel strict-table-panel">
+            <div class="strict-panel-head">
+              <h2>信号矩阵</h2>
+              <nav class="strict-tabs">
+                <button class="is-active">全部 <span>1,256</span></button>
+                <button>模型 / 能力 <span>512</span></button>
+                <button>工具 / 产品 <span>246</span></button>
+                <button>Agent / 生态 <span>188</span></button>
+                <button>政策 / 行业 <span>122</span></button>
+                <button>资金 / 并购 <span>78</span></button>
+                <button>研究 / 论文 <span>110</span></button>
+              </nav>
+            </div>
+            <table class="strict-signal-table">
+              <thead>
+                <tr><th></th><th>信号</th><th>分类</th><th>来源</th><th>置信度</th><th>影响度</th><th>热度趋势</th><th>首次发现</th><th>更新时间</th><th>状态</th></tr>
+              </thead>
+              <tbody>
+                <tr class="is-selected"><td><input type="checkbox" checked></td><td><strong>GPT-5.2 API 调价：输入降价 20%，输出降价 10%</strong><small>官方</small></td><td>模型 / 能力</td><td>OpenAI</td><td><b class="ok">95 高</b></td><td><b class="blue">92 高</b></td><td><svg viewBox="0 0 80 24"><polyline points="0,18 12,12 24,15 36,6 48,9 60,3 76,8"/></svg></td><td>30 分钟前</td><td>5 分钟前</td><td><b class="blue">新</b></td></tr>
+                <tr><td><input type="checkbox"></td><td><strong>Claude Code 新增文件系统工具权限（读/写/执行）</strong><small>官方</small></td><td>工具 / 产品</td><td>Anthropic</td><td><b class="ok">90 高</b></td><td><b class="blue">85 高</b></td><td><svg viewBox="0 0 80 24"><polyline points="0,16 12,14 24,10 36,15 48,12 60,13 76,7"/></svg></td><td>1 小时前</td><td>15 分钟前</td><td><b class="blue">更新</b></td></tr>
+                <tr><td><input type="checkbox"></td><td><strong>OpenRouter 新增 Qwen3-32B 和 Gemma-3-12B</strong><small>官方</small></td><td>模型 / 能力</td><td>OpenRouter</td><td><b class="ok">88 高</b></td><td><b class="warn">76 中</b></td><td><svg viewBox="0 0 80 24"><polyline points="0,12 12,17 24,11 36,15 48,5 60,12 76,8"/></svg></td><td>2 小时前</td><td>20 分钟前</td><td><b class="blue">新</b></td></tr>
+                <tr><td><input type="checkbox"></td><td><strong>Agent Arena 榜单更新：GPT-5.2 登顶编程榜</strong><small>榜单</small></td><td>Agent / 生态</td><td>Agent Arena</td><td><b class="ok">85 高</b></td><td><b class="blue">80 高</b></td><td><svg viewBox="0 0 80 24"><polyline points="0,18 12,14 24,9 36,13 48,10 60,12 76,7"/></svg></td><td>3 小时前</td><td>30 分钟前</td><td><b class="blue">更新</b></td></tr>
+                <tr><td><input type="checkbox"></td><td><strong>MCP Server 社区热度升温：+35%（7 日）</strong><small>社区</small></td><td>工具 / 产品</td><td>Hugging Face</td><td><b class="warn">78 中</b></td><td><b class="warn">61 中</b></td><td><svg viewBox="0 0 80 24"><polyline points="0,20 12,17 24,18 36,10 48,20 60,18 76,8"/></svg></td><td>6 小时前</td><td>1 小时前</td><td><b class="blue">趋势</b></td></tr>
+              </tbody>
+            </table>
+            <div class="strict-table-action"><button>查看全部 1,256 条信号 →</button></div>
+          </section>
+
+          <section class="strict-bottom">
+            <article class="strict-panel">
+              <div class="strict-card-head"><h3>今日信号 Top 5</h3><a>更多 ›</a></div>
+              <ol class="strict-list top">
+                <li><span>1</span><strong>GPT-5.2 API 调价</strong><b class="ok">高</b><em>95</em></li>
+                <li><span>2</span><strong>Claude Code 工具权限升级</strong><b class="ok">高</b><em>90</em></li>
+                <li><span>3</span><strong>OpenRouter 新模型上线</strong><b class="ok">高</b><em>88</em></li>
+                <li><span>4</span><strong>Agent Arena 榜单更新</strong><b class="ok">高</b><em>85</em></li>
+                <li><span>5</span><strong>MCP Server 热度升温</strong><b class="warn">中</b><em>78</em></li>
+              </ol>
+              <p>新增 156 条 · 更新 342 条</p>
+            </article>
+            <article class="strict-panel">
+              <div class="strict-card-head"><h3>榜单变化 <span>(24h)</span></h3><a>更多 ›</a></div>
+              <div class="strict-chips"><button class="is-active">编程能力</button><button>通用能力</button><button>Agent 能力</button></div>
+              <ol class="strict-list delta">
+                <li><span>1</span><strong>GPT-5.2</strong><b>↑ 1</b><em>Elo 1296</em></li>
+                <li><span>2</span><strong>Claude 3.5 Sonnet</strong><b class="down">↓ 1</b><em>1241</em></li>
+                <li><span>3</span><strong>Gemini 2.0 Pro</strong><b>–</b><em>1187</em></li>
+                <li><span>4</span><strong>Qwen3-32B</strong><b>↑ 3</b><em>1123</em></li>
+                <li><span>5</span><strong>DeepSeek V3</strong><b class="down">↓ 1</b><em>1089</em></li>
+              </ol>
+              <p>数据来源：Agent Arena · 刷新于 30 分钟前</p>
+            </article>
+            <article class="strict-panel">
+              <div class="strict-card-head"><h3>来源健康度</h3><a>更多 ›</a></div>
+              <div class="strict-health"><div class="strict-donut"><strong>328</strong><small>总来源</small></div><ul><li><i></i>健康 192 (58.5%)</li><li><i></i>轻度风险 86 (26.2%)</li><li><i></i>高风险 28 (8.5%)</li><li><i></i>不可用 22 (6.7%)</li></ul></div>
+              <h4>7 日可用率 <span>较昨日 +1.3% ↑</span></h4>
+              <div class="strict-bars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            </article>
+            <article class="strict-panel">
+              <div class="strict-card-head"><h3>刷新任务</h3><a>更多 ›</a></div>
+              <ul class="strict-tasks">
+                <li><i></i><strong>官方来源 RSS 抓取</strong><span>2 分钟前</span></li>
+                <li><i></i><strong>X Recent Search</strong><span>5 分钟前</span></li>
+                <li><i></i><strong>Filtered Stream 抓取</strong><span>15 分钟前</span></li>
+                <li><i></i><strong>模型列表同步 (OpenRouter)</strong><span>18 分钟前</span></li>
+                <li><i class="blue"></i><strong>榜单数据更新 (Arena)</strong><span>--</span></li>
+                <li><i class="blue"></i><strong>论文/研究订阅抓取</strong><span>--</span></li>
+              </ul>
+              <button class="strict-full">查看任务中心 →</button>
+            </article>
+          </section>
+        </div>
+
+        <aside class="strict-panel strict-inspector">
+          <button class="strict-close">×</button>
+          <h2>信号详情</h2>
+          <h3>GPT-5.2 API 调价：输入降价 20%，输出降价 10% <span>官方</span></h3>
+          <div class="strict-metrics">
+            <div><span>置信度</span><strong>95%</strong><b class="ok">高</b></div>
+            <div><span>影响度</span><strong>92</strong><b class="ok">高</b></div>
+            <div><span>热度趋势</span><svg viewBox="0 0 80 24"><polyline points="0,18 12,12 24,15 36,6 48,9 60,3 76,8"/></svg></div>
+            <div><span>状态</span><strong>新</strong></div>
+          </div>
+          <h4>摘要</h4>
+          <p class="strict-summary">OpenAI 宣布自 2024-05-15 起调整 GPT-5.2 API 价格：输入降价 20%，输出降价 10%。此举将降低开发成本，可能带动更多应用落地。</p>
+          <h4>来源与证据</h4>
+          <div class="strict-evidence">
+            <article><strong>OpenAI API Changelog <b>官方</b><em>高相关</em></strong><small>2024-05-15 10:12 · https://platform.openai.com/docs/changelog</small><p>更新 API 定价，GPT-5.2 输入价格降低 20%，输出降低 10%。</p></article>
+            <article><strong>OpenAI News <b>官方</b><em>高相关</em></strong><small>2024-05-15 10:08 · https://openai.com/news</small><p>GPT-5.2 API pricing update effective today.</p></article>
+            <article><strong>X Recent Search <em class="mid">中等相关</em></strong><small>2024-05-15 10:30 · 30 分钟内 · 1,285 条讨论</small><p>开发者社区对降价的实时讨论与反馈。</p></article>
+            <article><strong>OpenRouter Models API <b>官方</b><em class="low">低相关</em></strong><small>2024-05-15 10:18 · https://openrouter.ai/docs/models</small><p>更新模型列表与价格（间接印证）。</p></article>
+          </div>
+          <section class="strict-related">
+            <div><strong>关键信号 (8)</strong><a>查看全部</a></div>
+            <p><span>OpenAI GPT-5.2 更新</span><span>竞争对手价变动</span><span>API 成本趋势</span><span>开发者反馈</span><span>...</span></p>
+          </section>
+        </aside>
+      </section>
+    </main>
+  </div>
+  <footer class="strict-footer"><div><button>订阅设置</button><button>通知设置</button><button>数据导出</button><span>所有时间均为北京时间（UTC+8）</span></div><div><button>反馈建议</button><button>加入交流群</button><button>帮助文档</button></div></footer>
+</body>
+</html>

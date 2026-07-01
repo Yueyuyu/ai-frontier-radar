@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>组件与状态板 - Frontier Intel Reference UI</title>
+  <link rel="stylesheet" href="assets/reference-ui.css">
+</head>
+<body>
+<div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-mark"><span>FI</span><strong>AI 前沿情报站</strong><small>Frontier Intel</small></div>
+        <nav class="nav-list"><a class="nav-item " href="01-overview.html"><span>情报总览</span><small>#overview</small></a>
+<a class="nav-item " href="02-signal-feed.html"><span>前沿信号流</span><small>#signals</small></a>
+<a class="nav-item " href="03-model-map.html"><span>模型地图</span><small>#model-rankings</small></a>
+<a class="nav-item " href="04-agent-market.html"><span>Agent 市场</span><small>#agent-rankings</small></a>
+<a class="nav-item " href="05-skill-plugin.html"><span>Skill / 插件</span><small>#tool-rankings</small></a>
+<a class="nav-item " href="06-data-operations.html"><span>数据洞察</span><small>#source-runs</small></a>
+<a class="nav-item " href="07-rankings.html"><span>榜单</span><small>#rankings</small></a>
+<a class="nav-item " href="08-release-calendar.html"><span>发布日历</span><small>#calendar</small></a>
+<a class="nav-item " href="09-trusted-sources.html"><span>可信来源</span><small>#sources</small></a>
+<a class="nav-item " href="10-roadmap.html"><span>路线图</span><small>#roadmap</small></a></nav>
+      </aside>
+      <main class="workspace">
+        <header class="command-bar">
+          <div>
+            <span class="section-kicker">Frontier Intel</span>
+            <h1>组件与状态板</h1>
+          </div>
+          <div class="command-actions">
+            <span class="badge badge-teal">来源健康</span>
+            <span class="badge badge-blue">证据链</span>
+            <span class="search-box">搜索模型、Agent、工具、来源</span>
+          </div>
+        </header>
+        <!-- reference image: design-concepts/complete-ui/pages/12-components-states.png; fixture: docs/ui-implementation-package/fixtures/frontier-intel-fixture.json -->
+        <section class="panel components-board">
+    <h2>组件状态</h2>
+    <div class="component-row"><button class="demo-button tone-0">默认按钮</button><button class="demo-button tone-1">主按钮</button><button class="demo-button tone-2">危险按钮</button><button class="demo-button tone-3">禁用按钮</button></div>
+    <div class="component-row"><span class="badge badge-teal">模型</span><span class="badge badge-blue">Agent</span><span class="badge badge-purple">工具</span><span class="badge badge-coral">Skill / 插件</span><span class="badge badge-green">研究趋势</span></div>
+    <div class="component-row"><span class="badge badge-green">健康</span><span class="badge badge-warning">待配置</span><span class="badge badge-danger">失败</span><span class="badge badge-blue">降级数据</span><span class="badge badge-coral">空结果</span></div>
+    <div class="state-grid">
+      <article><strong>Loading</strong><p>骨架屏保留卡片高度，不跳动。</p></article>
+      <article><strong>Empty</strong><p>清空筛选、查看全部信号。</p></article>
+      <article><strong>Error</strong><p>展示来源、状态码、最后检查时间。</p></article>
+      <article><strong>Missing key</strong><p>只显示环境变量名，不显示密钥值。</p></article>
+    </div>
+  </section>
+  <section class="two-column">
+    <div><article class="signal-card ">
+    <div class="signal-card-head">
+      <span class="badge badge-teal">模型</span>
+      <span class="badge badge-teal">高可信</span>
+    </div>
+    <h3>OpenAI 模型预览进入高可信观察</h3>
+    <p>官方页面、API 变更和模型聚合源同时出现变化，进入发布窗口观察。</p>
+    <div class="signal-meta">
+      <span>OpenAI frontier model</span>
+      <span>94%</span>
+      <span>4 个来源</span>
+    </div>
+  </article></div>
+    <aside class="inspector">
+    <div class="section-kicker">信号详情</div>
+    <h2>OpenAI frontier model</h2>
+    <p>官方页面、API 变更和模型聚合源同时出现变化，进入发布窗口观察。</p>
+    <div class="confidence">
+      <strong>94%</strong>
+      <span>可信度</span>
+    </div>
+    <h3>证据链</h3>
+    <ul class="evidence-list"><li>
+        <strong>OpenAI News</strong>
+        <span>官方确认 / 健康</span>
+      </li>
+<li>
+        <strong>OpenAI API Changelog</strong>
+        <span>官方确认 / 健康</span>
+      </li>
+<li>
+        <strong>OpenRouter Models API</strong>
+        <span>模型能力 / 健康</span>
+      </li>
+<li>
+        <strong>HN Algolia API</strong>
+        <span>早期传播 / 健康</span>
+      </li></ul>
+  </aside>
+  </section>
+      </main>
+      
+    </div>
+</body>
+</html>

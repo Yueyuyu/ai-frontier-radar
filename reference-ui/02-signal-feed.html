@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>前沿信号流 - Frontier Intel Reference UI</title>
+  <link rel="stylesheet" href="assets/reference-ui.css">
+</head>
+<body>
+<div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-mark"><span>FI</span><strong>AI 前沿情报站</strong><small>Frontier Intel</small></div>
+        <nav class="nav-list"><a class="nav-item " href="01-overview.html"><span>情报总览</span><small>#overview</small></a>
+<a class="nav-item is-active" href="02-signal-feed.html"><span>前沿信号流</span><small>#signals</small></a>
+<a class="nav-item " href="03-model-map.html"><span>模型地图</span><small>#model-rankings</small></a>
+<a class="nav-item " href="04-agent-market.html"><span>Agent 市场</span><small>#agent-rankings</small></a>
+<a class="nav-item " href="05-skill-plugin.html"><span>Skill / 插件</span><small>#tool-rankings</small></a>
+<a class="nav-item " href="06-data-operations.html"><span>数据洞察</span><small>#source-runs</small></a>
+<a class="nav-item " href="07-rankings.html"><span>榜单</span><small>#rankings</small></a>
+<a class="nav-item " href="08-release-calendar.html"><span>发布日历</span><small>#calendar</small></a>
+<a class="nav-item " href="09-trusted-sources.html"><span>可信来源</span><small>#sources</small></a>
+<a class="nav-item " href="10-roadmap.html"><span>路线图</span><small>#roadmap</small></a></nav>
+      </aside>
+      <main class="workspace">
+        <header class="command-bar">
+          <div>
+            <span class="section-kicker">Frontier Intel</span>
+            <h1>前沿信号流</h1>
+          </div>
+          <div class="command-actions">
+            <span class="badge badge-teal">来源健康</span>
+            <span class="badge badge-blue">证据链</span>
+            <span class="search-box">搜索模型、Agent、工具、来源</span>
+          </div>
+        </header>
+        <!-- reference image: design-concepts/complete-ui/pages/02-signal-feed.png; fixture: docs/ui-implementation-package/fixtures/frontier-intel-fixture.json -->
+        <section class="panel">
+    <div class="filter-bar">
+      <span class="badge badge-teal">模型</span><span class="badge badge-blue">Agent</span><span class="badge badge-purple">工具</span><span class="badge badge-coral">Skill / 插件</span><span class="badge badge-green">研究趋势</span>
+      <span class="badge badge-teal">高可信优先</span>
+      <span class="badge badge-warning">X 仅热度</span>
+    </div>
+  </section>
+  <section class="two-column">
+    <div class="stacked-list"><article class="signal-card ">
+    <div class="signal-card-head">
+      <span class="badge badge-teal">模型</span>
+      <span class="badge badge-teal">高可信</span>
+    </div>
+    <h3>OpenAI 模型预览进入高可信观察</h3>
+    <p>官方页面、API 变更和模型聚合源同时出现变化，进入发布窗口观察。</p>
+    <div class="signal-meta">
+      <span>OpenAI frontier model</span>
+      <span>94%</span>
+      <span>4 个来源</span>
+    </div>
+  </article>
+<article class="signal-card ">
+    <div class="signal-card-head">
+      <span class="badge badge-blue">Agent</span>
+      <span class="badge badge-teal">高可信</span>
+    </div>
+    <h3>Claude Code 工作流能力信号增强</h3>
+    <p>release notes、开发者讨论和 benchmark 目录均有新增记录。</p>
+    <div class="signal-meta">
+      <span>Claude Code</span>
+      <span>88%</span>
+      <span>3 个来源</span>
+    </div>
+  </article>
+<article class="signal-card ">
+    <div class="signal-card-head">
+      <span class="badge badge-teal">模型</span>
+      <span class="badge badge-blue">中可信</span>
+    </div>
+    <h3>Gemini API 文档窗口出现模型参数变化</h3>
+    <p>官方 changelog 和 OpenRouter 上下文字段出现同步更新。</p>
+    <div class="signal-meta">
+      <span>Gemini API</span>
+      <span>82%</span>
+      <span>3 个来源</span>
+    </div>
+  </article>
+<article class="signal-card ">
+    <div class="signal-card-head">
+      <span class="badge badge-blue">Agent</span>
+      <span class="badge badge-blue">中可信</span>
+    </div>
+    <h3>Agent benchmark 榜单刷新</h3>
+    <p>Steel、Agent Arena、HAL 与 OSWorld 的可访问性健康状态正常。</p>
+    <div class="signal-meta">
+      <span>Agent benchmark cluster</span>
+      <span>79%</span>
+      <span>5 个来源</span>
+    </div>
+  </article>
+<article class="signal-card ">
+    <div class="signal-card-head">
+      <span class="badge badge-coral">Skill / 插件</span>
+      <span class="badge badge-blue">中可信</span>
+    </div>
+    <h3>MCP 与 Skill 生态热度连续上升</h3>
+    <p>GitHub 搜索、HN 讨论和产品目录源同时增长，但仍需官方仓库确认。</p>
+    <div class="signal-meta">
+      <span>MCP / Skills ecosystem</span>
+      <span>74%</span>
+      <span>4 个来源</span>
+    </div>
+  </article>
+<article class="signal-card ">
+    <div class="signal-card-head">
+      <span class="badge badge-teal">模型</span>
+      <span class="badge badge-blue">中可信</span>
+    </div>
+    <h3>OpenRouter 模型上下文窗口变化</h3>
+    <p>模型目录中的上下文和定价字段变化，需要与官方文档交叉确认。</p>
+    <div class="signal-meta">
+      <span>OpenRouter catalog</span>
+      <span>81%</span>
+      <span>2 个来源</span>
+    </div>
+  </article>
+<article class="signal-card ">
+    <div class="signal-card-head">
+      <span class="badge badge-green">研究趋势</span>
+      <span class="badge badge-warning">观察</span>
+    </div>
+    <h3>Hugging Face 下载量异常增长</h3>
+    <p>下载量和 likes 上升，作为生态热度，不直接确认模型发布。</p>
+    <div class="signal-meta">
+      <span>Open model cluster</span>
+      <span>68%</span>
+      <span>2 个来源</span>
+    </div>
+  </article>
+<article class="signal-card ">
+    <div class="signal-card-head">
+      <span class="badge badge-teal">工具</span>
+      <span class="badge badge-warning">观察</span>
+    </div>
+    <h3>AI 工具新品热度进入观察池</h3>
+    <p>Product Hunt 和 HN 有早期热度，需要官网或 GitHub 进一步确认。</p>
+    <div class="signal-meta">
+      <span>AI tool launch</span>
+      <span>61%</span>
+      <span>2 个来源</span>
+    </div>
+  </article>
+<article class="signal-card ">
+    <div class="signal-card-head">
+      <span class="badge badge-teal">工具</span>
+      <span class="badge badge-danger">低可信</span>
+    </div>
+    <h3>X 传播信号被降权</h3>
+    <p>只有 X 热度，缺少官网、文档、API 或 GitHub 证据，不进入事实确认。</p>
+    <div class="signal-meta">
+      <span>Rumor cluster</span>
+      <span>36%</span>
+      <span>1 个来源</span>
+    </div>
+  </article>
+<article class="signal-card ">
+    <div class="signal-card-head">
+      <span class="badge badge-green">研究趋势</span>
+      <span class="badge badge-warning">观察</span>
+    </div>
+    <h3>Agent 评测论文新增引用</h3>
+    <p>arXiv 与 Semantic Scholar 方向一致，用于研究趋势，不直接影响发布日历。</p>
+    <div class="signal-meta">
+      <span>Agent evaluation papers</span>
+      <span>67%</span>
+      <span>2 个来源</span>
+    </div>
+  </article>
+<article class="signal-card ">
+    <div class="signal-card-head">
+      <span class="badge badge-blue">Agent</span>
+      <span class="badge badge-blue">中可信</span>
+    </div>
+    <h3>Coding Agent 仓库活跃度上升</h3>
+    <p>GitHub stars、release 与 HN 讨论同步上升，等待 benchmark 确认。</p>
+    <div class="signal-meta">
+      <span>Coding Agent repos</span>
+      <span>72%</span>
+      <span>3 个来源</span>
+    </div>
+  </article>
+<article class="signal-card ">
+    <div class="signal-card-head">
+      <span class="badge badge-teal">工具</span>
+      <span class="badge badge-warning">系统</span>
+    </div>
+    <h3>部分商业 API 来源待配置</h3>
+    <p>Artificial Analysis、Product Hunt、X 需要环境变量后才能进入完整刷新。</p>
+    <div class="signal-meta">
+      <span>Source credentials</span>
+      <span>90%</span>
+      <span>1 个来源</span>
+    </div>
+  </article></div>
+    <aside class="inspector">
+    <div class="section-kicker">信号详情</div>
+    <h2>Claude Code</h2>
+    <p>release notes、开发者讨论和 benchmark 目录均有新增记录。</p>
+    <div class="confidence">
+      <strong>88%</strong>
+      <span>可信度</span>
+    </div>
+    <h3>证据链</h3>
+    <ul class="evidence-list"><li>
+        <strong>SkillsBench</strong>
+        <span>Agent 能力 / 健康</span>
+      </li>
+<li>
+        <strong>GitHub REST API</strong>
+        <span>工具与生态热度 / 健康</span>
+      </li></ul>
+  </aside>
+  </section>
+      </main>
+      
+    </div>
+</body>
+</html>

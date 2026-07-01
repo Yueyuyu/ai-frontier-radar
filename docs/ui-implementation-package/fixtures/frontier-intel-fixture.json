@@ -1,0 +1,637 @@
+{
+  "schemaVersion": "1.0.0",
+  "updatedAt": "2026-06-30",
+  "note": "UI 还原专用固定 fixture。内容用于布局、状态和视觉密度校准，不作为事实来源。",
+  "product": {
+    "name": "AI 前沿情报站",
+    "englishName": "Frontier Intel",
+    "theme": "light workspace intelligence console"
+  },
+  "stats": {
+    "signalCount": 12,
+    "connectedSources": 31,
+    "freshness": "26 分钟前",
+    "databaseStatus": "未配置",
+    "highTrustSignals": 7,
+    "skippedSources": 3
+  },
+  "categories": [
+    {
+      "id": "model",
+      "label": "模型",
+      "color": "teal"
+    },
+    {
+      "id": "agent",
+      "label": "Agent",
+      "color": "blue"
+    },
+    {
+      "id": "tool",
+      "label": "工具",
+      "color": "purple"
+    },
+    {
+      "id": "plugin",
+      "label": "Skill / 插件",
+      "color": "coral"
+    },
+    {
+      "id": "research",
+      "label": "研究趋势",
+      "color": "green"
+    }
+  ],
+  "signals": [
+    {
+      "id": "sig-openai-model-preview",
+      "title": "OpenAI 模型预览进入高可信观察",
+      "entity": "OpenAI frontier model",
+      "category": "model",
+      "confidence": 0.94,
+      "heatScore": 91,
+      "trustBand": "high",
+      "sourceCount": 4,
+      "releaseWindow": "24h",
+      "summary": "官方页面、API 变更和模型聚合源同时出现变化，进入发布窗口观察。",
+      "sources": [
+        "openai-news",
+        "openai-api-changelog",
+        "openrouter-models",
+        "hn-algolia"
+      ]
+    },
+    {
+      "id": "sig-claude-code-workflow",
+      "title": "Claude Code 工作流能力信号增强",
+      "entity": "Claude Code",
+      "category": "agent",
+      "confidence": 0.88,
+      "heatScore": 84,
+      "trustBand": "high",
+      "sourceCount": 3,
+      "releaseWindow": "48h",
+      "summary": "release notes、开发者讨论和 benchmark 目录均有新增记录。",
+      "sources": [
+        "anthropic-release-notes",
+        "skillsbench",
+        "github-rest"
+      ]
+    },
+    {
+      "id": "sig-gemini-api-window",
+      "title": "Gemini API 文档窗口出现模型参数变化",
+      "entity": "Gemini API",
+      "category": "model",
+      "confidence": 0.82,
+      "heatScore": 76,
+      "trustBand": "medium",
+      "sourceCount": 3,
+      "releaseWindow": "72h",
+      "summary": "官方 changelog 和 OpenRouter 上下文字段出现同步更新。",
+      "sources": [
+        "gemini-api-changelog",
+        "openrouter-models",
+        "huggingface-hub"
+      ]
+    },
+    {
+      "id": "sig-agent-leaderboard-refresh",
+      "title": "Agent benchmark 榜单刷新",
+      "entity": "Agent benchmark cluster",
+      "category": "agent",
+      "confidence": 0.79,
+      "heatScore": 72,
+      "trustBand": "medium",
+      "sourceCount": 5,
+      "releaseWindow": "weekly",
+      "summary": "Steel、Agent Arena、HAL 与 OSWorld 的可访问性健康状态正常。",
+      "sources": [
+        "steel-leaderboard",
+        "agent-arena",
+        "hal-princeton",
+        "osworld",
+        "webarena"
+      ]
+    },
+    {
+      "id": "sig-mcp-directory-growth",
+      "title": "MCP 与 Skill 生态热度连续上升",
+      "entity": "MCP / Skills ecosystem",
+      "category": "plugin",
+      "confidence": 0.74,
+      "heatScore": 69,
+      "trustBand": "medium",
+      "sourceCount": 4,
+      "releaseWindow": "weekly",
+      "summary": "GitHub 搜索、HN 讨论和产品目录源同时增长，但仍需官方仓库确认。",
+      "sources": [
+        "github-rest",
+        "ossinsight",
+        "hn-algolia",
+        "product-hunt"
+      ]
+    },
+    {
+      "id": "sig-openrouter-context",
+      "title": "OpenRouter 模型上下文窗口变化",
+      "entity": "OpenRouter catalog",
+      "category": "model",
+      "confidence": 0.81,
+      "heatScore": 66,
+      "trustBand": "medium",
+      "sourceCount": 2,
+      "releaseWindow": "24h",
+      "summary": "模型目录中的上下文和定价字段变化，需要与官方文档交叉确认。",
+      "sources": [
+        "openrouter-models",
+        "provider-docs"
+      ]
+    },
+    {
+      "id": "sig-hf-download-spike",
+      "title": "Hugging Face 下载量异常增长",
+      "entity": "Open model cluster",
+      "category": "research",
+      "confidence": 0.68,
+      "heatScore": 71,
+      "trustBand": "watch",
+      "sourceCount": 2,
+      "releaseWindow": "weekly",
+      "summary": "下载量和 likes 上升，作为生态热度，不直接确认模型发布。",
+      "sources": [
+        "huggingface-hub",
+        "github-rest"
+      ]
+    },
+    {
+      "id": "sig-product-hunt-tool",
+      "title": "AI 工具新品热度进入观察池",
+      "entity": "AI tool launch",
+      "category": "tool",
+      "confidence": 0.61,
+      "heatScore": 63,
+      "trustBand": "watch",
+      "sourceCount": 2,
+      "releaseWindow": "72h",
+      "summary": "Product Hunt 和 HN 有早期热度，需要官网或 GitHub 进一步确认。",
+      "sources": [
+        "product-hunt",
+        "hn-algolia"
+      ]
+    },
+    {
+      "id": "sig-x-rumor-muted",
+      "title": "X 传播信号被降权",
+      "entity": "Rumor cluster",
+      "category": "tool",
+      "confidence": 0.36,
+      "heatScore": 58,
+      "trustBand": "low",
+      "sourceCount": 1,
+      "releaseWindow": "watch",
+      "summary": "只有 X 热度，缺少官网、文档、API 或 GitHub 证据，不进入事实确认。",
+      "sources": [
+        "x-recent-search"
+      ]
+    },
+    {
+      "id": "sig-arxiv-agent-paper",
+      "title": "Agent 评测论文新增引用",
+      "entity": "Agent evaluation papers",
+      "category": "research",
+      "confidence": 0.67,
+      "heatScore": 57,
+      "trustBand": "watch",
+      "sourceCount": 2,
+      "releaseWindow": "weekly",
+      "summary": "arXiv 与 Semantic Scholar 方向一致，用于研究趋势，不直接影响发布日历。",
+      "sources": [
+        "arxiv-api",
+        "semantic-scholar"
+      ]
+    },
+    {
+      "id": "sig-github-coding-agent",
+      "title": "Coding Agent 仓库活跃度上升",
+      "entity": "Coding Agent repos",
+      "category": "agent",
+      "confidence": 0.72,
+      "heatScore": 64,
+      "trustBand": "medium",
+      "sourceCount": 3,
+      "releaseWindow": "weekly",
+      "summary": "GitHub stars、release 与 HN 讨论同步上升，等待 benchmark 确认。",
+      "sources": [
+        "github-rest",
+        "hn-algolia",
+        "ossinsight"
+      ]
+    },
+    {
+      "id": "sig-source-health-warning",
+      "title": "部分商业 API 来源待配置",
+      "entity": "Source credentials",
+      "category": "tool",
+      "confidence": 0.9,
+      "heatScore": 45,
+      "trustBand": "system",
+      "sourceCount": 1,
+      "releaseWindow": "now",
+      "summary": "Artificial Analysis、Product Hunt、X 需要环境变量后才能进入完整刷新。",
+      "sources": [
+        "source-run-log"
+      ]
+    }
+  ],
+  "rankingItems": [
+    {
+      "id": "rank-openai-frontier",
+      "kind": "model",
+      "name": "OpenAI frontier model",
+      "provider": "OpenAI",
+      "score": 94,
+      "rank": 1,
+      "change": "+2",
+      "basis": "官方确认、API 可用性、OpenRouter 覆盖"
+    },
+    {
+      "id": "rank-gemini-api",
+      "kind": "model",
+      "name": "Gemini API model",
+      "provider": "Google",
+      "score": 88,
+      "rank": 2,
+      "change": "+1",
+      "basis": "Gemini changelog、模型目录、生态热度"
+    },
+    {
+      "id": "rank-claude-code",
+      "kind": "agent",
+      "name": "Claude Code",
+      "provider": "Anthropic",
+      "score": 86,
+      "rank": 1,
+      "change": "+3",
+      "basis": "release notes、SkillsBench、开发者活跃度"
+    },
+    {
+      "id": "rank-agent-benchmark",
+      "kind": "agent",
+      "name": "Browser / computer-use agents",
+      "provider": "Benchmark cluster",
+      "score": 81,
+      "rank": 2,
+      "change": "0",
+      "basis": "Steel、Agent Arena、HAL、OSWorld、WebArena"
+    },
+    {
+      "id": "rank-mcp-ecosystem",
+      "kind": "tool",
+      "name": "MCP / Skill ecosystem",
+      "provider": "Open ecosystem",
+      "score": 79,
+      "rank": 1,
+      "change": "+5",
+      "basis": "GitHub、OSSInsight、HN、目录站"
+    },
+    {
+      "id": "rank-coding-agent-tools",
+      "kind": "tool",
+      "name": "Coding Agent tools",
+      "provider": "GitHub ecosystem",
+      "score": 74,
+      "rank": 2,
+      "change": "+1",
+      "basis": "GitHub 28 天增长、release 活跃、HN 讨论"
+    }
+  ],
+  "sourceHealth": [
+    {
+      "id": "openai-news",
+      "name": "OpenAI News",
+      "group": "官方确认",
+      "status": "healthy",
+      "accessMethod": "official-page",
+      "authRequired": false,
+      "weight": 1,
+      "freshnessSla": "30m-1h",
+      "lastChecked": "2026-06-30T12:40:00+08:00",
+      "coverage": 94
+    },
+    {
+      "id": "openai-api-changelog",
+      "name": "OpenAI API Changelog",
+      "group": "官方确认",
+      "status": "healthy",
+      "accessMethod": "official-page",
+      "authRequired": false,
+      "weight": 1,
+      "freshnessSla": "30m-1h",
+      "lastChecked": "2026-06-30T12:42:00+08:00",
+      "coverage": 92
+    },
+    {
+      "id": "openrouter-models",
+      "name": "OpenRouter Models API",
+      "group": "模型能力",
+      "status": "healthy",
+      "accessMethod": "public-api",
+      "authRequired": false,
+      "weight": 0.86,
+      "freshnessSla": "1h",
+      "lastChecked": "2026-06-30T12:38:00+08:00",
+      "coverage": 89
+    },
+    {
+      "id": "artificial-analysis",
+      "name": "Artificial Analysis API",
+      "group": "模型能力",
+      "status": "skipped",
+      "accessMethod": "api-key",
+      "authRequired": true,
+      "requiredEnv": [
+        "ARTIFICIAL_ANALYSIS_API_KEY",
+        "ARTIFICIAL_ANALYSIS_API_URL"
+      ],
+      "weight": 0.9,
+      "freshnessSla": "6h",
+      "lastChecked": "2026-06-30T12:35:00+08:00",
+      "coverage": 0
+    },
+    {
+      "id": "steel-leaderboard",
+      "name": "Steel.dev Agent Leaderboards",
+      "group": "Agent 能力",
+      "status": "healthy",
+      "accessMethod": "html-page",
+      "authRequired": false,
+      "weight": 0.72,
+      "freshnessSla": "daily",
+      "lastChecked": "2026-06-30T12:32:00+08:00",
+      "coverage": 76
+    },
+    {
+      "id": "agent-arena",
+      "name": "Agent Arena",
+      "group": "Agent 能力",
+      "status": "healthy",
+      "accessMethod": "html-page",
+      "authRequired": false,
+      "weight": 0.72,
+      "freshnessSla": "daily",
+      "lastChecked": "2026-06-30T12:33:00+08:00",
+      "coverage": 74
+    },
+    {
+      "id": "skillsbench",
+      "name": "SkillsBench",
+      "group": "Agent 能力",
+      "status": "healthy",
+      "accessMethod": "html-page",
+      "authRequired": false,
+      "weight": 0.7,
+      "freshnessSla": "daily",
+      "lastChecked": "2026-06-30T12:30:00+08:00",
+      "coverage": 71
+    },
+    {
+      "id": "github-rest",
+      "name": "GitHub REST API",
+      "group": "工具与生态热度",
+      "status": "healthy",
+      "accessMethod": "public-api",
+      "authRequired": false,
+      "weight": 0.62,
+      "freshnessSla": "1h",
+      "lastChecked": "2026-06-30T12:45:00+08:00",
+      "coverage": 82
+    },
+    {
+      "id": "product-hunt",
+      "name": "Product Hunt API",
+      "group": "工具与生态热度",
+      "status": "skipped",
+      "accessMethod": "api-key",
+      "authRequired": true,
+      "requiredEnv": [
+        "PRODUCT_HUNT_TOKEN"
+      ],
+      "weight": 0.54,
+      "freshnessSla": "6h",
+      "lastChecked": "2026-06-30T12:36:00+08:00",
+      "coverage": 0
+    },
+    {
+      "id": "hn-algolia",
+      "name": "HN Algolia API",
+      "group": "早期传播",
+      "status": "healthy",
+      "accessMethod": "public-api",
+      "authRequired": false,
+      "weight": 0.44,
+      "freshnessSla": "30m",
+      "lastChecked": "2026-06-30T12:44:00+08:00",
+      "coverage": 68
+    },
+    {
+      "id": "x-recent-search",
+      "name": "X Recent Search",
+      "group": "早期传播",
+      "status": "skipped",
+      "accessMethod": "api-key",
+      "authRequired": true,
+      "requiredEnv": [
+        "X_BEARER_TOKEN"
+      ],
+      "weight": 0.28,
+      "freshnessSla": "15m",
+      "lastChecked": "2026-06-30T12:36:00+08:00",
+      "coverage": 0
+    },
+    {
+      "id": "arxiv-api",
+      "name": "arXiv API",
+      "group": "研究趋势",
+      "status": "healthy",
+      "accessMethod": "public-api",
+      "authRequired": false,
+      "weight": 0.46,
+      "freshnessSla": "6h",
+      "lastChecked": "2026-06-30T12:31:00+08:00",
+      "coverage": 57
+    }
+  ],
+  "sourceRuns": [
+    {
+      "id": "run-openai-news",
+      "sourceId": "openai-news",
+      "status": "success",
+      "itemCount": 12,
+      "latencyMs": 842,
+      "finishedAt": "2026-06-30T12:40:00+08:00"
+    },
+    {
+      "id": "run-openrouter",
+      "sourceId": "openrouter-models",
+      "status": "success",
+      "itemCount": 221,
+      "latencyMs": 1260,
+      "finishedAt": "2026-06-30T12:38:00+08:00"
+    },
+    {
+      "id": "run-artificial-analysis",
+      "sourceId": "artificial-analysis",
+      "status": "skipped",
+      "itemCount": 0,
+      "latencyMs": 0,
+      "finishedAt": "2026-06-30T12:35:00+08:00",
+      "reason": "缺少 ARTIFICIAL_ANALYSIS_API_KEY 或 ARTIFICIAL_ANALYSIS_API_URL"
+    },
+    {
+      "id": "run-product-hunt",
+      "sourceId": "product-hunt",
+      "status": "skipped",
+      "itemCount": 0,
+      "latencyMs": 0,
+      "finishedAt": "2026-06-30T12:36:00+08:00",
+      "reason": "缺少 PRODUCT_HUNT_TOKEN"
+    },
+    {
+      "id": "run-x",
+      "sourceId": "x-recent-search",
+      "status": "skipped",
+      "itemCount": 0,
+      "latencyMs": 0,
+      "finishedAt": "2026-06-30T12:36:00+08:00",
+      "reason": "缺少 X_BEARER_TOKEN"
+    }
+  ],
+  "releaseFrames": [
+    {
+      "id": "release-openai-window",
+      "date": "2026-06-30",
+      "label": "官方 / API 窗口",
+      "confidence": "high",
+      "items": [
+        "OpenAI API changelog",
+        "OpenRouter model field change"
+      ]
+    },
+    {
+      "id": "release-gemini-window",
+      "date": "2026-07-01",
+      "label": "模型文档变化",
+      "confidence": "medium",
+      "items": [
+        "Gemini API changelog",
+        "HF ecosystem heat"
+      ]
+    },
+    {
+      "id": "release-rumor-window",
+      "date": "2026-07-02",
+      "label": "传播观察",
+      "confidence": "low",
+      "items": [
+        "X discussion only",
+        "等待官网或文档确认"
+      ]
+    }
+  ],
+  "roadmapItems": [
+    {
+      "id": "phase-0",
+      "title": "UI 还原实施包",
+      "status": "in-progress",
+      "progress": 65,
+      "impact": [
+        "screen specs",
+        "reference-ui",
+        "fixture"
+      ]
+    },
+    {
+      "id": "phase-1",
+      "title": "数据契约与命名迁移",
+      "status": "next",
+      "progress": 20,
+      "impact": [
+        "types",
+        "dataRuntime",
+        "frontier-intel-data.json"
+      ]
+    },
+    {
+      "id": "phase-2",
+      "title": "多源刷新脚本",
+      "status": "next",
+      "progress": 15,
+      "impact": [
+        "refresh-data",
+        "sources",
+        "source-runs"
+      ]
+    },
+    {
+      "id": "phase-3",
+      "title": "前端工作台页面",
+      "status": "planned",
+      "progress": 5,
+      "impact": [
+        "React shell",
+        "10 pages",
+        "mobile"
+      ]
+    }
+  ],
+  "dataPanels": [
+    {
+      "id": "frontier-intel-data",
+      "file": "public/data/frontier-intel-data.json",
+      "status": "target",
+      "owner": "refresh:data"
+    },
+    {
+      "id": "signals",
+      "file": "public/data/signals.json",
+      "status": "target",
+      "owner": "refresh:data"
+    },
+    {
+      "id": "sources",
+      "file": "public/data/sources.json",
+      "status": "target",
+      "owner": "refresh:data"
+    },
+    {
+      "id": "source-runs",
+      "file": "public/data/source-runs.json",
+      "status": "target",
+      "owner": "refresh:data"
+    },
+    {
+      "id": "radar-data",
+      "file": "public/data/radar-data.json",
+      "status": "compatibility fallback",
+      "owner": "refresh:data"
+    }
+  ],
+  "missingCredentials": [
+    {
+      "env": "ARTIFICIAL_ANALYSIS_API_KEY",
+      "source": "Artificial Analysis API",
+      "requiredFor": "模型能力榜"
+    },
+    {
+      "env": "PRODUCT_HUNT_TOKEN",
+      "source": "Product Hunt API",
+      "requiredFor": "工具新品热度"
+    },
+    {
+      "env": "X_BEARER_TOKEN",
+      "source": "X Recent Search",
+      "requiredFor": "早期传播"
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent 市场 - Frontier Intel Reference UI</title>
+  <link rel="stylesheet" href="assets/reference-ui.css">
+</head>
+<body>
+<div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-mark"><span>FI</span><strong>AI 前沿情报站</strong><small>Frontier Intel</small></div>
+        <nav class="nav-list"><a class="nav-item " href="01-overview.html"><span>情报总览</span><small>#overview</small></a>
+<a class="nav-item " href="02-signal-feed.html"><span>前沿信号流</span><small>#signals</small></a>
+<a class="nav-item " href="03-model-map.html"><span>模型地图</span><small>#model-rankings</small></a>
+<a class="nav-item is-active" href="04-agent-market.html"><span>Agent 市场</span><small>#agent-rankings</small></a>
+<a class="nav-item " href="05-skill-plugin.html"><span>Skill / 插件</span><small>#tool-rankings</small></a>
+<a class="nav-item " href="06-data-operations.html"><span>数据洞察</span><small>#source-runs</small></a>
+<a class="nav-item " href="07-rankings.html"><span>榜单</span><small>#rankings</small></a>
+<a class="nav-item " href="08-release-calendar.html"><span>发布日历</span><small>#calendar</small></a>
+<a class="nav-item " href="09-trusted-sources.html"><span>可信来源</span><small>#sources</small></a>
+<a class="nav-item " href="10-roadmap.html"><span>路线图</span><small>#roadmap</small></a></nav>
+      </aside>
+      <main class="workspace">
+        <header class="command-bar">
+          <div>
+            <span class="section-kicker">Frontier Intel</span>
+            <h1>Agent 市场</h1>
+          </div>
+          <div class="command-actions">
+            <span class="badge badge-teal">来源健康</span>
+            <span class="badge badge-blue">证据链</span>
+            <span class="search-box">搜索模型、Agent、工具、来源</span>
+          </div>
+        </header>
+        <!-- reference image: design-concepts/complete-ui/pages/04-agent-market.png; fixture: docs/ui-implementation-package/fixtures/frontier-intel-fixture.json -->
+        <section class="panel">
+    <div class="panel-head"><h2>Agent 能力面板</h2><span class="badge badge-blue">Benchmark first</span></div>
+    <div class="capability-grid">
+      <article><strong>浏览器任务</strong><span>72% 覆盖</span></article><article><strong>代码修复</strong><span>75% 覆盖</span></article><article><strong>电脑使用</strong><span>78% 覆盖</span></article><article><strong>研究任务</strong><span>81% 覆盖</span></article><article><strong>工具调用</strong><span>84% 覆盖</span></article><article><strong>长 session</strong><span>87% 覆盖</span></article>
+    </div>
+  </section>
+  <section class="two-column">
+    <div class="panel"><h2>Agent 榜单</h2><table class="data-table">
+    <thead><tr><th>排名</th><th>对象</th><th>类型</th><th>分数</th><th>变化</th><th>依据</th></tr></thead>
+    <tbody>
+      <tr>
+            <td>#1</td>
+            <td><strong>Claude Code</strong><span>Anthropic</span></td>
+            <td><span class="badge badge-blue">agent</span></td>
+            <td>86</td>
+            <td>+3</td>
+            <td>release notes、SkillsBench、开发者活跃度</td>
+          </tr>
+<tr>
+            <td>#2</td>
+            <td><strong>Browser / computer-use agents</strong><span>Benchmark cluster</span></td>
+            <td><span class="badge badge-blue">agent</span></td>
+            <td>81</td>
+            <td>0</td>
+            <td>Steel、Agent Arena、HAL、OSWorld、WebArena</td>
+          </tr>
+    </tbody>
+  </table></div>
+    <div class="panel"><h2>评测来源健康</h2><div class="source-grid">
+    <article class="source-card">
+          <div class="source-head">
+            <strong>Steel.dev Agent Leaderboards</strong>
+            <span class="badge badge-green">健康</span>
+          </div>
+          <p>Agent 能力 / html-page / 权重 0.72</p>
+          <div class="progress"><span style="width:76%"></span></div>
+          <small>SLA daily · 2026-06-30T12:32:00+08:00</small>
+        </article>
+<article class="source-card">
+          <div class="source-head">
+            <strong>Agent Arena</strong>
+            <span class="badge badge-green">健康</span>
+          </div>
+          <p>Agent 能力 / html-page / 权重 0.72</p>
+          <div class="progress"><span style="width:74%"></span></div>
+          <small>SLA daily · 2026-06-30T12:33:00+08:00</small>
+        </article>
+<article class="source-card">
+          <div class="source-head">
+            <strong>SkillsBench</strong>
+            <span class="badge badge-green">健康</span>
+          </div>
+          <p>Agent 能力 / html-page / 权重 0.7</p>
+          <div class="progress"><span style="width:71%"></span></div>
+          <small>SLA daily · 2026-06-30T12:30:00+08:00</small>
+        </article>
+  </div></div>
+  </section>
+      </main>
+      
+    </div>
+</body>
+</html>

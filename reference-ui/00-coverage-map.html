@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>设计覆盖说明 - Frontier Intel Reference UI</title>
+  <link rel="stylesheet" href="assets/reference-ui.css">
+</head>
+<body>
+<div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-mark"><span>FI</span><strong>AI 前沿情报站</strong><small>Frontier Intel</small></div>
+        <nav class="nav-list"><a class="nav-item " href="01-overview.html"><span>情报总览</span><small>#overview</small></a>
+<a class="nav-item " href="02-signal-feed.html"><span>前沿信号流</span><small>#signals</small></a>
+<a class="nav-item " href="03-model-map.html"><span>模型地图</span><small>#model-rankings</small></a>
+<a class="nav-item " href="04-agent-market.html"><span>Agent 市场</span><small>#agent-rankings</small></a>
+<a class="nav-item " href="05-skill-plugin.html"><span>Skill / 插件</span><small>#tool-rankings</small></a>
+<a class="nav-item " href="06-data-operations.html"><span>数据洞察</span><small>#source-runs</small></a>
+<a class="nav-item " href="07-rankings.html"><span>榜单</span><small>#rankings</small></a>
+<a class="nav-item " href="08-release-calendar.html"><span>发布日历</span><small>#calendar</small></a>
+<a class="nav-item " href="09-trusted-sources.html"><span>可信来源</span><small>#sources</small></a>
+<a class="nav-item " href="10-roadmap.html"><span>路线图</span><small>#roadmap</small></a></nav>
+      </aside>
+      <main class="workspace">
+        <header class="command-bar">
+          <div>
+            <span class="section-kicker">Frontier Intel</span>
+            <h1>设计覆盖说明</h1>
+          </div>
+          <div class="command-actions">
+            <span class="badge badge-teal">来源健康</span>
+            <span class="badge badge-blue">证据链</span>
+            <span class="search-box">搜索模型、Agent、工具、来源</span>
+          </div>
+        </header>
+        <!-- reference image: design-concepts/complete-ui/pages/00-coverage-map.png; fixture: docs/ui-implementation-package/fixtures/frontier-intel-fixture.json -->
+        <section class="panel">
+    <h2>设计覆盖和实现入口</h2>
+    <p>这张归档页说明 13 张 imagegen 图如何映射成可执行规格。实现时先读规则、tokens、fixture、screen spec 和静态参考页，最后再看图片。</p>
+    <table class="data-table coverage-table"><thead><tr><th>ID</th><th>页面</th><th>职责</th><th>组件</th></tr></thead><tbody><tr>
+        <td>00-coverage-map</td>
+        <td><strong>设计覆盖说明</strong><span>internal://coverage-map</span></td>
+        <td>说明页面覆盖、来源分层、前端还原依据和禁止项。</td>
+        <td><span class="badge badge-blue">CoverageMatrix</span> <span class="badge badge-blue">SourceGroupLegend</span> <span class="badge badge-blue">ImplementationInputs</span> <span class="badge badge-blue">DoNotUseList</span></td>
+      </tr>
+<tr>
+        <td>01-overview</td>
+        <td><strong>情报总览</strong><span>#overview</span></td>
+        <td>用 KPI、信号矩阵、详情 Inspector 和来源健康展示今日 AI 前沿变化。</td>
+        <td><span class="badge badge-blue">KpiStrip</span> <span class="badge badge-blue">SignalMatrix</span> <span class="badge badge-blue">SignalInspector</span> <span class="badge badge-blue">SignalFeed</span> <span class="badge badge-blue">RankingDelta</span> <span class="badge badge-blue">SourceHealthPanel</span></td>
+      </tr>
+<tr>
+        <td>02-signal-feed</td>
+        <td><strong>前沿信号流</strong><span>#signals</span></td>
+        <td>支持筛选、搜索、按可信度查看信号，并打开证据链详情。</td>
+        <td><span class="badge badge-blue">SignalFilterBar</span> <span class="badge badge-blue">SignalList</span> <span class="badge badge-blue">EvidenceChain</span> <span class="badge badge-blue">DegradedDataBanner</span> <span class="badge badge-blue">EmptyState</span></td>
+      </tr>
+<tr>
+        <td>03-model-map</td>
+        <td><strong>模型地图</strong><span>#model-rankings</span></td>
+        <td>展示模型供应商、能力维度、API 可用性、价格上下文和榜单变化。</td>
+        <td><span class="badge badge-blue">ModelKpis</span> <span class="badge badge-blue">RankingTable</span> <span class="badge badge-blue">CapabilityGrid</span> <span class="badge badge-blue">ProviderCoverage</span> <span class="badge badge-blue">SourceHealthPanel</span></td>
+      </tr>
+<tr>
+        <td>04-agent-market</td>
+        <td><strong>Agent 市场</strong><span>#agent-rankings</span></td>
+        <td>跟踪浏览器、代码、电脑使用和研究 Agent 的 benchmark 与市场信号。</td>
+        <td><span class="badge badge-blue">AgentCapabilityBoard</span> <span class="badge badge-blue">BenchmarkTable</span> <span class="badge badge-blue">SourceCoverage</span> <span class="badge badge-blue">SignalList</span></td>
+      </tr>
+<tr>
+        <td>05-skill-plugin</td>
+        <td><strong>Skill / 插件</strong><span>#tool-rankings</span></td>
+        <td>展示 MCP Server、Agent Skill、连接器和插件生态热度。</td>
+        <td><span class="badge badge-blue">ToolHeatMap</span> <span class="badge badge-blue">EcosystemRanking</span> <span class="badge badge-blue">SourceDistribution</span> <span class="badge badge-blue">SignalList</span></td>
+      </tr>
+<tr>
+        <td>06-data-operations</td>
+        <td><strong>数据洞察</strong><span>#source-runs</span></td>
+        <td>展示刷新状态、数据库状态、缺失密钥、数据文件和失败原因。</td>
+        <td><span class="badge badge-blue">DatabaseStatus</span> <span class="badge badge-blue">MissingCredentialList</span> <span class="badge badge-blue">DataFileGrid</span> <span class="badge badge-blue">SourceRunTable</span></td>
+      </tr>
+<tr>
+        <td>07-rankings</td>
+        <td><strong>榜单</strong><span>#rankings</span></td>
+        <td>统一展示模型、Agent、工具和插件榜单，说明评分构成。</td>
+        <td><span class="badge badge-blue">SegmentedControl</span> <span class="badge badge-blue">RankingTable</span> <span class="badge badge-blue">ScoreBreakdown</span> <span class="badge badge-blue">TrendSparkline</span></td>
+      </tr>
+<tr>
+        <td>08-release-calendar</td>
+        <td><strong>发布日历</strong><span>#calendar</span></td>
+        <td>按时间窗口展示发布、文档、API、榜单和低可信传播事件。</td>
+        <td><span class="badge badge-blue">ReleaseTimeline</span> <span class="badge badge-blue">CalendarWindow</span> <span class="badge badge-blue">TrustLegend</span> <span class="badge badge-blue">EvidenceList</span></td>
+      </tr>
+<tr>
+        <td>09-trusted-sources</td>
+        <td><strong>可信来源</strong><span>#sources</span></td>
+        <td>展示来源目录、分组、健康状态、权重、SLA 和最近抓取结果。</td>
+        <td><span class="badge badge-blue">SourceDirectory</span> <span class="badge badge-blue">SourceGroupTabs</span> <span class="badge badge-blue">HealthMetricGrid</span> <span class="badge badge-blue">SourceDetailPanel</span></td>
+      </tr>
+<tr>
+        <td>10-roadmap</td>
+        <td><strong>路线图</strong><span>#roadmap</span></td>
+        <td>展示前后端落地阶段、状态、影响页面和验收节点。</td>
+        <td><span class="badge badge-blue">RoadmapList</span> <span class="badge badge-blue">PhaseCard</span> <span class="badge badge-blue">AcceptanceChecklist</span> <span class="badge badge-blue">ImpactTags</span></td>
+      </tr>
+<tr>
+        <td>11-mobile-390</td>
+        <td><strong>移动端 390px</strong><span>responsive://390</span></td>
+        <td>定义移动端顶部栏、信号卡、底部导航和详情抽屉的还原标准。</td>
+        <td><span class="badge badge-blue">MobileTopBar</span> <span class="badge badge-blue">MobileSignalCard</span> <span class="badge badge-blue">MobileBottomNav</span> <span class="badge badge-blue">MobileDetailDrawer</span></td>
+      </tr>
+<tr>
+        <td>12-components-states</td>
+        <td><strong>组件与状态板</strong><span>internal://components-states</span></td>
+        <td>定义按钮、筛选、徽标、卡片、证据、loading、空结果、失败、缺密钥和降级状态。</td>
+        <td><span class="badge badge-blue">Buttons</span> <span class="badge badge-blue">FilterChips</span> <span class="badge badge-blue">StatusBadge</span> <span class="badge badge-blue">SignalCard</span> <span class="badge badge-blue">EvidenceCard</span> <span class="badge badge-blue">LoadingState</span> <span class="badge badge-blue">EmptyState</span> <span class="badge badge-blue">ErrorState</span></td>
+      </tr></tbody></table>
+  </section>
+  <section class="panel warning-panel">
+    <h2>禁止项</h2>
+    <div class="tag-row"><span class="badge badge-danger">暗色整页背景</span><span class="badge badge-danger">雷达</span><span class="badge badge-danger">靶心</span><span class="badge badge-danger">扫描动画</span><span class="badge badge-danger">中心 hub</span><span class="badge badge-danger">营销 hero</span></div>
+  </section>
+      </main>
+      
+    </div>
+</body>
+</html>

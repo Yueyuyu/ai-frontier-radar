@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>可信来源 - Frontier Intel Reference UI</title>
+  <link rel="stylesheet" href="assets/reference-ui.css">
+</head>
+<body>
+<div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-mark"><span>FI</span><strong>AI 前沿情报站</strong><small>Frontier Intel</small></div>
+        <nav class="nav-list"><a class="nav-item " href="01-overview.html"><span>情报总览</span><small>#overview</small></a>
+<a class="nav-item " href="02-signal-feed.html"><span>前沿信号流</span><small>#signals</small></a>
+<a class="nav-item " href="03-model-map.html"><span>模型地图</span><small>#model-rankings</small></a>
+<a class="nav-item " href="04-agent-market.html"><span>Agent 市场</span><small>#agent-rankings</small></a>
+<a class="nav-item " href="05-skill-plugin.html"><span>Skill / 插件</span><small>#tool-rankings</small></a>
+<a class="nav-item " href="06-data-operations.html"><span>数据洞察</span><small>#source-runs</small></a>
+<a class="nav-item " href="07-rankings.html"><span>榜单</span><small>#rankings</small></a>
+<a class="nav-item " href="08-release-calendar.html"><span>发布日历</span><small>#calendar</small></a>
+<a class="nav-item is-active" href="09-trusted-sources.html"><span>可信来源</span><small>#sources</small></a>
+<a class="nav-item " href="10-roadmap.html"><span>路线图</span><small>#roadmap</small></a></nav>
+      </aside>
+      <main class="workspace">
+        <header class="command-bar">
+          <div>
+            <span class="section-kicker">Frontier Intel</span>
+            <h1>可信来源</h1>
+          </div>
+          <div class="command-actions">
+            <span class="badge badge-teal">来源健康</span>
+            <span class="badge badge-blue">证据链</span>
+            <span class="search-box">搜索模型、Agent、工具、来源</span>
+          </div>
+        </header>
+        <!-- reference image: design-concepts/complete-ui/pages/09-trusted-sources.png; fixture: docs/ui-implementation-package/fixtures/frontier-intel-fixture.json -->
+        <section class="metric-grid">
+    <article class="metric-card"><span class="metric-label">官方确认</span><strong>2</strong><p>来源分组必须显性展示</p></article><article class="metric-card"><span class="metric-label">模型能力</span><strong>2</strong><p>来源分组必须显性展示</p></article><article class="metric-card"><span class="metric-label">Agent 能力</span><strong>3</strong><p>来源分组必须显性展示</p></article><article class="metric-card"><span class="metric-label">工具与生态热度</span><strong>2</strong><p>来源分组必须显性展示</p></article><article class="metric-card"><span class="metric-label">早期传播</span><strong>2</strong><p>来源分组必须显性展示</p></article><article class="metric-card"><span class="metric-label">研究趋势</span><strong>1</strong><p>来源分组必须显性展示</p></article>
+  </section>
+  <section class="panel"><h2>来源目录</h2><div class="source-grid">
+    <article class="source-card">
+          <div class="source-head">
+            <strong>OpenAI News</strong>
+            <span class="badge badge-green">健康</span>
+          </div>
+          <p>官方确认 / official-page / 权重 1</p>
+          <div class="progress"><span style="width:94%"></span></div>
+          <small>SLA 30m-1h · 2026-06-30T12:40:00+08:00</small>
+        </article>
+<article class="source-card">
+          <div class="source-head">
+            <strong>OpenAI API Changelog</strong>
+            <span class="badge badge-green">健康</span>
+          </div>
+          <p>官方确认 / official-page / 权重 1</p>
+          <div class="progress"><span style="width:92%"></span></div>
+          <small>SLA 30m-1h · 2026-06-30T12:42:00+08:00</small>
+        </article>
+<article class="source-card">
+          <div class="source-head">
+            <strong>OpenRouter Models API</strong>
+            <span class="badge badge-green">健康</span>
+          </div>
+          <p>模型能力 / public-api / 权重 0.86</p>
+          <div class="progress"><span style="width:89%"></span></div>
+          <small>SLA 1h · 2026-06-30T12:38:00+08:00</small>
+        </article>
+<article class="source-card">
+          <div class="source-head">
+            <strong>Artificial Analysis API</strong>
+            <span class="badge badge-warning">待配置</span>
+          </div>
+          <p>模型能力 / api-key / 权重 0.9</p>
+          <div class="progress"><span style="width:0%"></span></div>
+          <small>SLA 6h · 2026-06-30T12:35:00+08:00</small>
+        </article>
+<article class="source-card">
+          <div class="source-head">
+            <strong>Steel.dev Agent Leaderboards</strong>
+            <span class="badge badge-green">健康</span>
+          </div>
+          <p>Agent 能力 / html-page / 权重 0.72</p>
+          <div class="progress"><span style="width:76%"></span></div>
+          <small>SLA daily · 2026-06-30T12:32:00+08:00</small>
+        </article>
+<article class="source-card">
+          <div class="source-head">
+            <strong>Agent Arena</strong>
+            <span class="badge badge-green">健康</span>
+          </div>
+          <p>Agent 能力 / html-page / 权重 0.72</p>
+          <div class="progress"><span style="width:74%"></span></div>
+          <small>SLA daily · 2026-06-30T12:33:00+08:00</small>
+        </article>
+<article class="source-card">
+          <div class="source-head">
+            <strong>SkillsBench</strong>
+            <span class="badge badge-green">健康</span>
+          </div>
+          <p>Agent 能力 / html-page / 权重 0.7</p>
+          <div class="progress"><span style="width:71%"></span></div>
+          <small>SLA daily · 2026-06-30T12:30:00+08:00</small>
+        </article>
+<article class="source-card">
+          <div class="source-head">
+            <strong>GitHub REST API</strong>
+            <span class="badge badge-green">健康</span>
+          </div>
+          <p>工具与生态热度 / public-api / 权重 0.62</p>
+          <div class="progress"><span style="width:82%"></span></div>
+          <small>SLA 1h · 2026-06-30T12:45:00+08:00</small>
+        </article>
+<article class="source-card">
+          <div class="source-head">
+            <strong>Product Hunt API</strong>
+            <span class="badge badge-warning">待配置</span>
+          </div>
+          <p>工具与生态热度 / api-key / 权重 0.54</p>
+          <div class="progress"><span style="width:0%"></span></div>
+          <small>SLA 6h · 2026-06-30T12:36:00+08:00</small>
+        </article>
+<article class="source-card">
+          <div class="source-head">
+            <strong>HN Algolia API</strong>
+            <span class="badge badge-green">健康</span>
+          </div>
+          <p>早期传播 / public-api / 权重 0.44</p>
+          <div class="progress"><span style="width:68%"></span></div>
+          <small>SLA 30m · 2026-06-30T12:44:00+08:00</small>
+        </article>
+<article class="source-card">
+          <div class="source-head">
+            <strong>X Recent Search</strong>
+            <span class="badge badge-warning">待配置</span>
+          </div>
+          <p>早期传播 / api-key / 权重 0.28</p>
+          <div class="progress"><span style="width:0%"></span></div>
+          <small>SLA 15m · 2026-06-30T12:36:00+08:00</small>
+        </article>
+<article class="source-card">
+          <div class="source-head">
+            <strong>arXiv API</strong>
+            <span class="badge badge-green">健康</span>
+          </div>
+          <p>研究趋势 / public-api / 权重 0.46</p>
+          <div class="progress"><span style="width:57%"></span></div>
+          <small>SLA 6h · 2026-06-30T12:31:00+08:00</small>
+        </article>
+  </div></section>
+      </main>
+      
+    </div>
+</body>
+</html>
