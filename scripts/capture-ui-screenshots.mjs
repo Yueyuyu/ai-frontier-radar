@@ -189,15 +189,15 @@ async function runOverviewInteractions(page, baseUrl, outDir) {
   results.push({ action: 'category-filter', file: categoryShot, tab: 'Agent / 生态' })
 
   await page.locator('.fi-strict-tabs button').first().click()
-  await page.getByRole('button', { name: '官方' }).click()
+  await page.locator('.fi-strict-tabs button').nth(1).click()
   await page.waitForTimeout(150)
-  const officialText = await page.locator('.fi-strict-signal-table tbody').innerText()
-  if (!officialText.includes('OpenAI')) {
-    throw new Error('Overview official filter did not show official OpenAI signals')
+  const modelText = await page.locator('.fi-strict-signal-table tbody').innerText()
+  if (!modelText.includes('GPT-5.6')) {
+    throw new Error('Overview model category filter did not show model signals')
   }
-  const officialShot = join(outDir, '01-overview-filter-official.png')
-  await page.screenshot({ path: officialShot, fullPage: false })
-  results.push({ action: 'source-filter', file: officialShot, filter: '官方' })
+  const modelShot = join(outDir, '01-overview-filter-model.png')
+  await page.screenshot({ path: modelShot, fullPage: false })
+  results.push({ action: 'category-filter-model', file: modelShot, tab: 'model' })
 
   await page.locator('.fi-strict-signal-table tbody tr').first().click()
   await page.waitForTimeout(150)

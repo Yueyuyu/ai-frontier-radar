@@ -311,6 +311,13 @@ npm run build
 
 目标：让 `npm run refresh:data` 输出目标前端需要的完整数据文件。
 
+接口契约补充：
+
+- 前端只对接聚合接口 `GET /api/frontier/dataset`，后端成功响应直接返回 `FrontierIntelDataset`，不包 `{ data }`。
+- 后端 MVP 可以优先读取最新 JSON 快照或复用刷新脚本生成逻辑；MySQL 是持久化增强，不作为当前前端契约的唯一真源。
+- 前端配置 `VITE_API_BASE_URL` 后优先请求 API；未配置时直接使用静态 JSON。降级顺序为 API（已配置时） -> `/data/frontier-intel-data.json` -> `/data/radar-data.json` -> `src/data.ts` fallback。
+- 详细契约见 [backend-dataset-contract.md](backend-dataset-contract.md)。
+
 涉及文件：
 
 - `scripts/refresh-data.mjs`

@@ -23,6 +23,7 @@ type StrictDomainPageProps = {
 }
 
 type StrictRankingsPageProps = {
+  generatedAt: string
   items: RankingItem[]
 }
 
@@ -56,6 +57,34 @@ function scoreTone(value: number | null | undefined) {
   if (value >= 90) return 'teal'
   if (value >= 75) return 'blue'
   return 'warning'
+}
+
+function signalLevelLabel(level: string) {
+  const labels: Record<string, string> = {
+    benchmark: '榜单',
+    docs: '文档',
+    official: '官方',
+    platform: '平台',
+    rumor: '传闻',
+    social: '热度',
+  }
+  return labels[level] ?? level
+}
+
+function sourceTypeLabel(sourceType: string) {
+  const labels: Record<string, string> = {
+    'agent-capability': 'Agent 能力',
+    'early-propagation': '早期传播',
+    'model-capability': '模型能力',
+    'official-confirmation': '官方确认',
+    'research-trend': '研究趋势',
+    'tool-ecosystem-heat': '工具热度',
+  }
+  return labels[sourceType] ?? sourceType
+}
+
+function rankingScoreLabel(value: number | null | undefined) {
+  return typeof value === 'number' ? value : '观察'
 }
 
 function trendPoints(seed: number | null | undefined, index = 0) {
@@ -238,16 +267,24 @@ export function StrictSignalsPage({ onClearSearch, onSelect, selectedSignal, sig
   const [category, setCategory] = useState('全部')
   const [confidenceFilter, setConfidenceFilter] = useState<'全部' | '高置信' | '观察'>('全部')
   const [sourceFilter, setSourceFilter] = useState<'全部' | '官方' | '榜单'>('全部')
+  const [sortMode, setSortMode] = useState<'可信度' | '来源数'>('可信度')
   const [detailOpen, setDetailOpen] = useState(true)
-  const visibleSignals = signals.filter((signal) => {
+  const filteredSignals = signals.filter((signal) => {
     const categoryMatched = category === '全部' || signal.category === category
     const confidenceMatched = confidenceFilter === '全部' || (confidenceFilter === '高置信' ? signal.confidence >= 90 : signal.confidence < 90)
     const sourceMatched = sourceFilter === '全部'
       || (sourceFilter === '官方' ? signal.level === 'official' || signal.sources.some((source) => source.type === 'official') : signal.sources.some((source) => source.type === 'benchmark') || signal.title.includes('榜单'))
     return categoryMatched && confidenceMatched && sourceMatched
   })
+  const visibleSignals = filteredSignals.slice().sort((a, b) => {
+    if (sortMode === '来源数') return b.sources.length - a.sources.length
+    return b.confidence - a.confidence
+  })
   const rows = visibleSignals.slice(0, 9)
-  const evidence = selectedSignal.sources.slice(0, 4)
+  const officialEvidence = selectedSignal.sources.filter((source) => source.type === 'official' || source.type === 'docs' || source.type === 'platform')
+  const benchmarkEvidence = selectedSignal.sources.filter((source) => source.type === 'benchmark')
+  const socialEvidence = selectedSignal.sources.filter((source) => source.type === 'social' || source.type === 'rumor')
+  const fallbackEvidence = selectedSignal.sources.slice(0, 2)
   const selectSignal = (id: string) => {
     setDetailOpen(true)
     onSelect(id)
@@ -261,15 +298,15 @@ export function StrictSignalsPage({ onClearSearch, onSelect, selectedSignal, sig
         ))}
         {(['全部', '高置信', '观察'] as const).map((item) => <button className={confidenceFilter === item ? 'is-active' : ''} key={item} onClick={() => setConfidenceFilter(item)} type="button">{item}</button>)}
         {(['全部', '官方', '榜单'] as const).map((item) => <SelectLike active={sourceFilter === item} key={item} label="来源类型" onClick={() => setSourceFilter(item)} value={item} />)}
-        <SelectLike label="时间窗口" value="近 7 天" />
-        <SelectLike label="排序" value="热度" />
+        <SelectLike label="时间窗口" value="全部数据" />
+        <SelectLike active label="排序" onClick={() => setSortMode(sortMode === '可信度' ? '来源数' : '可信度')} value={sortMode} />
         <IconButton><Download size={15} />导出</IconButton>
         <IconButton><RefreshCw size={15} />刷新</IconButton>
       </StrictToolbar>
       <div className="fi-strict-feed-grid">
         <section className="fi-strict-panel fi-strict-feed-list">
           <div className="fi-strict-card-head">
-            <h3>全部信号（1,256 条）</h3>
+            <h3>信号列表（{visibleSignals.length} / {signals.length} 条）</h3>
           </div>
           <table className="fi-strict-simple-table is-feed">
             <thead>
@@ -279,7 +316,7 @@ export function StrictSignalsPage({ onClearSearch, onSelect, selectedSignal, sig
                 <th>来源</th>
                 <th>类型</th>
                 <th>时间</th>
-                <th>热度</th>
+                <th>证据</th>
                 <th>可信度</th>
               </tr>
             </thead>
@@ -297,9 +334,9 @@ export function StrictSignalsPage({ onClearSearch, onSelect, selectedSignal, sig
                     <small>{signal.summary}</small>
                   </td>
                   <td>{signal.sources.length}</td>
-                  <td><StatusBadge category={signal.category}>{signal.level === 'rumor' ? '传闻' : '官方'}</StatusBadge></td>
+                  <td><StatusBadge status={signal.level}>{signalLevelLabel(signal.level)}</StatusBadge></td>
                   <td>{signal.lastUpdate}</td>
-                  <td>🔥 {Math.max(52, signal.confidence)}</td>
+                  <td>{signal.sources.length} 个来源</td>
                   <td><SignalTypeBadge signal={signal} /></td>
                 </tr>
               ))}
@@ -313,7 +350,7 @@ export function StrictSignalsPage({ onClearSearch, onSelect, selectedSignal, sig
               )}
             </tbody>
           </table>
-          <TableFooter count={visibleSignals.length || signals.length} />
+          <TableFooter count={visibleSignals.length} />
         </section>
         {detailOpen ? <aside className="fi-strict-panel fi-strict-evidence-board">
           <button className="fi-strict-close" aria-label="关闭详情" onClick={() => setDetailOpen(false)} type="button">×</button>
@@ -326,7 +363,7 @@ export function StrictSignalsPage({ onClearSearch, onSelect, selectedSignal, sig
           </div>
           <h4>官方事实（最高权重）</h4>
           <div className="fi-strict-evidence-grid">
-            {evidence.slice(0, 2).map((source) => (
+            {(officialEvidence.length ? officialEvidence : fallbackEvidence).slice(0, 2).map((source) => (
               <article key={source.name}>
                 <strong>{source.name}</strong>
                 <StatusBadge status={source.type}>{source.type}</StatusBadge>
@@ -336,12 +373,12 @@ export function StrictSignalsPage({ onClearSearch, onSelect, selectedSignal, sig
           </div>
           <h4>榜单佐证 / 价格监控</h4>
           <article className="fi-strict-wide-evidence">
-            <strong>{selectedSignal.provider} 相关趋势</strong>
-            <TrendSparkline color={selectedSignal.accent} points={trendPoints(selectedSignal.confidence)} />
+            <strong>{selectedSignal.provider} 榜单 / 评测证据</strong>
+            <TrendSparkline color={selectedSignal.accent} points={(benchmarkEvidence.length ? benchmarkEvidence : selectedSignal.sources).map((source) => Math.round(source.strength * 100)).slice(0, 6)} />
           </article>
           <h4>社区热度 / 传播</h4>
           <div className="fi-strict-evidence-grid">
-            {evidence.slice(2, 4).map((source) => (
+            {(socialEvidence.length ? socialEvidence : selectedSignal.sources.filter((source) => source.type !== 'official')).slice(0, 2).map((source) => (
               <article key={source.name}>
                 <strong>{source.name}</strong>
                 <StatusBadge status={source.type}>{source.type}</StatusBadge>
@@ -351,13 +388,11 @@ export function StrictSignalsPage({ onClearSearch, onSelect, selectedSignal, sig
           </div>
           <div className="fi-strict-related">
             <div className="fi-strict-card-head">
-              <h4>关键信号（3）</h4>
+              <h4>相关主题（{selectedSignal.sources.length}）</h4>
               <a href="#signals">查看全部</a>
             </div>
             <div className="fi-strict-related-tags">
-              <span>API 成本趋势</span>
-              <span>开发者反馈</span>
-              <span>模型可用性</span>
+              {[selectedSignal.category, selectedSignal.provider, ...selectedSignal.sources.slice(0, 2).map((source) => signalLevelLabel(source.type))].map((item, index) => <span key={`${item}-${index}`}>{item}</span>)}
             </div>
           </div>
         </aside> : <aside className="fi-strict-panel fi-strict-evidence-board is-collapsed">
@@ -759,8 +794,8 @@ export function StrictDataPage({ dataset, freshnessById, searchQuery, skippedSou
     checkedAt: source.lastCheckedAt ?? dataset.generatedAt,
     column: source.sourceType,
     id: source.id,
-    itemCount: Math.max(0, Math.round((source.weight || 0.5) * 1000)),
-    message: source.status === 'skipped' ? 'missing token' : source.message ?? 'ok',
+    itemCount: 0,
+    message: source.message ?? source.status,
     name: source.name,
     status: source.status,
     url: source.url,
@@ -780,6 +815,14 @@ export function StrictDataPage({ dataset, freshnessById, searchQuery, skippedSou
     return acc
   }, {})
   const sourceDistribution = Object.entries(groupedSourceCounts).sort((a, b) => b[1] - a[1])
+  const miniKpis = [
+    { label: '模型信号', note: 'signals.category', value: dataset.signals.filter((signal) => signal.category === '模型').length },
+    { label: 'AI 编程', note: 'signals.category', value: dataset.signals.filter((signal) => signal.category === 'AI 编程').length },
+    { label: 'Agent', note: 'signals.category', value: dataset.signals.filter((signal) => signal.category === 'Agent').length },
+    { label: '工具 / Skill', note: 'signals.category', value: dataset.signals.filter((signal) => signal.category === 'Skill / 插件').length },
+    { label: '可用来源', note: 'sourceRuns.status=ok', value: okCount },
+    { label: '待配置/失败', note: 'sourceRuns.status', value: sourceRows.filter((run) => run.status !== 'ok').length },
+  ]
 
   return (
     <section className="fi-strict-page">
@@ -787,7 +830,7 @@ export function StrictDataPage({ dataset, freshnessById, searchQuery, skippedSou
         {['源明细', '对比分析', '异常分析', '价值监控'].map((item) => <button className={activeTab === item ? 'is-active' : ''} key={item} onClick={() => setActiveTab(item)} type="button">{item}</button>)}
       </div>
       <div className="fi-strict-kpi-grid">
-        <StrictKpi icon={<Activity size={22} />} label="信号总量" note={`当前匹配 ${filteredRows.length} 个任务`} tone="teal" value={dataset.stats.totalEntities || dataset.signals.length} />
+        <StrictKpi icon={<Activity size={22} />} label="信号总量" note={`当前匹配 ${filteredRows.length} 个任务`} tone="teal" value={dataset.signals.length} />
         <StrictKpi icon={<Layers3 size={22} />} label="来源总量" note={`已验证 ${dataset.stats.verifiedSources} 个`} tone="blue" value={dataset.stats.totalSources || sources.length} />
         <StrictKpi icon={<Box size={22} />} label="健康来源" note={`可用率 ${healthyPercent}%`} tone="purple" value={okCount} />
         <StrictKpi icon={<UsersRound size={22} />} label="数据库状态" note={selectedRun?.message ?? '无异常'} tone="orange" value={dataset.stats.databaseStatus} />
@@ -808,7 +851,7 @@ export function StrictDataPage({ dataset, freshnessById, searchQuery, skippedSou
         </section>
       ) : <div className="fi-strict-data-grid">
         <section className="fi-strict-panel fi-strict-chart-panel">
-          <div className="fi-strict-card-head"><h3>信号趋势（近 30 天）</h3><SelectLike label="窗口" value="近 30 天" /></div>
+          <div className="fi-strict-card-head"><h3>本次抓取条目量</h3><SelectLike label="窗口" value="当前快照" /></div>
           <div className="fi-strict-line-chart">
             {sourceRows.slice(0, 16).map((run, index) => <span key={`${run.id}-${index}`} style={{ height: `${Math.max(18, Math.min(96, run.itemCount / 20 + 30))}%` }} />)}
           </div>
@@ -843,8 +886,8 @@ export function StrictDataPage({ dataset, freshnessById, searchQuery, skippedSou
       </div>}
       <StrictStateStrip kind="data" />
       <section className="fi-strict-mini-kpis">
-        {['多模型', '长文本', 'Agent', '推理能力', '工具调用', '开源模型'].map((item, index) => (
-          <article key={item}><span>{item}</span><strong>{1256 - index * 117}</strong><small>较昨日 ↑ {(13.4 + index / 2).toFixed(1)}%</small></article>
+        {miniKpis.map((item) => (
+          <article key={item.label}><span>{item.label}</span><strong>{item.value}</strong><small>{item.note}</small></article>
         ))}
       </section>
       <section className="fi-strict-panel fi-strict-table-card">
@@ -857,10 +900,10 @@ export function StrictDataPage({ dataset, freshnessById, searchQuery, skippedSou
                 <td><strong>{run.name}</strong></td>
                 <td><StatusBadge status={run.status}>{run.status}</StatusBadge></td>
                 <td>{run.itemCount || 0}</td>
-                <td>{run.status === 'ok' ? '2 分钟' : '-'}</td>
-                <td>{run.status === 'skipped' ? 'missing token' : run.status === 'error' ? run.message : '0'}</td>
+                <td>未记录</td>
+                <td>{run.status === 'ok' ? '0' : run.message}</td>
                 <td>{freshnessById[run.id]?.ageLabel ?? formatDate(run.checkedAt)}</td>
-                <td>{run.status === 'ok' ? '28 分钟后' : '-'}</td>
+                <td>按调度</td>
                 <td><button className="fi-strict-small-button" onClick={(event) => { event.stopPropagation(); setSelectedRunId(run.id) }} type="button">详情</button></td>
               </tr>
             ))}
@@ -889,18 +932,29 @@ function DatabasePanel({ databaseStatus = '未配置', run }: { databaseStatus?:
   )
 }
 
-export function StrictRankingsPage({ items }: StrictRankingsPageProps) {
+export function StrictRankingsPage({ generatedAt, items }: StrictRankingsPageProps) {
   const [kind, setKind] = useState('综合')
   const [selectedName, setSelectedName] = useState('')
-  const visibleItems = items.filter((item) => {
+  const sortRankings = (rows: RankingItem[]) => rows.slice().sort((a, b) => {
+    const rankDelta = (a.rank ?? 999) - (b.rank ?? 999)
+    if (rankDelta !== 0) return rankDelta
+    return (b.score ?? -1) - (a.score ?? -1)
+  })
+  const visibleItems = sortRankings(items.filter((item) => {
     if (kind === '综合') return true
     if (kind === '模型') return item.kind === 'model' || item.category === '模型'
     if (kind === 'Agent') return item.kind === 'agent' || item.category === 'Agent'
     if (kind === '工具') return item.kind === 'tool' || item.category === 'Skill / 插件' || item.category === 'AI 编程'
     return item.kind === 'signal'
-  })
+  }))
   const visible = visibleItems.slice(0, 9)
   const selectedItem = visibleItems.find((item) => item.name === selectedName) ?? visibleItems[0]
+  const groupedTopLists = [
+    { title: '模型榜', rows: sortRankings(items.filter((item) => item.kind === 'model' || item.category === '模型')).slice(0, 5) },
+    { title: 'Agent 榜', rows: sortRankings(items.filter((item) => item.kind === 'agent' || item.category === 'Agent')).slice(0, 5) },
+    { title: '工具榜', rows: sortRankings(items.filter((item) => item.kind === 'tool' || item.category === 'AI 编程' || item.category === 'Skill / 插件')).slice(0, 5) },
+    { title: '信号热度', rows: sortRankings(items.filter((item) => item.kind === 'signal')).slice(0, 5) },
+  ]
   return (
     <section className="fi-strict-page">
       <StrictToolbar>
@@ -912,33 +966,33 @@ export function StrictRankingsPage({ items }: StrictRankingsPageProps) {
       </StrictToolbar>
       <div className="fi-strict-two-col">
         <section className="fi-strict-panel fi-strict-table-card">
-          <div className="fi-strict-card-head"><h3>排行榜 <span>（更新于 2 分钟前）</span></h3></div>
+          <div className="fi-strict-card-head"><h3>排行榜 <span>（更新于 {formatDate(generatedAt)}）</span></h3></div>
           <table className="fi-strict-simple-table is-ranking">
-            <thead><tr><th>排名</th><th>名称</th><th>类别</th><th>综合评分</th><th>能力</th><th>价格</th><th>活跃度</th><th>趋势（7天）</th><th>来源</th></tr></thead>
+            <thead><tr><th>排名</th><th>名称</th><th>类别</th><th>综合评分</th><th>原始排名</th><th>变化</th><th>证据</th><th>趋势</th><th>来源</th></tr></thead>
             <tbody>
               {visible.map((item, index) => (
                 <tr className={selectedItem?.name === item.name ? 'is-selected' : ''} key={`${item.kind}-${item.name}`} onClick={() => setSelectedName(item.name)} role="button" tabIndex={0}>
                   <td>{index + 1}</td>
                   <td><strong>{item.name}</strong><small>{item.provider}</small></td>
                   <td>{item.category}</td>
-                  <td><div className="fi-strict-score-bar"><span style={{ width: `${item.score ?? 78}%` }} />{item.score ?? 78}</div></td>
-                  <td>{((item.score ?? 78) + 0.2).toFixed(1)}</td>
-                  <td>{(92 + index / 2).toFixed(1)}</td>
-                  <td>{(97 - index * 2.3).toFixed(1)}</td>
-                  <td><TrendSparkline color={item.accent} points={item.trend.length ? item.trend : trendPoints(item.score, index)} /></td>
-                  <td><StatusBadge tone="blue">{item.source ?? '官方'}</StatusBadge></td>
+                  <td><div className="fi-strict-score-bar"><span style={{ width: `${typeof item.score === 'number' ? item.score : 12}%` }} />{rankingScoreLabel(item.score)}</div></td>
+                  <td>{item.rank}</td>
+                  <td>{typeof item.change === 'number' && item.change !== 0 ? (item.change > 0 ? `↑ ${item.change}` : `↓ ${Math.abs(item.change)}`) : '—'}</td>
+                  <td>{item.source ? item.source.split('/').length : '—'}</td>
+                  <td>{item.trend.length ? <TrendSparkline color={item.accent} points={item.trend} /> : <span>待历史数据</span>}</td>
+                  <td><StatusBadge tone="blue">{item.source ?? '未知来源'}</StatusBadge></td>
                 </tr>
               ))}
             </tbody>
           </table>
-          <TableFooter count={visibleItems.length || 126} />
+          <TableFooter count={visibleItems.length} />
         </section>
         <aside className="fi-strict-side-stack">
           <section className="fi-strict-panel">
             <div className="fi-strict-card-head"><h3>当前选中</h3></div>
             <h4>{selectedItem?.name ?? '暂无'}</h4>
             <p>{selectedItem?.scoringExplanation ?? selectedItem?.source ?? '点击榜单行查看详情。'}</p>
-            <TrendSparkline color={selectedItem?.accent ?? '#3d8cff'} points={selectedItem?.trend?.length ? selectedItem.trend : trendPoints(selectedItem?.score, 0)} />
+            {selectedItem?.trend?.length ? <TrendSparkline color={selectedItem.accent} points={selectedItem.trend} /> : <p>该条目暂无历史趋势数据。</p>}
           </section>
           <section className="fi-strict-panel">
             <div className="fi-strict-card-head"><h3>排序与评分</h3></div>
@@ -961,11 +1015,11 @@ export function StrictRankingsPage({ items }: StrictRankingsPageProps) {
         </aside>
       </div>
       <section className="fi-strict-bottom-grid">
-        {['模型榜', 'Agent 榜', '工具榜', '信号热度'].map((title, columnIndex) => (
-          <section className="fi-strict-panel fi-strict-bottom-card" key={title}>
-            <div className="fi-strict-card-head"><h3>{title} <span>Top 5</span></h3></div>
+        {groupedTopLists.map((group) => (
+          <section className="fi-strict-panel fi-strict-bottom-card" key={group.title}>
+            <div className="fi-strict-card-head"><h3>{group.title} <span>Top 5</span></h3></div>
             <ol className="fi-strict-top-list">
-              {items.slice(columnIndex, columnIndex + 5).map((item, index) => <li key={`${title}-${item.name}`}><span>{index + 1}</span><strong>{item.name}</strong><em>{item.score ?? 78}</em></li>)}
+              {group.rows.length ? group.rows.map((item, index) => <li key={`${group.title}-${item.name}`}><span>{index + 1}</span><strong>{item.name}</strong><em>{rankingScoreLabel(item.score)}</em></li>) : <li><span>—</span><strong>暂无数据</strong><em>—</em></li>}
             </ol>
             <a className="fi-strict-text-link" href="#rankings">查看完整榜单 →</a>
           </section>
@@ -1056,6 +1110,7 @@ export function StrictSourcesPage({ dataset, sources }: StrictSourcesPageProps) 
   const [statusFilter, setStatusFilter] = useState<'全部' | 'ok' | 'skipped' | 'error'>('全部')
   const [selectedId, setSelectedId] = useState('')
   const freshness = datasetFreshness(dataset)
+  const sourceHealthByName = new Map(dataset.sourceHealth.map((source) => [source.name, source]))
   const visibleSources = sources.filter((source) => {
     const statusMatched = statusFilter === '全部' || source.status === statusFilter
     const tabMatched = activeTab !== '风险提示' || source.status !== 'ok'
@@ -1063,6 +1118,19 @@ export function StrictSourcesPage({ dataset, sources }: StrictSourcesPageProps) 
   })
   const selectedSource = visibleSources.find((source) => source.id === selectedId) ?? visibleSources[0] ?? sources[0]
   const missing = sources.filter((source) => source.status === 'skipped' || source.status === 'error')
+  const sourceGroups = Object.entries(
+    sources.reduce<Record<string, SourceDefinition[]>>((groups, source) => {
+      const key = source.sourceType
+      groups[key] = groups[key] ?? []
+      groups[key].push(source)
+      return groups
+    }, {}),
+  ).map(([sourceType, rows]) => ({
+    coverage: Math.round((rows.filter((source) => source.status === 'ok').length / Math.max(1, rows.length)) * 100),
+    label: sourceTypeLabel(sourceType),
+    rows,
+  }))
+  const totalCoverage = Math.round((sources.filter((source) => source.status === 'ok').length / Math.max(1, sources.length)) * 100)
   return (
     <section className="fi-strict-page">
       <div className="fi-strict-subtabs">
@@ -1077,17 +1145,23 @@ export function StrictSourcesPage({ dataset, sources }: StrictSourcesPageProps) 
             <table className="fi-strict-simple-table is-sources">
               <thead><tr><th>来源</th><th>类型</th><th>健康度</th><th>覆盖领域</th><th>更新频率</th><th>可用性</th><th>操作</th></tr></thead>
               <tbody>
-                {visibleSources.slice(0, 10).map((source, index) => (
-                  <tr className={selectedSource?.id === source.id ? 'is-selected' : ''} key={source.id} onClick={() => setSelectedId(source.id)} role="button" tabIndex={0}>
-                    <td><strong>{source.name}</strong></td>
-                    <td><StatusBadge status={source.accessMethod}>{source.accessMethod}</StatusBadge></td>
-                    <td><StatusBadge tone={scoreTone(95 - index * 3)}>{95 - index * 3}</StatusBadge></td>
-                    <td><div className="fi-strict-score-bar"><span style={{ width: `${95 - index * 4}%` }} />{95 - index * 4}%</div></td>
-                    <td>{source.freshnessSla}</td>
-                    <td><StatusBadge status={source.status}>{source.status}</StatusBadge></td>
-                    <td><button className="fi-strict-small-button" onClick={(event) => { event.stopPropagation(); setSelectedId(source.id) }} type="button">详情</button></td>
-                  </tr>
-                ))}
+                {visibleSources.slice(0, 10).map((source) => {
+                  const health = sourceHealthByName.get(source.name)
+                  const freshnessAssessment = assessFreshness(source.lastCheckedAt, source.freshnessSla, source.status)
+                  const coverage = Math.round(Math.max(0, Math.min(100, health?.coverage ?? source.weight * 100)))
+                  const healthScore = source.status === 'ok' ? Math.max(coverage, freshnessAssessment.status === 'fresh' ? 90 : 72) : source.status === 'skipped' ? 0 : 25
+                  return (
+                    <tr className={selectedSource?.id === source.id ? 'is-selected' : ''} key={source.id} onClick={() => setSelectedId(source.id)} role="button" tabIndex={0}>
+                      <td><strong>{source.name}</strong></td>
+                      <td><StatusBadge status={source.accessMethod}>{source.accessMethod}</StatusBadge></td>
+                      <td><StatusBadge tone={scoreTone(healthScore)}>{healthScore}</StatusBadge></td>
+                      <td><div className="fi-strict-score-bar"><span style={{ width: `${coverage}%` }} />{coverage}%</div></td>
+                      <td>{source.freshnessSla}</td>
+                      <td><StatusBadge status={source.status}>{source.status}</StatusBadge></td>
+                      <td><button className="fi-strict-small-button" onClick={(event) => { event.stopPropagation(); setSelectedId(source.id) }} type="button">详情</button></td>
+                    </tr>
+                  )
+                })}
                 {!visibleSources.length && (
                   <tr className="fi-strict-empty-row"><td colSpan={7}><strong>没有匹配来源</strong><span>请切换状态或来源分组。</span></td></tr>
                 )}
@@ -1100,7 +1174,7 @@ export function StrictSourcesPage({ dataset, sources }: StrictSourcesPageProps) 
               <div className="fi-strict-card-head"><h3>失败和待配置来源</h3><AlertTriangle size={16} /></div>
               <table className="fi-strict-mini-table"><tbody>{missing.slice(0, 3).map((source) => <tr key={source.id}><td>{source.name}</td><td>{source.requiredEnv?.[0] ?? '待配置'}</td><td><button className="fi-strict-small-button" type="button">去配置</button></td></tr>)}</tbody></table>
             </section>
-            <DatabasePanel databaseStatus={dataset.stats.databaseStatus} run={dataset.sourceRuns[0]} />
+            <DatabasePanel databaseStatus={dataset.stats.databaseStatus} run={dataset.sourceRuns.find((run) => run.id === 'mysql-database')} />
           </section>
         </div>
         <aside className="fi-strict-side-stack">
@@ -1117,18 +1191,18 @@ export function StrictSourcesPage({ dataset, sources }: StrictSourcesPageProps) 
           </section>}
           <section className="fi-strict-panel">
             <div className="fi-strict-card-head"><h3>来源分组</h3></div>
-            {['官方确认', '模型能力', 'Agent 能力', '工具热度', '研究趋势', '早期传播'].map((group, index) => (
-              <article className="fi-strict-source-group" key={group}>
-                <div><strong>{group}</strong><span>{3 + index % 3} 个来源</span></div>
-                <div className="fi-strict-meter"><span style={{ width: `${92 - index * 6}%` }} /></div>
-                <p>{sources.slice(index, index + 3).map((source) => source.name).join(' · ')}</p>
+            {sourceGroups.map((group) => (
+              <article className="fi-strict-source-group" key={group.label}>
+                <div><strong>{group.label}</strong><span>{group.rows.length} 个来源</span></div>
+                <div className="fi-strict-meter"><span style={{ width: `${group.coverage}%` }} /></div>
+                <p>{group.rows.slice(0, 3).map((source) => source.name).join(' · ')}</p>
               </article>
             ))}
             <p className="fi-strict-warning-note">X / HN / GitHub 等为热度与传播来源，不作为独立官方确认依据。</p>
           </section>
           <section className="fi-strict-panel">
             <div className="fi-strict-card-head"><h3>总覆盖率</h3><StatusBadge status={freshness.status}>{freshness.generated.label}</StatusBadge></div>
-            <div className="fi-strict-meter"><span style={{ width: '71%' }} /></div>
+            <div className="fi-strict-meter"><span style={{ width: `${totalCoverage}%` }} /></div>
           </section>
         </aside>
       </div>

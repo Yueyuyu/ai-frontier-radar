@@ -28,9 +28,12 @@ const signalTabs: Array<{ key: SignalTabKey; label: string; matches: (signal: Fr
 ]
 
 function signalStatus(signal: FrontierSignal) {
-  if (signal.confidence >= 92) return '新'
-  if (signal.confidence >= 82) return '更新'
-  return signal.level === 'rumor' ? '趋势' : '观察'
+  if (signal.level === 'official') return '官方确认'
+  if (signal.level === 'docs') return '文档'
+  if (signal.level === 'benchmark') return '榜单'
+  if (signal.level === 'platform') return '平台'
+  if (signal.level === 'social') return '热度'
+  return '观察'
 }
 
 function confidenceLabel(value: number) {
@@ -39,9 +42,10 @@ function confidenceLabel(value: number) {
   return '观察'
 }
 
-function trendPoints(signal: FrontierSignal) {
-  const base = signal.confidence
-  return [base - 14, base - 9, base - 12, base - 4, base - 7, base].map((point) => Math.max(10, point))
+function evidenceStrengthPoints(signal: FrontierSignal) {
+  const strengths = signal.sources.map((source) => Math.round(source.strength * 100)).filter((value) => Number.isFinite(value))
+  if (strengths.length >= 3) return strengths.slice(0, 6)
+  return [signal.confidence - 8, signal.confidence - 4, signal.confidence].map((point) => Math.max(10, Math.min(100, point)))
 }
 
 function KpiCard({ icon, label, metric, note, tone }: { icon: ReactNode; label: string; metric: string | number; note: string; tone: 'teal' | 'blue' | 'purple' | 'orange' }) {
@@ -91,8 +95,8 @@ function SignalTable({ onSelect, selectedSignal, signals }: { onSelect: (id: str
               <th>分类</th>
               <th>来源</th>
               <th>置信度</th>
-              <th>影响度</th>
-              <th>热度趋势</th>
+              <th>证据数</th>
+              <th>证据强度</th>
               <th>首次发现</th>
               <th>更新时间</th>
               <th>状态</th>
@@ -123,10 +127,10 @@ function SignalTable({ onSelect, selectedSignal, signals }: { onSelect: (id: str
                     <StatusBadge confidence={signal.confidence}>{signal.confidence} {confidenceLabel(signal.confidence)}</StatusBadge>
                   </td>
                   <td>
-                    <StatusBadge tone={signal.confidence >= 85 ? 'blue' : 'warning'}>{Math.max(54, signal.confidence - 4)} {confidenceLabel(signal.confidence - 4)}</StatusBadge>
+                    <StatusBadge tone={signal.sources.length >= 3 ? 'blue' : 'warning'}>{signal.sources.length} 个</StatusBadge>
                   </td>
                   <td>
-                    <TrendSparkline color={signal.accent} points={trendPoints(signal)} />
+                    <TrendSparkline color={signal.accent} points={evidenceStrengthPoints(signal)} />
                   </td>
                   <td>{signal.firstSeen}</td>
                   <td>{signal.lastUpdate}</td>
@@ -171,7 +175,7 @@ function RankingMini({ dataset }: { dataset: FrontierIntelDataset }) {
           </li>
         ))}
       </ol>
-      <p>新增 {dataset.signals.length * 14} 条 · 更新 {dataset.sourceRuns.length} 条</p>
+      <p>信号 {dataset.signals.length} 条 · 来源运行 {dataset.sourceRuns.length} 个</p>
     </section>
   )
 }
@@ -227,11 +231,11 @@ function SourceHealthSummary({ dataset }: { dataset: FrontierIntelDataset }) {
         </ul>
       </div>
       <div className="fi-strict-mini-line">
-        {[46, 44, 58, 52, 69, 61, 66].map((value, index) => (
+        {(dataset.sourceRuns.length ? dataset.sourceRuns.slice(0, 7).map((run) => Math.max(16, Math.min(92, run.itemCount / 18 + 22))) : [healthy]).map((value, index) => (
           <span key={index} style={{ height: `${value}%` }} />
         ))}
       </div>
-      <p>7 日可用率 · 较昨日 +1.3%</p>
+      <p>当前可用率 {healthy}% · {freshness.generated.label}</p>
     </section>
   )
 }
@@ -284,13 +288,13 @@ function StrictInspector({ onClose, signal }: { onClose: () => void; signal: Fro
           <StatusBadge confidence={signal.confidence}>{confidenceLabel(signal.confidence)}</StatusBadge>
         </div>
         <div>
-          <span>影响度</span>
-          <strong>{Math.max(54, signal.confidence - 4)}</strong>
-          <StatusBadge tone="blue">{confidenceLabel(signal.confidence - 4)}</StatusBadge>
+          <span>证据数</span>
+          <strong>{signal.sources.length}</strong>
+          <StatusBadge tone="blue">{signal.sourceCount ?? signal.sources.length} 条</StatusBadge>
         </div>
         <div>
-          <span>热度趋势</span>
-          <TrendSparkline color={signal.accent} points={trendPoints(signal)} />
+          <span>证据强度</span>
+          <TrendSparkline color={signal.accent} points={evidenceStrengthPoints(signal)} />
         </div>
         <div>
           <span>状态</span>
@@ -307,12 +311,12 @@ function StrictInspector({ onClose, signal }: { onClose: () => void; signal: Fro
       </div>
       <div className="fi-strict-related">
         <div className="fi-strict-card-head">
-          <h4>关键信号 ({signal.sources.length + 5})</h4>
+          <h4>相关主题 ({signal.sources.length})</h4>
           <a href="#signals">查看全部</a>
         </div>
         <div className="fi-strict-related-tags">
-          {['API 成本趋势', '开发者反馈', '竞争对手价变动', '模型可用性'].map((item) => (
-            <span key={item}>{item}</span>
+          {[signal.category, signal.provider, ...signal.sources.slice(0, 2).map((source) => source.type)].map((item, index) => (
+            <span key={`${item}-${index}`}>{item}</span>
           ))}
         </div>
       </div>

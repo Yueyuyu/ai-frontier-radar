@@ -1,0 +1,413 @@
+{
+  "baseUrl": "http://127.0.0.1:4173/",
+  "captures": [
+    {
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\00-coverage-map.png",
+      "hash": "#coverage-map",
+      "id": "00-coverage-map",
+      "textLength": 2451,
+      "viewport": {
+        "width": 1536,
+        "height": 1024
+      }
+    },
+    {
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\01-overview.png",
+      "hash": "#overview",
+      "id": "01-overview",
+      "textLength": 1715,
+      "viewport": {
+        "width": 1536,
+        "height": 1024
+      }
+    },
+    {
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\02-signal-feed.png",
+      "hash": "#signals",
+      "id": "02-signal-feed",
+      "textLength": 1707,
+      "viewport": {
+        "width": 1536,
+        "height": 1024
+      }
+    },
+    {
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\03-model-map.png",
+      "hash": "#model-rankings",
+      "id": "03-model-map",
+      "textLength": 1661,
+      "viewport": {
+        "width": 1536,
+        "height": 1024
+      }
+    },
+    {
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\04-agent-market.png",
+      "hash": "#agent-rankings",
+      "id": "04-agent-market",
+      "textLength": 1845,
+      "viewport": {
+        "width": 1536,
+        "height": 1024
+      }
+    },
+    {
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\05-skill-plugin.png",
+      "hash": "#tool-rankings",
+      "id": "05-skill-plugin",
+      "textLength": 1562,
+      "viewport": {
+        "width": 1536,
+        "height": 1024
+      }
+    },
+    {
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\06-data-operations.png",
+      "hash": "#source-runs",
+      "id": "06-data-operations",
+      "textLength": 2979,
+      "viewport": {
+        "width": 1536,
+        "height": 1024
+      }
+    },
+    {
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\07-rankings.png",
+      "hash": "#rankings",
+      "id": "07-rankings",
+      "textLength": 1551,
+      "viewport": {
+        "width": 1536,
+        "height": 1024
+      }
+    },
+    {
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\08-release-calendar.png",
+      "hash": "#calendar",
+      "id": "08-release-calendar",
+      "textLength": 1002,
+      "viewport": {
+        "width": 1536,
+        "height": 1024
+      }
+    },
+    {
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\09-trusted-sources.png",
+      "hash": "#sources",
+      "id": "09-trusted-sources",
+      "textLength": 1895,
+      "viewport": {
+        "width": 1536,
+        "height": 1024
+      }
+    },
+    {
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\10-roadmap.png",
+      "hash": "#roadmap",
+      "id": "10-roadmap",
+      "textLength": 1309,
+      "viewport": {
+        "width": 1536,
+        "height": 1024
+      }
+    },
+    {
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\11-mobile-390.png",
+      "hash": "#overview",
+      "id": "11-mobile-390",
+      "textLength": 1176,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\11-mobile-empty.png",
+      "hash": "#mobile-empty",
+      "id": "11-mobile-empty",
+      "textLength": 45,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\11-mobile-loading.png",
+      "hash": "#mobile-loading",
+      "id": "11-mobile-loading",
+      "textLength": 27,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\12-components-states.png",
+      "hash": "#components-states",
+      "id": "12-components-states",
+      "textLength": 1989,
+      "viewport": {
+        "width": 1536,
+        "height": 1024
+      }
+    }
+  ],
+  "consoleEntries": [],
+  "generatedAt": "2026-07-01T07:28:20.249Z",
+  "interactions": [
+    {
+      "action": "search",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\01-overview-search-claude.png",
+      "query": "Claude"
+    },
+    {
+      "action": "category-filter",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\01-overview-filter-agent.png",
+      "tab": "Agent / 生态"
+    },
+    {
+      "action": "category-filter-model",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\01-overview-filter-model.png",
+      "tab": "model"
+    },
+    {
+      "action": "row-select",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\01-overview-row-selected.png"
+    },
+    {
+      "action": "inspector-collapsed",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\01-overview-inspector-collapsed.png"
+    },
+    {
+      "action": "inspector-reopened",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\01-overview-inspector-reopened.png"
+    },
+    {
+      "action": "signal-filter-high-official",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\02-signal-feed-filter-high-official.png"
+    },
+    {
+      "action": "signal-row-selected",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\02-signal-feed-row-selected.png"
+    },
+    {
+      "action": "signal-detail-collapsed",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\02-signal-feed-detail-collapsed.png"
+    },
+    {
+      "action": "model-price-sort",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\03-model-map-price-sort.png"
+    },
+    {
+      "action": "model-heat-sort",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\03-model-map-heat-sort.png"
+    },
+    {
+      "action": "agent-card-selected",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\04-agent-market-card-selected.png"
+    },
+    {
+      "action": "agent-detail-collapsed",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\04-agent-market-detail-collapsed.png"
+    },
+    {
+      "action": "agent-detail-reopened",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\04-agent-market-detail-reopened.png"
+    },
+    {
+      "action": "skill-filter-dev",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\05-skill-plugin-filter-dev.png"
+    },
+    {
+      "action": "skill-row-selected",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\05-skill-plugin-row-selected.png"
+    },
+    {
+      "action": "data-exceptions",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\06-data-operations-exceptions.png"
+    },
+    {
+      "action": "data-value-monitor",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\06-data-operations-value-monitor.png"
+    },
+    {
+      "action": "data-run-selected",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\06-data-operations-run-selected.png"
+    },
+    {
+      "action": "rankings-filter-agent",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\07-rankings-filter-agent.png"
+    },
+    {
+      "action": "rankings-row-selected",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\07-rankings-row-selected.png"
+    },
+    {
+      "action": "calendar-list-view",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\08-release-calendar-list-view.png"
+    },
+    {
+      "action": "calendar-filter-official",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\08-release-calendar-filter-official.png"
+    },
+    {
+      "action": "calendar-next-month",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\08-release-calendar-next-month.png"
+    },
+    {
+      "action": "sources-risk-tab",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\09-trusted-sources-risk-tab.png"
+    },
+    {
+      "action": "sources-detail-open",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\09-trusted-sources-detail-open.png"
+    },
+    {
+      "action": "roadmap-gantt-view",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\10-roadmap-gantt-view.png"
+    },
+    {
+      "action": "roadmap-version-selected",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\10-roadmap-version-selected.png"
+    },
+    {
+      "action": "mobile-filter-high-confidence",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\11-mobile-filter-high-confidence.png"
+    },
+    {
+      "action": "mobile-card-drawer-open",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\11-mobile-card-drawer-open.png"
+    },
+    {
+      "action": "mobile-drawer-closed",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\11-mobile-drawer-closed.png"
+    },
+    {
+      "action": "components-interactive",
+      "file": "B:\\Support\\Project\\ai-frontier-radar\\design-concepts\\ui-regression-2026-07-01-data-adapter\\12-components-states-interactive.png"
+    }
+  ],
+  "pageErrors": [],
+  "screens": [
+    {
+      "hash": "#coverage-map",
+      "id": "00-coverage-map",
+      "viewport": {
+        "width": 1536,
+        "height": 1024
+      }
+    },
+    {
+      "hash": "#overview",
+      "id": "01-overview",
+      "viewport": {
+        "width": 1536,
+        "height": 1024
+      }
+    },
+    {
+      "hash": "#signals",
+      "id": "02-signal-feed",
+      "viewport": {
+        "width": 1536,
+        "height": 1024
+      }
+    },
+    {
+      "hash": "#model-rankings",
+      "id": "03-model-map",
+      "viewport": {
+        "width": 1536,
+        "height": 1024
+      }
+    },
+    {
+      "hash": "#agent-rankings",
+      "id": "04-agent-market",
+      "viewport": {
+        "width": 1536,
+        "height": 1024
+      }
+    },
+    {
+      "hash": "#tool-rankings",
+      "id": "05-skill-plugin",
+      "viewport": {
+        "width": 1536,
+        "height": 1024
+      }
+    },
+    {
+      "hash": "#source-runs",
+      "id": "06-data-operations",
+      "viewport": {
+        "width": 1536,
+        "height": 1024
+      }
+    },
+    {
+      "hash": "#rankings",
+      "id": "07-rankings",
+      "viewport": {
+        "width": 1536,
+        "height": 1024
+      }
+    },
+    {
+      "hash": "#calendar",
+      "id": "08-release-calendar",
+      "viewport": {
+        "width": 1536,
+        "height": 1024
+      }
+    },
+    {
+      "hash": "#sources",
+      "id": "09-trusted-sources",
+      "viewport": {
+        "width": 1536,
+        "height": 1024
+      }
+    },
+    {
+      "hash": "#roadmap",
+      "id": "10-roadmap",
+      "viewport": {
+        "width": 1536,
+        "height": 1024
+      }
+    },
+    {
+      "hash": "#overview",
+      "id": "11-mobile-390",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "hash": "#mobile-empty",
+      "id": "11-mobile-empty",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "hash": "#mobile-loading",
+      "id": "11-mobile-loading",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "hash": "#components-states",
+      "id": "12-components-states",
+      "viewport": {
+        "width": 1536,
+        "height": 1024
+      }
+    }
+  ]
+}

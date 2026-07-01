@@ -29,7 +29,7 @@ import { CoverageMapPage } from './components/CoverageMapPage'
 import { ComponentStateBoard } from './components/ComponentStateBoard'
 import { StrictOverview } from './components/StrictOverview'
 import { StrictCalendarPage, StrictDataPage, StrictDomainPage, StrictRankingsPage, StrictRoadmapPage, StrictSignalsPage, StrictSourcesPage } from './components/StrictPages'
-import { useFrontierIntelDataset } from './dataRuntime'
+import { useFrontierIntelDataState, type FrontierIntelDataState } from './dataRuntime'
 import type { FrontierIntelDataset, FrontierSignal, RankingItem, SourceDefinition } from './types'
 
 type ViewKey = 'coverage' | 'overview' | 'signals' | 'models' | 'agents' | 'skills' | 'data' | 'rankings' | 'calendar' | 'sources' | 'roadmap' | 'components'
@@ -152,6 +152,19 @@ function sourceDefinitionMatchesSourceFilter(source: SourceDefinition, filter: S
   return source.sourceType.includes('capability') || source.sourceType.includes('benchmark') || text.includes('benchmark') || text.includes('arena') || text.includes('榜')
 }
 
+function dataSourceLabel(source: FrontierIntelDataState['source']) {
+  if (source === 'api') return 'API'
+  if (source === 'frontier-intel-json') return '静态 JSON'
+  if (source === 'radar-json') return '兼容 JSON'
+  return '内置数据'
+}
+
+function dataSyncLabel(dataState: FrontierIntelDataState) {
+  if (dataState.loading) return '刷新中'
+  if (dataState.isFallback) return '降级数据'
+  return '已同步'
+}
+
 function domainSourceTypes(kind: 'model' | 'agent' | 'tool') {
   if (kind === 'model') return ['official-confirmation', 'model-capability']
   if (kind === 'agent') return ['agent-capability', 'early-propagation']
@@ -179,7 +192,7 @@ function signalRankingItems(signals: FrontierSignal[]): RankingItem[] {
       category: signal.category,
       score: signal.confidence,
       change: null,
-      trend: [Math.max(signal.confidence - 24, 0), Math.max(signal.confidence - 18, 0), Math.max(signal.confidence - 12, 0), Math.max(signal.confidence - 6, 0), signal.confidence],
+      trend: [],
       accent: signal.accent,
       source: signal.sources.map((source) => source.name).join(' / '),
       kind: 'signal',
@@ -233,6 +246,7 @@ function buildNav(dataset: FrontierIntelDataset): NavItem[] {
 function AppShell({
   activeView,
   children,
+  dataState,
   dataset,
   navItems,
   onNavigate,
@@ -243,6 +257,7 @@ function AppShell({
 }: {
   activeView: ViewKey
   children: ReactNode
+  dataState: FrontierIntelDataState
   dataset: FrontierIntelDataset
   navItems: NavItem[]
   onNavigate: (view: ViewKey) => void
@@ -256,8 +271,8 @@ function AppShell({
       <div className="fi-shell">
         <SidebarNav activeView={activeView} dataset={dataset} items={navItems} onNavigate={onNavigate} />
         <section className="fi-main">
-          <MobileTopBar dataset={dataset} />
-          <CommandBar activeView={activeView} dataset={dataset} onSearchChange={onSearchChange} onSourceFilterChange={onSourceFilterChange} searchQuery={searchQuery} sourceFilter={sourceFilter} />
+          <MobileTopBar dataState={dataState} dataset={dataset} />
+          <CommandBar activeView={activeView} dataState={dataState} dataset={dataset} onSearchChange={onSearchChange} onSourceFilterChange={onSourceFilterChange} searchQuery={searchQuery} sourceFilter={sourceFilter} />
           {children}
         </section>
       </div>
@@ -328,18 +343,19 @@ function SidebarNav({ activeView, dataset, items, onNavigate }: { activeView: Vi
   )
 }
 
-function MobileTopBar({ dataset }: { dataset: FrontierIntelDataset }) {
+function MobileTopBar({ dataState, dataset }: { dataState: FrontierIntelDataState; dataset: FrontierIntelDataset }) {
   const freshness = datasetFreshness(dataset)
   return (
     <header className="fi-mobile-top">
       <strong>AI 前沿情报站</strong>
-      <span>{freshness.generated.label}</span>
+      <span>{dataState.loading ? '刷新中' : `${dataSourceLabel(dataState.source)} · ${freshness.generated.label}`}</span>
     </header>
   )
 }
 
 function CommandBar({
   activeView,
+  dataState,
   dataset,
   onSearchChange,
   onSourceFilterChange,
@@ -347,6 +363,7 @@ function CommandBar({
   sourceFilter,
 }: {
   activeView: ViewKey
+  dataState: FrontierIntelDataState
   dataset: FrontierIntelDataset
   onSearchChange: (value: string) => void
   onSourceFilterChange: (value: SourceFilter) => void
@@ -356,6 +373,7 @@ function CommandBar({
   const copy = viewMeta[activeView]
   const inputRef = useRef<HTMLInputElement>(null)
   const freshness = datasetFreshness(dataset)
+  const sourceLabel = dataSourceLabel(dataState.source)
   const sourceFilters: Array<{ label: string; value: SourceFilter }> = [
     { label: '全部', value: 'all' },
     { label: '官方', value: 'official' },
@@ -395,10 +413,10 @@ function CommandBar({
           </button>
         ))}
       </div>
-      <div className="fi-refresh-inline">
+      <div className="fi-refresh-inline" title={dataState.error ?? undefined}>
         <span />
-        <strong>刷新中</strong>
-        <em>· {freshness.generated.ageLabel}</em>
+        <strong>{dataSyncLabel(dataState)}</strong>
+        <em>· {sourceLabel} · {freshness.generated.ageLabel}</em>
       </div>
       <div className="fi-actions">
         <button className="fi-icon-action" type="button" aria-label="通知"><Bell size={17} /><span>12</span></button>
@@ -497,7 +515,7 @@ function RankingsPage({ dataset, searchQuery, sourceFilter }: { dataset: Frontie
   const query = normalizeSearch(searchQuery)
   const baseItems = [...dataset.rankingItems, ...signalRankingItems(dataset.signals)]
   const items = baseItems.filter((item) => rankingItemMatchesSourceFilter(item, sourceFilter) && (!query || `${item.name} ${item.provider} ${item.category} ${item.source ?? ''} ${item.scoringExplanation ?? ''}`.toLowerCase().includes(query)))
-  return <StrictRankingsPage items={items} />
+  return <StrictRankingsPage generatedAt={dataset.generatedAt} items={items} />
 }
 
 function DataPage({ dataset, searchQuery }: { dataset: FrontierIntelDataset; searchQuery: string }) {
@@ -585,7 +603,8 @@ function ViewSwitch({
 }
 
 export default function FrontierIntelApp() {
-  const dataset = useFrontierIntelDataset()
+  const dataState = useFrontierIntelDataState()
+  const dataset = dataState.dataset
   const { activeView, navigate } = useActiveView()
   const navItems = useMemo(() => buildNav(dataset), [dataset])
   const [drawerOpen, setDrawerOpen] = useState(false)
@@ -615,7 +634,7 @@ export default function FrontierIntelApp() {
   }
 
   return (
-    <AppShell activeView={activeView} dataset={dataset} navItems={navItems} onNavigate={navigate} onSearchChange={setSearchQuery} onSourceFilterChange={setSourceFilter} searchQuery={searchQuery} sourceFilter={sourceFilter}>
+    <AppShell activeView={activeView} dataState={dataState} dataset={dataset} navItems={navItems} onNavigate={navigate} onSearchChange={setSearchQuery} onSourceFilterChange={setSourceFilter} searchQuery={searchQuery} sourceFilter={sourceFilter}>
       {selectedSignal ? (
         <>
           <ViewSwitch activeView={activeView} dataset={dataset} onClearSearch={() => setSearchQuery('')} onSelect={selectSignal} searchQuery={searchQuery} selectedSignal={selectedSignal} sourceFilter={sourceFilter} />
