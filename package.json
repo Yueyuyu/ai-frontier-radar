@@ -1,8 +1,8 @@
 {
   "name": "ai-frontier-radar",
   "private": false,
-  "version": "0.0.0",
-  "description": "开源 AI 前沿情报雷达，追踪模型、AI 编程工具、Agent、Skill/插件、榜单变化与发布信号。",
+  "version": "0.2.0",
+  "description": "开源 AI 前沿情报工作台，追踪模型、AI 编程工具、Agent、Skill/插件、榜单变化、来源健康与发布信号。",
   "license": "MIT",
   "type": "module",
   "repository": {
@@ -14,13 +14,16 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
+    "refresh:data": "node scripts/refresh-data.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@remotion/player": "4.0.484",
     "animejs": "^4.5.0",
     "lucide-react": "^1.21.0",
     "react": "^19.2.7",
-    "react-dom": "^19.2.7"
+    "react-dom": "^19.2.7",
+    "remotion": "4.0.484"
   },
   "devDependencies": {
     "@types/node": "^24.13.2",

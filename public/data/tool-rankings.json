@@ -1,0 +1,79 @@
+{
+  "id": "tool-rankings",
+  "title": "工具 / 插件热度",
+  "description": "Product Hunt、GitHub、OSSInsight、HN 与 X 共同计算工具热度，Hammers 类候选会先进入观察池。",
+  "sources": [
+    "GitHub",
+    "OSSInsight",
+    "Product Hunt",
+    "HN Algolia",
+    "X"
+  ],
+  "cadence": "1 小时",
+  "items": [
+    {
+      "label": "punkpeye/awesome-mcp-servers",
+      "value": "90017 stars",
+      "note": "A collection of MCP servers.",
+      "score": 100,
+      "url": "https://github.com/punkpeye/awesome-mcp-servers",
+      "query": "MCP Server"
+    },
+    {
+      "label": "headroomlabs-ai/headroom",
+      "value": "54170 stars",
+      "note": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 60-95% fewer tokens, same answers. Library",
+      "score": 100,
+      "url": "https://github.com/headroomlabs-ai/headroom",
+      "query": "MCP Server"
+    },
+    {
+      "label": "microsoft/playwright-mcp",
+      "value": "34522 stars",
+      "note": "Playwright MCP server",
+      "score": 100,
+      "url": "https://github.com/microsoft/playwright-mcp",
+      "query": "MCP Server"
+    },
+    {
+      "label": "github/github-mcp-server",
+      "value": "31077 stars",
+      "note": "GitHub's official MCP Server",
+      "score": 100,
+      "url": "https://github.com/github/github-mcp-server",
+      "query": "MCP Server"
+    },
+    {
+      "label": "PrefectHQ/fastmcp",
+      "value": "25873 stars",
+      "note": "🚀 The fast, Pythonic way to build MCP servers and clients.",
+      "score": 100,
+      "url": "https://github.com/PrefectHQ/fastmcp",
+      "query": "MCP Server"
+    },
+    {
+      "label": "activepieces/activepieces",
+      "value": "23058 stars",
+      "note": "AI Agents & MCPs & AI Workflow Automation • (~400 MCP servers for AI agents) • AI Automation / AI Agent with MCPs • AI W",
+      "score": 100,
+      "url": "https://github.com/activepieces/activepieces",
+      "query": "MCP Server"
+    },
+    {
+      "label": "DeusData/codebase-memory-mcp",
+      "value": "21965 stars",
+      "note": "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in mil",
+      "score": 100,
+      "url": "https://github.com/DeusData/codebase-memory-mcp",
+      "query": "MCP Server"
+    },
+    {
+      "label": "googleapis/mcp-toolbox",
+      "value": "15750 stars",
+      "note": "MCP Toolbox for Databases is an open source MCP server for databases.",
+      "score": 100,
+      "url": "https://github.com/googleapis/mcp-toolbox",
+      "query": "MCP Server"
+    }
+  ]
+}

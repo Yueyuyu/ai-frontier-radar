@@ -1,0 +1,102 @@
+name: Refresh Frontier Intel Data
+
+on:
+  schedule:
+    # 高频来源：30 分钟一次。
+    - cron: "*/30 * * * *"
+    # 榜单和来源校准：每 6 小时一次。
+    - cron: "17 */6 * * *"
+    # 每日全量校验：每天 UTC 02:41。
+    - cron: "41 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: frontier-intel-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+      X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
+      TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
+      PRODUCT_HUNT_TOKEN: ${{ secrets.PRODUCT_HUNT_TOKEN }}
+      ARTIFICIAL_ANALYSIS_API_KEY: ${{ secrets.ARTIFICIAL_ANALYSIS_API_KEY }}
+      ARTIFICIAL_ANALYSIS_API_URL: ${{ secrets.ARTIFICIAL_ANALYSIS_API_URL }}
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      DATABASE_USERNAME: ${{ secrets.DATABASE_USERNAME }}
+      DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+      DB_HOST: ${{ secrets.DB_HOST }}
+      DB_PORT: ${{ secrets.DB_PORT }}
+      DB_NAME: ${{ secrets.DB_NAME }}
+      DB_USERNAME: ${{ secrets.DB_USERNAME }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Refresh data
+        run: npm run refresh:data
+
+      - name: Validate generated JSON
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+          const files = [
+            'frontier-intel-data.json',
+            'radar-data.json',
+            'signals.json',
+            'sources.json',
+            'source-runs.json',
+            'model-rankings.json',
+            'agent-rankings.json',
+            'tool-rankings.json',
+            'raw-snapshots.index.json',
+          ];
+          for (const file of files) {
+            JSON.parse(fs.readFileSync(`public/data/${file}`, 'utf8'));
+          }
+          const dataset = JSON.parse(fs.readFileSync('public/data/frontier-intel-data.json', 'utf8'));
+          if (!dataset.generatedAt || !dataset.sourceRuns?.length) {
+            throw new Error('frontier-intel-data.json missing generatedAt or sourceRuns');
+          }
+          console.log(`signals=${dataset.signals.length}, rankings=${dataset.rankingItems.length}, sourceRuns=${dataset.sourceRuns.length}`);
+          NODE
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload data snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontier-intel-data
+          path: public/data/
+          retention-days: 14
+
+      - name: Commit refreshed data
+        run: |
+          if [ -z "$(git status --porcelain public/data)" ]; then
+            echo "No public/data changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data
+          git commit -m "chore: 刷新 Frontier Intel 数据"
+          git push

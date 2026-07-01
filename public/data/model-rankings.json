@@ -1,0 +1,71 @@
+{
+  "id": "model-rankings",
+  "title": "模型排行榜",
+  "description": "OpenRouter、Artificial Analysis、Hugging Face、arXiv 与官方文档共同组成模型排名。",
+  "sources": [
+    "OpenRouter",
+    "Artificial Analysis",
+    "Hugging Face",
+    "arXiv",
+    "官方文档"
+  ],
+  "cadence": "6 小时",
+  "items": [
+    {
+      "label": "Anthropic: Claude Fable Latest",
+      "value": "1000k ctx",
+      "note": "~anthropic/claude-fable-latest",
+      "score": 100,
+      "url": "https://openrouter.ai/~anthropic/claude-fable-latest"
+    },
+    {
+      "label": "Anthropic: Claude Fable 5",
+      "value": "1000k ctx",
+      "note": "anthropic/claude-fable-5",
+      "score": 100,
+      "url": "https://openrouter.ai/anthropic/claude-fable-5"
+    },
+    {
+      "label": "Qwen: Qwen3.7 Plus",
+      "value": "1000k ctx",
+      "note": "qwen/qwen3.7-plus",
+      "score": 100,
+      "url": "https://openrouter.ai/qwen/qwen3.7-plus"
+    },
+    {
+      "label": "Anthropic: Claude Opus 4.8 (Fast)",
+      "value": "1000k ctx",
+      "note": "anthropic/claude-opus-4.8-fast",
+      "score": 100,
+      "url": "https://openrouter.ai/anthropic/claude-opus-4.8-fast"
+    },
+    {
+      "label": "Anthropic: Claude Opus 4.8",
+      "value": "1000k ctx",
+      "note": "anthropic/claude-opus-4.8",
+      "score": 100,
+      "url": "https://openrouter.ai/anthropic/claude-opus-4.8"
+    },
+    {
+      "label": "Qwen: Qwen3.7 Max",
+      "value": "1000k ctx",
+      "note": "qwen/qwen3.7-max",
+      "score": 100,
+      "url": "https://openrouter.ai/qwen/qwen3.7-max"
+    },
+    {
+      "label": "Google: Gemini 3.5 Flash",
+      "value": "1049k ctx",
+      "note": "google/gemini-3.5-flash",
+      "score": 100,
+      "url": "https://openrouter.ai/google/gemini-3.5-flash"
+    },
+    {
+      "label": "Anthropic: Claude Opus 4.7 (Fast)",
+      "value": "1000k ctx",
+      "note": "anthropic/claude-opus-4.7-fast",
+      "score": 100,
+      "url": "https://openrouter.ai/anthropic/claude-opus-4.7-fast"
+    }
+  ]
+}

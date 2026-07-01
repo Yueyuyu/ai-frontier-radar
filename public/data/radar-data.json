@@ -1,0 +1,2409 @@
+{
+  "generatedAt": "2026-06-30T08:27:49.824Z",
+  "stats": {
+    "totalEntities": 65,
+    "totalSources": 31,
+    "verifiedSources": 17,
+    "updatedLabel": "实时刷新",
+    "generatedAt": "2026-06-30T08:27:49.824Z",
+    "databaseStatus": "未配置"
+  },
+  "workspaceNav": [
+    {
+      "label": "情报总览",
+      "href": "#overview",
+      "legacyHref": "#radar"
+    },
+    {
+      "label": "信号矩阵",
+      "href": "#signals"
+    },
+    {
+      "label": "模型地图",
+      "href": "#model-rankings"
+    },
+    {
+      "label": "Agent 市场",
+      "href": "#agent-rankings"
+    },
+    {
+      "label": "Skill / 插件",
+      "href": "#tool-rankings"
+    },
+    {
+      "label": "数据洞察",
+      "href": "#source-runs"
+    },
+    {
+      "label": "榜单",
+      "href": "#rankings"
+    },
+    {
+      "label": "发布日历",
+      "href": "#calendar"
+    },
+    {
+      "label": "可信来源",
+      "href": "#sources"
+    },
+    {
+      "label": "路线图",
+      "href": "#roadmap"
+    }
+  ],
+  "categories": [
+    "全部",
+    "模型",
+    "AI 编程",
+    "Agent",
+    "Skill / 插件",
+    "平台"
+  ],
+  "categoryMeta": {
+    "全部": {
+      "accent": "#10b5ab",
+      "soft": "rgba(18, 195, 185, 0.1)",
+      "icon": "layout-dashboard"
+    },
+    "模型": {
+      "accent": "#16c8be",
+      "soft": "rgba(22, 200, 190, 0.12)",
+      "icon": "sparkles"
+    },
+    "AI 编程": {
+      "accent": "#4b8cff",
+      "soft": "rgba(75, 140, 255, 0.12)",
+      "icon": "code"
+    },
+    "Agent": {
+      "accent": "#f59e0b",
+      "soft": "rgba(245, 158, 11, 0.14)",
+      "icon": "activity"
+    },
+    "Skill / 插件": {
+      "accent": "#b07bf7",
+      "soft": "rgba(176, 123, 247, 0.14)",
+      "icon": "layers"
+    },
+    "平台": {
+      "accent": "#ff6fd8",
+      "soft": "rgba(255, 111, 216, 0.12)",
+      "icon": "chart"
+    }
+  },
+  "signals": [
+    {
+      "id": "gpt-56-sol",
+      "provider": "OpenAI",
+      "name": "GPT-5.6 Sol",
+      "category": "模型",
+      "level": "official",
+      "confidence": 100,
+      "firstSeen": "2026-06-26",
+      "lastUpdate": "刚刚",
+      "releaseWindow": "有限预览",
+      "title": "GPT-5.6 Sol 进入有限预览",
+      "summary": "OpenAI 官方资料确认 GPT-5.6 Sol 进入有限预览，当前作为最高可信度发布信号追踪。",
+      "lane": 0,
+      "offset": 6,
+      "accent": "#63f7d4",
+      "trustBand": "high",
+      "sourceCount": 3,
+      "sources": [
+        {
+          "name": "OpenAI 公告",
+          "type": "official",
+          "detail": "官网发布 GPT-5.6 Sol 预览说明",
+          "strength": 98,
+          "url": "https://openai.com/news/"
+        },
+        {
+          "name": "OpenAI Help",
+          "type": "docs",
+          "detail": "Help 文档说明 Sol / Terra / Luna 的有限预览",
+          "strength": 96,
+          "url": "https://help.openai.com/"
+        },
+        {
+          "name": "OpenAI X",
+          "type": "social",
+          "detail": "官方社媒用于发布时间线交叉校验",
+          "strength": 88,
+          "url": "https://x.com/OpenAI"
+        }
+      ]
+    },
+    {
+      "id": "gpt-56-terra",
+      "provider": "OpenAI",
+      "name": "GPT-5.6 Terra",
+      "category": "模型",
+      "level": "official",
+      "confidence": 98,
+      "firstSeen": "2026-06-26",
+      "lastUpdate": "刚刚",
+      "releaseWindow": "有限预览",
+      "title": "GPT-5.6 Terra 限量开放",
+      "summary": "Terra 属于 GPT-5.6 系列预览模型，需要持续追踪 API 命名、账号层级和速率限制。",
+      "lane": 0,
+      "offset": 10,
+      "accent": "#ff8f5f",
+      "trustBand": "high",
+      "sourceCount": 2,
+      "sources": [
+        {
+          "name": "OpenAI Help",
+          "type": "docs",
+          "detail": "有限预览说明中列出 Terra",
+          "strength": 96,
+          "url": "https://help.openai.com/"
+        },
+        {
+          "name": "OpenAI API",
+          "type": "platform",
+          "detail": "监控模型 ID、价格和可用区域",
+          "strength": 88,
+          "url": "https://platform.openai.com/docs/models"
+        }
+      ]
+    },
+    {
+      "id": "gpt-56-luna",
+      "provider": "OpenAI",
+      "name": "GPT-5.6 Luna",
+      "category": "模型",
+      "level": "official",
+      "confidence": 97,
+      "firstSeen": "2026-06-26",
+      "lastUpdate": "刚刚",
+      "releaseWindow": "有限预览",
+      "title": "GPT-5.6 Luna 随 GPT-5.6 系列发布",
+      "summary": "Luna 与 Sol、Terra 同批进入有限范围发布，当前重点追踪 API 暴露、价格、评测和扩量窗口。",
+      "lane": 0,
+      "offset": 14,
+      "accent": "#8eb9ff",
+      "trustBand": "high",
+      "sourceCount": 2,
+      "sources": [
+        {
+          "name": "OpenAI Help",
+          "type": "docs",
+          "detail": "有限预览说明中包含 Luna",
+          "strength": 95,
+          "url": "https://help.openai.com/"
+        },
+        {
+          "name": "OpenAI API",
+          "type": "platform",
+          "detail": "后续以模型列表和计费页为准",
+          "strength": 86,
+          "url": "https://platform.openai.com/docs/models"
+        }
+      ]
+    },
+    {
+      "id": "codex",
+      "provider": "OpenAI",
+      "name": "Codex",
+      "category": "AI 编程",
+      "level": "platform",
+      "confidence": 98,
+      "firstSeen": "32 分钟前",
+      "lastUpdate": "刚刚",
+      "releaseWindow": "持续更新",
+      "title": "Codex 编程代理生态需要独立追踪",
+      "summary": "Codex 不只是模型入口，而是 AI 编程工作流本身；需要持续追踪 CLI、IDE、任务线程、工具调用和 Skill 能力变化。",
+      "lane": 1,
+      "offset": 20,
+      "accent": "#8eb9ff",
+      "trustBand": "high",
+      "sourceCount": 2,
+      "sources": [
+        {
+          "name": "OpenAI 开发者文档",
+          "type": "docs",
+          "detail": "追踪 Codex、工具调用和开发者工作流变化",
+          "strength": 86,
+          "url": "https://developers.openai.com/"
+        },
+        {
+          "name": "GitHub 热度",
+          "type": "platform",
+          "detail": "相关仓库增长观察生态扩散",
+          "strength": 74,
+          "url": "https://github.com/search?q=codex+agent&type=repositories"
+        }
+      ]
+    },
+    {
+      "id": "claude-code",
+      "provider": "Anthropic",
+      "name": "Claude Code",
+      "category": "AI 编程",
+      "level": "docs",
+      "confidence": 96,
+      "firstSeen": "1 小时前",
+      "lastUpdate": "刚刚",
+      "releaseWindow": "持续更新",
+      "title": "Claude Code 成为 Anthropic 工具线重点",
+      "summary": "Claude Code 代表模型能力向真实开发环境迁移，版本、权限、上下文和终端集成都值得长期追踪。",
+      "lane": 2,
+      "offset": 34,
+      "accent": "#ffb86b",
+      "trustBand": "high",
+      "sourceCount": 2,
+      "sources": [
+        {
+          "name": "Claude Code 文档",
+          "type": "docs",
+          "detail": "命令行、权限和项目上下文说明持续变化",
+          "strength": 84,
+          "url": "https://code.claude.com/docs/"
+        },
+        {
+          "name": "SkillsBench",
+          "type": "benchmark",
+          "detail": "评估带 Skill 工作流的真实开发能力",
+          "strength": 74,
+          "url": "https://www.skillsbench.ai/leaderboard"
+        }
+      ]
+    },
+    {
+      "id": "mcp-skills",
+      "provider": "MCP Ecosystem",
+      "name": "MCP / Skills",
+      "category": "Skill / 插件",
+      "level": "docs",
+      "confidence": 88,
+      "firstSeen": "3 小时前",
+      "lastUpdate": "刚刚",
+      "releaseWindow": "持续更新",
+      "title": "Skill 与 MCP 生态正在成为关键层",
+      "summary": "工具调用、连接器、Skill、MCP Server 会决定 AI 能否真正处理复杂任务。",
+      "lane": 4,
+      "offset": 25,
+      "accent": "#b79cff",
+      "trustBand": "medium",
+      "sourceCount": 2,
+      "sources": [
+        {
+          "name": "协议文档",
+          "type": "docs",
+          "detail": "MCP、工具规范和权限模型需要跟踪",
+          "strength": 83,
+          "url": "https://modelcontextprotocol.io/"
+        },
+        {
+          "name": "GitHub 仓库",
+          "type": "platform",
+          "detail": "社区 MCP Server 增长可作生态热度",
+          "strength": 74,
+          "url": "https://github.com/search?q=mcp+server&type=repositories"
+        }
+      ]
+    },
+    {
+      "id": "agent-runtime",
+      "provider": "OpenAI / Anthropic / LangChain",
+      "name": "Agent Runtime",
+      "category": "Agent",
+      "level": "docs",
+      "confidence": 88,
+      "firstSeen": "4 小时前",
+      "lastUpdate": "刚刚",
+      "releaseWindow": "持续更新",
+      "title": "Agent 运行时与工具权限成为前沿层",
+      "summary": "Agent 需要持续追踪任务执行、浏览器/终端能力、工具权限、记忆、沙箱和可观测性。",
+      "lane": 4,
+      "offset": 62,
+      "accent": "#f7d774",
+      "trustBand": "medium",
+      "sourceCount": 2,
+      "sources": [
+        {
+          "name": "Agent SDK 文档",
+          "type": "docs",
+          "detail": "Agent SDK、工具调用、沙箱和权限模型的变更",
+          "strength": 82,
+          "url": "https://platform.openai.com/docs/agents"
+        },
+        {
+          "name": "Agent 榜单",
+          "type": "benchmark",
+          "detail": "Steel、Agent Arena、HAL 等榜单提供外部评估",
+          "strength": 78,
+          "url": "https://leaderboard.steel.dev/"
+        }
+      ]
+    },
+    {
+      "id": "openrouter-rankings",
+      "provider": "OpenRouter / LMArena",
+      "name": "Rankings Signal",
+      "category": "平台",
+      "level": "platform",
+      "confidence": 86,
+      "firstSeen": "5 小时前",
+      "lastUpdate": "刚刚",
+      "releaseWindow": "每日更新",
+      "title": "榜单变化需要和发布信号分开看",
+      "summary": "模型排名可以接入 OpenRouter、LMArena、Artificial Analysis、SWE-bench 等平台，但不能替代官方发布和文档变更。",
+      "lane": 5,
+      "offset": 12,
+      "accent": "#ff6fd8",
+      "trustBand": "medium",
+      "sourceCount": 2,
+      "sources": [
+        {
+          "name": "OpenRouter Models",
+          "type": "platform",
+          "detail": "模型可用性、价格、上下文和模态",
+          "strength": 83,
+          "url": "https://openrouter.ai/api/v1/models"
+        },
+        {
+          "name": "LMArena",
+          "type": "benchmark",
+          "detail": "社区偏好榜可作能力趋势参考",
+          "strength": 76,
+          "url": "https://arena.ai/leaderboard"
+        }
+      ]
+    },
+    {
+      "id": "gemini-31-pro",
+      "provider": "Google",
+      "name": "Gemini 3.1 Pro",
+      "category": "模型",
+      "level": "platform",
+      "confidence": 93,
+      "firstSeen": "46 分钟前",
+      "lastUpdate": "刚刚",
+      "releaseWindow": "约 2-5 周",
+      "title": "Gemini Pro 系列需要持续追踪产品接入信号",
+      "summary": "Gemini 相关信号需要同时关注 Google 官方发布、AI Studio / Vertex AI 接入、第三方模型网关和开发者社区反馈。",
+      "lane": 2,
+      "offset": 41,
+      "accent": "#4b8cff",
+      "trustBand": "high",
+      "sourceCount": 2,
+      "sources": [
+        {
+          "name": "Gemini API Changelog",
+          "type": "docs",
+          "detail": "官方变更日志是最高权重来源",
+          "strength": 88,
+          "url": "https://ai.google.dev/gemini-api/docs/changelog"
+        },
+        {
+          "name": "AI Studio / Vertex AI",
+          "type": "platform",
+          "detail": "产品接入和 API 可用性需要持续监测",
+          "strength": 86,
+          "url": "https://ai.google.dev/"
+        }
+      ]
+    },
+    {
+      "id": "deepseek-v4-pro",
+      "provider": "DeepSeek",
+      "name": "DeepSeek V4 Pro",
+      "category": "模型",
+      "level": "rumor",
+      "confidence": 76,
+      "firstSeen": "7 小时前",
+      "lastUpdate": "刚刚",
+      "releaseWindow": "约 4-8 周",
+      "title": "DeepSeek Pro 信号进入观察模式",
+      "summary": "需要把社区传闻、开源仓库、API 接入和官方公告拆开处理，避免把传闻当事实。",
+      "lane": 5,
+      "offset": 58,
+      "accent": "#58d68d",
+      "trustBand": "medium",
+      "sourceCount": 2,
+      "sources": [
+        {
+          "name": "DeepSeek API",
+          "type": "docs",
+          "detail": "模型列表和价格页是确认信号",
+          "strength": 78,
+          "url": "https://api-docs.deepseek.com/"
+        },
+        {
+          "name": "社区观察",
+          "type": "social",
+          "detail": "讨论热度高，但需要证据链校准",
+          "strength": 52,
+          "url": "https://x.com/search?q=DeepSeek%20model"
+        }
+      ]
+    },
+    {
+      "id": "kimi-k26",
+      "provider": "Moonshot",
+      "name": "Kimi K2.6",
+      "category": "模型",
+      "level": "platform",
+      "confidence": 80,
+      "firstSeen": "8 小时前",
+      "lastUpdate": "刚刚",
+      "releaseWindow": "约 3-6 周",
+      "title": "Kimi 系列模型信号进入观察池",
+      "summary": "Kimi 动态需要关注 Moonshot 官方渠道、产品侧模型选择器、API 文档和中文社区讨论。",
+      "lane": 5,
+      "offset": 72,
+      "accent": "#111827",
+      "trustBand": "medium",
+      "sourceCount": 2,
+      "sources": [
+        {
+          "name": "Kimi API 文档",
+          "type": "docs",
+          "detail": "模型列表、价格和调用限制作为确认信号",
+          "strength": 75,
+          "url": "https://platform.kimi.ai/docs/overview"
+        },
+        {
+          "name": "中文社区观察",
+          "type": "social",
+          "detail": "讨论热度上升，但需要证据链校准",
+          "strength": 50,
+          "url": "https://x.com/search?q=Kimi%20model"
+        }
+      ]
+    }
+  ],
+  "releaseFrames": [
+    {
+      "name": "GPT-5.6 Sol",
+      "provider": "OpenAI",
+      "category": "模型",
+      "confidence": 100,
+      "window": "有限预览",
+      "accent": "#63f7d4"
+    },
+    {
+      "name": "GPT-5.6 Terra",
+      "provider": "OpenAI",
+      "category": "模型",
+      "confidence": 98,
+      "window": "有限预览",
+      "accent": "#ff8f5f"
+    },
+    {
+      "name": "GPT-5.6 Luna",
+      "provider": "OpenAI",
+      "category": "模型",
+      "confidence": 97,
+      "window": "有限预览",
+      "accent": "#8eb9ff"
+    },
+    {
+      "name": "Codex",
+      "provider": "OpenAI",
+      "category": "AI 编程",
+      "confidence": 98,
+      "window": "持续更新",
+      "accent": "#8eb9ff"
+    },
+    {
+      "name": "Claude Code",
+      "provider": "Anthropic",
+      "category": "AI 编程",
+      "confidence": 96,
+      "window": "持续更新",
+      "accent": "#ffb86b"
+    },
+    {
+      "name": "MCP / Skills",
+      "provider": "MCP Ecosystem",
+      "category": "Skill / 插件",
+      "confidence": 88,
+      "window": "持续更新",
+      "accent": "#b79cff"
+    },
+    {
+      "name": "Agent Runtime",
+      "provider": "OpenAI / Anthropic / LangChain",
+      "category": "Agent",
+      "confidence": 88,
+      "window": "持续更新",
+      "accent": "#f7d774"
+    },
+    {
+      "name": "Rankings Signal",
+      "provider": "OpenRouter / LMArena",
+      "category": "平台",
+      "confidence": 86,
+      "window": "每日更新",
+      "accent": "#ff6fd8"
+    },
+    {
+      "name": "Gemini 3.1 Pro",
+      "provider": "Google",
+      "category": "模型",
+      "confidence": 93,
+      "window": "约 2-5 周",
+      "accent": "#4b8cff"
+    },
+    {
+      "name": "DeepSeek V4 Pro",
+      "provider": "DeepSeek",
+      "category": "模型",
+      "confidence": 76,
+      "window": "约 4-8 周",
+      "accent": "#58d68d"
+    },
+    {
+      "name": "Kimi K2.6",
+      "provider": "Moonshot",
+      "category": "模型",
+      "confidence": 80,
+      "window": "约 3-6 周",
+      "accent": "#111827"
+    }
+  ],
+  "rankingItems": [
+    {
+      "rank": 1,
+      "name": "GPT-5.6 Sol",
+      "provider": "OpenAI",
+      "category": "模型",
+      "score": 100,
+      "change": 6,
+      "trend": [
+        48,
+        54,
+        58,
+        64,
+        72,
+        80,
+        100
+      ],
+      "accent": "#63f7d4",
+      "kind": "model",
+      "source": "综合信号",
+      "scoringExplanation": "综合信号分由官方确认、平台可用性、榜单或社区热度共同计算。"
+    },
+    {
+      "rank": 2,
+      "name": "superpowers",
+      "provider": "obra",
+      "category": "Agent",
+      "score": 100,
+      "change": null,
+      "trend": [
+        30,
+        36,
+        42,
+        47,
+        55,
+        61,
+        100
+      ],
+      "accent": "#f7d774",
+      "source": "GitHub Search",
+      "url": "https://github.com/obra/superpowers",
+      "kind": "agent",
+      "scoringExplanation": "GitHub 搜索项主要依据仓库热度、活跃度和查询类别排序。"
+    },
+    {
+      "rank": 3,
+      "name": "hermes-agent",
+      "provider": "NousResearch",
+      "category": "Agent",
+      "score": 100,
+      "change": null,
+      "trend": [
+        30,
+        36,
+        42,
+        47,
+        55,
+        61,
+        100
+      ],
+      "accent": "#f7d774",
+      "source": "GitHub Search",
+      "url": "https://github.com/NousResearch/hermes-agent",
+      "kind": "agent",
+      "scoringExplanation": "GitHub 搜索项主要依据仓库热度、活跃度和查询类别排序。"
+    },
+    {
+      "rank": 4,
+      "name": "JavaGuide",
+      "provider": "Snailclimb",
+      "category": "Agent",
+      "score": 100,
+      "change": null,
+      "trend": [
+        30,
+        36,
+        42,
+        47,
+        55,
+        61,
+        100
+      ],
+      "accent": "#f7d774",
+      "source": "GitHub Search",
+      "url": "https://github.com/Snailclimb/JavaGuide",
+      "kind": "agent",
+      "scoringExplanation": "GitHub 搜索项主要依据仓库热度、活跃度和查询类别排序。"
+    },
+    {
+      "rank": 5,
+      "name": "langflow",
+      "provider": "langflow-ai",
+      "category": "Agent",
+      "score": 100,
+      "change": null,
+      "trend": [
+        30,
+        36,
+        42,
+        47,
+        55,
+        61,
+        100
+      ],
+      "accent": "#f7d774",
+      "source": "GitHub Search",
+      "url": "https://github.com/langflow-ai/langflow",
+      "kind": "agent",
+      "scoringExplanation": "GitHub 搜索项主要依据仓库热度、活跃度和查询类别排序。"
+    },
+    {
+      "rank": 6,
+      "name": "dify",
+      "provider": "langgenius",
+      "category": "Agent",
+      "score": 100,
+      "change": null,
+      "trend": [
+        30,
+        36,
+        42,
+        47,
+        55,
+        61,
+        100
+      ],
+      "accent": "#f7d774",
+      "source": "GitHub Search",
+      "url": "https://github.com/langgenius/dify",
+      "kind": "agent",
+      "scoringExplanation": "GitHub 搜索项主要依据仓库热度、活跃度和查询类别排序。"
+    },
+    {
+      "rank": 7,
+      "name": "system-prompts-and-models-of-ai-tools",
+      "provider": "x1xhlol",
+      "category": "Agent",
+      "score": 100,
+      "change": null,
+      "trend": [
+        30,
+        36,
+        42,
+        47,
+        55,
+        61,
+        100
+      ],
+      "accent": "#f7d774",
+      "source": "GitHub Search",
+      "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
+      "kind": "agent",
+      "scoringExplanation": "GitHub 搜索项主要依据仓库热度、活跃度和查询类别排序。"
+    },
+    {
+      "rank": 8,
+      "name": "langchain",
+      "provider": "langchain-ai",
+      "category": "Agent",
+      "score": 100,
+      "change": null,
+      "trend": [
+        30,
+        36,
+        42,
+        47,
+        55,
+        61,
+        100
+      ],
+      "accent": "#f7d774",
+      "source": "GitHub Search",
+      "url": "https://github.com/langchain-ai/langchain",
+      "kind": "agent",
+      "scoringExplanation": "GitHub 搜索项主要依据仓库热度、活跃度和查询类别排序。"
+    },
+    {
+      "rank": 9,
+      "name": "agency-agents",
+      "provider": "msitarzewski",
+      "category": "Agent",
+      "score": 100,
+      "change": null,
+      "trend": [
+        30,
+        36,
+        42,
+        47,
+        55,
+        61,
+        100
+      ],
+      "accent": "#f7d774",
+      "source": "GitHub Search",
+      "url": "https://github.com/msitarzewski/agency-agents",
+      "kind": "agent",
+      "scoringExplanation": "GitHub 搜索项主要依据仓库热度、活跃度和查询类别排序。"
+    },
+    {
+      "rank": 10,
+      "name": "GPT-5.6 Terra",
+      "provider": "OpenAI",
+      "category": "模型",
+      "score": 98,
+      "change": 6,
+      "trend": [
+        48,
+        54,
+        58,
+        64,
+        72,
+        80,
+        98
+      ],
+      "accent": "#ff8f5f",
+      "kind": "model",
+      "source": "综合信号",
+      "scoringExplanation": "综合信号分由官方确认、平台可用性、榜单或社区热度共同计算。"
+    },
+    {
+      "rank": 11,
+      "name": "Codex",
+      "provider": "OpenAI",
+      "category": "AI 编程",
+      "score": 98,
+      "change": 6,
+      "trend": [
+        48,
+        54,
+        58,
+        64,
+        72,
+        80,
+        98
+      ],
+      "accent": "#8eb9ff",
+      "kind": "tool",
+      "source": "综合信号",
+      "scoringExplanation": "综合信号分由官方确认、平台可用性、榜单或社区热度共同计算。"
+    },
+    {
+      "rank": 12,
+      "name": "GPT-5.6 Luna",
+      "provider": "OpenAI",
+      "category": "模型",
+      "score": 97,
+      "change": 6,
+      "trend": [
+        48,
+        54,
+        58,
+        64,
+        72,
+        80,
+        97
+      ],
+      "accent": "#8eb9ff",
+      "kind": "model",
+      "source": "综合信号",
+      "scoringExplanation": "综合信号分由官方确认、平台可用性、榜单或社区热度共同计算。"
+    },
+    {
+      "rank": 13,
+      "name": "Claude Code",
+      "provider": "Anthropic",
+      "category": "AI 编程",
+      "score": 96,
+      "change": 5,
+      "trend": [
+        48,
+        54,
+        58,
+        64,
+        72,
+        80,
+        96
+      ],
+      "accent": "#ffb86b",
+      "kind": "tool",
+      "source": "综合信号",
+      "scoringExplanation": "综合信号分由官方确认、平台可用性、榜单或社区热度共同计算。"
+    },
+    {
+      "rank": 14,
+      "name": "Gemini 3.1 Pro",
+      "provider": "Google",
+      "category": "模型",
+      "score": 93,
+      "change": 5,
+      "trend": [
+        48,
+        54,
+        58,
+        64,
+        72,
+        80,
+        93
+      ],
+      "accent": "#4b8cff",
+      "kind": "model",
+      "source": "综合信号",
+      "scoringExplanation": "综合信号分由官方确认、平台可用性、榜单或社区热度共同计算。"
+    },
+    {
+      "rank": 15,
+      "name": "MCP / Skills",
+      "provider": "MCP Ecosystem",
+      "category": "Skill / 插件",
+      "score": 88,
+      "change": 3,
+      "trend": [
+        48,
+        54,
+        58,
+        64,
+        72,
+        80,
+        88
+      ],
+      "accent": "#b79cff",
+      "kind": "tool",
+      "source": "综合信号",
+      "scoringExplanation": "综合信号分由官方确认、平台可用性、榜单或社区热度共同计算。"
+    },
+    {
+      "rank": 16,
+      "name": "Agent Runtime",
+      "provider": "OpenAI / Anthropic / LangChain",
+      "category": "Agent",
+      "score": 88,
+      "change": 3,
+      "trend": [
+        48,
+        54,
+        58,
+        64,
+        72,
+        80,
+        88
+      ],
+      "accent": "#f7d774",
+      "kind": "agent",
+      "source": "综合信号",
+      "scoringExplanation": "综合信号分由官方确认、平台可用性、榜单或社区热度共同计算。"
+    },
+    {
+      "rank": 17,
+      "name": "Steel.dev Agent",
+      "provider": "leaderboard.steel.dev",
+      "category": "Agent",
+      "score": 88,
+      "change": null,
+      "trend": [
+        42,
+        45,
+        49,
+        52,
+        56,
+        61,
+        88
+      ],
+      "accent": "#f7d774",
+      "source": "Agent benchmark page",
+      "url": "https://leaderboard.steel.dev/",
+      "kind": "agent",
+      "scoringExplanation": "Agent 榜单项主要依据公开 benchmark 页面健康状态和页面信号分排序。"
+    },
+    {
+      "rank": 18,
+      "name": "HAL Princeton",
+      "provider": "hal.cs.princeton.edu",
+      "category": "Agent",
+      "score": 88,
+      "change": null,
+      "trend": [
+        42,
+        45,
+        49,
+        52,
+        56,
+        61,
+        88
+      ],
+      "accent": "#f7d774",
+      "source": "Agent benchmark page",
+      "url": "https://hal.cs.princeton.edu/",
+      "kind": "agent",
+      "scoringExplanation": "Agent 榜单项主要依据公开 benchmark 页面健康状态和页面信号分排序。"
+    },
+    {
+      "rank": 19,
+      "name": "SkillsBench",
+      "provider": "www.skillsbench.ai",
+      "category": "Agent",
+      "score": 88,
+      "change": null,
+      "trend": [
+        42,
+        45,
+        49,
+        52,
+        56,
+        61,
+        88
+      ],
+      "accent": "#f7d774",
+      "source": "Agent benchmark page",
+      "url": "https://www.skillsbench.ai/leaderboard",
+      "kind": "agent",
+      "scoringExplanation": "Agent 榜单项主要依据公开 benchmark 页面健康状态和页面信号分排序。"
+    },
+    {
+      "rank": 20,
+      "name": "Rankings Signal",
+      "provider": "OpenRouter / LMArena",
+      "category": "平台",
+      "score": 86,
+      "change": 3,
+      "trend": [
+        48,
+        54,
+        58,
+        64,
+        72,
+        80,
+        86
+      ],
+      "accent": "#ff6fd8",
+      "kind": "tool",
+      "source": "综合信号",
+      "scoringExplanation": "综合信号分由官方确认、平台可用性、榜单或社区热度共同计算。"
+    },
+    {
+      "rank": 21,
+      "name": "Kimi K2.6",
+      "provider": "Moonshot",
+      "category": "模型",
+      "score": 80,
+      "change": 1,
+      "trend": [
+        48,
+        54,
+        58,
+        64,
+        72,
+        80,
+        80
+      ],
+      "accent": "#111827",
+      "kind": "model",
+      "source": "综合信号",
+      "scoringExplanation": "综合信号分由官方确认、平台可用性、榜单或社区热度共同计算。"
+    },
+    {
+      "rank": 22,
+      "name": "DeepSeek V4 Pro",
+      "provider": "DeepSeek",
+      "category": "模型",
+      "score": 76,
+      "change": 1,
+      "trend": [
+        48,
+        54,
+        58,
+        64,
+        72,
+        80,
+        76
+      ],
+      "accent": "#58d68d",
+      "kind": "model",
+      "source": "综合信号",
+      "scoringExplanation": "综合信号分由官方确认、平台可用性、榜单或社区热度共同计算。"
+    },
+    {
+      "rank": 23,
+      "name": "Agent Arena",
+      "provider": "arena.ai",
+      "category": "Agent",
+      "score": 58,
+      "change": null,
+      "trend": [
+        42,
+        45,
+        49,
+        52,
+        56,
+        61,
+        58
+      ],
+      "accent": "#f7d774",
+      "source": "Agent benchmark page",
+      "url": "https://arena.ai/leaderboard/agent",
+      "kind": "agent",
+      "scoringExplanation": "Agent 榜单项主要依据公开 benchmark 页面健康状态和页面信号分排序。"
+    }
+  ],
+  "sourceHealth": [
+    {
+      "name": "X Recent Search",
+      "detail": "社区 / X",
+      "type": "social",
+      "influence": 76,
+      "coverage": 20,
+      "accent": "#ffb86b",
+      "url": "https://api.x.com/2/tweets/search/recent",
+      "status": "skipped",
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "accessMethod": "api-key",
+      "authRequired": true,
+      "freshnessSla": "15m-6h",
+      "weight": 0.5
+    },
+    {
+      "name": "Product Hunt API",
+      "detail": "工具 / 插件热度",
+      "type": "social",
+      "influence": 76,
+      "coverage": 20,
+      "accent": "#ffb86b",
+      "url": "https://api.producthunt.com/v2/api/graphql",
+      "status": "skipped",
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "accessMethod": "api-key",
+      "authRequired": true,
+      "freshnessSla": "15m-6h",
+      "weight": 0.5
+    },
+    {
+      "name": "Artificial Analysis Data API",
+      "detail": "模型排行榜",
+      "type": "social",
+      "influence": 76,
+      "coverage": 20,
+      "accent": "#ffb86b",
+      "url": "https://artificialanalysis.ai/data-api",
+      "status": "skipped",
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "accessMethod": "api-key",
+      "authRequired": true,
+      "freshnessSla": "15m-6h",
+      "weight": 0.5
+    },
+    {
+      "name": "DeepSeek API Docs",
+      "detail": "官网 / 文档",
+      "type": "official",
+      "influence": 96,
+      "coverage": 88,
+      "accent": "#16c8be",
+      "url": "https://api-docs.deepseek.com/",
+      "status": "ok",
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "accessMethod": "official-page",
+      "authRequired": false,
+      "freshnessSla": "30m-1h",
+      "weight": 1
+    },
+    {
+      "name": "OpenAI API Changelog",
+      "detail": "官网 / 文档",
+      "type": "official",
+      "influence": 96,
+      "coverage": 8,
+      "accent": "#ff6f6f",
+      "url": "https://developers.openai.com/api/docs/changelog",
+      "status": "error",
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "accessMethod": "official-page",
+      "authRequired": false,
+      "freshnessSla": "30m-1h",
+      "weight": 1
+    },
+    {
+      "name": "OpenAI News",
+      "detail": "官网 / 文档",
+      "type": "official",
+      "influence": 96,
+      "coverage": 8,
+      "accent": "#ff6f6f",
+      "url": "https://openai.com/news/",
+      "status": "error",
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "accessMethod": "official-page",
+      "authRequired": false,
+      "freshnessSla": "30m-1h",
+      "weight": 1
+    },
+    {
+      "name": "Hacker News - GPT-5.6",
+      "detail": "社区 / X",
+      "type": "platform",
+      "influence": 88,
+      "coverage": 88,
+      "accent": "#16c8be",
+      "url": "https://hn.algolia.com/api/v1/search_by_date?query=GPT-5.6&tags=story&hitsPerPage=10",
+      "status": "ok",
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "accessMethod": "public-api",
+      "authRequired": false,
+      "freshnessSla": "1h",
+      "weight": 0.82
+    },
+    {
+      "name": "Steel.dev Agent Leaderboard",
+      "detail": "Agent 排行榜",
+      "type": "benchmark",
+      "influence": 72,
+      "coverage": 88,
+      "accent": "#16c8be",
+      "url": "https://leaderboard.steel.dev/",
+      "status": "ok",
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "accessMethod": "html-page",
+      "authRequired": false,
+      "freshnessSla": "daily",
+      "weight": 0.7
+    },
+    {
+      "name": "GitHub Search - AI Agent",
+      "detail": "Agent 排行榜",
+      "type": "platform",
+      "influence": 88,
+      "coverage": 88,
+      "accent": "#16c8be",
+      "url": "https://api.github.com/search/repositories?q=ai%20agent%20pushed%3A%3E%3D2026-05-16%20stars%3A%3E50&sort=stars&order=desc&per_page=10",
+      "status": "ok",
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "accessMethod": "public-api",
+      "authRequired": false,
+      "freshnessSla": "1h",
+      "weight": 0.82
+    },
+    {
+      "name": "arXiv API",
+      "detail": "论文 / 研究",
+      "type": "platform",
+      "influence": 88,
+      "coverage": 88,
+      "accent": "#16c8be",
+      "url": "https://export.arxiv.org/api/query?search_query=all:%22AI%20agent%22%20OR%20all:%22large%20language%20model%22&start=0&max_results=10&sortBy=submittedDate&sortOrder=descending",
+      "status": "ok",
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "accessMethod": "public-api",
+      "authRequired": false,
+      "freshnessSla": "1h",
+      "weight": 0.82
+    },
+    {
+      "name": "OpenRouter Models",
+      "detail": "模型排行榜",
+      "type": "platform",
+      "influence": 88,
+      "coverage": 88,
+      "accent": "#16c8be",
+      "url": "https://openrouter.ai/api/v1/models",
+      "status": "ok",
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "accessMethod": "public-api",
+      "authRequired": false,
+      "freshnessSla": "1h",
+      "weight": 0.82
+    },
+    {
+      "name": "Kimi API Docs",
+      "detail": "官网 / 文档",
+      "type": "official",
+      "influence": 96,
+      "coverage": 88,
+      "accent": "#16c8be",
+      "url": "https://platform.kimi.ai/docs/overview",
+      "status": "ok",
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "accessMethod": "official-page",
+      "authRequired": false,
+      "freshnessSla": "30m-1h",
+      "weight": 1
+    }
+  ],
+  "sources": [
+    {
+      "id": "deepseek-docs",
+      "name": "DeepSeek API Docs",
+      "url": "https://api-docs.deepseek.com/",
+      "sourceType": "official-confirmation",
+      "accessMethod": "official-page",
+      "authRequired": false,
+      "weight": 1,
+      "freshnessSla": "30m-1h",
+      "status": "ok",
+      "requiredEnv": [],
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "message": "命中 3/3 个关键词",
+      "itemCount": 3
+    },
+    {
+      "id": "kimi-docs",
+      "name": "Kimi API Docs",
+      "url": "https://platform.kimi.ai/docs/overview",
+      "sourceType": "official-confirmation",
+      "accessMethod": "official-page",
+      "authRequired": false,
+      "weight": 1,
+      "freshnessSla": "30m-1h",
+      "status": "ok",
+      "requiredEnv": [],
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "message": "命中 3/3 个关键词",
+      "itemCount": 3
+    },
+    {
+      "id": "anthropic-release-notes",
+      "name": "Claude Release Notes",
+      "url": "https://support.claude.com/en/articles/12138966-release-notes",
+      "sourceType": "official-confirmation",
+      "accessMethod": "official-page",
+      "authRequired": false,
+      "weight": 1,
+      "freshnessSla": "30m-1h",
+      "status": "ok",
+      "requiredEnv": [],
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "message": "命中 3/3 个关键词",
+      "itemCount": 3
+    },
+    {
+      "id": "openrouter-models",
+      "name": "OpenRouter Models",
+      "url": "https://openrouter.ai/api/v1/models",
+      "sourceType": "model-capability",
+      "accessMethod": "public-api",
+      "authRequired": false,
+      "weight": 0.88,
+      "freshnessSla": "1h",
+      "status": "ok",
+      "requiredEnv": [],
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "message": "刷新成功",
+      "itemCount": 338
+    },
+    {
+      "id": "steel-leaderboard",
+      "name": "Steel.dev Agent Leaderboard",
+      "url": "https://leaderboard.steel.dev/",
+      "sourceType": "agent-capability",
+      "accessMethod": "html-page",
+      "authRequired": false,
+      "weight": 0.72,
+      "freshnessSla": "daily",
+      "status": "ok",
+      "requiredEnv": [],
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "message": "命中 3/3 个关键词",
+      "itemCount": 3
+    },
+    {
+      "id": "github-agent",
+      "name": "GitHub Search - AI Agent",
+      "url": "https://api.github.com/search/repositories?q=ai%20agent%20pushed%3A%3E%3D2026-05-16%20stars%3A%3E50&sort=stars&order=desc&per_page=10",
+      "sourceType": "agent-capability",
+      "accessMethod": "public-api",
+      "authRequired": false,
+      "weight": 0.72,
+      "freshnessSla": "1h",
+      "status": "ok",
+      "requiredEnv": [],
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "message": "刷新成功",
+      "itemCount": 10
+    },
+    {
+      "id": "hal-princeton",
+      "name": "HAL Princeton",
+      "url": "https://hal.cs.princeton.edu/",
+      "sourceType": "agent-capability",
+      "accessMethod": "html-page",
+      "authRequired": false,
+      "weight": 0.72,
+      "freshnessSla": "daily",
+      "status": "ok",
+      "requiredEnv": [],
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "message": "命中 3/3 个关键词",
+      "itemCount": 3
+    },
+    {
+      "id": "skillsbench",
+      "name": "SkillsBench",
+      "url": "https://www.skillsbench.ai/leaderboard",
+      "sourceType": "agent-capability",
+      "accessMethod": "html-page",
+      "authRequired": false,
+      "weight": 0.72,
+      "freshnessSla": "daily",
+      "status": "ok",
+      "requiredEnv": [],
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "message": "命中 3/3 个关键词",
+      "itemCount": 3
+    },
+    {
+      "id": "webarena",
+      "name": "WebArena",
+      "url": "https://webarena.dev/",
+      "sourceType": "agent-capability",
+      "accessMethod": "html-page",
+      "authRequired": false,
+      "weight": 0.72,
+      "freshnessSla": "daily",
+      "status": "ok",
+      "requiredEnv": [],
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "message": "命中 2/3 个关键词",
+      "itemCount": 2
+    },
+    {
+      "id": "github-mcp",
+      "name": "GitHub Search - MCP Server",
+      "url": "https://api.github.com/search/repositories?q=mcp%20server%20pushed%3A%3E%3D2026-05-16%20stars%3A%3E20&sort=stars&order=desc&per_page=10",
+      "sourceType": "tool-ecosystem-heat",
+      "accessMethod": "public-api",
+      "authRequired": false,
+      "weight": 0.62,
+      "freshnessSla": "1h",
+      "status": "ok",
+      "requiredEnv": [],
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "message": "刷新成功",
+      "itemCount": 10
+    },
+    {
+      "id": "github-coding-agent",
+      "name": "GitHub Search - Coding Agent",
+      "url": "https://api.github.com/search/repositories?q=coding%20agent%20pushed%3A%3E%3D2026-05-16%20stars%3A%3E20&sort=stars&order=desc&per_page=10",
+      "sourceType": "tool-ecosystem-heat",
+      "accessMethod": "public-api",
+      "authRequired": false,
+      "weight": 0.62,
+      "freshnessSla": "1h",
+      "status": "ok",
+      "requiredEnv": [],
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "message": "刷新成功",
+      "itemCount": 10
+    },
+    {
+      "id": "arxiv-agent-llm",
+      "name": "arXiv API",
+      "url": "https://export.arxiv.org/api/query?search_query=all:%22AI%20agent%22%20OR%20all:%22large%20language%20model%22&start=0&max_results=10&sortBy=submittedDate&sortOrder=descending",
+      "sourceType": "research-trends",
+      "accessMethod": "public-api",
+      "authRequired": false,
+      "weight": 0.46,
+      "freshnessSla": "1h",
+      "status": "ok",
+      "requiredEnv": [],
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "message": "命中 1/1 个关键词",
+      "itemCount": 1
+    },
+    {
+      "id": "hn-gpt-5-6",
+      "name": "Hacker News - GPT-5.6",
+      "url": "https://hn.algolia.com/api/v1/search_by_date?query=GPT-5.6&tags=story&hitsPerPage=10",
+      "sourceType": "early-propagation",
+      "accessMethod": "public-api",
+      "authRequired": false,
+      "weight": 0.28,
+      "freshnessSla": "1h",
+      "status": "ok",
+      "requiredEnv": [],
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "message": "刷新成功",
+      "itemCount": 1
+    },
+    {
+      "id": "hn-ai-agent",
+      "name": "Hacker News - AI agent",
+      "url": "https://hn.algolia.com/api/v1/search_by_date?query=AI%20agent&tags=story&hitsPerPage=10",
+      "sourceType": "early-propagation",
+      "accessMethod": "public-api",
+      "authRequired": false,
+      "weight": 0.28,
+      "freshnessSla": "1h",
+      "status": "ok",
+      "requiredEnv": [],
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "message": "刷新成功",
+      "itemCount": 1
+    },
+    {
+      "id": "hn-claude-code",
+      "name": "Hacker News - Claude Code",
+      "url": "https://hn.algolia.com/api/v1/search_by_date?query=Claude%20Code&tags=story&hitsPerPage=10",
+      "sourceType": "early-propagation",
+      "accessMethod": "public-api",
+      "authRequired": false,
+      "weight": 0.28,
+      "freshnessSla": "1h",
+      "status": "ok",
+      "requiredEnv": [],
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "message": "刷新成功",
+      "itemCount": 1
+    },
+    {
+      "id": "hn-mcp-server",
+      "name": "Hacker News - MCP server",
+      "url": "https://hn.algolia.com/api/v1/search_by_date?query=MCP%20server&tags=story&hitsPerPage=10",
+      "sourceType": "early-propagation",
+      "accessMethod": "public-api",
+      "authRequired": false,
+      "weight": 0.28,
+      "freshnessSla": "1h",
+      "status": "ok",
+      "requiredEnv": [],
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "message": "刷新成功",
+      "itemCount": 1
+    },
+    {
+      "id": "hn-hammers-ai-agent",
+      "name": "Hacker News - Hammers AI agent",
+      "url": "https://hn.algolia.com/api/v1/search_by_date?query=Hammers%20AI%20agent&tags=story&hitsPerPage=10",
+      "sourceType": "early-propagation",
+      "accessMethod": "public-api",
+      "authRequired": false,
+      "weight": 0.28,
+      "freshnessSla": "1h",
+      "status": "ok",
+      "requiredEnv": [],
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "message": "刷新成功",
+      "itemCount": 1
+    },
+    {
+      "id": "artificial-analysis",
+      "name": "Artificial Analysis Data API",
+      "url": "https://artificialanalysis.ai/data-api",
+      "sourceType": "model-capability",
+      "accessMethod": "api-key",
+      "authRequired": true,
+      "weight": 0.88,
+      "freshnessSla": "15m-6h",
+      "status": "skipped",
+      "requiredEnv": [
+        "ARTIFICIAL_ANALYSIS_API_KEY",
+        "ARTIFICIAL_ANALYSIS_API_URL"
+      ],
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "message": "未配置 ARTIFICIAL_ANALYSIS_API_KEY 和 ARTIFICIAL_ANALYSIS_API_URL，跳过该商业 API",
+      "itemCount": 0
+    },
+    {
+      "id": "product-hunt",
+      "name": "Product Hunt API",
+      "url": "https://api.producthunt.com/v2/api/graphql",
+      "sourceType": "tool-ecosystem-heat",
+      "accessMethod": "api-key",
+      "authRequired": true,
+      "weight": 0.62,
+      "freshnessSla": "15m-6h",
+      "status": "skipped",
+      "requiredEnv": [
+        "PRODUCT_HUNT_TOKEN"
+      ],
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "message": "未配置 PRODUCT_HUNT_TOKEN，跳过 Product Hunt 数据刷新",
+      "itemCount": 0
+    },
+    {
+      "id": "x-recent-search",
+      "name": "X Recent Search",
+      "url": "https://api.x.com/2/tweets/search/recent",
+      "sourceType": "early-propagation",
+      "accessMethod": "api-key",
+      "authRequired": true,
+      "weight": 0.28,
+      "freshnessSla": "15m-6h",
+      "status": "skipped",
+      "requiredEnv": [
+        "X_BEARER_TOKEN"
+      ],
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "message": "未配置 X_BEARER_TOKEN，跳过 X 数据刷新",
+      "itemCount": 0
+    },
+    {
+      "id": "openai-api-changelog",
+      "name": "OpenAI API Changelog",
+      "url": "https://developers.openai.com/api/docs/changelog",
+      "sourceType": "official-confirmation",
+      "accessMethod": "official-page",
+      "authRequired": false,
+      "weight": 1,
+      "freshnessSla": "30m-1h",
+      "status": "error",
+      "requiredEnv": [],
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "message": "HTTP 403",
+      "itemCount": 0
+    },
+    {
+      "id": "openai-news",
+      "name": "OpenAI News",
+      "url": "https://openai.com/news/",
+      "sourceType": "official-confirmation",
+      "accessMethod": "official-page",
+      "authRequired": false,
+      "weight": 1,
+      "freshnessSla": "30m-1h",
+      "status": "error",
+      "requiredEnv": [],
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "message": "HTTP 403",
+      "itemCount": 0
+    },
+    {
+      "id": "mistral-changelog",
+      "name": "Mistral Changelog",
+      "url": "https://docs.mistral.ai/resources/changelogs",
+      "sourceType": "official-confirmation",
+      "accessMethod": "official-page",
+      "authRequired": false,
+      "weight": 1,
+      "freshnessSla": "30m-1h",
+      "status": "error",
+      "requiredEnv": [],
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "message": "fetch failed",
+      "itemCount": 0
+    },
+    {
+      "id": "gemini-changelog",
+      "name": "Gemini API Changelog",
+      "url": "https://ai.google.dev/gemini-api/docs/changelog",
+      "sourceType": "official-confirmation",
+      "accessMethod": "official-page",
+      "authRequired": false,
+      "weight": 1,
+      "freshnessSla": "30m-1h",
+      "status": "error",
+      "requiredEnv": [],
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "message": "fetch failed",
+      "itemCount": 0
+    },
+    {
+      "id": "hf-agent",
+      "name": "Hugging Face - agent",
+      "url": "https://huggingface.co/api/models?search=agent&sort=downloads&direction=-1&limit=10",
+      "sourceType": "model-capability",
+      "accessMethod": "public-api",
+      "authRequired": false,
+      "weight": 0.88,
+      "freshnessSla": "1h",
+      "status": "error",
+      "requiredEnv": [],
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "message": "fetch failed",
+      "itemCount": 0
+    },
+    {
+      "id": "hf-mcp",
+      "name": "Hugging Face - mcp",
+      "url": "https://huggingface.co/api/models?search=mcp&sort=downloads&direction=-1&limit=10",
+      "sourceType": "model-capability",
+      "accessMethod": "public-api",
+      "authRequired": false,
+      "weight": 0.88,
+      "freshnessSla": "1h",
+      "status": "error",
+      "requiredEnv": [],
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "message": "fetch failed",
+      "itemCount": 0
+    },
+    {
+      "id": "hf-coding-agent",
+      "name": "Hugging Face - coding agent",
+      "url": "https://huggingface.co/api/models?search=coding%20agent&sort=downloads&direction=-1&limit=10",
+      "sourceType": "model-capability",
+      "accessMethod": "public-api",
+      "authRequired": false,
+      "weight": 0.88,
+      "freshnessSla": "1h",
+      "status": "error",
+      "requiredEnv": [],
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "message": "fetch failed",
+      "itemCount": 0
+    },
+    {
+      "id": "hf-reasoning-model",
+      "name": "Hugging Face - reasoning model",
+      "url": "https://huggingface.co/api/models?search=reasoning%20model&sort=downloads&direction=-1&limit=10",
+      "sourceType": "model-capability",
+      "accessMethod": "public-api",
+      "authRequired": false,
+      "weight": 0.88,
+      "freshnessSla": "1h",
+      "status": "error",
+      "requiredEnv": [],
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "message": "fetch failed",
+      "itemCount": 0
+    },
+    {
+      "id": "agent-arena",
+      "name": "Agent Arena",
+      "url": "https://arena.ai/leaderboard/agent",
+      "sourceType": "agent-capability",
+      "accessMethod": "html-page",
+      "authRequired": false,
+      "weight": 0.72,
+      "freshnessSla": "daily",
+      "status": "error",
+      "requiredEnv": [],
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "message": "HTTP 403",
+      "itemCount": 0
+    },
+    {
+      "id": "osworld",
+      "name": "OSWorld",
+      "url": "https://os-world.github.io/",
+      "sourceType": "agent-capability",
+      "accessMethod": "html-page",
+      "authRequired": false,
+      "weight": 0.72,
+      "freshnessSla": "daily",
+      "status": "error",
+      "requiredEnv": [],
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "message": "fetch failed",
+      "itemCount": 0
+    },
+    {
+      "id": "mysql-database",
+      "name": "MySQL 持久化",
+      "url": "DATABASE_URL",
+      "sourceType": "database",
+      "accessMethod": "database",
+      "authRequired": true,
+      "weight": 0.4,
+      "freshnessSla": "on-refresh",
+      "status": "skipped",
+      "requiredEnv": [
+        "DATABASE_URL",
+        "DB_HOST",
+        "DB_NAME"
+      ],
+      "lastCheckedAt": "2026-06-30T08:27:49.824Z",
+      "message": "未配置 DATABASE_URL 或 DB_HOST/DB_NAME，跳过数据库同步",
+      "itemCount": 0
+    }
+  ],
+  "sourceRuns": [
+    {
+      "checkedAt": "2026-06-30T08:27:49.824Z",
+      "id": "x-recent-search",
+      "name": "X Recent Search",
+      "column": "社区 / X",
+      "url": "https://api.x.com/2/tweets/search/recent",
+      "access": "api-key",
+      "status": "skipped",
+      "itemCount": 0,
+      "message": "未配置 X_BEARER_TOKEN，跳过 X 数据刷新"
+    },
+    {
+      "checkedAt": "2026-06-30T08:27:49.824Z",
+      "id": "product-hunt",
+      "name": "Product Hunt API",
+      "column": "工具 / 插件热度",
+      "url": "https://api.producthunt.com/v2/api/graphql",
+      "access": "api-key",
+      "status": "skipped",
+      "itemCount": 0,
+      "message": "未配置 PRODUCT_HUNT_TOKEN，跳过 Product Hunt 数据刷新"
+    },
+    {
+      "checkedAt": "2026-06-30T08:27:49.824Z",
+      "id": "artificial-analysis",
+      "name": "Artificial Analysis Data API",
+      "column": "模型排行榜",
+      "url": "https://artificialanalysis.ai/data-api",
+      "access": "api-key",
+      "status": "skipped",
+      "itemCount": 0,
+      "message": "未配置 ARTIFICIAL_ANALYSIS_API_KEY 和 ARTIFICIAL_ANALYSIS_API_URL，跳过该商业 API"
+    },
+    {
+      "checkedAt": "2026-06-30T08:27:49.824Z",
+      "id": "deepseek-docs",
+      "name": "DeepSeek API Docs",
+      "column": "官网 / 文档",
+      "url": "https://api-docs.deepseek.com/",
+      "access": "official-page",
+      "status": "ok",
+      "itemCount": 3,
+      "message": "命中 3/3 个关键词"
+    },
+    {
+      "checkedAt": "2026-06-30T08:27:49.824Z",
+      "id": "openai-api-changelog",
+      "name": "OpenAI API Changelog",
+      "column": "官网 / 文档",
+      "url": "https://developers.openai.com/api/docs/changelog",
+      "access": "official-page",
+      "status": "error",
+      "itemCount": 0,
+      "message": "HTTP 403"
+    },
+    {
+      "checkedAt": "2026-06-30T08:27:49.824Z",
+      "id": "openai-news",
+      "name": "OpenAI News",
+      "column": "官网 / 文档",
+      "url": "https://openai.com/news/",
+      "access": "official-page",
+      "status": "error",
+      "itemCount": 0,
+      "message": "HTTP 403"
+    },
+    {
+      "checkedAt": "2026-06-30T08:27:49.824Z",
+      "id": "hn-gpt-5-6",
+      "name": "Hacker News - GPT-5.6",
+      "column": "社区 / X",
+      "url": "https://hn.algolia.com/api/v1/search_by_date?query=GPT-5.6&tags=story&hitsPerPage=10",
+      "access": "public-api",
+      "status": "ok",
+      "itemCount": 1,
+      "message": "刷新成功"
+    },
+    {
+      "checkedAt": "2026-06-30T08:27:49.824Z",
+      "id": "steel-leaderboard",
+      "name": "Steel.dev Agent Leaderboard",
+      "column": "Agent 排行榜",
+      "url": "https://leaderboard.steel.dev/",
+      "access": "html-page",
+      "status": "ok",
+      "itemCount": 3,
+      "message": "命中 3/3 个关键词"
+    },
+    {
+      "checkedAt": "2026-06-30T08:27:49.824Z",
+      "id": "github-agent",
+      "name": "GitHub Search - AI Agent",
+      "column": "Agent 排行榜",
+      "url": "https://api.github.com/search/repositories?q=ai%20agent%20pushed%3A%3E%3D2026-05-16%20stars%3A%3E50&sort=stars&order=desc&per_page=10",
+      "access": "public-api",
+      "status": "ok",
+      "itemCount": 10,
+      "message": "刷新成功"
+    },
+    {
+      "checkedAt": "2026-06-30T08:27:49.824Z",
+      "id": "arxiv-agent-llm",
+      "name": "arXiv API",
+      "column": "论文 / 研究",
+      "url": "https://export.arxiv.org/api/query?search_query=all:%22AI%20agent%22%20OR%20all:%22large%20language%20model%22&start=0&max_results=10&sortBy=submittedDate&sortOrder=descending",
+      "access": "public-api",
+      "status": "ok",
+      "itemCount": 1,
+      "message": "命中 1/1 个关键词"
+    },
+    {
+      "checkedAt": "2026-06-30T08:27:49.824Z",
+      "id": "openrouter-models",
+      "name": "OpenRouter Models",
+      "column": "模型排行榜",
+      "url": "https://openrouter.ai/api/v1/models",
+      "access": "public-api",
+      "status": "ok",
+      "itemCount": 338,
+      "message": "刷新成功"
+    },
+    {
+      "checkedAt": "2026-06-30T08:27:49.824Z",
+      "id": "kimi-docs",
+      "name": "Kimi API Docs",
+      "column": "官网 / 文档",
+      "url": "https://platform.kimi.ai/docs/overview",
+      "access": "official-page",
+      "status": "ok",
+      "itemCount": 3,
+      "message": "命中 3/3 个关键词"
+    },
+    {
+      "checkedAt": "2026-06-30T08:27:49.824Z",
+      "id": "anthropic-release-notes",
+      "name": "Claude Release Notes",
+      "column": "官网 / 文档",
+      "url": "https://support.claude.com/en/articles/12138966-release-notes",
+      "access": "official-page",
+      "status": "ok",
+      "itemCount": 3,
+      "message": "命中 3/3 个关键词"
+    },
+    {
+      "checkedAt": "2026-06-30T08:27:49.824Z",
+      "id": "github-mcp",
+      "name": "GitHub Search - MCP Server",
+      "column": "工具 / 插件热度",
+      "url": "https://api.github.com/search/repositories?q=mcp%20server%20pushed%3A%3E%3D2026-05-16%20stars%3A%3E20&sort=stars&order=desc&per_page=10",
+      "access": "public-api",
+      "status": "ok",
+      "itemCount": 10,
+      "message": "刷新成功"
+    },
+    {
+      "checkedAt": "2026-06-30T08:27:49.824Z",
+      "id": "agent-arena",
+      "name": "Agent Arena",
+      "column": "Agent 排行榜",
+      "url": "https://arena.ai/leaderboard/agent",
+      "access": "html-page",
+      "status": "error",
+      "itemCount": 0,
+      "message": "HTTP 403"
+    },
+    {
+      "checkedAt": "2026-06-30T08:27:49.824Z",
+      "id": "hn-ai-agent",
+      "name": "Hacker News - AI agent",
+      "column": "社区 / X",
+      "url": "https://hn.algolia.com/api/v1/search_by_date?query=AI%20agent&tags=story&hitsPerPage=10",
+      "access": "public-api",
+      "status": "ok",
+      "itemCount": 1,
+      "message": "刷新成功"
+    },
+    {
+      "checkedAt": "2026-06-30T08:27:49.824Z",
+      "id": "github-coding-agent",
+      "name": "GitHub Search - Coding Agent",
+      "column": "工具 / 插件热度",
+      "url": "https://api.github.com/search/repositories?q=coding%20agent%20pushed%3A%3E%3D2026-05-16%20stars%3A%3E20&sort=stars&order=desc&per_page=10",
+      "access": "public-api",
+      "status": "ok",
+      "itemCount": 10,
+      "message": "刷新成功"
+    },
+    {
+      "checkedAt": "2026-06-30T08:27:49.824Z",
+      "id": "hn-claude-code",
+      "name": "Hacker News - Claude Code",
+      "column": "社区 / X",
+      "url": "https://hn.algolia.com/api/v1/search_by_date?query=Claude%20Code&tags=story&hitsPerPage=10",
+      "access": "public-api",
+      "status": "ok",
+      "itemCount": 1,
+      "message": "刷新成功"
+    },
+    {
+      "checkedAt": "2026-06-30T08:27:49.824Z",
+      "id": "hn-mcp-server",
+      "name": "Hacker News - MCP server",
+      "column": "社区 / X",
+      "url": "https://hn.algolia.com/api/v1/search_by_date?query=MCP%20server&tags=story&hitsPerPage=10",
+      "access": "public-api",
+      "status": "ok",
+      "itemCount": 1,
+      "message": "刷新成功"
+    },
+    {
+      "checkedAt": "2026-06-30T08:27:49.824Z",
+      "id": "hn-hammers-ai-agent",
+      "name": "Hacker News - Hammers AI agent",
+      "column": "社区 / X",
+      "url": "https://hn.algolia.com/api/v1/search_by_date?query=Hammers%20AI%20agent&tags=story&hitsPerPage=10",
+      "access": "public-api",
+      "status": "ok",
+      "itemCount": 1,
+      "message": "刷新成功"
+    },
+    {
+      "checkedAt": "2026-06-30T08:27:49.824Z",
+      "id": "hal-princeton",
+      "name": "HAL Princeton",
+      "column": "Agent 排行榜",
+      "url": "https://hal.cs.princeton.edu/",
+      "access": "html-page",
+      "status": "ok",
+      "itemCount": 3,
+      "message": "命中 3/3 个关键词"
+    },
+    {
+      "checkedAt": "2026-06-30T08:27:49.824Z",
+      "id": "skillsbench",
+      "name": "SkillsBench",
+      "column": "Agent 排行榜",
+      "url": "https://www.skillsbench.ai/leaderboard",
+      "access": "html-page",
+      "status": "ok",
+      "itemCount": 3,
+      "message": "命中 3/3 个关键词"
+    },
+    {
+      "checkedAt": "2026-06-30T08:27:49.824Z",
+      "id": "osworld",
+      "name": "OSWorld",
+      "column": "Agent 排行榜",
+      "url": "https://os-world.github.io/",
+      "access": "html-page",
+      "status": "error",
+      "itemCount": 0,
+      "message": "fetch failed"
+    },
+    {
+      "checkedAt": "2026-06-30T08:27:49.824Z",
+      "id": "mistral-changelog",
+      "name": "Mistral Changelog",
+      "column": "官网 / 文档",
+      "url": "https://docs.mistral.ai/resources/changelogs",
+      "access": "official-page",
+      "status": "error",
+      "itemCount": 0,
+      "message": "fetch failed"
+    },
+    {
+      "checkedAt": "2026-06-30T08:27:49.824Z",
+      "id": "gemini-changelog",
+      "name": "Gemini API Changelog",
+      "column": "官网 / 文档",
+      "url": "https://ai.google.dev/gemini-api/docs/changelog",
+      "access": "official-page",
+      "status": "error",
+      "itemCount": 0,
+      "message": "fetch failed"
+    },
+    {
+      "checkedAt": "2026-06-30T08:27:49.824Z",
+      "id": "hf-agent",
+      "name": "Hugging Face - agent",
+      "column": "模型排行榜",
+      "url": "https://huggingface.co/api/models?search=agent&sort=downloads&direction=-1&limit=10",
+      "access": "public-api",
+      "status": "error",
+      "itemCount": 0,
+      "message": "fetch failed"
+    },
+    {
+      "checkedAt": "2026-06-30T08:27:49.824Z",
+      "id": "webarena",
+      "name": "WebArena",
+      "column": "Agent 排行榜",
+      "url": "https://webarena.dev/",
+      "access": "html-page",
+      "status": "ok",
+      "itemCount": 2,
+      "message": "命中 2/3 个关键词"
+    },
+    {
+      "checkedAt": "2026-06-30T08:27:49.824Z",
+      "id": "hf-mcp",
+      "name": "Hugging Face - mcp",
+      "column": "模型排行榜",
+      "url": "https://huggingface.co/api/models?search=mcp&sort=downloads&direction=-1&limit=10",
+      "access": "public-api",
+      "status": "error",
+      "itemCount": 0,
+      "message": "fetch failed"
+    },
+    {
+      "checkedAt": "2026-06-30T08:27:49.824Z",
+      "id": "hf-coding-agent",
+      "name": "Hugging Face - coding agent",
+      "column": "模型排行榜",
+      "url": "https://huggingface.co/api/models?search=coding%20agent&sort=downloads&direction=-1&limit=10",
+      "access": "public-api",
+      "status": "error",
+      "itemCount": 0,
+      "message": "fetch failed"
+    },
+    {
+      "checkedAt": "2026-06-30T08:27:49.824Z",
+      "id": "hf-reasoning-model",
+      "name": "Hugging Face - reasoning model",
+      "column": "模型排行榜",
+      "url": "https://huggingface.co/api/models?search=reasoning%20model&sort=downloads&direction=-1&limit=10",
+      "access": "public-api",
+      "status": "error",
+      "itemCount": 0,
+      "message": "fetch failed"
+    },
+    {
+      "checkedAt": "2026-06-30T08:27:49.824Z",
+      "id": "mysql-database",
+      "name": "MySQL 持久化",
+      "column": "数据库",
+      "url": "DATABASE_URL",
+      "access": "database",
+      "status": "skipped",
+      "itemCount": 0,
+      "message": "未配置 DATABASE_URL 或 DB_HOST/DB_NAME，跳过数据库同步"
+    }
+  ],
+  "dataPanels": [
+    {
+      "id": "model-rankings",
+      "title": "模型排行榜",
+      "description": "OpenRouter、Artificial Analysis、Hugging Face、arXiv 与官方文档共同组成模型排名。",
+      "sources": [
+        "OpenRouter",
+        "Artificial Analysis",
+        "Hugging Face",
+        "arXiv",
+        "官方文档"
+      ],
+      "cadence": "6 小时",
+      "items": [
+        {
+          "label": "Anthropic: Claude Fable Latest",
+          "value": "1000k ctx",
+          "note": "~anthropic/claude-fable-latest",
+          "score": 100,
+          "url": "https://openrouter.ai/~anthropic/claude-fable-latest"
+        },
+        {
+          "label": "Anthropic: Claude Fable 5",
+          "value": "1000k ctx",
+          "note": "anthropic/claude-fable-5",
+          "score": 100,
+          "url": "https://openrouter.ai/anthropic/claude-fable-5"
+        },
+        {
+          "label": "Qwen: Qwen3.7 Plus",
+          "value": "1000k ctx",
+          "note": "qwen/qwen3.7-plus",
+          "score": 100,
+          "url": "https://openrouter.ai/qwen/qwen3.7-plus"
+        },
+        {
+          "label": "Anthropic: Claude Opus 4.8 (Fast)",
+          "value": "1000k ctx",
+          "note": "anthropic/claude-opus-4.8-fast",
+          "score": 100,
+          "url": "https://openrouter.ai/anthropic/claude-opus-4.8-fast"
+        },
+        {
+          "label": "Anthropic: Claude Opus 4.8",
+          "value": "1000k ctx",
+          "note": "anthropic/claude-opus-4.8",
+          "score": 100,
+          "url": "https://openrouter.ai/anthropic/claude-opus-4.8"
+        },
+        {
+          "label": "Qwen: Qwen3.7 Max",
+          "value": "1000k ctx",
+          "note": "qwen/qwen3.7-max",
+          "score": 100,
+          "url": "https://openrouter.ai/qwen/qwen3.7-max"
+        },
+        {
+          "label": "Google: Gemini 3.5 Flash",
+          "value": "1049k ctx",
+          "note": "google/gemini-3.5-flash",
+          "score": 100,
+          "url": "https://openrouter.ai/google/gemini-3.5-flash"
+        },
+        {
+          "label": "Anthropic: Claude Opus 4.7 (Fast)",
+          "value": "1000k ctx",
+          "note": "anthropic/claude-opus-4.7-fast",
+          "score": 100,
+          "url": "https://openrouter.ai/anthropic/claude-opus-4.7-fast"
+        }
+      ]
+    },
+    {
+      "id": "agent-rankings",
+      "title": "Agent 排行榜",
+      "description": "Steel、Agent Arena、HAL、SkillsBench、OSWorld/WebArena 与 GitHub 热度共同组成 Agent 榜。",
+      "sources": [
+        "Steel.dev",
+        "Agent Arena",
+        "HAL Princeton",
+        "SkillsBench",
+        "OSWorld",
+        "GitHub",
+        "HN",
+        "X"
+      ],
+      "cadence": "每日",
+      "items": [
+        {
+          "label": "obra/superpowers",
+          "value": "241876 stars",
+          "note": "An agentic skills framework & software development methodology that works.",
+          "score": 100,
+          "url": "https://github.com/obra/superpowers",
+          "query": "AI Agent"
+        },
+        {
+          "label": "NousResearch/hermes-agent",
+          "value": "205997 stars",
+          "note": "The agent that grows with you",
+          "score": 100,
+          "url": "https://github.com/NousResearch/hermes-agent",
+          "query": "AI Agent"
+        },
+        {
+          "label": "Snailclimb/JavaGuide",
+          "value": "156709 stars",
+          "note": "Java 面试 & 后端通用面试指南，覆盖计算机基础、数据库、分布式、高并发、系统设计与 AI 应用开发",
+          "score": 100,
+          "url": "https://github.com/Snailclimb/JavaGuide",
+          "query": "AI Agent"
+        },
+        {
+          "label": "langflow-ai/langflow",
+          "value": "150226 stars",
+          "note": "Langflow is a powerful tool for building and deploying AI-powered agents and workflows.",
+          "score": 100,
+          "url": "https://github.com/langflow-ai/langflow",
+          "query": "AI Agent"
+        },
+        {
+          "label": "langgenius/dify",
+          "value": "147073 stars",
+          "note": "Production-ready platform for agentic workflow development.",
+          "score": 100,
+          "url": "https://github.com/langgenius/dify",
+          "query": "AI Agent"
+        },
+        {
+          "label": "x1xhlol/system-prompts-and-models-of-ai-tools",
+          "value": "141340 stars",
+          "note": "FULL Augment Code, Claude Code, Cluely, CodeBuddy, Comet, Cursor, Devin AI, Junie, Kiro, Leap.new, Lovable, Manus, Notio",
+          "score": 100,
+          "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
+          "query": "AI Agent"
+        },
+        {
+          "label": "langchain-ai/langchain",
+          "value": "140550 stars",
+          "note": "The agent engineering platform.",
+          "score": 100,
+          "url": "https://github.com/langchain-ai/langchain",
+          "query": "AI Agent"
+        },
+        {
+          "label": "msitarzewski/agency-agents",
+          "value": "119603 stars",
+          "note": "A complete AI agency at your fingertips - From frontend wizards to Reddit community ninjas, from whimsy injectors to rea",
+          "score": 100,
+          "url": "https://github.com/msitarzewski/agency-agents",
+          "query": "AI Agent"
+        }
+      ]
+    },
+    {
+      "id": "tool-rankings",
+      "title": "工具 / 插件热度",
+      "description": "Product Hunt、GitHub、OSSInsight、HN 与 X 共同计算工具热度，Hammers 类候选会先进入观察池。",
+      "sources": [
+        "GitHub",
+        "OSSInsight",
+        "Product Hunt",
+        "HN Algolia",
+        "X"
+      ],
+      "cadence": "1 小时",
+      "items": [
+        {
+          "label": "punkpeye/awesome-mcp-servers",
+          "value": "90017 stars",
+          "note": "A collection of MCP servers.",
+          "score": 100,
+          "url": "https://github.com/punkpeye/awesome-mcp-servers",
+          "query": "MCP Server"
+        },
+        {
+          "label": "headroomlabs-ai/headroom",
+          "value": "54170 stars",
+          "note": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 60-95% fewer tokens, same answers. Library",
+          "score": 100,
+          "url": "https://github.com/headroomlabs-ai/headroom",
+          "query": "MCP Server"
+        },
+        {
+          "label": "microsoft/playwright-mcp",
+          "value": "34522 stars",
+          "note": "Playwright MCP server",
+          "score": 100,
+          "url": "https://github.com/microsoft/playwright-mcp",
+          "query": "MCP Server"
+        },
+        {
+          "label": "github/github-mcp-server",
+          "value": "31077 stars",
+          "note": "GitHub's official MCP Server",
+          "score": 100,
+          "url": "https://github.com/github/github-mcp-server",
+          "query": "MCP Server"
+        },
+        {
+          "label": "PrefectHQ/fastmcp",
+          "value": "25873 stars",
+          "note": "🚀 The fast, Pythonic way to build MCP servers and clients.",
+          "score": 100,
+          "url": "https://github.com/PrefectHQ/fastmcp",
+          "query": "MCP Server"
+        },
+        {
+          "label": "activepieces/activepieces",
+          "value": "23058 stars",
+          "note": "AI Agents & MCPs & AI Workflow Automation • (~400 MCP servers for AI agents) • AI Automation / AI Agent with MCPs • AI W",
+          "score": 100,
+          "url": "https://github.com/activepieces/activepieces",
+          "query": "MCP Server"
+        },
+        {
+          "label": "DeusData/codebase-memory-mcp",
+          "value": "21965 stars",
+          "note": "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in mil",
+          "score": 100,
+          "url": "https://github.com/DeusData/codebase-memory-mcp",
+          "query": "MCP Server"
+        },
+        {
+          "label": "googleapis/mcp-toolbox",
+          "value": "15750 stars",
+          "note": "MCP Toolbox for Databases is an open source MCP server for databases.",
+          "score": 100,
+          "url": "https://github.com/googleapis/mcp-toolbox",
+          "query": "MCP Server"
+        }
+      ]
+    },
+    {
+      "id": "official-releases",
+      "title": "官网 / 文档发布源",
+      "description": "官方源负责确认事实，X 和社区源只作为热度辅助，不单独确认发布。",
+      "sources": [
+        "OpenAI",
+        "Anthropic",
+        "Google",
+        "Mistral",
+        "DeepSeek",
+        "Kimi"
+      ],
+      "cadence": "30 分钟",
+      "items": [
+        {
+          "label": "OpenAI News",
+          "value": "失败",
+          "note": "HTTP 403",
+          "score": 40,
+          "url": "https://openai.com/news/"
+        },
+        {
+          "label": "OpenAI API Changelog",
+          "value": "失败",
+          "note": "HTTP 403",
+          "score": 40,
+          "url": "https://developers.openai.com/api/docs/changelog"
+        },
+        {
+          "label": "Claude Release Notes",
+          "value": "已连通",
+          "note": "命中 3/3 个关键词",
+          "score": 92,
+          "url": "https://support.claude.com/en/articles/12138966-release-notes"
+        },
+        {
+          "label": "Gemini API Changelog",
+          "value": "失败",
+          "note": "fetch failed",
+          "score": 40,
+          "url": "https://ai.google.dev/gemini-api/docs/changelog"
+        },
+        {
+          "label": "Mistral Changelog",
+          "value": "失败",
+          "note": "fetch failed",
+          "score": 40,
+          "url": "https://docs.mistral.ai/resources/changelogs"
+        },
+        {
+          "label": "DeepSeek API Docs",
+          "value": "已连通",
+          "note": "命中 3/3 个关键词",
+          "score": 92,
+          "url": "https://api-docs.deepseek.com/"
+        },
+        {
+          "label": "Kimi API Docs",
+          "value": "已连通",
+          "note": "命中 3/3 个关键词",
+          "score": 92,
+          "url": "https://platform.kimi.ai/docs/overview"
+        }
+      ]
+    }
+  ],
+  "roadmapItems": [
+    {
+      "version": "v1.2",
+      "title": "真实数据刷新与 JSON 快照",
+      "quarter": "Q2 2026",
+      "status": "done"
+    },
+    {
+      "version": "v1.3",
+      "title": "MySQL 持久化与抓取日志",
+      "quarter": "Q3 2026",
+      "status": "active"
+    },
+    {
+      "version": "v1.4",
+      "title": "Agent 市场和插件生态图",
+      "quarter": "Q3 2026",
+      "status": "active"
+    },
+    {
+      "version": "v1.5",
+      "title": "智能摘要与异常热度告警",
+      "quarter": "Q4 2026",
+      "status": "planned"
+    }
+  ],
+  "languageOptions": [
+    {
+      "code": "zh-CN",
+      "label": "简体中文",
+      "status": "active"
+    },
+    {
+      "code": "en",
+      "label": "English",
+      "status": "planned"
+    },
+    {
+      "code": "ja",
+      "label": "日本語",
+      "status": "planned"
+    }
+  ]
+}
