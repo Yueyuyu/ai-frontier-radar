@@ -1085,6 +1085,15 @@
   background: #f2f8ff;
 }
 
+.fi-strict-signal-table tbody tr[role="button"] {
+  cursor: pointer;
+}
+
+.fi-strict-signal-table tbody tr[role="button"]:focus-visible td {
+  outline: 2px solid rgba(26, 115, 255, 0.45);
+  outline-offset: -2px;
+}
+
 .fi-strict-signal-table input {
   width: 13px;
   height: 13px;
@@ -1123,15 +1132,39 @@
   height: 24px;
 }
 
+.fi-strict-empty-row td {
+  height: 116px;
+  text-align: center;
+}
+
+.fi-strict-empty-row strong,
+.fi-strict-empty-row span {
+  display: block;
+}
+
+.fi-strict-empty-row strong {
+  color: var(--text-strong);
+  font-size: 13px;
+}
+
+.fi-strict-empty-row span {
+  margin-top: 4px;
+  color: #6b7f97;
+  font-size: 11px;
+}
+
 .fi-strict-panel-action {
   display: flex;
   justify-content: center;
   padding: 8px 14px 10px;
 }
 
-.fi-strict-panel-action button,
+.fi-strict-panel-action a,
 .fi-strict-link-button {
   min-height: 31px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 0 16px;
   border: 1px solid rgba(61, 140, 255, 0.2);
   border-radius: 7px;
@@ -1140,6 +1173,7 @@
   cursor: pointer;
   font-size: 12px;
   font-weight: 820;
+  text-decoration: none;
 }
 
 .fi-strict-bottom-grid {
@@ -1375,6 +1409,46 @@
   min-height: 850px;
   padding: 14px;
   overflow: hidden;
+}
+
+.fi-strict-inspector-collapsed {
+  position: sticky;
+  top: 18px;
+  min-height: 180px;
+  padding: 16px;
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+
+.fi-strict-inspector-collapsed h2,
+.fi-strict-inspector-collapsed p {
+  margin: 0;
+}
+
+.fi-strict-inspector-collapsed h2 {
+  color: var(--text-strong);
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.fi-strict-inspector-collapsed p {
+  color: #536984;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.fi-strict-inspector-collapsed button {
+  width: fit-content;
+  min-height: 31px;
+  padding: 0 14px;
+  border: 1px solid rgba(61, 140, 255, 0.24);
+  border-radius: 7px;
+  color: #0d6dff;
+  background: #f4f9ff;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 820;
 }
 
 .fi-strict-close {
@@ -2548,10 +2622,16 @@
   padding: 12px;
   border-right: 1px solid rgba(122, 153, 180, 0.16);
   border-bottom: 1px solid rgba(122, 153, 180, 0.16);
+  cursor: pointer;
 }
 
 .fi-strict-month-grid article:nth-child(7n) {
   border-right: 0;
+}
+
+.fi-strict-month-grid article.is-selected {
+  background: #f0f7ff;
+  box-shadow: inset 0 0 0 1px rgba(18, 108, 255, 0.42);
 }
 
 .fi-strict-month-grid article > strong {
@@ -2595,6 +2675,40 @@
   color: #435b79;
   font-size: 12px;
   font-weight: 760;
+}
+
+.fi-strict-release-list {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+}
+
+.fi-strict-release-list article {
+  min-height: 70px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 4px 14px;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid rgba(122, 153, 180, 0.22);
+  border-radius: 8px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.fi-strict-release-list article.is-selected {
+  border-color: rgba(18, 108, 255, 0.56);
+  background: #f0f7ff;
+}
+
+.fi-strict-release-list strong {
+  color: var(--text-strong);
+  font-size: 13px;
+}
+
+.fi-strict-release-list span {
+  color: #647790;
+  font-size: 11px;
 }
 
 .fi-strict-release-window {
@@ -2676,6 +2790,12 @@
 .fi-strict-roadmap-list article {
   min-height: 132px;
   padding: 12px;
+  cursor: pointer;
+}
+
+.fi-strict-roadmap-list article.is-selected {
+  border-color: rgba(18, 108, 255, 0.56);
+  background: #f0f7ff;
 }
 
 .fi-strict-roadmap-list h3 {

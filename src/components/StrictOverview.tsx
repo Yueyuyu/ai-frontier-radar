@@ -1,3 +1,4 @@
+import { useMemo, useState } from 'react'
 import type { CSSProperties, ReactNode } from 'react'
 import { Activity, Link2, ShieldCheck, Star } from 'lucide-react'
 import type { FrontierIntelDataset, FrontierSignal } from '../types'
@@ -14,6 +15,17 @@ type StrictOverviewProps = {
   selectedSignal: FrontierSignal
   signals: FrontierSignal[]
 }
+
+type SignalTabKey = 'all' | 'model' | 'tool' | 'agent' | 'policy' | 'research'
+
+const signalTabs: Array<{ key: SignalTabKey; label: string; matches: (signal: FrontierSignal) => boolean }> = [
+  { key: 'all', label: '全部', matches: () => true },
+  { key: 'model', label: '模型 / 能力', matches: (signal) => signal.category === '模型' },
+  { key: 'tool', label: '工具 / 产品', matches: (signal) => signal.category === 'AI 编程' || signal.category === 'Skill / 插件' },
+  { key: 'agent', label: 'Agent / 生态', matches: (signal) => signal.category === 'Agent' },
+  { key: 'policy', label: '政策 / 行业', matches: (signal) => signal.category === '平台' },
+  { key: 'research', label: '研究 / 论文', matches: (signal) => signal.sources.some((source) => source.type === 'benchmark' || source.type === 'docs') },
+]
 
 function signalStatus(signal: FrontierSignal) {
   if (signal.confidence >= 92) return '新'
@@ -46,16 +58,26 @@ function KpiCard({ icon, label, metric, note, tone }: { icon: ReactNode; label: 
 }
 
 function SignalTable({ onSelect, selectedSignal, signals }: { onSelect: (id: string) => void; selectedSignal: FrontierSignal; signals: FrontierSignal[] }) {
-  const visible = signals.slice(0, 5)
+  const [activeTab, setActiveTab] = useState<SignalTabKey>('all')
+  const tabs = useMemo(
+    () =>
+      signalTabs.map((tab) => ({
+        ...tab,
+        count: signals.filter(tab.matches).length,
+      })),
+    [signals],
+  )
+  const activeTabConfig = signalTabs.find((tab) => tab.key === activeTab) ?? signalTabs[0]
+  const visible = signals.filter(activeTabConfig.matches).slice(0, 5)
   return (
     <section className="fi-strict-panel fi-strict-signal-panel">
       <div className="fi-strict-panel-head">
         <h2>信号矩阵</h2>
         <div className="fi-strict-tabs" aria-label="信号分类">
-          {['全部', '模型 / 能力', '工具 / 产品', 'Agent / 生态', '政策 / 行业', '研究 / 论文'].map((item, index) => (
-            <button className={index === 0 ? 'is-active' : ''} key={item} type="button">
-              {item}
-              {index === 0 && <span>{signals.length}</span>}
+          {tabs.map((tab) => (
+            <button aria-pressed={activeTab === tab.key} className={activeTab === tab.key ? 'is-active' : ''} key={tab.key} onClick={() => setActiveTab(tab.key)} type="button">
+              {tab.label}
+              <span>{tab.count}</span>
             </button>
           ))}
         </div>
@@ -80,9 +102,14 @@ function SignalTable({ onSelect, selectedSignal, signals }: { onSelect: (id: str
             {visible.map((signal) => {
               const selected = selectedSignal.id === signal.id
               return (
-                <tr className={selected ? 'is-selected' : ''} key={signal.id}>
+                <tr className={selected ? 'is-selected' : ''} key={signal.id} onClick={() => onSelect(signal.id)} onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault()
+                    onSelect(signal.id)
+                  }
+                }} role="button" tabIndex={0}>
                   <td>
-                    <input aria-label={`选择 ${signal.name}`} checked={selected} onChange={() => onSelect(signal.id)} type="checkbox" />
+                    <input aria-label={`选择 ${signal.name}`} checked={selected} onChange={() => onSelect(signal.id)} onClick={(event) => event.stopPropagation()} type="checkbox" />
                   </td>
                   <td>
                     <button className="fi-strict-signal-link" onClick={() => onSelect(signal.id)} type="button">
@@ -109,11 +136,19 @@ function SignalTable({ onSelect, selectedSignal, signals }: { onSelect: (id: str
                 </tr>
               )
             })}
+            {!visible.length && (
+              <tr className="fi-strict-empty-row">
+                <td colSpan={10}>
+                  <strong>该分类暂无匹配信号</strong>
+                  <span>可以切回“全部”，或调整顶部搜索和来源筛选。</span>
+                </td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>
       <div className="fi-strict-panel-action">
-        <button type="button">查看全部 {signals.length} 条信号</button>
+        <a href="#signals">查看全部 {signals.length} 条信号</a>
       </div>
     </section>
   )
@@ -236,10 +271,10 @@ function RefreshTaskSummary({ dataset }: { dataset: FrontierIntelDataset }) {
   )
 }
 
-function StrictInspector({ signal }: { signal: FrontierSignal }) {
+function StrictInspector({ onClose, signal }: { onClose: () => void; signal: FrontierSignal }) {
   return (
     <aside className="fi-strict-panel fi-strict-inspector">
-      <button className="fi-strict-close" aria-label="关闭详情" type="button">×</button>
+      <button className="fi-strict-close" aria-label="关闭详情" onClick={onClose} type="button">×</button>
       <h2>信号详情</h2>
       <h3>{signal.title}</h3>
       <div className="fi-strict-detail-metrics">
@@ -285,8 +320,27 @@ function StrictInspector({ signal }: { signal: FrontierSignal }) {
   )
 }
 
+function StrictInspectorCollapsed({ onReopen, signal }: { onReopen: () => void; signal: FrontierSignal }) {
+  return (
+    <aside className="fi-strict-panel fi-strict-inspector-collapsed">
+      <h2>信号详情已收起</h2>
+      <p>{signal.title}</p>
+      <button onClick={onReopen} type="button">打开详情</button>
+    </aside>
+  )
+}
+
 export function StrictOverview({ dataset, onClearSearch, onSelect, selectedSignal, signals }: StrictOverviewProps) {
+  const [inspectorHidden, setInspectorHidden] = useState(false)
   const freshness = datasetFreshness(dataset)
+  const sourceTotal = dataset.sources?.length ?? dataset.sourceHealth.length ?? dataset.stats.totalSources
+  const verifiedSources = dataset.stats.verifiedSources || dataset.sourceHealth.filter((source) => source.status !== 'skipped' && source.status !== 'error').length
+  const highConfidenceSignals = dataset.signals.filter((signal) => signal.confidence >= 90).length
+  const handleSelect = (id: string) => {
+    setInspectorHidden(false)
+    onSelect(id)
+  }
+
   if (!signals.length) {
     return (
       <section className="fi-strict-empty">
@@ -304,12 +358,12 @@ export function StrictOverview({ dataset, onClearSearch, onSelect, selectedSigna
         <div className="fi-strict-main-grid">
           <div className="fi-strict-left">
             <div className="fi-strict-kpi-grid">
-              <KpiCard icon={<Activity size={22} />} label="总信号" metric={dataset.signals.length * 114 + dataset.stats.totalEntities} note={`较昨日 +${dataset.signals.length * 11} ↑`} tone="teal" />
-              <KpiCard icon={<ShieldCheck size={22} />} label="可验证来源" metric={dataset.stats.totalSources * 10 + dataset.stats.verifiedSources} note={`较昨日 +${dataset.stats.verifiedSources} ↑`} tone="blue" />
-              <KpiCard icon={<Star size={22} />} label="高置信信号" metric={signals.filter((signal) => signal.confidence >= 90).length * 14} note="占比 6.5%" tone="purple" />
-              <KpiCard icon={<Link2 size={22} />} label="待配置来源" metric={freshness.skippedCount} note={`较昨日 +${Math.max(1, freshness.skippedCount - 1)} ↑`} tone="orange" />
+              <KpiCard icon={<Activity size={22} />} label="总信号" metric={dataset.stats.totalEntities || dataset.signals.length} note={`当前匹配 ${signals.length} 条`} tone="teal" />
+              <KpiCard icon={<ShieldCheck size={22} />} label="可验证来源" metric={verifiedSources} note={`总来源 ${sourceTotal} 个`} tone="blue" />
+              <KpiCard icon={<Star size={22} />} label="高置信信号" metric={highConfidenceSignals} note={`占比 ${Math.round((highConfidenceSignals / Math.max(1, dataset.signals.length)) * 100)}%`} tone="purple" />
+              <KpiCard icon={<Link2 size={22} />} label="待配置来源" metric={freshness.skippedCount} note={`${freshness.failedCount} 个失败 · ${freshness.delayedCount} 个风险`} tone="orange" />
             </div>
-            <SignalTable onSelect={onSelect} selectedSignal={selectedSignal} signals={signals} />
+            <SignalTable onSelect={handleSelect} selectedSignal={selectedSignal} signals={signals} />
             <div className="fi-strict-bottom-grid">
               <RankingMini dataset={dataset} />
               <RankingDelta dataset={dataset} />
@@ -317,7 +371,7 @@ export function StrictOverview({ dataset, onClearSearch, onSelect, selectedSigna
               <RefreshTaskSummary dataset={dataset} />
             </div>
           </div>
-          <StrictInspector signal={selectedSignal} />
+          {inspectorHidden ? <StrictInspectorCollapsed onReopen={() => setInspectorHidden(false)} signal={selectedSignal} /> : <StrictInspector onClose={() => setInspectorHidden(true)} signal={selectedSignal} />}
         </div>
       </section>
     </>

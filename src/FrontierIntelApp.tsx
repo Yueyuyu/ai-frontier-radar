@@ -33,6 +33,7 @@ import { useFrontierIntelDataset } from './dataRuntime'
 import type { FrontierIntelDataset, FrontierSignal, RankingItem, SourceDefinition } from './types'
 
 type ViewKey = 'coverage' | 'overview' | 'signals' | 'models' | 'agents' | 'skills' | 'data' | 'rankings' | 'calendar' | 'sources' | 'roadmap' | 'components'
+type SourceFilter = 'all' | 'official' | 'ranking'
 
 type NavItem = {
   href: string
@@ -45,6 +46,8 @@ const routeByHash: Record<string, ViewKey> = {
   '#coverage-map': 'coverage',
   '#overview': 'overview',
   '#radar': 'overview',
+  '#mobile-empty': 'overview',
+  '#mobile-loading': 'overview',
   '#signals': 'signals',
   '#model-rankings': 'models',
   '#agent-rankings': 'agents',
@@ -121,6 +124,32 @@ function signalMatchesSearch(signal: FrontierSignal, query: string) {
     .join(' ')
     .toLowerCase()
   return text.includes(normalized)
+}
+
+function signalMatchesSourceFilter(signal: FrontierSignal, filter: SourceFilter) {
+  if (filter === 'all') return true
+  if (filter === 'official') {
+    return signal.level === 'official' || signal.sources.some((source) => source.type === 'official')
+  }
+  return signal.level === 'benchmark' || signal.sources.some((source) => source.type === 'benchmark') || signal.title.includes('榜单') || signal.name.toLowerCase().includes('ranking')
+}
+
+function rankingItemMatchesSourceFilter(item: RankingItem, filter: SourceFilter) {
+  if (filter === 'all') return true
+  const text = `${item.source ?? ''} ${item.provider} ${item.scoringExplanation ?? ''}`.toLowerCase()
+  if (filter === 'official') {
+    return text.includes('官方') || text.includes('docs') || text.includes('api') || text.includes('openai') || text.includes('anthropic') || text.includes('google')
+  }
+  return text.includes('榜') || text.includes('benchmark') || text.includes('arena') || text.includes('analysis') || text.includes('ranking')
+}
+
+function sourceDefinitionMatchesSourceFilter(source: SourceDefinition, filter: SourceFilter) {
+  if (filter === 'all') return true
+  const text = `${source.name} ${source.sourceType} ${source.accessMethod} ${source.message ?? ''}`.toLowerCase()
+  if (filter === 'official') {
+    return source.sourceType === 'official-confirmation' || text.includes('official') || text.includes('api') || text.includes('docs') || text.includes('官方')
+  }
+  return source.sourceType.includes('capability') || source.sourceType.includes('benchmark') || text.includes('benchmark') || text.includes('arena') || text.includes('榜')
 }
 
 function domainSourceTypes(kind: 'model' | 'agent' | 'tool') {
@@ -208,7 +237,9 @@ function AppShell({
   navItems,
   onNavigate,
   onSearchChange,
+  onSourceFilterChange,
   searchQuery,
+  sourceFilter,
 }: {
   activeView: ViewKey
   children: ReactNode
@@ -216,7 +247,9 @@ function AppShell({
   navItems: NavItem[]
   onNavigate: (view: ViewKey) => void
   onSearchChange: (value: string) => void
+  onSourceFilterChange: (value: SourceFilter) => void
   searchQuery: string
+  sourceFilter: SourceFilter
 }) {
   return (
     <main className="fi-app">
@@ -224,7 +257,7 @@ function AppShell({
         <SidebarNav activeView={activeView} dataset={dataset} items={navItems} onNavigate={onNavigate} />
         <section className="fi-main">
           <MobileTopBar dataset={dataset} />
-          <CommandBar activeView={activeView} dataset={dataset} onSearchChange={onSearchChange} searchQuery={searchQuery} />
+          <CommandBar activeView={activeView} dataset={dataset} onSearchChange={onSearchChange} onSourceFilterChange={onSourceFilterChange} searchQuery={searchQuery} sourceFilter={sourceFilter} />
           {children}
         </section>
       </div>
@@ -305,10 +338,29 @@ function MobileTopBar({ dataset }: { dataset: FrontierIntelDataset }) {
   )
 }
 
-function CommandBar({ activeView, dataset, onSearchChange, searchQuery }: { activeView: ViewKey; dataset: FrontierIntelDataset; onSearchChange: (value: string) => void; searchQuery: string }) {
+function CommandBar({
+  activeView,
+  dataset,
+  onSearchChange,
+  onSourceFilterChange,
+  searchQuery,
+  sourceFilter,
+}: {
+  activeView: ViewKey
+  dataset: FrontierIntelDataset
+  onSearchChange: (value: string) => void
+  onSourceFilterChange: (value: SourceFilter) => void
+  searchQuery: string
+  sourceFilter: SourceFilter
+}) {
   const copy = viewMeta[activeView]
   const inputRef = useRef<HTMLInputElement>(null)
   const freshness = datasetFreshness(dataset)
+  const sourceFilters: Array<{ label: string; value: SourceFilter }> = [
+    { label: '全部', value: 'all' },
+    { label: '官方', value: 'official' },
+    { label: '榜单', value: 'ranking' },
+  ]
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -336,10 +388,12 @@ function CommandBar({ activeView, dataset, onSearchChange, searchQuery }: { acti
         <kbd>/</kbd>
       </label>
       <div className="fi-command-filters" aria-label="总览筛选">
-        <button type="button"><Filter size={15} /></button>
-        <button className="is-active" type="button">全部</button>
-        <button type="button">官方</button>
-        <button type="button">榜单</button>
+        <button aria-label="重置筛选" onClick={() => onSourceFilterChange('all')} type="button"><Filter size={15} /></button>
+        {sourceFilters.map((filter) => (
+          <button aria-pressed={sourceFilter === filter.value} className={sourceFilter === filter.value ? 'is-active' : ''} key={filter.value} onClick={() => onSourceFilterChange(filter.value)} type="button">
+            {filter.label}
+          </button>
+        ))}
       </div>
       <div className="fi-refresh-inline">
         <span />
@@ -400,8 +454,17 @@ function MobileBottomNav({ activeView, onNavigate }: { activeView: ViewKey; onNa
   )
 }
 
-function OverviewPage({ dataset, onClearSearch, onSelect, searchQuery, selectedSignal }: { dataset: FrontierIntelDataset; onClearSearch: () => void; onSelect: (id: string) => void; searchQuery: string; selectedSignal: FrontierSignal }) {
-  const signals = dataset.signals.filter((signal) => signalMatchesSearch(signal, searchQuery)).slice(0, 6)
+function OverviewPage({ dataset, onClearSearch, onSelect, searchQuery, selectedSignal, sourceFilter }: { dataset: FrontierIntelDataset; onClearSearch: () => void; onSelect: (id: string) => void; searchQuery: string; selectedSignal: FrontierSignal; sourceFilter: SourceFilter }) {
+  const signals = dataset.signals
+    .filter((signal) => signalMatchesSearch(signal, searchQuery))
+    .filter((signal) => signalMatchesSourceFilter(signal, sourceFilter))
+
+  useEffect(() => {
+    if (signals.length && !signals.some((signal) => signal.id === selectedSignal.id)) {
+      onSelect(signals[0].id)
+    }
+  }, [onSelect, selectedSignal.id, signals])
+
   return <StrictOverview dataset={dataset} onClearSearch={onClearSearch} onSelect={onSelect} selectedSignal={selectedSignal} signals={signals} />
 }
 
@@ -422,26 +485,26 @@ function SignalsPage({
   return <StrictSignalsPage onClearSearch={onClearSearch} onSelect={onSelect} selectedSignal={selectedSignal} signals={signals} />
 }
 
-function DomainPage({ dataset, kind, searchQuery }: { dataset: FrontierIntelDataset; kind: 'model' | 'agent' | 'tool'; searchQuery: string }) {
+function DomainPage({ dataset, kind, searchQuery, sourceFilter }: { dataset: FrontierIntelDataset; kind: 'model' | 'agent' | 'tool'; searchQuery: string; sourceFilter: SourceFilter }) {
   const query = normalizeSearch(searchQuery)
-  const items = dataset.rankingItems.filter((item) => item.kind === kind && (!query || `${item.name} ${item.provider} ${item.category} ${item.source ?? ''} ${item.scoringExplanation ?? ''}`.toLowerCase().includes(query)))
-  const relatedSignals = dataset.signals.filter((signal) => (kind === 'model' ? signal.category === '模型' : kind === 'agent' ? signal.category === 'Agent' : signal.category === 'AI 编程' || signal.category === 'Skill / 插件') && signalMatchesSearch(signal, searchQuery))
-  const sources = sourceDefinitions(dataset).filter((source) => sourceMatchesDomain(source, kind) && (!query || `${source.name} ${source.sourceType} ${source.accessMethod} ${source.status} ${source.message ?? ''}`.toLowerCase().includes(query)))
+  const items = dataset.rankingItems.filter((item) => item.kind === kind && rankingItemMatchesSourceFilter(item, sourceFilter) && (!query || `${item.name} ${item.provider} ${item.category} ${item.source ?? ''} ${item.scoringExplanation ?? ''}`.toLowerCase().includes(query)))
+  const relatedSignals = dataset.signals.filter((signal) => (kind === 'model' ? signal.category === '模型' : kind === 'agent' ? signal.category === 'Agent' : signal.category === 'AI 编程' || signal.category === 'Skill / 插件') && signalMatchesSearch(signal, searchQuery) && signalMatchesSourceFilter(signal, sourceFilter))
+  const sources = sourceDefinitions(dataset).filter((source) => sourceMatchesDomain(source, kind) && sourceDefinitionMatchesSourceFilter(source, sourceFilter) && (!query || `${source.name} ${source.sourceType} ${source.accessMethod} ${source.status} ${source.message ?? ''}`.toLowerCase().includes(query)))
   return <StrictDomainPage abilityTags={domainAbilityTags(kind)} dataset={dataset} items={items} kind={kind} relatedSignals={relatedSignals} sources={sources} />
 }
 
-function RankingsPage({ dataset, searchQuery }: { dataset: FrontierIntelDataset; searchQuery: string }) {
+function RankingsPage({ dataset, searchQuery, sourceFilter }: { dataset: FrontierIntelDataset; searchQuery: string; sourceFilter: SourceFilter }) {
   const query = normalizeSearch(searchQuery)
   const baseItems = [...dataset.rankingItems, ...signalRankingItems(dataset.signals)]
-  const items = baseItems.filter((item) => !query || `${item.name} ${item.provider} ${item.category} ${item.source ?? ''} ${item.scoringExplanation ?? ''}`.toLowerCase().includes(query))
+  const items = baseItems.filter((item) => rankingItemMatchesSourceFilter(item, sourceFilter) && (!query || `${item.name} ${item.provider} ${item.category} ${item.source ?? ''} ${item.scoringExplanation ?? ''}`.toLowerCase().includes(query)))
   return <StrictRankingsPage items={items} />
 }
 
-function DataPage({ dataset }: { dataset: FrontierIntelDataset }) {
+function DataPage({ dataset, searchQuery }: { dataset: FrontierIntelDataset; searchQuery: string }) {
   const sources = sourceDefinitions(dataset)
   const skippedSources = sources.filter((source) => source.status === 'skipped')
   const freshnessById = Object.fromEntries(sources.map((source) => [source.id, assessFreshness(source.lastCheckedAt, source.freshnessSla, source.status)]))
-  return <StrictDataPage dataset={dataset} freshnessById={freshnessById} skippedSources={skippedSources} sources={sources} />
+  return <StrictDataPage dataset={dataset} freshnessById={freshnessById} searchQuery={searchQuery} skippedSources={skippedSources} sources={sources} />
 }
 
 function CalendarPage({ dataset }: { dataset: FrontierIntelDataset }) {
@@ -498,6 +561,7 @@ function ViewSwitch({
   onSelect,
   searchQuery,
   selectedSignal,
+  sourceFilter,
 }: {
   activeView: ViewKey
   dataset: FrontierIntelDataset
@@ -505,18 +569,19 @@ function ViewSwitch({
   onSelect: (id: string) => void
   searchQuery: string
   selectedSignal: FrontierSignal
+  sourceFilter: SourceFilter
 }) {
   if (activeView === 'coverage') return <CoverageMapPage />
   if (activeView === 'signals') return <SignalsPage dataset={dataset} onClearSearch={onClearSearch} onSelect={onSelect} searchQuery={searchQuery} selectedSignal={selectedSignal} />
-  if (activeView === 'models') return <DomainPage dataset={dataset} kind="model" searchQuery={searchQuery} />
-  if (activeView === 'agents') return <DomainPage dataset={dataset} kind="agent" searchQuery={searchQuery} />
-  if (activeView === 'skills') return <DomainPage dataset={dataset} kind="tool" searchQuery={searchQuery} />
-  if (activeView === 'data') return <DataPage dataset={dataset} />
-  if (activeView === 'rankings') return <RankingsPage dataset={dataset} searchQuery={searchQuery} />
+  if (activeView === 'models') return <DomainPage dataset={dataset} kind="model" searchQuery={searchQuery} sourceFilter={sourceFilter} />
+  if (activeView === 'agents') return <DomainPage dataset={dataset} kind="agent" searchQuery={searchQuery} sourceFilter={sourceFilter} />
+  if (activeView === 'skills') return <DomainPage dataset={dataset} kind="tool" searchQuery={searchQuery} sourceFilter={sourceFilter} />
+  if (activeView === 'data') return <DataPage dataset={dataset} searchQuery={searchQuery} />
+  if (activeView === 'rankings') return <RankingsPage dataset={dataset} searchQuery={searchQuery} sourceFilter={sourceFilter} />
   if (activeView === 'calendar') return <CalendarPage dataset={dataset} />
   if (activeView === 'sources') return <SourcesPage dataset={dataset} searchQuery={searchQuery} />
   if (activeView === 'roadmap') return <RoadmapPage dataset={dataset} />
-  return <OverviewPage dataset={dataset} onClearSearch={onClearSearch} onSelect={onSelect} searchQuery={searchQuery} selectedSignal={selectedSignal} />
+  return <OverviewPage dataset={dataset} onClearSearch={onClearSearch} onSelect={onSelect} searchQuery={searchQuery} selectedSignal={selectedSignal} sourceFilter={sourceFilter} />
 }
 
 export default function FrontierIntelApp() {
@@ -525,10 +590,13 @@ export default function FrontierIntelApp() {
   const navItems = useMemo(() => buildNav(dataset), [dataset])
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
+  const [sourceFilter, setSourceFilter] = useState<SourceFilter>('all')
   const [selectedId, setSelectedId] = useState(dataset.signals[0]?.id ?? '')
 
   useEffect(() => {
-    if (!selectedId && dataset.signals[0]?.id) setSelectedId(dataset.signals[0].id)
+    if ((!selectedId || !dataset.signals.some((signal) => signal.id === selectedId)) && dataset.signals[0]?.id) {
+      setSelectedId(dataset.signals[0].id)
+    }
   }, [dataset.signals, selectedId])
 
   const selectedSignal = dataset.signals.find((signal) => signal.id === selectedId) ?? dataset.signals[0]
@@ -543,14 +611,14 @@ export default function FrontierIntelApp() {
   }
 
   if (activeView === 'components') {
-    return <ComponentStateBoard />
+    return <ComponentStateBoard dataset={dataset} />
   }
 
   return (
-    <AppShell activeView={activeView} dataset={dataset} navItems={navItems} onNavigate={navigate} onSearchChange={setSearchQuery} searchQuery={searchQuery}>
+    <AppShell activeView={activeView} dataset={dataset} navItems={navItems} onNavigate={navigate} onSearchChange={setSearchQuery} onSourceFilterChange={setSourceFilter} searchQuery={searchQuery} sourceFilter={sourceFilter}>
       {selectedSignal ? (
         <>
-          <ViewSwitch activeView={activeView} dataset={dataset} onClearSearch={() => setSearchQuery('')} onSelect={selectSignal} searchQuery={searchQuery} selectedSignal={selectedSignal} />
+          <ViewSwitch activeView={activeView} dataset={dataset} onClearSearch={() => setSearchQuery('')} onSelect={selectSignal} searchQuery={searchQuery} selectedSignal={selectedSignal} sourceFilter={sourceFilter} />
           <MobileSignalDetailDrawer onClose={() => setDrawerOpen(false)} open={drawerOpen} signal={selectedSignal} />
         </>
       ) : (

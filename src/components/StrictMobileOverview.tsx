@@ -1,4 +1,5 @@
 import { CheckCircle2, ChevronRight, Clock3, ExternalLink, FileText, Filter, Home, LoaderCircle, Menu, Newspaper, RefreshCw, Search, Shield, ShieldCheck, Trophy, X } from 'lucide-react'
+import { useEffect, useMemo, useState } from 'react'
 import type { FrontierIntelDataset, FrontierSignal, SignalSource } from '../types'
 import { StatusBadge } from './StatusBadge'
 
@@ -9,13 +10,16 @@ type StrictMobileOverviewProps = {
   signals: FrontierSignal[]
 }
 
+type MobileFilterKey = 'all' | 'high' | 'chinese' | 'following'
+
 function brandTone(name: string) {
   if (name.includes('Claude') || name.includes('Anthropic')) return 'is-warm'
   if (name.includes('Agent') || name.includes('Arena')) return 'is-purple'
   return 'is-teal'
 }
 
-function evidenceLabel(source: SignalSource) {
+function evidenceLabel(source?: SignalSource) {
+  if (!source) return '来源'
   if (source.type === 'official') return '官方'
   if (source.type === 'docs') return '文档'
   if (source.type === 'platform') return '平台'
@@ -24,9 +28,36 @@ function evidenceLabel(source: SignalSource) {
   return '传闻'
 }
 
+function hasChineseText(value: string) {
+  return /[\u4e00-\u9fff]/.test(value)
+}
+
+function signalHasChinese(signal: FrontierSignal) {
+  return [
+    signal.provider,
+    signal.name,
+    signal.category,
+    signal.releaseWindow,
+    signal.title,
+    signal.summary,
+    ...signal.sources.flatMap((source) => [source.name, source.detail]),
+  ].some(hasChineseText)
+}
+
+function initialFollowedSignalIds(signals: FrontierSignal[]) {
+  return new Set(signals.slice(0, Math.min(6, signals.length)).map((signal) => signal.id))
+}
+
+function matchesMobileFilter(signal: FrontierSignal, filter: MobileFilterKey, followedIds: Set<string>) {
+  if (filter === 'high') return signal.confidence >= 85
+  if (filter === 'chinese') return signalHasChinese(signal)
+  if (filter === 'following') return followedIds.has(signal.id)
+  return true
+}
+
 function MobileSignalCard({ onSelect, signal }: { onSelect: (id: string) => void; signal: FrontierSignal }) {
   return (
-    <button className="fi-mobile-signal-card" onClick={() => onSelect(signal.id)} type="button">
+    <button aria-label={`查看信号详情：${signal.title}`} className="fi-mobile-signal-card" onClick={() => onSelect(signal.id)} type="button">
       <span className={`fi-mobile-provider ${brandTone(signal.title)}`}>{signal.name.slice(0, 1)}</span>
       <span className="fi-mobile-signal-main">
         <span className="fi-mobile-signal-title">
@@ -55,13 +86,13 @@ function MobileEvidenceTile({ source }: { source: SignalSource }) {
   )
 }
 
-function MobileSignalSheet({ signal }: { signal: FrontierSignal }) {
+function MobileSignalSheet({ onClose, signal }: { onClose: () => void; signal: FrontierSignal }) {
   return (
-    <section className="fi-mobile-signal-sheet" aria-label="信号详情">
+    <section className="fi-mobile-signal-sheet" aria-label="信号详情" aria-modal="true" role="dialog">
       <span className="fi-mobile-sheet-handle" />
       <div className="fi-mobile-sheet-head">
         <h2>信号详情</h2>
-        <button aria-label="关闭信号详情" type="button"><X size={22} /></button>
+        <button aria-label="关闭信号详情" onClick={onClose} type="button"><X size={22} /></button>
       </div>
       <div className="fi-mobile-sheet-title">
         <span className={`fi-mobile-provider ${brandTone(signal.title)}`}>{signal.name.slice(0, 1)}</span>
@@ -79,7 +110,7 @@ function MobileSignalSheet({ signal }: { signal: FrontierSignal }) {
         {signal.sources.slice(0, 3).map((source) => <MobileEvidenceTile key={source.name} source={source} />)}
       </div>
       <button className="fi-mobile-primary-action" type="button">查看来源 <ExternalLink size={17} /></button>
-      <button className="fi-mobile-secondary-action" type="button">关闭</button>
+      <button className="fi-mobile-secondary-action" onClick={onClose} type="button">关闭</button>
     </section>
   )
 }
@@ -89,6 +120,18 @@ function mobileStateMode() {
   if (window.location.hash === '#mobile-empty') return 'empty'
   if (window.location.hash === '#mobile-loading') return 'loading'
   return 'live'
+}
+
+function useMobileStateMode() {
+  const [mode, setMode] = useState(mobileStateMode)
+
+  useEffect(() => {
+    const updateMode = () => setMode(mobileStateMode())
+    window.addEventListener('hashchange', updateMode)
+    return () => window.removeEventListener('hashchange', updateMode)
+  }, [])
+
+  return mode
 }
 
 function MobileAppHead() {
@@ -152,13 +195,40 @@ function MobileLoadingState() {
 }
 
 export function StrictMobileOverview({ dataset, onSelect, selectedSignal, signals }: StrictMobileOverviewProps) {
-  const mode = mobileStateMode()
-  const visibleSignals = signals.slice(0, 3)
-  const highConfidenceCount = signals.filter((signal) => signal.confidence >= 85).length * 3 + 1
-  const sourceCount = Math.max(dataset.stats.verifiedSources, dataset.sources?.length ?? 0) * 4 + 2
+  const mode = useMobileStateMode()
+  const [activeFilter, setActiveFilter] = useState<MobileFilterKey>('all')
+  const [sheetSignalId, setSheetSignalId] = useState<string | null>(null)
+  const followedSignalIds = useMemo(() => initialFollowedSignalIds(signals), [signals])
+  const highConfidenceCount = signals.filter((signal) => signal.confidence >= 85).length
+  const sourceCount = Math.max(dataset.stats.verifiedSources, dataset.stats.totalSources, dataset.sourceHealth.length, dataset.sources?.length ?? 0)
+  const filterOptions = useMemo(() => [
+    { key: 'all' as const, label: '全部', count: signals.length },
+    { key: 'high' as const, label: '高置信', count: highConfidenceCount },
+    { key: 'chinese' as const, label: '中文', count: signals.filter(signalHasChinese).length },
+    { key: 'following' as const, label: '我关注', count: signals.filter((signal) => followedSignalIds.has(signal.id)).length },
+  ], [followedSignalIds, highConfidenceCount, signals])
+  const visibleSignals = useMemo(
+    () => signals.filter((signal) => matchesMobileFilter(signal, activeFilter, followedSignalIds)),
+    [activeFilter, followedSignalIds, signals],
+  )
+  const sheetSignal = sheetSignalId
+    ? signals.find((signal) => signal.id === sheetSignalId) ?? (selectedSignal.id === sheetSignalId ? selectedSignal : null)
+    : null
+
+  useEffect(() => {
+    if (sheetSignalId && !signals.some((signal) => signal.id === sheetSignalId)) {
+      setSheetSignalId(null)
+    }
+  }, [sheetSignalId, signals])
+
+  const selectMobileSignal = (id: string) => {
+    onSelect(id)
+    setSheetSignalId(id)
+  }
 
   if (mode === 'empty') return <MobileEmptyState />
   if (mode === 'loading') return <MobileLoadingState />
+  if (!signals.length) return <MobileEmptyState />
 
   return (
     <section className="fi-mobile-overview">
@@ -181,16 +251,31 @@ export function StrictMobileOverview({ dataset, onSelect, selectedSignal, signal
         <div className="fi-mobile-summary-progress"><span /></div>
       </section>
       <div className="fi-mobile-filter-row">
-        <button className="is-active" type="button">全部 {highConfidenceCount}</button>
-        <button type="button">高置信 {highConfidenceCount}</button>
-        <button type="button">中文 18</button>
-        <button type="button">我关注 6</button>
-        <button aria-label="筛选" type="button"><Filter size={20} /></button>
+        {filterOptions.map((option) => (
+          <button
+            aria-pressed={activeFilter === option.key}
+            className={activeFilter === option.key ? 'is-active' : undefined}
+            key={option.key}
+            onClick={() => setActiveFilter(option.key)}
+            type="button"
+          >
+            {option.label} {option.count}
+          </button>
+        ))}
+        <button aria-label="筛选选项" title="筛选选项" type="button"><Filter size={20} /></button>
       </div>
       <div className="fi-mobile-card-list">
-        {visibleSignals.map((signal) => <MobileSignalCard key={signal.id} onSelect={onSelect} signal={signal} />)}
+        {visibleSignals.length ? (
+          visibleSignals.map((signal) => <MobileSignalCard key={signal.id} onSelect={selectMobileSignal} signal={signal} />)
+        ) : (
+          <div className="fi-mobile-empty-state" role="status">
+            <div className="fi-mobile-empty-art"><Search size={58} /></div>
+            <strong>暂无匹配信号</strong>
+            <span>当前筛选下没有可展示的前沿信号</span>
+          </div>
+        )}
       </div>
-      <MobileSignalSheet signal={selectedSignal} />
+      {sheetSignal ? <MobileSignalSheet onClose={() => setSheetSignalId(null)} signal={sheetSignal} /> : null}
       <nav className="fi-mobile-design-nav" aria-label="移动端快捷导航">
         <a className="is-active" href="#overview"><Home size={23} />情报</a>
         <a href="#signals"><Newspaper size={22} />信号</a>
