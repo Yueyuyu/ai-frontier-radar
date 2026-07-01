@@ -1,0 +1,25 @@
+:root {
+  --page: #f6fbff;
+  --page-soft: #edf8ff;
+  --surface: #ffffff;
+  --surface-soft: #f9fdff;
+  --line: rgba(122, 153, 180, 0.24);
+  --line-strong: rgba(83, 126, 160, 0.34);
+  --text-strong: #0b1d35;
+  --text-body: #52657b;
+  --text-muted: #8798ab;
+  --accent-teal: #17c9c0;
+  --accent-blue: #3d8cff;
+  --accent-coral: #ff7c4d;
+  --accent-purple: #9b6df5;
+  --accent-green: #33bf7a;
+  --warning: #f7a928;
+  --danger: #ec5f67;
+  --radius-control: 8px;
+  --radius-card: 8px;
+  --radius-panel: 12px;
+  --shadow-panel: 0 18px 42px rgba(70, 112, 145, 0.12);
+  --font-sans:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Microsoft YaHei", sans-serif;
+}
