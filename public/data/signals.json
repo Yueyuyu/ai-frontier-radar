@@ -194,14 +194,14 @@
     "accent": "#8eb9ff",
     "trustBand": "high",
     "sourceCount": 2,
-    "heatScore": 98,
+    "heatScore": 100,
     "impactScore": 81,
     "trend": [
-      80,
-      86,
-      89,
-      94,
-      98
+      82,
+      88,
+      91,
+      96,
+      100
     ],
     "tags": [
       "AI 编程",
