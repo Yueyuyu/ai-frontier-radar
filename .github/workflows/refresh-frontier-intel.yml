@@ -76,6 +76,11 @@ jobs:
           if (!dataset.generatedAt || !dataset.sourceRuns?.length) {
             throw new Error('frontier-intel-data.json missing generatedAt or sourceRuns');
           }
+          const sitemap = fs.readFileSync('public/sitemap.xml', 'utf8');
+          const robots = fs.readFileSync('public/robots.txt', 'utf8');
+          if (!sitemap.includes('/signals/') || !robots.includes('Sitemap:')) {
+            throw new Error('public sitemap or robots metadata is incomplete');
+          }
           console.log(`signals=${dataset.signals.length}, rankings=${dataset.rankingItems.length}, sourceRuns=${dataset.sourceRuns.length}`);
           NODE
 
@@ -91,12 +96,12 @@ jobs:
 
       - name: Commit refreshed data
         run: |
-          if [ -z "$(git status --porcelain public/data)" ]; then
-            echo "No public/data changes to commit."
+          if [ -z "$(git status --porcelain public/data public/sitemap.xml public/robots.txt)" ]; then
+            echo "No public data or web metadata changes to commit."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/data
+          git add public/data public/sitemap.xml public/robots.txt
           git commit -m "chore: 刷新 Frontier Intel 数据"
           git push

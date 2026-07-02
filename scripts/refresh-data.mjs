@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const repoRoot = join(__dirname, '..')
 const outputDir = join(repoRoot, 'public', 'data')
+const publicDir = join(repoRoot, 'public')
 const schemaPath = join(repoRoot, 'scripts', 'database', 'mysql-schema.sql')
 
 const generatedAt = new Date().toISOString()
@@ -15,6 +16,7 @@ const xBearerToken = process.env.X_BEARER_TOKEN || process.env.TWITTER_BEARER_TO
 const productHuntToken = process.env.PRODUCT_HUNT_TOKEN || ''
 const artificialAnalysisKey = process.env.ARTIFICIAL_ANALYSIS_API_KEY || ''
 const artificialAnalysisUrl = process.env.ARTIFICIAL_ANALYSIS_API_URL || ''
+const siteBaseUrl = (process.env.SITE_URL || process.env.VITE_PUBLIC_SITE_URL || 'https://yueyuyu.github.io/ai-frontier-radar').replace(/\/+$/, '')
 
 const sourceRuns = []
 const rawSnapshots = []
@@ -34,8 +36,9 @@ const officialSources = [
     name: 'OpenAI News',
     column: columns.official,
     url: 'https://openai.com/news/',
+    fallbackUrls: ['https://openai.com/news/rss.xml', 'https://developers.openai.com/api/docs/changelog'],
     access: 'official-page',
-    patterns: ['GPT-5.6', 'Codex', 'model', 'API'],
+    patterns: ['OpenAI', 'Codex', 'model', 'API'],
   },
   {
     id: 'openai-api-changelog',
@@ -333,8 +336,115 @@ function hostFromUrl(url) {
   }
 }
 
+function dateOnly(date) {
+  return date.toISOString().slice(0, 10)
+}
+
+function addDays(date, days) {
+  const next = new Date(date)
+  next.setUTCDate(next.getUTCDate() + days)
+  return next
+}
+
+function signalAnchorDate(signal) {
+  if (/^\d{4}-\d{2}-\d{2}$/.test(signal.firstSeen)) {
+    return new Date(`${signal.firstSeen}T00:00:00.000Z`)
+  }
+  return new Date(generatedAt)
+}
+
+function releaseWindowDates(signal) {
+  const anchor = signalAnchorDate(signal)
+  const window = String(signal.releaseWindow ?? '')
+  const weekMatch = window.match(/(\d+)\D+(\d+)\D*周/)
+  if (weekMatch) {
+    const start = addDays(anchor, Number(weekMatch[1]) * 7)
+    const end = addDays(anchor, Number(weekMatch[2]) * 7)
+    return { releaseDate: dateOnly(start), startDate: dateOnly(start), endDate: dateOnly(end) }
+  }
+  if (window.includes('持续')) {
+    return { releaseDate: dateOnly(anchor), startDate: dateOnly(anchor), endDate: dateOnly(addDays(anchor, 30)) }
+  }
+  if (window.includes('每日')) {
+    return { releaseDate: dateOnly(anchor), startDate: dateOnly(anchor), endDate: dateOnly(addDays(anchor, 1)) }
+  }
+  return { releaseDate: dateOnly(anchor), startDate: dateOnly(anchor), endDate: dateOnly(addDays(anchor, 14)) }
+}
+
+function releaseEventType(signal) {
+  if (signal.category === '模型') return signal.level === 'official' ? 'model-preview' : 'ecosystem-signal'
+  if (signal.category === 'AI 编程') return 'api-change'
+  if (signal.category === 'Skill / 插件') return 'tool-release'
+  if (signal.category === 'Agent') return 'benchmark-update'
+  return 'ecosystem-signal'
+}
+
+function sourceIdsForSignal(signal, sources) {
+  const signalSources = signal.sources ?? []
+  const matched = sources.filter((source) =>
+    signalSources.some((item) => {
+      const sourceHost = hostFromUrl(source.url)
+      const itemHost = hostFromUrl(item.url)
+      return item.name === source.name
+        || item.name.includes(source.name)
+        || source.name.includes(item.name)
+        || (sourceHost && itemHost && sourceHost === itemHost)
+    }),
+  ).map((source) => source.id)
+
+  if (matched.length) return Array.from(new Set(matched)).slice(0, 4)
+
+  const provider = signal.provider.toLowerCase()
+  const fallbackIds = []
+  if (provider.includes('openai')) fallbackIds.push('openai-news', 'openai-api-changelog')
+  if (provider.includes('anthropic') || provider.includes('claude')) fallbackIds.push('anthropic-release-notes')
+  if (provider.includes('google') || provider.includes('gemini')) fallbackIds.push('gemini-changelog')
+  if (provider.includes('mistral')) fallbackIds.push('mistral-changelog')
+  if (provider.includes('deepseek')) fallbackIds.push('deepseek-docs')
+  if (provider.includes('kimi') || provider.includes('moonshot')) fallbackIds.push('kimi-docs')
+  if (signal.category === 'Agent') fallbackIds.push('steel-leaderboard', 'agent-arena')
+  if (signal.category === 'Skill / 插件') fallbackIds.push('github-mcp', 'product-hunt')
+  if (signalSources.some((item) => item.type === 'social')) fallbackIds.push('x-recent-search')
+
+  const available = new Set(sources.map((source) => source.id))
+  return Array.from(new Set(fallbackIds)).filter((id) => available.has(id)).slice(0, 4)
+}
+
+function nextRunAtFor(run) {
+  const finishedAt = new Date(run.finishedAt ?? generatedAt)
+  const sla = freshnessSlaForAccess(run.access)
+  const minutes = sla.includes('30m') ? 30
+    : sla.includes('15m') ? 15
+      : sla.includes('1h') ? 60
+        : sla.includes('6h') ? 360
+          : sla.includes('daily') ? 1440
+            : 60
+  return new Date(finishedAt.getTime() + minutes * 60_000).toISOString()
+}
+
 function addRun(run) {
-  sourceRuns.push({ checkedAt: generatedAt, ...run })
+  const finishedAt = run.finishedAt ?? generatedAt
+  const startedAt = run.startedAt ?? finishedAt
+  const latencyMs = typeof run.latencyMs === 'number'
+    ? run.latencyMs
+    : Math.max(0, new Date(finishedAt).getTime() - new Date(startedAt).getTime())
+  const attemptCount = run.attemptCount ?? (run.status === 'skipped' ? 0 : 1)
+  const failedAttempts = run.failedAttempts ?? (run.status === 'error' ? attemptCount : 0)
+  const retryCount = run.retryCount ?? Math.max(0, attemptCount - 1)
+  const failureRate = run.failureRate ?? (attemptCount ? Number((failedAttempts / attemptCount).toFixed(2)) : 0)
+
+  sourceRuns.push({
+    checkedAt: finishedAt,
+    startedAt,
+    finishedAt,
+    latencyMs,
+    attemptCount,
+    failedAttempts,
+    retryCount,
+    failureRate,
+    nextRunAt: nextRunAtFor({ ...run, finishedAt }),
+    ...run,
+  })
 }
 
 function addSnapshot(provider, syncType, requestUrl, status, payload, message = '') {
@@ -370,43 +480,114 @@ async function fetchWithTimeout(url, options = {}, timeoutMs = 20_000) {
   }
 }
 
-async function fetchJsonSource({ id, name, column, url, access = 'public-api', headers = {}, method = 'GET', body }) {
-  try {
-    const response = await fetchWithTimeout(url, { method, body, headers })
-    const text = await response.text()
-    if (!response.ok) {
-      addRun({ id, name, column, url, access, status: 'error', itemCount: 0, message: `HTTP ${response.status}` })
-      addSnapshot(name, id, url, 'error', text, `HTTP ${response.status}`)
-      return null
+function normalizeFetchError(error) {
+  const code = error?.cause?.code || error?.code
+  const message = normalizeText(error?.message || String(error))
+  return code ? `${message} (${code})` : message
+}
+
+function candidateUrls(primaryUrl, fallbackUrls = []) {
+  return Array.from(new Set([primaryUrl, ...fallbackUrls].filter(Boolean)))
+}
+
+function summarizeAttemptErrors(errors) {
+  return errors
+    .map((item) => `${item.url}: ${item.message}`)
+    .join('；')
+    .slice(0, 500)
+}
+
+async function fetchTextWithRetries(urls, options = {}, { maxAttempts = 2, timeoutMs = 20_000 } = {}) {
+  const startedAt = new Date().toISOString()
+  const startedMs = Date.now()
+  const errors = []
+  let attemptCount = 0
+  let failedAttempts = 0
+
+  for (const url of urls) {
+    for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+      attemptCount += 1
+      try {
+        const response = await fetchWithTimeout(url, options, timeoutMs)
+        const text = await response.text()
+        const finishedAt = new Date().toISOString()
+        const latencyMs = Date.now() - startedMs
+
+        if (response.ok) {
+          return {
+            response,
+            text,
+            url,
+            startedAt,
+            finishedAt,
+            latencyMs,
+            attemptCount,
+            failedAttempts,
+            retryCount: Math.max(0, attemptCount - 1),
+            failureRate: attemptCount ? Number((failedAttempts / attemptCount).toFixed(2)) : 0,
+            errors,
+          }
+        }
+
+        failedAttempts += 1
+        errors.push({ url, message: `HTTP ${response.status}` })
+      } catch (error) {
+        failedAttempts += 1
+        errors.push({ url, message: normalizeFetchError(error) })
+      }
     }
-    const json = JSON.parse(text)
+  }
+
+  const finishedAt = new Date().toISOString()
+  const latencyMs = Date.now() - startedMs
+  const error = new Error(summarizeAttemptErrors(errors) || 'fetch failed')
+  error.startedAt = startedAt
+  error.finishedAt = finishedAt
+  error.latencyMs = latencyMs
+  error.attemptCount = attemptCount
+  error.failedAttempts = failedAttempts
+  error.retryCount = Math.max(0, attemptCount - 1)
+  error.failureRate = attemptCount ? Number((failedAttempts / attemptCount).toFixed(2)) : 1
+  error.errors = errors
+  throw error
+}
+
+function runAttemptFields(result) {
+  return {
+    attemptCount: result.attemptCount ?? 1,
+    failedAttempts: result.failedAttempts ?? 0,
+    retryCount: result.retryCount ?? 0,
+    failureRate: result.failureRate ?? 0,
+  }
+}
+
+async function fetchJsonSource({ id, name, column, url, fallbackUrls = [], access = 'public-api', headers = {}, method = 'GET', body }) {
+  try {
+    const result = await fetchTextWithRetries(candidateUrls(url, fallbackUrls), { method, body, headers })
+    const json = JSON.parse(result.text)
     const itemCount = Array.isArray(json) ? json.length : Array.isArray(json.data) ? json.data.length : Array.isArray(json.items) ? json.items.length : 1
-    addRun({ id, name, column, url, access, status: 'ok', itemCount, message: '刷新成功' })
-    addSnapshot(name, id, url, 'ok', json)
+    const fallbackNote = result.url === url ? '' : `，fallback 到 ${result.url}`
+    addRun({ id, name, column, url: result.url, access, status: 'ok', itemCount, message: `刷新成功${fallbackNote}`, startedAt: result.startedAt, finishedAt: result.finishedAt, latencyMs: result.latencyMs, ...runAttemptFields(result) })
+    addSnapshot(name, id, result.url, 'ok', json)
     return json
   } catch (error) {
-    addRun({ id, name, column, url, access, status: 'error', itemCount: 0, message: error.message })
+    addRun({ id, name, column, url, access, status: 'error', itemCount: 0, message: error.message, startedAt: error.startedAt ?? new Date().toISOString(), finishedAt: error.finishedAt ?? new Date().toISOString(), latencyMs: error.latencyMs ?? 0, attemptCount: error.attemptCount ?? 1, failedAttempts: error.failedAttempts ?? 1, retryCount: error.retryCount ?? 0, failureRate: error.failureRate ?? 1 })
     addSnapshot(name, id, url, 'error', String(error), error.message)
     return null
   }
 }
 
-async function fetchTextSource({ id, name, column, url, access = 'html-page', patterns = [] }) {
+async function fetchTextSource({ id, name, column, url, fallbackUrls = [], access = 'html-page', patterns = [] }) {
   try {
-    const response = await fetchWithTimeout(url, { accept: 'text/html, text/plain, */*' })
-    const text = await response.text()
-    if (!response.ok) {
-      addRun({ id, name, column, url, access, status: 'error', itemCount: 0, message: `HTTP ${response.status}` })
-      addSnapshot(name, id, url, 'error', text, `HTTP ${response.status}`)
-      return { text: '', matches: 0 }
-    }
-    const lower = text.toLowerCase()
+    const result = await fetchTextWithRetries(candidateUrls(url, fallbackUrls), { accept: 'text/html, application/rss+xml, application/xml, text/plain, */*' })
+    const lower = result.text.toLowerCase()
     const matches = patterns.filter((pattern) => lower.includes(pattern.toLowerCase())).length
-    addRun({ id, name, column, url, access, status: 'ok', itemCount: matches, message: patterns.length ? `命中 ${matches}/${patterns.length} 个关键词` : '页面可访问' })
-    addSnapshot(name, id, url, 'ok', text.slice(0, 120_000))
-    return { text, matches }
+    const fallbackNote = result.url === url ? '' : `，fallback 到 ${result.url}`
+    addRun({ id, name, column, url: result.url, access, status: 'ok', itemCount: matches, message: patterns.length ? `命中 ${matches}/${patterns.length} 个关键词${fallbackNote}` : `页面可访问${fallbackNote}`, startedAt: result.startedAt, finishedAt: result.finishedAt, latencyMs: result.latencyMs, ...runAttemptFields(result) })
+    addSnapshot(name, id, result.url, 'ok', result.text.slice(0, 120_000))
+    return { text: result.text, matches }
   } catch (error) {
-    addRun({ id, name, column, url, access, status: 'error', itemCount: 0, message: error.message })
+    addRun({ id, name, column, url, access, status: 'error', itemCount: 0, message: error.message, startedAt: error.startedAt ?? new Date().toISOString(), finishedAt: error.finishedAt ?? new Date().toISOString(), latencyMs: error.latencyMs ?? 0, attemptCount: error.attemptCount ?? 1, failedAttempts: error.failedAttempts ?? 1, retryCount: error.retryCount ?? 0, failureRate: error.failureRate ?? 1 })
     addSnapshot(name, id, url, 'error', String(error), error.message)
     return { text: '', matches: 0 }
   }
@@ -469,6 +650,7 @@ async function collectGitHubSignals() {
         score: clampScore(55 + Math.log10(Math.max(repo.stargazers_count ?? 0, 1)) * 11 + Math.log10(Math.max(repo.forks_count ?? 0, 1)) * 5),
         url: repo.html_url,
         query: query.label,
+        license: repo.license?.spdx_id || repo.license?.name || '未声明',
       })
     }
   }
@@ -697,6 +879,23 @@ async function collectArtificialAnalysisSignals() {
   }))
 }
 
+function signalTags(signal) {
+  return Array.from(new Set([
+    signal.category,
+    signal.provider.split(/[ /]+/)[0],
+    signal.level,
+    signal.releaseWindow,
+    ...signal.sources.map((source) => source.type),
+  ].filter(Boolean))).slice(0, 8)
+}
+
+function relatedSignalIds(signal, signals) {
+  return signals
+    .filter((item) => item.id !== signal.id && (item.provider === signal.provider || item.category === signal.category || item.level === signal.level))
+    .slice(0, 4)
+    .map((item) => item.id)
+}
+
 function buildSignals({ github, hn, xSignals }) {
   const heatByKeyword = new Map()
   for (const item of [...github, ...hn, ...xSignals]) {
@@ -711,13 +910,16 @@ function buildSignals({ github, hn, xSignals }) {
 
   return seedSignals.map((signal) => {
     const heatBonus = Math.min(4, heatByKeyword.get(signal.id) ?? 0)
+    const confidence = clampScore(signal.baseScore + heatBonus)
+    const heatScore = clampScore(48 + heatBonus * 12 + signal.sources.filter((source) => source.type === 'social' || source.type === 'platform').length * 8)
+    const impactScore = clampScore(signal.baseScore * 0.75 + signal.sources.length * 5 + (signal.level === 'official' ? 10 : 0))
     return {
       id: signal.id,
       provider: signal.provider,
       name: signal.name,
       category: signal.category,
       level: signal.level,
-      confidence: clampScore(signal.baseScore + heatBonus),
+      confidence,
       firstSeen: signal.firstSeen,
       lastUpdate: lastUpdateText(),
       releaseWindow: signal.releaseWindow,
@@ -728,55 +930,181 @@ function buildSignals({ github, hn, xSignals }) {
       accent: signal.accent,
       trustBand: signal.baseScore >= 90 ? 'high' : signal.baseScore >= 75 ? 'medium' : signal.level === 'social' || signal.level === 'rumor' ? 'watch' : 'medium',
       sourceCount: signal.sources.length,
+      heatScore,
+      impactScore,
+      trend: [Math.max(0, heatScore - 18), Math.max(0, heatScore - 12), Math.max(0, heatScore - 9), Math.max(0, heatScore - 4), heatScore],
+      tags: signalTags(signal),
+      relatedSignalIds: relatedSignalIds(signal, seedSignals),
       sources: signal.sources,
     }
   })
 }
 
+function weightedPart(value, weight) {
+  return Math.round((clampScore(value) / 100) * weight)
+}
+
+function hasSourceType(signal, types) {
+  return signal.sources.some((source) => types.includes(source.type))
+}
+
+function scoreFromBreakdown(breakdown) {
+  return clampScore(Object.values(breakdown).reduce((sum, value) => sum + value, 0))
+}
+
+function modelScoreBreakdown(signal) {
+  return {
+    abilityBenchmark: weightedPart(signal.confidence, 35),
+    apiAvailability: hasSourceType(signal, ['platform', 'docs', 'official']) ? 20 : 10,
+    costUsability: signal.releaseWindow.includes('有限') ? 10 : 13,
+    officialConfirmation: hasSourceType(signal, ['official']) ? 15 : hasSourceType(signal, ['docs']) ? 12 : 6,
+    heatGrowth: weightedPart(signal.heatScore ?? signal.confidence, 15),
+  }
+}
+
+function agentScoreBreakdown(signal) {
+  return {
+    benchmarkSuccess: weightedPart(signal.confidence, 40),
+    taskComplexity: signal.category === 'Agent' ? 18 : 10,
+    productGrowth: weightedPart(signal.heatScore ?? signal.confidence, 15),
+    communityHeat: hasSourceType(signal, ['social']) ? weightedPart(signal.heatScore ?? signal.confidence, 15) : 7,
+    officialAvailability: hasSourceType(signal, ['official', 'platform', 'docs']) ? 10 : 5,
+  }
+}
+
+function toolScoreBreakdown(signal) {
+  return {
+    githubGrowth: weightedPart(signal.heatScore ?? signal.confidence, 30),
+    launchCommunityHeat: hasSourceType(signal, ['social', 'platform']) ? weightedPart(signal.heatScore ?? signal.confidence, 25) : 8,
+    xPropagation: hasSourceType(signal, ['social']) ? weightedPart(signal.heatScore ?? signal.confidence, 20) : 4,
+    releaseActivity: hasSourceType(signal, ['official', 'docs']) ? 15 : 8,
+    ecosystemDependency: Math.min(10, Math.max(4, (signal.sourceCount ?? 1) * 3)),
+  }
+}
+
+function signalRankingKind(signal) {
+  if (signal.category === 'Agent') return 'agent'
+  if (signal.category === '模型') return 'model'
+  return 'tool'
+}
+
+function scoreBreakdownForSignal(signal) {
+  const kind = signalRankingKind(signal)
+  if (kind === 'model') return modelScoreBreakdown(signal)
+  if (kind === 'agent') return agentScoreBreakdown(signal)
+  return toolScoreBreakdown(signal)
+}
+
+function scoreExplanationForKind(kind) {
+  if (kind === 'model') return '模型综合分按能力榜 35%、API 可用性 20%、价格/上下文/速度 15%、官方确认 15%、热度增长 15% 计算。'
+  if (kind === 'agent') return 'Agent 综合分按 benchmark 成功率 40%、真实任务复杂度 20%、增长 15%、社区热度 15%、官方可用性 10% 计算。'
+  if (kind === 'tool') return '工具综合分按 GitHub 增长 30%、Product Hunt/HN 热度 25%、X 传播 20%、发布活跃 15%、生态依赖 10% 计算。'
+  return '综合信号分由证据、热度和来源覆盖共同计算。'
+}
+
+function repoScoreBreakdown(item) {
+  if (item.query === 'AI Agent') {
+    return {
+      benchmarkSuccess: weightedPart(item.score ?? 60, 40),
+      taskComplexity: 16,
+      productGrowth: weightedPart(item.score ?? 60, 15),
+      communityHeat: 10,
+      officialAvailability: 4,
+    }
+  }
+
+  return {
+    githubGrowth: weightedPart(item.score ?? 60, 30),
+    launchCommunityHeat: weightedPart(item.score ?? 60, 25),
+    xPropagation: 4,
+    releaseActivity: 12,
+    ecosystemDependency: item.license && item.license !== '未声明' ? 9 : 6,
+  }
+}
+
+function agentHealthScoreBreakdown(item) {
+  return {
+    benchmarkSuccess: weightedPart(item.score ?? 60, 40),
+    taskComplexity: 18,
+    productGrowth: 8,
+    communityHeat: 8,
+    officialAvailability: item.score && item.score >= 70 ? 9 : 5,
+  }
+}
+
 function buildRankingItems(signals, github, agentHealth) {
-  const seeded = signals.map((signal, index) => ({
-    rank: index + 1,
-    name: signal.name,
-    provider: signal.provider,
-    category: signal.category,
-    score: signal.confidence,
-    change: Math.max(1, Math.round((signal.confidence - 75) / 4)),
-    trend: [48, 54, 58, 64, 72, 80, signal.confidence],
-    accent: signal.accent,
-    kind: signal.category === 'Agent' ? 'agent' : signal.category === '模型' ? 'model' : 'tool',
-    source: '综合信号',
-    scoringExplanation: '综合信号分由官方确认、平台可用性、榜单或社区热度共同计算。',
-  }))
+  const seeded = signals.map((signal, index) => {
+    const kind = signalRankingKind(signal)
+    const scoreBreakdown = scoreBreakdownForSignal(signal)
+    const score = scoreFromBreakdown(scoreBreakdown)
 
-  const repoItems = github.slice(0, 8).map((item, index) => ({
-    rank: seeded.length + index + 1,
-    name: item.label.split('/').slice(-1)[0],
-    provider: item.label.includes('/') ? item.label.split('/')[0] : 'GitHub',
-    category: item.query === 'AI Agent' ? 'Agent' : 'Skill / 插件',
-    score: item.score,
-    change: null,
-    trend: [30, 36, 42, 47, 55, 61, item.score ?? 65],
-    accent: item.query === 'AI Agent' ? '#f7d774' : '#b79cff',
-    source: 'GitHub Search',
-    url: item.url,
-    kind: item.query === 'AI Agent' ? 'agent' : 'tool',
-    scoringExplanation: 'GitHub 搜索项主要依据仓库热度、活跃度和查询类别排序。',
-  }))
+    return {
+      rank: index + 1,
+      name: signal.name,
+      provider: signal.provider,
+      category: signal.category,
+      score,
+      change: Math.max(1, Math.round((score - 75) / 4)),
+      trend: [48, 54, 58, 64, 72, 80, score],
+      accent: signal.accent,
+      kind,
+      source: '综合信号',
+      scoringExplanation: scoreExplanationForKind(kind),
+      contextWindow: signal.releaseWindow,
+      pricing: signal.category === '模型' ? '待官方公开' : '按产品页确认',
+      license: signal.level === 'official' ? '官方渠道' : '公开来源',
+      scoreBreakdown,
+    }
+  })
 
-  const agentItems = agentHealth.slice(0, 4).map((item, index) => ({
-    rank: seeded.length + repoItems.length + index + 1,
-    name: item.label.replace(' Leaderboard', ''),
-    provider: hostFromUrl(item.url),
-    category: 'Agent',
-    score: item.score,
-    change: null,
-    trend: [42, 45, 49, 52, 56, 61, item.score ?? 70],
-    accent: '#f7d774',
-    source: 'Agent benchmark page',
-    url: item.url,
-    kind: 'agent',
-    scoringExplanation: 'Agent 榜单项主要依据公开 benchmark 页面健康状态和页面信号分排序。',
-  }))
+  const repoItems = github.slice(0, 8).map((item, index) => {
+    const kind = item.query === 'AI Agent' ? 'agent' : 'tool'
+    const scoreBreakdown = repoScoreBreakdown(item)
+    const score = scoreFromBreakdown(scoreBreakdown)
+
+    return {
+      rank: seeded.length + index + 1,
+      name: item.label.split('/').slice(-1)[0],
+      provider: item.label.includes('/') ? item.label.split('/')[0] : 'GitHub',
+      category: item.query === 'AI Agent' ? 'Agent' : 'Skill / 插件',
+      score,
+      change: null,
+      trend: [30, 36, 42, 47, 55, 61, score],
+      accent: item.query === 'AI Agent' ? '#f7d774' : '#b79cff',
+      source: 'GitHub Search',
+      url: item.url,
+      kind,
+      scoringExplanation: scoreExplanationForKind(kind),
+      contextWindow: 'GitHub pushed:45d',
+      pricing: '开源 / 免费',
+      license: item.license ?? '未声明',
+      scoreBreakdown,
+    }
+  })
+
+  const agentItems = agentHealth.slice(0, 4).map((item, index) => {
+    const scoreBreakdown = agentHealthScoreBreakdown(item)
+    const score = scoreFromBreakdown(scoreBreakdown)
+
+    return {
+      rank: seeded.length + repoItems.length + index + 1,
+      name: item.label.replace(' Leaderboard', ''),
+      provider: hostFromUrl(item.url),
+      category: 'Agent',
+      score,
+      change: null,
+      trend: [42, 45, 49, 52, 56, 61, score],
+      accent: '#f7d774',
+      source: 'Agent benchmark page',
+      url: item.url,
+      kind: 'agent',
+      scoringExplanation: scoreExplanationForKind('agent'),
+      contextWindow: 'daily benchmark page',
+      pricing: '公开榜单',
+      license: '公开网页',
+      scoreBreakdown,
+    }
+  })
 
   return [...seeded, ...repoItems, ...agentItems]
     .sort((a, b) => (b.score ?? 0) - (a.score ?? 0))
@@ -800,12 +1128,30 @@ function buildSourceHealth() {
       authRequired: run.access === 'api-key',
       freshnessSla: run.access === 'official-page' ? '30m-1h' : run.access === 'public-api' ? '1h' : run.access === 'api-key' ? '15m-6h' : 'daily',
       weight: run.access === 'official-page' ? 1 : run.access === 'public-api' ? 0.82 : run.access === 'html-page' ? 0.7 : run.access === 'api-key' ? 0.5 : 0.4,
+      runCount: 0,
+      failedRuns: 0,
+      attemptCount: 0,
+      failedAttempts: 0,
+      retryCount: 0,
+      failureRate: 0,
+      averageLatencyMs: 0,
     }
+    previous.runCount += 1
+    previous.failedRuns += run.status === 'error' ? 1 : 0
+    previous.attemptCount += run.attemptCount ?? 0
+    previous.failedAttempts += run.failedAttempts ?? 0
+    previous.retryCount += run.retryCount ?? 0
+    previous.averageLatencyMs = Math.round(((previous.averageLatencyMs * (previous.runCount - 1)) + (run.latencyMs ?? 0)) / previous.runCount)
+    previous.failureRate = previous.attemptCount ? Number((previous.failedAttempts / previous.attemptCount).toFixed(2)) : previous.failedRuns / previous.runCount
     previous.coverage = Math.max(previous.coverage, run.status === 'ok' ? 88 : run.status === 'skipped' ? 20 : 8)
     previous.status = run.status === 'ok' ? 'ok' : previous.status
+    previous.lastCheckedAt = run.checkedAt
     grouped.set(run.name, previous)
   }
-  return Array.from(grouped.values()).slice(0, 12)
+  return Array.from(grouped.values()).sort((a, b) => {
+    if (a.status !== b.status) return a.status === 'ok' ? -1 : b.status === 'ok' ? 1 : 0
+    return (b.weight ?? 0) - (a.weight ?? 0)
+  })
 }
 
 function sourceTypeFromColumn(column) {
@@ -863,9 +1209,23 @@ function buildSourceDefinitions() {
       lastCheckedAt: run.checkedAt,
       message: run.message,
       itemCount: 0,
+      runCount: 0,
+      failedRuns: 0,
+      attemptCount: 0,
+      failedAttempts: 0,
+      retryCount: 0,
+      failureRate: 0,
+      averageLatencyMs: 0,
     }
 
     previous.itemCount += run.itemCount
+    previous.runCount += 1
+    previous.failedRuns += run.status === 'error' ? 1 : 0
+    previous.attemptCount += run.attemptCount ?? 0
+    previous.failedAttempts += run.failedAttempts ?? 0
+    previous.retryCount += run.retryCount ?? 0
+    previous.averageLatencyMs = Math.round(((previous.averageLatencyMs * (previous.runCount - 1)) + (run.latencyMs ?? 0)) / previous.runCount)
+    previous.failureRate = previous.attemptCount ? Number((previous.failedAttempts / previous.attemptCount).toFixed(2)) : previous.failedRuns / previous.runCount
     previous.lastCheckedAt = run.checkedAt
     previous.message = run.message
     if (run.status === 'ok') previous.status = 'ok'
@@ -930,15 +1290,84 @@ function buildDataPanels({ openRouter, github, hn, hf, arxiv, agentHealth, xSign
   ]
 }
 
-function buildReleaseFrames(signals) {
-  return signals.map((signal) => ({
-    name: signal.name,
-    provider: signal.provider,
-    category: signal.category,
-    confidence: signal.confidence,
-    window: signal.releaseWindow,
-    accent: signal.accent,
-  }))
+function buildReleaseFrames(signals, sources) {
+  return signals.map((signal) => {
+    const dates = releaseWindowDates(signal)
+    return {
+      name: signal.name,
+      provider: signal.provider,
+      category: signal.category,
+      confidence: signal.confidence,
+      window: signal.releaseWindow,
+      accent: signal.accent,
+      ...dates,
+      eventType: releaseEventType(signal),
+      sourceIds: sourceIdsForSignal(signal, sources),
+      official: signal.level === 'official' || signal.sources.some((source) => source.type === 'official'),
+    }
+  })
+}
+
+function buildRoadmapItems(databaseStatus) {
+  const databaseSynced = databaseStatus === '已同步'
+  return [
+    {
+      version: 'v1.2',
+      title: '真实数据刷新与 JSON 快照',
+      quarter: 'Q2 2026',
+      status: 'done',
+      startDate: '2026-06-01',
+      endDate: '2026-07-01',
+      lane: 'data-foundation',
+      progress: 100,
+      owner: '数据平台',
+      dependencies: ['sourceRuns', 'public/data/frontier-intel-data.json'],
+      risks: [],
+      impactedPages: ['01-overview', '06-data-operations', '09-trusted-sources'],
+    },
+    {
+      version: 'v1.3',
+      title: 'MySQL 持久化与抓取日志',
+      quarter: 'Q3 2026',
+      status: databaseSynced ? 'done' : 'active',
+      startDate: '2026-07-01',
+      endDate: '2026-08-15',
+      lane: 'data-foundation',
+      progress: databaseSynced ? 100 : 45,
+      owner: '后端数据',
+      dependencies: ['DATABASE_URL', 'sourceRuns', 'rawSnapshots'],
+      risks: databaseSynced ? [] : ['生产数据库密钥未配置', '抓取失败重试策略待补齐'],
+      impactedPages: ['06-data-operations', '09-trusted-sources'],
+    },
+    {
+      version: 'v1.4',
+      title: '发布日历与路线图真实字段',
+      quarter: 'Q3 2026',
+      status: 'active',
+      startDate: '2026-07-02',
+      endDate: '2026-08-31',
+      lane: 'product-ui',
+      progress: 55,
+      owner: '前端体验',
+      dependencies: ['releaseFrames', 'roadmapItems'],
+      risks: ['部分来源缺少明确发布日期', '路线图负责人仍需人工校准'],
+      impactedPages: ['08-release-calendar', '10-roadmap'],
+    },
+    {
+      version: 'v1.5',
+      title: '智能摘要与异常热度告警',
+      quarter: 'Q4 2026',
+      status: 'planned',
+      startDate: '2026-09-01',
+      endDate: '2026-10-15',
+      lane: 'intelligence',
+      progress: 15,
+      owner: '情报分析',
+      dependencies: ['signals.heatScore', 'signals.impactScore', 'rankingItems.scoreBreakdown'],
+      risks: ['热度阈值需要历史样本校准', '摘要需要证据链引用'],
+      impactedPages: ['01-overview', '02-signal-feed', '07-rankings'],
+    },
+  ]
 }
 
 function buildDataset(payload) {
@@ -986,18 +1415,13 @@ function buildDataset(payload) {
       平台: { accent: '#ff6fd8', soft: 'rgba(255, 111, 216, 0.12)', icon: 'chart' },
     },
     signals,
-    releaseFrames: buildReleaseFrames(signals),
+    releaseFrames: buildReleaseFrames(signals, sources),
     rankingItems,
     sourceHealth,
     sources,
     sourceRuns,
     dataPanels,
-    roadmapItems: [
-      { version: 'v1.2', title: '真实数据刷新与 JSON 快照', quarter: 'Q2 2026', status: 'done' },
-      { version: 'v1.3', title: 'MySQL 持久化与抓取日志', quarter: 'Q3 2026', status: databaseStatus === '已同步' ? 'done' : 'active' },
-      { version: 'v1.4', title: 'Agent 市场和插件生态图', quarter: 'Q3 2026', status: 'active' },
-      { version: 'v1.5', title: '智能摘要与异常热度告警', quarter: 'Q4 2026', status: 'planned' },
-    ],
+    roadmapItems: buildRoadmapItems(databaseStatus),
     languageOptions: [
       { code: 'zh-CN', label: '简体中文', status: 'active' },
       { code: 'en', label: 'English', status: 'planned' },
@@ -1009,6 +1433,43 @@ function buildDataset(payload) {
 async function writeJson(fileName, data) {
   await mkdir(outputDir, { recursive: true })
   await writeFile(join(outputDir, fileName), `${JSON.stringify(data, null, 2)}\n`, 'utf8')
+}
+
+async function writePublicText(fileName, data) {
+  await mkdir(publicDir, { recursive: true })
+  await writeFile(join(publicDir, fileName), data, 'utf8')
+}
+
+function escapeXml(value) {
+  return String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&apos;')
+}
+
+function publicUrl(path) {
+  const normalizedPath = path.startsWith('/') ? path : `/${path}`
+  return `${siteBaseUrl}${normalizedPath}`
+}
+
+async function writePublicWebMetadata(dataset) {
+  const lastmod = (dataset.generatedAt || generatedAt).slice(0, 10)
+  const urls = [
+    { loc: publicUrl('/'), priority: '1.0', changefreq: 'hourly' },
+    { loc: publicUrl('/workspace'), priority: '0.6', changefreq: 'hourly' },
+    ...dataset.signals.map((signal) => ({
+      loc: publicUrl(`/signals/${encodeURIComponent(signal.id)}`),
+      priority: signal.confidence >= 90 ? '0.9' : '0.7',
+      changefreq: 'hourly',
+    })),
+  ]
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((url) => `  <url>\n    <loc>${escapeXml(url.loc)}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${url.changefreq}</changefreq>\n    <priority>${url.priority}</priority>\n  </url>`).join('\n')}\n</urlset>\n`
+  const robots = `User-agent: *\nAllow: /\nSitemap: ${publicUrl('/sitemap.xml')}\n`
+
+  await writePublicText('sitemap.xml', sitemap)
+  await writePublicText('robots.txt', robots)
 }
 
 function normalizeJdbcMysqlUrl(value) {
@@ -1101,11 +1562,29 @@ async function syncDatabase(dataset) {
       await connection.query(statement)
     }
 
+    const sourceRunTelemetryColumns = [
+      ['started_at', 'timestamp null'],
+      ['finished_at', 'timestamp null'],
+      ['latency_ms', 'int null'],
+      ['next_run_at', 'timestamp null'],
+      ['attempt_count', 'int not null default 0'],
+      ['failed_attempts', 'int not null default 0'],
+      ['retry_count', 'int not null default 0'],
+      ['failure_rate', 'decimal(5,2) not null default 0'],
+    ]
+    for (const [column, definition] of sourceRunTelemetryColumns) {
+      try {
+        await connection.query(`alter table frontier_source_runs add column ${column} ${definition}`)
+      } catch (error) {
+        if (error?.errno !== 1060) throw error
+      }
+    }
+
     for (const run of sourceRuns) {
       await connection.execute(
         `insert into frontier_source_runs
-          (id, source_name, source_column, source_url, access_method, status, item_count, checked_at, message)
-         values (?, ?, ?, ?, ?, ?, ?, ?, ?)
+          (id, source_name, source_column, source_url, access_method, status, item_count, checked_at, started_at, finished_at, latency_ms, next_run_at, attempt_count, failed_attempts, retry_count, failure_rate, message)
+         values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
          on duplicate key update
           source_name = values(source_name),
           source_column = values(source_column),
@@ -1114,8 +1593,34 @@ async function syncDatabase(dataset) {
           status = values(status),
           item_count = values(item_count),
           checked_at = values(checked_at),
+          started_at = values(started_at),
+          finished_at = values(finished_at),
+          latency_ms = values(latency_ms),
+          next_run_at = values(next_run_at),
+          attempt_count = values(attempt_count),
+          failed_attempts = values(failed_attempts),
+          retry_count = values(retry_count),
+          failure_rate = values(failure_rate),
           message = values(message)`,
-        [hashPayload(`${run.id}|${run.checkedAt}`).slice(0, 32), run.name, run.column, run.url, run.access, run.status, run.itemCount, new Date(run.checkedAt), run.message],
+        [
+          hashPayload(`${run.id}|${run.checkedAt}`).slice(0, 32),
+          run.name,
+          run.column,
+          run.url,
+          run.access,
+          run.status,
+          run.itemCount,
+          new Date(run.checkedAt),
+          run.startedAt ? new Date(run.startedAt) : null,
+          run.finishedAt ? new Date(run.finishedAt) : null,
+          run.latencyMs ?? null,
+          run.nextRunAt ? new Date(run.nextRunAt) : null,
+          run.attemptCount ?? 0,
+          run.failedAttempts ?? 0,
+          run.retryCount ?? 0,
+          run.failureRate ?? 0,
+          run.message,
+        ],
       )
     }
 
@@ -1281,6 +1786,7 @@ async function main() {
     const { responseBody: _responseBody, ...summary } = snapshot
     return summary
   }))
+  await writePublicWebMetadata(dataset)
 
   console.log(`Frontier Intel data refreshed: signals=${dataset.signals.length}, rankings=${dataset.rankingItems.length}, sources=${dataset.sourceRuns.length}, database=${databaseStatus}`)
 }

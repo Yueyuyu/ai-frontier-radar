@@ -16,6 +16,29 @@
     "accent": "#63f7d4",
     "trustBand": "high",
     "sourceCount": 3,
+    "heatScore": 86,
+    "impactScore": 99,
+    "trend": [
+      68,
+      74,
+      77,
+      82,
+      86
+    ],
+    "tags": [
+      "模型",
+      "OpenAI",
+      "official",
+      "有限预览",
+      "docs",
+      "social"
+    ],
+    "relatedSignalIds": [
+      "gpt-56-terra",
+      "gpt-56-luna",
+      "codex",
+      "gemini-31-pro"
+    ],
     "sources": [
       {
         "name": "OpenAI 公告",
@@ -57,6 +80,29 @@
     "accent": "#ff8f5f",
     "trustBand": "high",
     "sourceCount": 2,
+    "heatScore": 68,
+    "impactScore": 93,
+    "trend": [
+      50,
+      56,
+      59,
+      64,
+      68
+    ],
+    "tags": [
+      "模型",
+      "OpenAI",
+      "official",
+      "有限预览",
+      "docs",
+      "platform"
+    ],
+    "relatedSignalIds": [
+      "gpt-56-sol",
+      "gpt-56-luna",
+      "codex",
+      "gemini-31-pro"
+    ],
     "sources": [
       {
         "name": "OpenAI Help",
@@ -91,6 +137,29 @@
     "accent": "#8eb9ff",
     "trustBand": "high",
     "sourceCount": 2,
+    "heatScore": 68,
+    "impactScore": 92,
+    "trend": [
+      50,
+      56,
+      59,
+      64,
+      68
+    ],
+    "tags": [
+      "模型",
+      "OpenAI",
+      "official",
+      "有限预览",
+      "docs",
+      "platform"
+    ],
+    "relatedSignalIds": [
+      "gpt-56-sol",
+      "gpt-56-terra",
+      "codex",
+      "gemini-31-pro"
+    ],
     "sources": [
       {
         "name": "OpenAI Help",
@@ -125,6 +194,28 @@
     "accent": "#8eb9ff",
     "trustBand": "high",
     "sourceCount": 2,
+    "heatScore": 100,
+    "impactScore": 81,
+    "trend": [
+      82,
+      88,
+      91,
+      96,
+      100
+    ],
+    "tags": [
+      "AI 编程",
+      "OpenAI",
+      "platform",
+      "持续更新",
+      "docs"
+    ],
+    "relatedSignalIds": [
+      "gpt-56-sol",
+      "gpt-56-terra",
+      "gpt-56-luna",
+      "claude-code"
+    ],
     "sources": [
       {
         "name": "OpenAI 开发者文档",
@@ -159,6 +250,27 @@
     "accent": "#ffb86b",
     "trustBand": "high",
     "sourceCount": 2,
+    "heatScore": 96,
+    "impactScore": 79,
+    "trend": [
+      78,
+      84,
+      87,
+      92,
+      96
+    ],
+    "tags": [
+      "AI 编程",
+      "Anthropic",
+      "docs",
+      "持续更新",
+      "benchmark"
+    ],
+    "relatedSignalIds": [
+      "codex",
+      "mcp-skills",
+      "agent-runtime"
+    ],
     "sources": [
       {
         "name": "Claude Code 文档",
@@ -193,6 +305,26 @@
     "accent": "#b79cff",
     "trustBand": "medium",
     "sourceCount": 2,
+    "heatScore": 56,
+    "impactScore": 76,
+    "trend": [
+      38,
+      44,
+      47,
+      52,
+      56
+    ],
+    "tags": [
+      "Skill / 插件",
+      "MCP",
+      "docs",
+      "持续更新",
+      "platform"
+    ],
+    "relatedSignalIds": [
+      "claude-code",
+      "agent-runtime"
+    ],
     "sources": [
       {
         "name": "协议文档",
@@ -227,6 +359,26 @@
     "accent": "#f7d774",
     "trustBand": "medium",
     "sourceCount": 2,
+    "heatScore": 96,
+    "impactScore": 73,
+    "trend": [
+      78,
+      84,
+      87,
+      92,
+      96
+    ],
+    "tags": [
+      "Agent",
+      "OpenAI",
+      "docs",
+      "持续更新",
+      "benchmark"
+    ],
+    "relatedSignalIds": [
+      "claude-code",
+      "mcp-skills"
+    ],
     "sources": [
       {
         "name": "Agent SDK 文档",
@@ -261,6 +413,27 @@
     "accent": "#ff6fd8",
     "trustBand": "medium",
     "sourceCount": 2,
+    "heatScore": 56,
+    "impactScore": 75,
+    "trend": [
+      38,
+      44,
+      47,
+      52,
+      56
+    ],
+    "tags": [
+      "平台",
+      "OpenRouter",
+      "platform",
+      "每日更新",
+      "benchmark"
+    ],
+    "relatedSignalIds": [
+      "codex",
+      "gemini-31-pro",
+      "kimi-k26"
+    ],
     "sources": [
       {
         "name": "OpenRouter Models",
@@ -295,6 +468,28 @@
     "accent": "#4b8cff",
     "trustBand": "high",
     "sourceCount": 2,
+    "heatScore": 80,
+    "impactScore": 78,
+    "trend": [
+      62,
+      68,
+      71,
+      76,
+      80
+    ],
+    "tags": [
+      "模型",
+      "Google",
+      "platform",
+      "约 2-5 周",
+      "docs"
+    ],
+    "relatedSignalIds": [
+      "gpt-56-sol",
+      "gpt-56-terra",
+      "gpt-56-luna",
+      "codex"
+    ],
     "sources": [
       {
         "name": "Gemini API Changelog",
@@ -329,6 +524,29 @@
     "accent": "#58d68d",
     "trustBand": "medium",
     "sourceCount": 2,
+    "heatScore": 56,
+    "impactScore": 67,
+    "trend": [
+      38,
+      44,
+      47,
+      52,
+      56
+    ],
+    "tags": [
+      "模型",
+      "DeepSeek",
+      "rumor",
+      "约 4-8 周",
+      "docs",
+      "social"
+    ],
+    "relatedSignalIds": [
+      "gpt-56-sol",
+      "gpt-56-terra",
+      "gpt-56-luna",
+      "gemini-31-pro"
+    ],
     "sources": [
       {
         "name": "DeepSeek API",
@@ -363,6 +581,29 @@
     "accent": "#111827",
     "trustBand": "medium",
     "sourceCount": 2,
+    "heatScore": 56,
+    "impactScore": 70,
+    "trend": [
+      38,
+      44,
+      47,
+      52,
+      56
+    ],
+    "tags": [
+      "模型",
+      "Moonshot",
+      "platform",
+      "约 3-6 周",
+      "docs",
+      "social"
+    ],
+    "relatedSignalIds": [
+      "gpt-56-sol",
+      "gpt-56-terra",
+      "gpt-56-luna",
+      "codex"
+    ],
     "sources": [
       {
         "name": "Kimi API 文档",

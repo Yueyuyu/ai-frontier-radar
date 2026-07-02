@@ -13,67 +13,75 @@
   "items": [
     {
       "label": "punkpeye/awesome-mcp-servers",
-      "value": "90017 stars",
+      "value": "90180 stars",
       "note": "A collection of MCP servers.",
       "score": 100,
       "url": "https://github.com/punkpeye/awesome-mcp-servers",
-      "query": "MCP Server"
+      "query": "MCP Server",
+      "license": "MIT"
     },
     {
       "label": "headroomlabs-ai/headroom",
-      "value": "54170 stars",
+      "value": "55601 stars",
       "note": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 60-95% fewer tokens, same answers. Library",
       "score": 100,
       "url": "https://github.com/headroomlabs-ai/headroom",
-      "query": "MCP Server"
+      "query": "MCP Server",
+      "license": "Apache-2.0"
     },
     {
       "label": "microsoft/playwright-mcp",
-      "value": "34522 stars",
+      "value": "34607 stars",
       "note": "Playwright MCP server",
       "score": 100,
       "url": "https://github.com/microsoft/playwright-mcp",
-      "query": "MCP Server"
+      "query": "MCP Server",
+      "license": "Apache-2.0"
     },
     {
       "label": "github/github-mcp-server",
-      "value": "31077 stars",
+      "value": "31131 stars",
       "note": "GitHub's official MCP Server",
       "score": 100,
       "url": "https://github.com/github/github-mcp-server",
-      "query": "MCP Server"
+      "query": "MCP Server",
+      "license": "MIT"
     },
     {
       "label": "PrefectHQ/fastmcp",
-      "value": "25873 stars",
+      "value": "25928 stars",
       "note": "🚀 The fast, Pythonic way to build MCP servers and clients.",
       "score": 100,
       "url": "https://github.com/PrefectHQ/fastmcp",
-      "query": "MCP Server"
-    },
-    {
-      "label": "activepieces/activepieces",
-      "value": "23058 stars",
-      "note": "AI Agents & MCPs & AI Workflow Automation • (~400 MCP servers for AI agents) • AI Automation / AI Agent with MCPs • AI W",
-      "score": 100,
-      "url": "https://github.com/activepieces/activepieces",
-      "query": "MCP Server"
+      "query": "MCP Server",
+      "license": "Apache-2.0"
     },
     {
       "label": "DeusData/codebase-memory-mcp",
-      "value": "21965 stars",
+      "value": "24346 stars",
       "note": "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in mil",
       "score": 100,
       "url": "https://github.com/DeusData/codebase-memory-mcp",
-      "query": "MCP Server"
+      "query": "MCP Server",
+      "license": "MIT"
+    },
+    {
+      "label": "activepieces/activepieces",
+      "value": "23082 stars",
+      "note": "AI Agents & MCPs & AI Workflow Automation • (~400 MCP servers for AI agents) • AI Automation / AI Agent with MCPs • AI W",
+      "score": 100,
+      "url": "https://github.com/activepieces/activepieces",
+      "query": "MCP Server",
+      "license": "NOASSERTION"
     },
     {
       "label": "googleapis/mcp-toolbox",
-      "value": "15750 stars",
+      "value": "15812 stars",
       "note": "MCP Toolbox for Databases is an open source MCP server for databases.",
       "score": 100,
       "url": "https://github.com/googleapis/mcp-toolbox",
-      "query": "MCP Server"
+      "query": "MCP Server",
+      "license": "Apache-2.0"
     }
   ]
 }

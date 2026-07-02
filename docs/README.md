@@ -30,10 +30,13 @@
 8. [前后端功能实施计划](fullstack-implementation-plan.md)
    后续执行模式可直接使用的全栈落地计划，覆盖数据契约、刷新脚本、前端页面、状态、响应式和验收命令。
 
-9. [前后端实施验收记录](implementation-verification.md)
+9. [增长与商业化计划](growth-commercialization-plan.md)
+   了解产品竞争定位、Web/H5、小程序、公众号、抖音、App、转化、付费和广告接入路线。
+
+10. [前后端实施验收记录](implementation-verification.md)
    查看当前落地范围、截图证据、验证命令和兼容边界。
 
-10. [前端蓝图 JSON](ui-blueprint.json)
+11. [前端蓝图 JSON](ui-blueprint.json)
    面向实现的结构化契约，可供前端拆组件、建状态和对齐来源分组时参考。
 
 ## 当前命名约定

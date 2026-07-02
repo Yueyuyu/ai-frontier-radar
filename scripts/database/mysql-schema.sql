@@ -48,6 +48,14 @@ create table if not exists frontier_source_runs (
   status varchar(24) not null,
   item_count int not null default 0,
   checked_at timestamp not null,
+  started_at timestamp null,
+  finished_at timestamp null,
+  latency_ms int null,
+  next_run_at timestamp null,
+  attempt_count int not null default 0,
+  failed_attempts int not null default 0,
+  retry_count int not null default 0,
+  failure_rate decimal(5,2) not null default 0,
   message varchar(500) not null
 ) engine=InnoDB default charset=utf8mb4 collate=utf8mb4_unicode_ci;
 

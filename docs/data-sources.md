@@ -101,7 +101,7 @@
 | `raw_events` | `source_id`、`entity_id`、`title`、`url`、`published_at`、`fetched_at`、`raw_score`、`raw_payload_hash` | 记录原始事件和来源抓取结果 |
 | `rankings` | `entity_id`、`ranking_type`、`source_id`、`rank`、`score`、`metric_name`、`benchmark_name`、`measured_at` | 存储榜单与评测结果 |
 | `signals` | `entity_id`、`title`、`summary`、`category`、`confidence`、`heat_score`、`release_window`、`source_count`、`evidence_urls` | 面向前端展示的归一化信号 |
-| `source_runs` | `source_id`、`started_at`、`finished_at`、`status`、`item_count`、`error_message`、`latency_ms` | 记录抓取运行状态和失败原因 |
+| `source_runs` | `source_id`、`started_at`、`finished_at`、`status`、`item_count`、`error_message`、`latency_ms`、`retry_count`、`failure_rate` | 记录抓取运行状态、重试次数、失败率和失败原因 |
 
 当前仓库已经有 MySQL schema 的一部分，文件在 `scripts/database/mysql-schema.sql`。后续落库时建议向上面的完整表结构靠拢。
 

@@ -1,7 +1,7 @@
 import type { CSSProperties, ReactNode } from 'react'
 import { useState } from 'react'
 import { Activity, AlertTriangle, Box, CalendarDays, CheckCircle2, Clock3, Download, Layers3, RefreshCw, Star, Trophy, UsersRound } from 'lucide-react'
-import type { FrontierIntelDataset, FrontierSignal, RankingItem, RoadmapItem, SourceDefinition, SourceRun } from '../types'
+import type { FrontierIntelDataset, FrontierSignal, RankingItem, ReleaseFrame, RoadmapItem, SourceDefinition, SourceRun } from '../types'
 import { assessFreshness, datasetFreshness, formatDate } from './frontierHelpers'
 import { StatusBadge } from './StatusBadge'
 import { TrendSparkline } from './TrendSparkline'
@@ -84,6 +84,42 @@ function sourceTypeLabel(sourceType: string) {
 
 function rankingScoreLabel(value: number | null | undefined) {
   return typeof value === 'number' ? value : '观察'
+}
+
+function releaseEventLabel(type: ReleaseFrame['eventType']) {
+  const labels: Record<NonNullable<ReleaseFrame['eventType']>, string> = {
+    'api-change': 'API 变更',
+    'benchmark-update': '榜单更新',
+    'ecosystem-signal': '观察信号',
+    'model-preview': '模型预览',
+    'tool-release': '工具发布',
+  }
+  return type ? labels[type] : '发布信号'
+}
+
+function dateRangeLabel(startDate?: string, endDate?: string) {
+  if (startDate && endDate) return `${formatDate(startDate)} - ${formatDate(endDate)}`
+  if (startDate) return formatDate(startDate)
+  if (endDate) return formatDate(endDate)
+  return '待校准'
+}
+
+function latencyLabel(value?: number) {
+  if (typeof value !== 'number') return '未记录'
+  if (value < 1000) return `${value}ms`
+  return `${(value / 1000).toFixed(1)}s`
+}
+
+function rateLabel(value?: number) {
+  if (typeof value !== 'number') return '0%'
+  return `${Math.round(value * 100)}%`
+}
+
+function roadmapProgress(item: RoadmapItem) {
+  if (typeof item.progress === 'number') return Math.max(0, Math.min(100, item.progress))
+  if (item.status === 'done') return 100
+  if (item.status === 'active') return 50
+  return 12
 }
 
 function limitRankingItems(baseItems: RankingItem[], target: number) {
@@ -820,7 +856,11 @@ export function StrictDataPage({ dataset, freshnessById, searchQuery, skippedSou
             <table className="fi-strict-mini-table"><tbody>
               <tr><td>访问方式</td><td>{selectedRun.access}</td></tr>
               <tr><td>来源列</td><td>{selectedRun.column}</td></tr>
+              <tr><td>尝试 / 重试</td><td>{selectedRun.attemptCount ?? 0} / {selectedRun.retryCount ?? 0}</td></tr>
+              <tr><td>失败率</td><td>{rateLabel(selectedRun.failureRate)}</td></tr>
+              <tr><td>耗时</td><td>{latencyLabel(selectedRun.latencyMs)}</td></tr>
               <tr><td>最近检查</td><td>{formatDate(selectedRun.checkedAt)}</td></tr>
+              <tr><td>下次运行</td><td>{selectedRun.nextRunAt ? formatDate(selectedRun.nextRunAt) : '按调度'}</td></tr>
             </tbody></table>
           </section>}
         </aside>
@@ -834,17 +874,18 @@ export function StrictDataPage({ dataset, freshnessById, searchQuery, skippedSou
       <section className="fi-strict-panel fi-strict-table-card">
         <div className="fi-strict-card-head"><h3>Source Run 任务</h3><StatusBadge status={freshness.status}>{freshness.generated.label}</StatusBadge></div>
         <table className="fi-strict-simple-table">
-          <thead><tr><th>来源</th><th>状态</th><th>条目</th><th>耗时</th><th>错误</th><th>最近检查</th><th>下次运行</th><th>操作</th></tr></thead>
+          <thead><tr><th>来源</th><th>状态</th><th>条目</th><th>耗时</th><th>重试</th><th>失败率</th><th>最近检查</th><th>下次运行</th><th>操作</th></tr></thead>
           <tbody>
             {filteredRows.map((run) => (
               <tr className={selectedRun?.id === run.id ? 'is-selected' : ''} key={run.id} onClick={() => setSelectedRunId(run.id)} role="button" tabIndex={0}>
                 <td><strong>{run.name}</strong></td>
                 <td><StatusBadge status={run.status}>{run.status}</StatusBadge></td>
                 <td>{run.itemCount || 0}</td>
-                <td>未记录</td>
-                <td>{run.status === 'ok' ? '0' : run.message}</td>
+                <td>{latencyLabel(run.latencyMs)}</td>
+                <td>{run.retryCount ?? 0}</td>
+                <td>{rateLabel(run.failureRate)}</td>
                 <td>{freshnessById[run.id]?.ageLabel ?? formatDate(run.checkedAt)}</td>
-                <td>按调度</td>
+                <td>{run.nextRunAt ? formatDate(run.nextRunAt) : '按调度'}</td>
                 <td><button className="fi-strict-small-button" onClick={(event) => { event.stopPropagation(); setSelectedRunId(run.id) }} type="button">详情</button></td>
               </tr>
             ))}
@@ -977,16 +1018,18 @@ export function StrictCalendarPage({ dataset }: { dataset: FrontierIntelDataset 
   const [selectedName, setSelectedName] = useState('')
   const filteredEvents = dataset.releaseFrames.filter((event) => {
     if (eventFilter === '全部') return true
-    if (eventFilter === '官方确认') return (event.confidence ?? 0) >= 90
-    if (eventFilter === '文档更新') return event.category === 'AI 编程' || event.category === 'Skill / 插件'
-    if (eventFilter === 'API 发布') return event.category === '模型'
+    if (eventFilter === '官方确认') return event.official || (event.confidence ?? 0) >= 90
+    if (eventFilter === '文档更新') return event.eventType === 'api-change' || event.category === 'AI 编程' || event.category === 'Skill / 插件'
+    if (eventFilter === 'API 发布') return event.eventType === 'model-preview' || event.category === '模型'
     return (event.confidence ?? 0) < 90
   })
   const events = filteredEvents.slice(0, 10)
   const selectedEvent = events.find((event) => event.name === selectedName) ?? events[0]
+  const sourceById = new Map((dataset.sources ?? []).map((source) => [source.id, source]))
+  const selectedEventSources = selectedEvent?.sourceIds?.map((id) => sourceById.get(id)).filter(Boolean) ?? []
   const windowGroups = Object.entries(
     events.reduce<Record<string, typeof events>>((groups, event) => {
-      const key = event.window || '未分配窗口'
+      const key = event.startDate && event.endDate ? dateRangeLabel(event.startDate, event.endDate) : event.window || '未分配窗口'
       groups[key] = groups[key] ?? []
       groups[key].push(event)
       return groups
@@ -1005,7 +1048,7 @@ export function StrictCalendarPage({ dataset }: { dataset: FrontierIntelDataset 
               {events.map((event) => (
                 <article className={selectedEvent?.name === event.name ? 'is-selected' : ''} key={`${event.name}-${event.provider}`} onClick={() => setSelectedName(event.name)} role="button" tabIndex={0}>
                   <strong>{event.name}</strong>
-                  <span>{event.provider} · {event.window}</span>
+                  <span>{event.provider} · {dateRangeLabel(event.startDate, event.endDate)}</span>
                   <StatusBadge tone={scoreTone(event.confidence)}>{confidenceLabel(event.confidence)}</StatusBadge>
                 </article>
               ))}
@@ -1018,7 +1061,7 @@ export function StrictCalendarPage({ dataset }: { dataset: FrontierIntelDataset 
                 {rows.map((event) => (
                   <article className={selectedEvent?.name === event.name ? 'is-selected' : ''} key={`${window}-${event.name}`} onClick={() => setSelectedName(event.name)} role="button" tabIndex={0}>
                     <strong>{event.name}</strong>
-                    <span>{event.provider} · {event.category}</span>
+                    <span>{event.provider} · {releaseEventLabel(event.eventType)}</span>
                     <StatusBadge tone={scoreTone(event.confidence)}>{confidenceLabel(event.confidence)}</StatusBadge>
                   </article>
                 ))}
@@ -1028,19 +1071,27 @@ export function StrictCalendarPage({ dataset }: { dataset: FrontierIntelDataset 
             </div>
           }
           <div className="fi-strict-calendar-legend">
-            <span>releaseFrames</span><span>按 window 分组</span><span>未渲染虚构日期</span>
+            <span>releaseFrames</span><span>按 startDate / endDate 分组</span><span>official + sourceIds 追溯</span>
           </div>
         </section>
         <aside className="fi-strict-panel fi-strict-release-window">
           <div className="fi-strict-card-head"><h3>发布窗口</h3><a href="#calendar">查看完整列表</a></div>
           {selectedEvent ? (
             <section>
-              <div><strong>{selectedEvent.name}</strong><span>{selectedEvent.window}</span></div>
+              <div><strong>{selectedEvent.name}</strong><span>{selectedEvent.releaseDate ? formatDate(selectedEvent.releaseDate) : selectedEvent.window}</span></div>
               <article>
-                <span>{selectedEvent.provider} · {selectedEvent.category}</span>
+                <span>{selectedEvent.provider} · {releaseEventLabel(selectedEvent.eventType)}</span>
                 <StatusBadge tone={scoreTone(selectedEvent.confidence)}>{confidenceLabel(selectedEvent.confidence)}</StatusBadge>
               </article>
-              <p className="fi-strict-warning-note">当前数据契约尚未提供 releaseDate/startDate/endDate，因此只展示窗口，不映射到具体日历日期。</p>
+              <table className="fi-strict-mini-table"><tbody>
+                <tr><td>日期范围</td><td>{dateRangeLabel(selectedEvent.startDate, selectedEvent.endDate)}</td></tr>
+                <tr><td>官方确认</td><td>{selectedEvent.official ? '是' : '否'}</td></tr>
+                <tr><td>来源数量</td><td>{selectedEvent.sourceIds?.length ?? 0}</td></tr>
+              </tbody></table>
+              <div className="fi-strict-weight-grid">
+                {(selectedEventSources.length ? selectedEventSources : []).slice(0, 4).map((source) => <span key={source!.id}>{source!.name}</span>)}
+                {!selectedEventSources.length && <span>暂无来源映射</span>}
+              </div>
             </section>
           ) : <EmptyStrictPanel title="暂无发布详情" />}
         </aside>
@@ -1132,6 +1183,9 @@ export function StrictSourcesPage({ dataset, sources }: StrictSourcesPageProps) 
               <tr><td>来源类型</td><td>{selectedSource.sourceType}</td></tr>
               <tr><td>刷新 SLA</td><td>{selectedSource.freshnessSla}</td></tr>
               <tr><td>权重</td><td>{Math.round(selectedSource.weight * 100)}%</td></tr>
+              <tr><td>失败率</td><td>{rateLabel(selectedSource.failureRate)}</td></tr>
+              <tr><td>重试次数</td><td>{selectedSource.retryCount ?? 0}</td></tr>
+              <tr><td>平均耗时</td><td>{latencyLabel(selectedSource.averageLatencyMs)}</td></tr>
             </tbody></table>
           </section>}
           <section className="fi-strict-panel">
@@ -1160,13 +1214,13 @@ export function StrictRoadmapPage({ items }: StrictRoadmapPageProps) {
   const [viewMode, setViewMode] = useState<'时间线' | '里程碑'>('时间线')
   const [statusFilter, setStatusFilter] = useState<'全部' | RoadmapItem['status']>('全部')
   const [selectedVersion, setSelectedVersion] = useState('')
-  const roadmapCards = items.map((item) => ({ quarter: item.quarter, status: item.status, title: item.title, version: item.version }))
+  const roadmapCards = items
   const visibleCards = roadmapCards.filter((item) => statusFilter === '全部' || item.status === statusFilter)
   const selectedCard = visibleCards.find((item) => item.version === selectedVersion) ?? visibleCards[0] ?? roadmapCards[0]
   const completedCount = roadmapCards.filter((item) => item.status === 'done').length
   const activeCount = roadmapCards.filter((item) => item.status === 'active').length
   const plannedCount = roadmapCards.filter((item) => item.status === 'planned').length
-  const progress = Math.round(((completedCount + activeCount * 0.5) / Math.max(1, roadmapCards.length)) * 100)
+  const progress = Math.round(roadmapCards.reduce((sum, item) => sum + roadmapProgress(item), 0) / Math.max(1, roadmapCards.length))
   return (
     <section className="fi-strict-page">
       <StrictToolbar>
@@ -1182,8 +1236,8 @@ export function StrictRoadmapPage({ items }: StrictRoadmapPageProps) {
             <article className={`fi-strict-panel ${selectedCard?.version === item.version ? 'is-selected' : ''}`} key={`${item.version}-${item.title}`} onClick={() => setSelectedVersion(item.version)} role="button" tabIndex={0}>
               <StatusBadge status={item.status}>{item.status}</StatusBadge>
               <h3>{item.version} {item.title}</h3>
-              <time>{item.quarter}</time>
-              <p>来自 roadmapItems，当前仅提供版本、标题、季度和状态。</p>
+              <time>{dateRangeLabel(item.startDate, item.endDate)} · {item.quarter}</time>
+              <p>{item.owner ?? '待分配'} · {item.lane ?? 'default'} · 影响 {item.impactedPages?.length ?? 0} 个页面</p>
             </article>
           ))}
           {!visibleCards.length && <EmptyStrictPanel title="当前筛选下暂无路线图项目" />}
@@ -1200,12 +1254,11 @@ export function StrictRoadmapPage({ items }: StrictRoadmapPageProps) {
               <article key={label as string}><StatusBadge status={status as string}>{label as string}</StatusBadge><strong>{value as number}</strong></article>
             ))}
           </div>
-          <p className="fi-strict-warning-note">当前数据契约尚未提供 startDate/endDate/lane/progress/owner/dependencies，暂不渲染甘特条和风险列表。</p>
           <div className="fi-strict-progress-list">
             {roadmapCards.map((item) => (
               <div key={item.version}>
-                <span>{item.version} {item.title}<strong>{item.status}</strong></span>
-                <div><i style={{ width: `${item.status === 'done' ? 100 : item.status === 'active' ? 50 : 12}%` }} /></div>
+                <span>{item.version} {item.title}<strong>{roadmapProgress(item)}%</strong></span>
+                <div><i style={{ width: `${roadmapProgress(item)}%` }} /></div>
               </div>
             ))}
           </div>
@@ -1214,8 +1267,13 @@ export function StrictRoadmapPage({ items }: StrictRoadmapPageProps) {
           {selectedCard && <section className="fi-strict-panel">
             <div className="fi-strict-card-head"><h3>当前版本</h3><StatusBadge status={selectedCard.status}>{selectedCard.status}</StatusBadge></div>
             <h4>{selectedCard.version} {selectedCard.title}</h4>
-            <p>该版本来自路线图数据，当前只按状态和季度展示。</p>
-            <time>{selectedCard.quarter}</time>
+            <p>{selectedCard.owner ?? '待分配'} 负责，处于 {selectedCard.lane ?? 'default'} 泳道。</p>
+            <time>{dateRangeLabel(selectedCard.startDate, selectedCard.endDate)} · {selectedCard.quarter}</time>
+            <table className="fi-strict-mini-table"><tbody>
+              <tr><td>进度</td><td>{roadmapProgress(selectedCard)}%</td></tr>
+              <tr><td>依赖</td><td>{selectedCard.dependencies?.join(' / ') || '无'}</td></tr>
+              <tr><td>影响页面</td><td>{selectedCard.impactedPages?.join(' / ') || '无'}</td></tr>
+            </tbody></table>
           </section>}
           <section className="fi-strict-panel">
             <div className="fi-strict-card-head"><h3>进度</h3></div>
@@ -1228,9 +1286,9 @@ export function StrictRoadmapPage({ items }: StrictRoadmapPageProps) {
             </tbody></table>
           </section>
           <section className="fi-strict-panel">
-            <div className="fi-strict-card-head"><h3>待后端字段</h3></div>
+            <div className="fi-strict-card-head"><h3>风险与依赖</h3></div>
             <div className="fi-strict-weight-grid">
-              {['startDate', 'endDate', 'lane', 'owner', 'dependencies', 'risks'].map((item) => <span key={item}>{item}</span>)}
+              {(selectedCard?.risks?.length ? selectedCard.risks : ['当前无高风险']).map((item) => <span key={item}>{item}</span>)}
             </div>
           </section>
         </aside>

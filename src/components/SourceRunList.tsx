@@ -8,6 +8,17 @@ type SourceRunListProps = {
   freshnessById?: Record<string, FreshnessAssessment>
 }
 
+function latencyLabel(value?: number) {
+  if (typeof value !== 'number') return '未记录'
+  if (value < 1000) return `${value}ms`
+  return `${(value / 1000).toFixed(1)}s`
+}
+
+function rateLabel(value?: number) {
+  if (typeof value !== 'number') return '0%'
+  return `${Math.round(value * 100)}%`
+}
+
 export function SourceRunList({ freshnessById = {}, runs }: SourceRunListProps) {
   return (
     <div className="fi-table-wrap">
@@ -20,6 +31,7 @@ export function SourceRunList({ freshnessById = {}, runs }: SourceRunListProps) 
             <th>状态</th>
             <th>新鲜度</th>
             <th>数量</th>
+            <th>重试 / 失败率</th>
             <th>说明</th>
           </tr>
         </thead>
@@ -50,6 +62,7 @@ export function SourceRunList({ freshnessById = {}, runs }: SourceRunListProps) 
                   )}
                 </td>
                 <td>{run.itemCount}</td>
+                <td>{run.retryCount ?? 0} / {rateLabel(run.failureRate)}<br /><span>{latencyLabel(run.latencyMs)}</span></td>
                 <td>{run.message}</td>
               </tr>
             )

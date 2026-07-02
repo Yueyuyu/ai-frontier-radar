@@ -1,6 +1,6 @@
 # 前后端实施验收记录
 
-更新时间：2026-06-30
+更新时间：2026-07-02
 
 本文件记录 `docs/fullstack-implementation-plan.md` 的当前执行证据。验收以当前工作区文件、命令输出、截图和生成数据为准。
 
@@ -53,11 +53,12 @@
 ## 最近验证命令
 
 ```powershell
-pnpm run refresh:data
+& 'C:\Users\Yueyu\.workbuddy\binaries\node\versions\22.22.2\npm.cmd' ci
+& 'C:\Users\Yueyu\.workbuddy\binaries\node\versions\22.22.2\npm.cmd' run refresh:data
 node -e "const fs=require('fs'); const d=JSON.parse(fs.readFileSync('public/data/frontier-intel-data.json','utf8')); const files=['frontier-intel-data.json','radar-data.json','signals.json','sources.json','source-runs.json','model-rankings.json','agent-rankings.json','tool-rankings.json','raw-snapshots.index.json']; for (const f of files) JSON.parse(fs.readFileSync('public/data/'+f,'utf8')); console.log(JSON.stringify({signals:d.signals.length, rankings:d.rankingItems.length, sourceRuns:d.sourceRuns.length, generatedAt:d.generatedAt}, null, 2))"
 node -e "const fs=require('fs'); const specs=fs.readdirSync('docs/ui-implementation-package/screen-specs').filter(f=>f.endsWith('.json')); const refs=fs.readdirSync('reference-ui').filter(f=>f.endsWith('.html')); if (specs.length<13 || refs.length<13) throw new Error('missing ui implementation files'); for (const f of specs) JSON.parse(fs.readFileSync('docs/ui-implementation-package/screen-specs/'+f,'utf8')); console.log('ui restoration package ok', specs.length, refs.length)"
-pnpm run lint
-pnpm run build
+& 'C:\Users\Yueyu\.workbuddy\binaries\node\versions\22.22.2\npm.cmd' run lint
+& 'C:\Users\Yueyu\.workbuddy\binaries\node\versions\22.22.2\npm.cmd' run build
 ```
 
 最近数据检查结果：
@@ -66,7 +67,21 @@ pnpm run build
 signals=11
 rankings=23
 sourceRuns=31
+sourceHealth=31
+sources=31
+sourceRuns.status: ok=27, skipped=4, error=0
+OpenAI News: ok, fallback=https://openai.com/news/rss.xml, retryCount=3, failureRate=0.75
 ```
+
+## 线上自动化检查
+
+检查时间：2026-07-02。
+
+- GitHub Actions 工作流 `Refresh Frontier Intel Data` 已按 schedule 触发。
+- 最近 5 次线上运行均失败，最新失败 run 为 `28564446117`，来源分支为 `main`，提交为 `4faacc0`。
+- 失败点不是刷新脚本：`Refresh data` 和 `Validate generated JSON` 均成功。
+- 失败点是 `Build`：线上 main 缺少构建依赖，日志显示 `motion/react`、`clsx`、`tailwind-merge`、`@tailwindcss/vite` 模块找不到。
+- 当前本地分支使用 `npm ci` 后 `npm run build` 已通过；需要把当前依赖和锁文件修复合入并推送到 `main` 后，再观察下一次 scheduled run 是否完成 artifact 上传和数据自动提交。
 
 最近浏览器 smoke test：
 
@@ -100,6 +115,5 @@ page smoke ok: 13 checks, drawer=true
 ## 后续可选增强
 
 - 给语言按钮接入真实语言状态。
-- 给来源运行记录补充重试次数和失败率。
-- 继续校准模型、Agent、工具三套评分权重。
-- 在首次 GitHub Actions 运行后检查自动提交权限和密钥来源状态。
+- 推送当前依赖和数据可信度修复后，复查下一次 GitHub Actions scheduled run 是否成功上传 artifact 和提交 `public/data/`。
+- 配置可选密钥：`X_BEARER_TOKEN`、`PRODUCT_HUNT_TOKEN`、`ARTIFICIAL_ANALYSIS_API_KEY`、`ARTIFICIAL_ANALYSIS_API_URL`、`DATABASE_URL` 或 `DB_HOST/DB_NAME`。

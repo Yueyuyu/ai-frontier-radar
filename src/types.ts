@@ -31,6 +31,11 @@ export type FrontierSignal = {
   accent: string
   trustBand?: SignalTrustBand
   sourceCount?: number
+  heatScore?: number
+  impactScore?: number
+  trend?: number[]
+  tags?: string[]
+  relatedSignalIds?: string[]
   sources: SignalSource[]
 }
 
@@ -41,6 +46,12 @@ export type ReleaseFrame = {
   confidence: number | null
   window: string
   accent: string
+  releaseDate?: string
+  startDate?: string
+  endDate?: string
+  eventType?: 'model-preview' | 'api-change' | 'tool-release' | 'benchmark-update' | 'ecosystem-signal'
+  sourceIds?: string[]
+  official?: boolean
 }
 
 export type RankingKind = 'model' | 'agent' | 'tool' | 'signal'
@@ -58,6 +69,10 @@ export type RankingItem = {
   url?: string
   kind?: RankingKind
   scoringExplanation?: string
+  contextWindow?: string
+  pricing?: string
+  license?: string
+  scoreBreakdown?: Record<string, number>
 }
 
 export type SourceHealth = {
@@ -74,6 +89,13 @@ export type SourceHealth = {
   authRequired?: boolean
   freshnessSla?: string
   weight?: number
+  runCount?: number
+  failedRuns?: number
+  attemptCount?: number
+  failedAttempts?: number
+  retryCount?: number
+  failureRate?: number
+  averageLatencyMs?: number
 }
 
 export type SourceDefinition = {
@@ -89,6 +111,14 @@ export type SourceDefinition = {
   requiredEnv?: string[]
   lastCheckedAt?: string
   message?: string
+  itemCount?: number
+  runCount?: number
+  failedRuns?: number
+  attemptCount?: number
+  failedAttempts?: number
+  retryCount?: number
+  failureRate?: number
+  averageLatencyMs?: number
 }
 
 export type SourceRun = {
@@ -101,6 +131,14 @@ export type SourceRun = {
   itemCount: number
   checkedAt: string
   message: string
+  latencyMs?: number
+  nextRunAt?: string
+  startedAt?: string
+  finishedAt?: string
+  attemptCount?: number
+  failedAttempts?: number
+  retryCount?: number
+  failureRate?: number
 }
 
 export type DataPanelItem = {
@@ -134,6 +172,14 @@ export type RoadmapItem = {
   title: string
   quarter: string
   status: 'done' | 'active' | 'planned'
+  startDate?: string
+  endDate?: string
+  lane?: string
+  progress?: number
+  owner?: string
+  dependencies?: string[]
+  risks?: string[]
+  impactedPages?: string[]
 }
 
 export type LanguageOption = {

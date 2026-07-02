@@ -12,6 +12,13 @@
   "cadence": "6 小时",
   "items": [
     {
+      "label": "Anthropic: Claude Sonnet 5",
+      "value": "1000k ctx",
+      "note": "anthropic/claude-sonnet-5",
+      "score": 100,
+      "url": "https://openrouter.ai/anthropic/claude-sonnet-5"
+    },
+    {
       "label": "Anthropic: Claude Fable Latest",
       "value": "1000k ctx",
       "note": "~anthropic/claude-fable-latest",
@@ -59,13 +66,6 @@
       "note": "google/gemini-3.5-flash",
       "score": 100,
       "url": "https://openrouter.ai/google/gemini-3.5-flash"
-    },
-    {
-      "label": "Anthropic: Claude Opus 4.7 (Fast)",
-      "value": "1000k ctx",
-      "note": "anthropic/claude-opus-4.7-fast",
-      "score": 100,
-      "url": "https://openrouter.ai/anthropic/claude-opus-4.7-fast"
     }
   ]
 }

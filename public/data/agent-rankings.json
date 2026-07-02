@@ -16,67 +16,75 @@
   "items": [
     {
       "label": "obra/superpowers",
-      "value": "241876 stars",
+      "value": "244040 stars",
       "note": "An agentic skills framework & software development methodology that works.",
       "score": 100,
       "url": "https://github.com/obra/superpowers",
-      "query": "AI Agent"
+      "query": "AI Agent",
+      "license": "MIT"
     },
     {
       "label": "NousResearch/hermes-agent",
-      "value": "205997 stars",
+      "value": "207746 stars",
       "note": "The agent that grows with you",
       "score": 100,
       "url": "https://github.com/NousResearch/hermes-agent",
-      "query": "AI Agent"
+      "query": "AI Agent",
+      "license": "MIT"
     },
     {
       "label": "Snailclimb/JavaGuide",
-      "value": "156709 stars",
+      "value": "156753 stars",
       "note": "Java 面试 & 后端通用面试指南，覆盖计算机基础、数据库、分布式、高并发、系统设计与 AI 应用开发",
       "score": 100,
       "url": "https://github.com/Snailclimb/JavaGuide",
-      "query": "AI Agent"
+      "query": "AI Agent",
+      "license": "Apache-2.0"
     },
     {
       "label": "langflow-ai/langflow",
-      "value": "150226 stars",
+      "value": "150442 stars",
       "note": "Langflow is a powerful tool for building and deploying AI-powered agents and workflows.",
       "score": 100,
       "url": "https://github.com/langflow-ai/langflow",
-      "query": "AI Agent"
+      "query": "AI Agent",
+      "license": "MIT"
     },
     {
       "label": "langgenius/dify",
-      "value": "147073 stars",
+      "value": "147389 stars",
       "note": "Production-ready platform for agentic workflow development.",
       "score": 100,
       "url": "https://github.com/langgenius/dify",
-      "query": "AI Agent"
+      "query": "AI Agent",
+      "license": "NOASSERTION"
     },
     {
       "label": "x1xhlol/system-prompts-and-models-of-ai-tools",
-      "value": "141340 stars",
+      "value": "141431 stars",
       "note": "FULL Augment Code, Claude Code, Cluely, CodeBuddy, Comet, Cursor, Devin AI, Junie, Kiro, Leap.new, Lovable, Manus, Notio",
       "score": 100,
       "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
-      "query": "AI Agent"
+      "query": "AI Agent",
+      "license": "GPL-3.0"
     },
     {
       "label": "langchain-ai/langchain",
-      "value": "140550 stars",
+      "value": "140735 stars",
       "note": "The agent engineering platform.",
       "score": 100,
       "url": "https://github.com/langchain-ai/langchain",
-      "query": "AI Agent"
+      "query": "AI Agent",
+      "license": "MIT"
     },
     {
       "label": "msitarzewski/agency-agents",
-      "value": "119603 stars",
+      "value": "125039 stars",
       "note": "A complete AI agency at your fingertips - From frontend wizards to Reddit community ninjas, from whimsy injectors to rea",
       "score": 100,
       "url": "https://github.com/msitarzewski/agency-agents",
-      "query": "AI Agent"
+      "query": "AI Agent",
+      "license": "MIT"
     }
   ]
 }
