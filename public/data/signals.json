@@ -468,14 +468,14 @@
     "accent": "#4b8cff",
     "trustBand": "high",
     "sourceCount": 2,
-    "heatScore": 85,
+    "heatScore": 80,
     "impactScore": 78,
     "trend": [
-      67,
-      73,
+      62,
+      68,
+      71,
       76,
-      81,
-      85
+      80
     ],
     "tags": [
       "模型",
