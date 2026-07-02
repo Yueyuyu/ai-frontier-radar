@@ -546,18 +546,6 @@ function sourceDefinitions(dataset: FrontierIntelDataset): SourceDefinition[] {
   }))
 }
 
-function implementationPhases() {
-  return [
-    { title: '文档和命名基线', status: 'done', pages: 'README / docs / 蓝图' },
-    { title: '数据骨架调整', status: 'done', pages: 'frontier-intel-data / signals / sources' },
-    { title: '来源接入第一期', status: 'active', pages: '官方源 / OpenRouter / Agent 榜 / GitHub / HN' },
-    { title: '情报总览 UI 重构', status: 'active', pages: '情报总览 / 信号矩阵' },
-    { title: '来源健康与证据链', status: 'active', pages: '可信来源 / 信号详情 / 数据洞察' },
-    { title: '评分与榜单', status: 'active', pages: '榜单 / 模型地图 / Agent 市场 / Skill 插件' },
-    { title: '持久化与自动化', status: 'planned', pages: 'MySQL / cron / 过期状态' },
-  ]
-}
-
 function SourcesPage({ dataset, searchQuery }: { dataset: FrontierIntelDataset; searchQuery: string }) {
   const query = normalizeSearch(searchQuery)
   const allSources = sourceDefinitions(dataset)
@@ -569,7 +557,7 @@ function SourcesPage({ dataset, searchQuery }: { dataset: FrontierIntelDataset; 
 }
 
 function RoadmapPage({ dataset }: { dataset: FrontierIntelDataset }) {
-  return <StrictRoadmapPage implementationPhases={implementationPhases()} items={dataset.roadmapItems} />
+  return <StrictRoadmapPage items={dataset.roadmapItems} />
 }
 
 function ViewSwitch({

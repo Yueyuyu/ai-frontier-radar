@@ -21,11 +21,16 @@
   },
   "dependencies": {
     "@remotion/player": "4.0.484",
+    "@tailwindcss/vite": "^4.3.2",
     "animejs": "^4.5.0",
+    "clsx": "^2.1.1",
     "lucide-react": "^1.21.0",
+    "motion": "^12.42.2",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "remotion": "4.0.484"
+    "remotion": "4.0.484",
+    "tailwind-merge": "^3.6.0",
+    "tailwindcss": "^4.3.2"
   },
   "devDependencies": {
     "@types/node": "^24.13.2",
