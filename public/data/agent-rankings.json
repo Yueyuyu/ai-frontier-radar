@@ -16,7 +16,7 @@
   "items": [
     {
       "label": "obra/superpowers",
-      "value": "244307 stars",
+      "value": "244316 stars",
       "note": "An agentic skills framework & software development methodology that works.",
       "score": 100,
       "url": "https://github.com/obra/superpowers",
@@ -25,7 +25,7 @@
     },
     {
       "label": "NousResearch/hermes-agent",
-      "value": "207967 stars",
+      "value": "207979 stars",
       "note": "The agent that grows with you",
       "score": 100,
       "url": "https://github.com/NousResearch/hermes-agent",
@@ -43,7 +43,7 @@
     },
     {
       "label": "langflow-ai/langflow",
-      "value": "150653 stars",
+      "value": "150665 stars",
       "note": "Langflow is a powerful tool for building and deploying AI-powered agents and workflows.",
       "score": 100,
       "url": "https://github.com/langflow-ai/langflow",
@@ -52,7 +52,7 @@
     },
     {
       "label": "langgenius/dify",
-      "value": "147427 stars",
+      "value": "147429 stars",
       "note": "Production-ready platform for agentic workflow development.",
       "score": 100,
       "url": "https://github.com/langgenius/dify",
@@ -61,7 +61,7 @@
     },
     {
       "label": "x1xhlol/system-prompts-and-models-of-ai-tools",
-      "value": "141440 stars",
+      "value": "141441 stars",
       "note": "FULL Augment Code, Claude Code, Cluely, CodeBuddy, Comet, Cursor, Devin AI, Junie, Kiro, Leap.new, Lovable, Manus, Notio",
       "score": 100,
       "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
@@ -70,7 +70,7 @@
     },
     {
       "label": "langchain-ai/langchain",
-      "value": "140762 stars",
+      "value": "140763 stars",
       "note": "The agent engineering platform.",
       "score": 100,
       "url": "https://github.com/langchain-ai/langchain",
@@ -79,7 +79,7 @@
     },
     {
       "label": "msitarzewski/agency-agents",
-      "value": "125371 stars",
+      "value": "125389 stars",
       "note": "A complete AI agency at your fingertips - From frontend wizards to Reddit community ninjas, from whimsy injectors to rea",
       "score": 100,
       "url": "https://github.com/msitarzewski/agency-agents",
