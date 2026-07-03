@@ -22,7 +22,7 @@
     },
     {
       "label": "headroomlabs-ai/headroom",
-      "value": "56187 stars",
+      "value": "56197 stars",
       "note": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 60-95% fewer tokens, same answers. Library",
       "score": 100,
       "url": "https://github.com/headroomlabs-ai/headroom",
@@ -31,7 +31,7 @@
     },
     {
       "label": "microsoft/playwright-mcp",
-      "value": "34660 stars",
+      "value": "34659 stars",
       "note": "Playwright MCP server",
       "score": 100,
       "url": "https://github.com/microsoft/playwright-mcp",
@@ -40,7 +40,7 @@
     },
     {
       "label": "github/github-mcp-server",
-      "value": "31155 stars",
+      "value": "31154 stars",
       "note": "GitHub's official MCP Server",
       "score": 100,
       "url": "https://github.com/github/github-mcp-server",
@@ -49,7 +49,7 @@
     },
     {
       "label": "PrefectHQ/fastmcp",
-      "value": "25950 stars",
+      "value": "25952 stars",
       "note": "🚀 The fast, Pythonic way to build MCP servers and clients.",
       "score": 100,
       "url": "https://github.com/PrefectHQ/fastmcp",
@@ -58,7 +58,7 @@
     },
     {
       "label": "DeusData/codebase-memory-mcp",
-      "value": "25417 stars",
+      "value": "25431 stars",
       "note": "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in mil",
       "score": 100,
       "url": "https://github.com/DeusData/codebase-memory-mcp",
@@ -67,7 +67,7 @@
     },
     {
       "label": "activepieces/activepieces",
-      "value": "23098 stars",
+      "value": "23100 stars",
       "note": "AI Agents & MCPs & AI Workflow Automation • (~400 MCP servers for AI agents) • AI Automation / AI Agent with MCPs • AI W",
       "score": 100,
       "url": "https://github.com/activepieces/activepieces",
@@ -76,7 +76,7 @@
     },
     {
       "label": "googleapis/mcp-toolbox",
-      "value": "15841 stars",
+      "value": "15840 stars",
       "note": "MCP Toolbox for Databases is an open source MCP server for databases.",
       "score": 100,
       "url": "https://github.com/googleapis/mcp-toolbox",
