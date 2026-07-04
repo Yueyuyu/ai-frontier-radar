@@ -13,7 +13,7 @@
   "items": [
     {
       "label": "punkpeye/awesome-mcp-servers",
-      "value": "90256 stars",
+      "value": "90257 stars",
       "note": "A collection of MCP servers.",
       "score": 100,
       "url": "https://github.com/punkpeye/awesome-mcp-servers",
@@ -22,7 +22,7 @@
     },
     {
       "label": "headroomlabs-ai/headroom",
-      "value": "56297 stars",
+      "value": "56313 stars",
       "note": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 60-95% fewer tokens, same answers. Library",
       "score": 100,
       "url": "https://github.com/headroomlabs-ai/headroom",
@@ -31,7 +31,7 @@
     },
     {
       "label": "microsoft/playwright-mcp",
-      "value": "34669 stars",
+      "value": "34670 stars",
       "note": "Playwright MCP server",
       "score": 100,
       "url": "https://github.com/microsoft/playwright-mcp",
@@ -40,7 +40,7 @@
     },
     {
       "label": "github/github-mcp-server",
-      "value": "31161 stars",
+      "value": "31163 stars",
       "note": "GitHub's official MCP Server",
       "score": 100,
       "url": "https://github.com/github/github-mcp-server",
@@ -49,7 +49,7 @@
     },
     {
       "label": "PrefectHQ/fastmcp",
-      "value": "25961 stars",
+      "value": "25962 stars",
       "note": "🚀 The fast, Pythonic way to build MCP servers and clients.",
       "score": 100,
       "url": "https://github.com/PrefectHQ/fastmcp",
@@ -58,7 +58,7 @@
     },
     {
       "label": "DeusData/codebase-memory-mcp",
-      "value": "25687 stars",
+      "value": "25722 stars",
       "note": "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in mil",
       "score": 100,
       "url": "https://github.com/DeusData/codebase-memory-mcp",
@@ -67,7 +67,7 @@
     },
     {
       "label": "activepieces/activepieces",
-      "value": "23103 stars",
+      "value": "23105 stars",
       "note": "AI Agents & MCPs & AI Workflow Automation • (~400 MCP servers for AI agents) • AI Automation / AI Agent with MCPs • AI W",
       "score": 100,
       "url": "https://github.com/activepieces/activepieces",
