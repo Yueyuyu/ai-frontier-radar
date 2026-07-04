@@ -10,7 +10,7 @@
     "freshnessSla": "30m-1h",
     "status": "ok",
     "requiredEnv": [],
-    "lastCheckedAt": "2026-07-04T12:27:50.111Z",
+    "lastCheckedAt": "2026-07-04T12:43:13.804Z",
     "message": "命中 4/4 个关键词",
     "itemCount": 4,
     "runCount": 1,
@@ -19,7 +19,7 @@
     "failedAttempts": 0,
     "retryCount": 0,
     "failureRate": 0,
-    "averageLatencyMs": 107
+    "averageLatencyMs": 190
   },
   {
     "id": "mistral-changelog",
@@ -32,7 +32,7 @@
     "freshnessSla": "30m-1h",
     "status": "ok",
     "requiredEnv": [],
-    "lastCheckedAt": "2026-07-04T12:27:50.212Z",
+    "lastCheckedAt": "2026-07-04T12:43:13.899Z",
     "message": "命中 3/3 个关键词",
     "itemCount": 3,
     "runCount": 1,
@@ -41,7 +41,7 @@
     "failedAttempts": 0,
     "retryCount": 0,
     "failureRate": 0,
-    "averageLatencyMs": 204
+    "averageLatencyMs": 279
   },
   {
     "id": "anthropic-release-notes",
@@ -54,7 +54,7 @@
     "freshnessSla": "30m-1h",
     "status": "ok",
     "requiredEnv": [],
-    "lastCheckedAt": "2026-07-04T12:27:50.273Z",
+    "lastCheckedAt": "2026-07-04T12:43:14.104Z",
     "message": "命中 3/3 个关键词",
     "itemCount": 3,
     "runCount": 1,
@@ -63,29 +63,7 @@
     "failedAttempts": 0,
     "retryCount": 0,
     "failureRate": 0,
-    "averageLatencyMs": 268
-  },
-  {
-    "id": "gemini-changelog",
-    "name": "Gemini API Changelog",
-    "url": "https://ai.google.dev/gemini-api/docs/changelog",
-    "sourceType": "official-confirmation",
-    "accessMethod": "official-page",
-    "authRequired": false,
-    "weight": 1,
-    "freshnessSla": "30m-1h",
-    "status": "ok",
-    "requiredEnv": [],
-    "lastCheckedAt": "2026-07-04T12:27:50.590Z",
-    "message": "命中 3/3 个关键词",
-    "itemCount": 3,
-    "runCount": 1,
-    "failedRuns": 0,
-    "attemptCount": 1,
-    "failedAttempts": 0,
-    "retryCount": 0,
-    "failureRate": 0,
-    "averageLatencyMs": 583
+    "averageLatencyMs": 487
   },
   {
     "id": "kimi-docs",
@@ -98,7 +76,7 @@
     "freshnessSla": "30m-1h",
     "status": "ok",
     "requiredEnv": [],
-    "lastCheckedAt": "2026-07-04T12:27:50.844Z",
+    "lastCheckedAt": "2026-07-04T12:43:14.365Z",
     "message": "命中 3/3 个关键词",
     "itemCount": 3,
     "runCount": 1,
@@ -107,7 +85,7 @@
     "failedAttempts": 0,
     "retryCount": 0,
     "failureRate": 0,
-    "averageLatencyMs": 834
+    "averageLatencyMs": 742
   },
   {
     "id": "openai-news",
@@ -120,7 +98,7 @@
     "freshnessSla": "30m-1h",
     "status": "ok",
     "requiredEnv": [],
-    "lastCheckedAt": "2026-07-04T12:27:50.892Z",
+    "lastCheckedAt": "2026-07-04T12:43:14.760Z",
     "message": "命中 4/4 个关键词，fallback 到 https://openai.com/news/rss.xml",
     "itemCount": 4,
     "runCount": 1,
@@ -129,7 +107,7 @@
     "failedAttempts": 2,
     "retryCount": 2,
     "failureRate": 0.67,
-    "averageLatencyMs": 931
+    "averageLatencyMs": 1190
   },
   {
     "id": "deepseek-docs",
@@ -142,7 +120,7 @@
     "freshnessSla": "30m-1h",
     "status": "ok",
     "requiredEnv": [],
-    "lastCheckedAt": "2026-07-04T12:27:51.092Z",
+    "lastCheckedAt": "2026-07-04T12:43:15.022Z",
     "message": "命中 3/3 个关键词",
     "itemCount": 3,
     "runCount": 1,
@@ -151,51 +129,29 @@
     "failedAttempts": 0,
     "retryCount": 0,
     "failureRate": 0,
-    "averageLatencyMs": 1083
+    "averageLatencyMs": 1400
   },
   {
-    "id": "hf-agent",
-    "name": "Hugging Face - agent",
-    "url": "https://huggingface.co/api/models?search=agent&sort=downloads&direction=-1&limit=10",
-    "sourceType": "model-capability",
-    "accessMethod": "public-api",
+    "id": "gemini-changelog",
+    "name": "Gemini API Changelog",
+    "url": "https://ai.google.dev/gemini-api/docs/changelog",
+    "sourceType": "official-confirmation",
+    "accessMethod": "official-page",
     "authRequired": false,
-    "weight": 0.88,
-    "freshnessSla": "1h",
+    "weight": 1,
+    "freshnessSla": "30m-1h",
     "status": "ok",
     "requiredEnv": [],
-    "lastCheckedAt": "2026-07-04T12:27:50.359Z",
-    "message": "刷新成功",
-    "itemCount": 10,
+    "lastCheckedAt": "2026-07-04T12:43:15.260Z",
+    "message": "命中 3/3 个关键词",
+    "itemCount": 3,
     "runCount": 1,
     "failedRuns": 0,
     "attemptCount": 1,
     "failedAttempts": 0,
     "retryCount": 0,
     "failureRate": 0,
-    "averageLatencyMs": 343
-  },
-  {
-    "id": "hf-mcp",
-    "name": "Hugging Face - mcp",
-    "url": "https://huggingface.co/api/models?search=mcp&sort=downloads&direction=-1&limit=10",
-    "sourceType": "model-capability",
-    "accessMethod": "public-api",
-    "authRequired": false,
-    "weight": 0.88,
-    "freshnessSla": "1h",
-    "status": "ok",
-    "requiredEnv": [],
-    "lastCheckedAt": "2026-07-04T12:27:50.383Z",
-    "message": "刷新成功",
-    "itemCount": 10,
-    "runCount": 1,
-    "failedRuns": 0,
-    "attemptCount": 1,
-    "failedAttempts": 0,
-    "retryCount": 0,
-    "failureRate": 0,
-    "averageLatencyMs": 23
+    "averageLatencyMs": 1642
   },
   {
     "id": "openrouter-models",
@@ -208,7 +164,7 @@
     "freshnessSla": "1h",
     "status": "ok",
     "requiredEnv": [],
-    "lastCheckedAt": "2026-07-04T12:27:50.407Z",
+    "lastCheckedAt": "2026-07-04T12:43:14.141Z",
     "message": "刷新成功",
     "itemCount": 340,
     "runCount": 1,
@@ -217,7 +173,51 @@
     "failedAttempts": 0,
     "retryCount": 0,
     "failureRate": 0,
-    "averageLatencyMs": 396
+    "averageLatencyMs": 517
+  },
+  {
+    "id": "hf-agent",
+    "name": "Hugging Face - agent",
+    "url": "https://huggingface.co/api/models?search=agent&sort=downloads&direction=-1&limit=10",
+    "sourceType": "model-capability",
+    "accessMethod": "public-api",
+    "authRequired": false,
+    "weight": 0.88,
+    "freshnessSla": "1h",
+    "status": "ok",
+    "requiredEnv": [],
+    "lastCheckedAt": "2026-07-04T12:43:14.204Z",
+    "message": "刷新成功",
+    "itemCount": 10,
+    "runCount": 1,
+    "failedRuns": 0,
+    "attemptCount": 1,
+    "failedAttempts": 0,
+    "retryCount": 0,
+    "failureRate": 0,
+    "averageLatencyMs": 576
+  },
+  {
+    "id": "hf-mcp",
+    "name": "Hugging Face - mcp",
+    "url": "https://huggingface.co/api/models?search=mcp&sort=downloads&direction=-1&limit=10",
+    "sourceType": "model-capability",
+    "accessMethod": "public-api",
+    "authRequired": false,
+    "weight": 0.88,
+    "freshnessSla": "1h",
+    "status": "ok",
+    "requiredEnv": [],
+    "lastCheckedAt": "2026-07-04T12:43:14.270Z",
+    "message": "刷新成功",
+    "itemCount": 10,
+    "runCount": 1,
+    "failedRuns": 0,
+    "attemptCount": 1,
+    "failedAttempts": 0,
+    "retryCount": 0,
+    "failureRate": 0,
+    "averageLatencyMs": 66
   },
   {
     "id": "hf-coding-agent",
@@ -230,7 +230,7 @@
     "freshnessSla": "1h",
     "status": "ok",
     "requiredEnv": [],
-    "lastCheckedAt": "2026-07-04T12:27:50.421Z",
+    "lastCheckedAt": "2026-07-04T12:43:14.332Z",
     "message": "刷新成功",
     "itemCount": 10,
     "runCount": 1,
@@ -239,7 +239,7 @@
     "failedAttempts": 0,
     "retryCount": 0,
     "failureRate": 0,
-    "averageLatencyMs": 38
+    "averageLatencyMs": 62
   },
   {
     "id": "hf-reasoning-model",
@@ -252,7 +252,7 @@
     "freshnessSla": "1h",
     "status": "ok",
     "requiredEnv": [],
-    "lastCheckedAt": "2026-07-04T12:27:50.446Z",
+    "lastCheckedAt": "2026-07-04T12:43:14.398Z",
     "message": "刷新成功",
     "itemCount": 10,
     "runCount": 1,
@@ -261,7 +261,7 @@
     "failedAttempts": 0,
     "retryCount": 0,
     "failureRate": 0,
-    "averageLatencyMs": 25
+    "averageLatencyMs": 66
   },
   {
     "id": "steel-leaderboard",
@@ -274,7 +274,7 @@
     "freshnessSla": "daily",
     "status": "ok",
     "requiredEnv": [],
-    "lastCheckedAt": "2026-07-04T12:27:50.506Z",
+    "lastCheckedAt": "2026-07-04T12:43:14.383Z",
     "message": "命中 3/3 个关键词",
     "itemCount": 3,
     "runCount": 1,
@@ -283,7 +283,7 @@
     "failedAttempts": 0,
     "retryCount": 0,
     "failureRate": 0,
-    "averageLatencyMs": 489
+    "averageLatencyMs": 753
   },
   {
     "id": "github-agent",
@@ -296,7 +296,7 @@
     "freshnessSla": "1h",
     "status": "ok",
     "requiredEnv": [],
-    "lastCheckedAt": "2026-07-04T12:27:50.731Z",
+    "lastCheckedAt": "2026-07-04T12:43:14.526Z",
     "message": "刷新成功",
     "itemCount": 10,
     "runCount": 1,
@@ -305,7 +305,7 @@
     "failedAttempts": 0,
     "retryCount": 0,
     "failureRate": 0,
-    "averageLatencyMs": 719
+    "averageLatencyMs": 901
   },
   {
     "id": "agent-arena",
@@ -318,7 +318,7 @@
     "freshnessSla": "daily",
     "status": "ok",
     "requiredEnv": [],
-    "lastCheckedAt": "2026-07-04T12:27:51.196Z",
+    "lastCheckedAt": "2026-07-04T12:43:15.389Z",
     "message": "命中 3/3 个关键词",
     "itemCount": 3,
     "runCount": 1,
@@ -327,7 +327,7 @@
     "failedAttempts": 0,
     "retryCount": 0,
     "failureRate": 0,
-    "averageLatencyMs": 689
+    "averageLatencyMs": 1006
   },
   {
     "id": "hal-princeton",
@@ -340,7 +340,7 @@
     "freshnessSla": "daily",
     "status": "ok",
     "requiredEnv": [],
-    "lastCheckedAt": "2026-07-04T12:27:52.923Z",
+    "lastCheckedAt": "2026-07-04T12:43:17.284Z",
     "message": "命中 3/3 个关键词",
     "itemCount": 3,
     "runCount": 1,
@@ -349,7 +349,7 @@
     "failedAttempts": 0,
     "retryCount": 0,
     "failureRate": 0,
-    "averageLatencyMs": 1723
+    "averageLatencyMs": 1892
   },
   {
     "id": "skillsbench",
@@ -362,7 +362,7 @@
     "freshnessSla": "daily",
     "status": "ok",
     "requiredEnv": [],
-    "lastCheckedAt": "2026-07-04T12:27:53.021Z",
+    "lastCheckedAt": "2026-07-04T12:43:17.459Z",
     "message": "命中 3/3 个关键词",
     "itemCount": 3,
     "runCount": 1,
@@ -371,7 +371,7 @@
     "failedAttempts": 0,
     "retryCount": 0,
     "failureRate": 0,
-    "averageLatencyMs": 97
+    "averageLatencyMs": 174
   },
   {
     "id": "osworld",
@@ -384,7 +384,7 @@
     "freshnessSla": "daily",
     "status": "ok",
     "requiredEnv": [],
-    "lastCheckedAt": "2026-07-04T12:27:53.159Z",
+    "lastCheckedAt": "2026-07-04T12:43:17.687Z",
     "message": "命中 3/3 个关键词",
     "itemCount": 3,
     "runCount": 1,
@@ -393,7 +393,7 @@
     "failedAttempts": 0,
     "retryCount": 0,
     "failureRate": 0,
-    "averageLatencyMs": 136
+    "averageLatencyMs": 227
   },
   {
     "id": "webarena",
@@ -406,7 +406,7 @@
     "freshnessSla": "daily",
     "status": "ok",
     "requiredEnv": [],
-    "lastCheckedAt": "2026-07-04T12:27:53.280Z",
+    "lastCheckedAt": "2026-07-04T12:43:17.883Z",
     "message": "命中 2/3 个关键词",
     "itemCount": 2,
     "runCount": 1,
@@ -415,7 +415,7 @@
     "failedAttempts": 0,
     "retryCount": 0,
     "failureRate": 0,
-    "averageLatencyMs": 120
+    "averageLatencyMs": 195
   },
   {
     "id": "github-mcp",
@@ -428,7 +428,7 @@
     "freshnessSla": "1h",
     "status": "ok",
     "requiredEnv": [],
-    "lastCheckedAt": "2026-07-04T12:27:51.128Z",
+    "lastCheckedAt": "2026-07-04T12:43:14.999Z",
     "message": "刷新成功",
     "itemCount": 10,
     "runCount": 1,
@@ -437,7 +437,7 @@
     "failedAttempts": 0,
     "retryCount": 0,
     "failureRate": 0,
-    "averageLatencyMs": 396
+    "averageLatencyMs": 472
   },
   {
     "id": "github-coding-agent",
@@ -450,7 +450,7 @@
     "freshnessSla": "1h",
     "status": "ok",
     "requiredEnv": [],
-    "lastCheckedAt": "2026-07-04T12:27:51.553Z",
+    "lastCheckedAt": "2026-07-04T12:43:15.430Z",
     "message": "刷新成功",
     "itemCount": 10,
     "runCount": 1,
@@ -459,7 +459,7 @@
     "failedAttempts": 0,
     "retryCount": 0,
     "failureRate": 0,
-    "averageLatencyMs": 424
+    "averageLatencyMs": 430
   },
   {
     "id": "arxiv-agent-llm",
@@ -472,7 +472,7 @@
     "freshnessSla": "1h",
     "status": "ok",
     "requiredEnv": [],
-    "lastCheckedAt": "2026-07-04T12:27:50.706Z",
+    "lastCheckedAt": "2026-07-04T12:43:14.271Z",
     "message": "命中 1/1 个关键词",
     "itemCount": 1,
     "runCount": 1,
@@ -481,7 +481,7 @@
     "failedAttempts": 0,
     "retryCount": 0,
     "failureRate": 0,
-    "averageLatencyMs": 690
+    "averageLatencyMs": 642
   },
   {
     "id": "hn-gpt-5-6",
@@ -494,7 +494,7 @@
     "freshnessSla": "1h",
     "status": "ok",
     "requiredEnv": [],
-    "lastCheckedAt": "2026-07-04T12:27:50.548Z",
+    "lastCheckedAt": "2026-07-04T12:43:14.318Z",
     "message": "刷新成功",
     "itemCount": 1,
     "runCount": 1,
@@ -503,7 +503,7 @@
     "failedAttempts": 0,
     "retryCount": 0,
     "failureRate": 0,
-    "averageLatencyMs": 534
+    "averageLatencyMs": 691
   },
   {
     "id": "hn-ai-agent",
@@ -516,7 +516,7 @@
     "freshnessSla": "1h",
     "status": "ok",
     "requiredEnv": [],
-    "lastCheckedAt": "2026-07-04T12:27:50.773Z",
+    "lastCheckedAt": "2026-07-04T12:43:14.619Z",
     "message": "刷新成功",
     "itemCount": 1,
     "runCount": 1,
@@ -525,7 +525,7 @@
     "failedAttempts": 0,
     "retryCount": 0,
     "failureRate": 0,
-    "averageLatencyMs": 225
+    "averageLatencyMs": 301
   },
   {
     "id": "hn-claude-code",
@@ -538,7 +538,7 @@
     "freshnessSla": "1h",
     "status": "ok",
     "requiredEnv": [],
-    "lastCheckedAt": "2026-07-04T12:27:50.998Z",
+    "lastCheckedAt": "2026-07-04T12:43:14.836Z",
     "message": "刷新成功",
     "itemCount": 1,
     "runCount": 1,
@@ -547,7 +547,7 @@
     "failedAttempts": 0,
     "retryCount": 0,
     "failureRate": 0,
-    "averageLatencyMs": 225
+    "averageLatencyMs": 217
   },
   {
     "id": "hn-mcp-server",
@@ -560,7 +560,7 @@
     "freshnessSla": "1h",
     "status": "ok",
     "requiredEnv": [],
-    "lastCheckedAt": "2026-07-04T12:27:51.289Z",
+    "lastCheckedAt": "2026-07-04T12:43:15.104Z",
     "message": "刷新成功",
     "itemCount": 1,
     "runCount": 1,
@@ -569,7 +569,7 @@
     "failedAttempts": 0,
     "retryCount": 0,
     "failureRate": 0,
-    "averageLatencyMs": 291
+    "averageLatencyMs": 268
   },
   {
     "id": "hn-hammers-ai-agent",
@@ -582,7 +582,7 @@
     "freshnessSla": "1h",
     "status": "ok",
     "requiredEnv": [],
-    "lastCheckedAt": "2026-07-04T12:27:51.570Z",
+    "lastCheckedAt": "2026-07-04T12:43:15.393Z",
     "message": "刷新成功",
     "itemCount": 1,
     "runCount": 1,
@@ -591,7 +591,7 @@
     "failedAttempts": 0,
     "retryCount": 0,
     "failureRate": 0,
-    "averageLatencyMs": 280
+    "averageLatencyMs": 288
   },
   {
     "id": "artificial-analysis",
@@ -607,7 +607,7 @@
       "ARTIFICIAL_ANALYSIS_API_KEY",
       "ARTIFICIAL_ANALYSIS_API_URL"
     ],
-    "lastCheckedAt": "2026-07-04T12:27:49.960Z",
+    "lastCheckedAt": "2026-07-04T12:43:13.569Z",
     "message": "未配置 ARTIFICIAL_ANALYSIS_API_KEY 和 ARTIFICIAL_ANALYSIS_API_URL，跳过该商业 API",
     "itemCount": 0,
     "runCount": 1,
@@ -631,7 +631,7 @@
     "requiredEnv": [
       "PRODUCT_HUNT_TOKEN"
     ],
-    "lastCheckedAt": "2026-07-04T12:27:49.960Z",
+    "lastCheckedAt": "2026-07-04T12:43:13.569Z",
     "message": "未配置 PRODUCT_HUNT_TOKEN，跳过 Product Hunt 数据刷新",
     "itemCount": 0,
     "runCount": 1,
@@ -657,7 +657,7 @@
       "DB_HOST",
       "DB_NAME"
     ],
-    "lastCheckedAt": "2026-07-04T12:27:49.960Z",
+    "lastCheckedAt": "2026-07-04T12:43:13.569Z",
     "message": "未配置 DATABASE_URL 或 DB_HOST/DB_NAME，跳过数据库同步",
     "itemCount": 0,
     "runCount": 1,
@@ -681,7 +681,7 @@
     "requiredEnv": [
       "X_BEARER_TOKEN"
     ],
-    "lastCheckedAt": "2026-07-04T12:27:49.960Z",
+    "lastCheckedAt": "2026-07-04T12:43:13.569Z",
     "message": "未配置 X_BEARER_TOKEN，跳过 X 数据刷新",
     "itemCount": 0,
     "runCount": 1,
