@@ -16,14 +16,14 @@
     "accent": "#63f7d4",
     "trustBand": "high",
     "sourceCount": 3,
-    "heatScore": 99,
+    "heatScore": 92,
     "impactScore": 99,
     "trend": [
-      81,
-      87,
-      90,
-      95,
-      99
+      74,
+      80,
+      83,
+      88,
+      92
     ],
     "tags": [
       "模型",
@@ -80,14 +80,14 @@
     "accent": "#ff8f5f",
     "trustBand": "high",
     "sourceCount": 2,
-    "heatScore": 81,
+    "heatScore": 75,
     "impactScore": 93,
     "trend": [
+      57,
       63,
-      69,
-      72,
-      77,
-      81
+      66,
+      71,
+      75
     ],
     "tags": [
       "模型",
@@ -137,14 +137,14 @@
     "accent": "#8eb9ff",
     "trustBand": "high",
     "sourceCount": 2,
-    "heatScore": 81,
+    "heatScore": 75,
     "impactScore": 92,
     "trend": [
+      57,
       63,
-      69,
-      72,
-      77,
-      81
+      66,
+      71,
+      75
     ],
     "tags": [
       "模型",
