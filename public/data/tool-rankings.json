@@ -31,7 +31,7 @@
     },
     {
       "label": "microsoft/playwright-mcp",
-      "value": "34720 stars",
+      "value": "34722 stars",
       "note": "Playwright MCP server",
       "score": 100,
       "url": "https://github.com/microsoft/playwright-mcp",
@@ -40,7 +40,7 @@
     },
     {
       "label": "github/github-mcp-server",
-      "value": "31204 stars",
+      "value": "31203 stars",
       "note": "GitHub's official MCP Server",
       "score": 100,
       "url": "https://github.com/github/github-mcp-server",
@@ -49,7 +49,7 @@
     },
     {
       "label": "DeusData/codebase-memory-mcp",
-      "value": "26460 stars",
+      "value": "26461 stars",
       "note": "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in mil",
       "score": 100,
       "url": "https://github.com/DeusData/codebase-memory-mcp",
