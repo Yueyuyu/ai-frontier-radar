@@ -524,14 +524,14 @@
     "accent": "#58d68d",
     "trustBand": "medium",
     "sourceCount": 2,
-    "heatScore": 56,
+    "heatScore": 62,
     "impactScore": 67,
     "trend": [
-      38,
       44,
-      47,
-      52,
-      56
+      50,
+      53,
+      58,
+      62
     ],
     "tags": [
       "模型",
