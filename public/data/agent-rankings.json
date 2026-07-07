@@ -16,7 +16,7 @@
   "items": [
     {
       "label": "obra/superpowers",
-      "value": "247731 stars",
+      "value": "247761 stars",
       "note": "An agentic skills framework & software development methodology that works.",
       "score": 100,
       "url": "https://github.com/obra/superpowers",
@@ -25,7 +25,7 @@
     },
     {
       "label": "NousResearch/hermes-agent",
-      "value": "210374 stars",
+      "value": "210385 stars",
       "note": "The agent that grows with you",
       "score": 100,
       "url": "https://github.com/NousResearch/hermes-agent",
@@ -34,7 +34,7 @@
     },
     {
       "label": "Snailclimb/JavaGuide",
-      "value": "156837 stars",
+      "value": "156840 stars",
       "note": "Java 面试 & 后端通用面试指南，覆盖计算机基础、数据库、分布式、高并发、系统设计与 AI 应用开发",
       "score": 100,
       "url": "https://github.com/Snailclimb/JavaGuide",
@@ -52,7 +52,7 @@
     },
     {
       "label": "langgenius/dify",
-      "value": "147924 stars",
+      "value": "147927 stars",
       "note": "Production-ready platform for agentic workflow development.",
       "score": 100,
       "url": "https://github.com/langgenius/dify",
@@ -61,7 +61,7 @@
     },
     {
       "label": "x1xhlol/system-prompts-and-models-of-ai-tools",
-      "value": "141609 stars",
+      "value": "141610 stars",
       "note": "FULL Augment Code, Claude Code, Cluely, CodeBuddy, Comet, Cursor, Devin AI, Junie, Kiro, Leap.new, Lovable, Manus, Notio",
       "score": 100,
       "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
@@ -70,7 +70,7 @@
     },
     {
       "label": "langchain-ai/langchain",
-      "value": "141115 stars",
+      "value": "141116 stars",
       "note": "The agent engineering platform.",
       "score": 100,
       "url": "https://github.com/langchain-ai/langchain",
@@ -79,7 +79,7 @@
     },
     {
       "label": "msitarzewski/agency-agents",
-      "value": "128152 stars",
+      "value": "128170 stars",
       "note": "A complete AI agency at your fingertips - From frontend wizards to Reddit community ninjas, from whimsy injectors to rea",
       "score": 100,
       "url": "https://github.com/msitarzewski/agency-agents",
