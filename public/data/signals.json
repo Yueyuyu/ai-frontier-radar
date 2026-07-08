@@ -16,14 +16,14 @@
     "accent": "#63f7d4",
     "trustBand": "high",
     "sourceCount": 3,
-    "heatScore": 98,
+    "heatScore": 100,
     "impactScore": 99,
     "trend": [
-      80,
-      86,
-      89,
-      94,
-      98
+      82,
+      88,
+      91,
+      96,
+      100
     ],
     "tags": [
       "模型",
@@ -69,7 +69,7 @@
     "name": "GPT-5.6 Terra",
     "category": "模型",
     "level": "official",
-    "confidence": 98,
+    "confidence": 99,
     "firstSeen": "2026-06-26",
     "lastUpdate": "刚刚",
     "releaseWindow": "有限预览",
@@ -80,14 +80,14 @@
     "accent": "#ff8f5f",
     "trustBand": "high",
     "sourceCount": 2,
-    "heatScore": 74,
+    "heatScore": 75,
     "impactScore": 93,
     "trend": [
-      56,
-      62,
-      65,
-      70,
-      74
+      57,
+      63,
+      66,
+      71,
+      75
     ],
     "tags": [
       "模型",
@@ -126,7 +126,7 @@
     "name": "GPT-5.6 Luna",
     "category": "模型",
     "level": "official",
-    "confidence": 97,
+    "confidence": 98,
     "firstSeen": "2026-06-26",
     "lastUpdate": "刚刚",
     "releaseWindow": "有限预览",
@@ -137,14 +137,14 @@
     "accent": "#8eb9ff",
     "trustBand": "high",
     "sourceCount": 2,
-    "heatScore": 74,
+    "heatScore": 75,
     "impactScore": 92,
     "trend": [
-      56,
-      62,
-      65,
-      70,
-      74
+      57,
+      63,
+      66,
+      71,
+      75
     ],
     "tags": [
       "模型",
