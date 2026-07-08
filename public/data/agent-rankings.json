@@ -16,7 +16,7 @@
   "items": [
     {
       "label": "obra/superpowers",
-      "value": "249740 stars",
+      "value": "249752 stars",
       "note": "An agentic skills framework & software development methodology that works.",
       "score": 100,
       "url": "https://github.com/obra/superpowers",
@@ -25,7 +25,7 @@
     },
     {
       "label": "NousResearch/hermes-agent",
-      "value": "211530 stars",
+      "value": "211539 stars",
       "note": "The agent that grows with you",
       "score": 100,
       "url": "https://github.com/NousResearch/hermes-agent",
@@ -43,7 +43,7 @@
     },
     {
       "label": "langflow-ai/langflow",
-      "value": "151375 stars",
+      "value": "151377 stars",
       "note": "Langflow is a powerful tool for building and deploying AI-powered agents and workflows.",
       "score": 100,
       "url": "https://github.com/langflow-ai/langflow",
@@ -61,7 +61,7 @@
     },
     {
       "label": "x1xhlol/system-prompts-and-models-of-ai-tools",
-      "value": "141700 stars",
+      "value": "141699 stars",
       "note": "FULL Augment Code, Claude Code, Cluely, CodeBuddy, Comet, Cursor, Devin AI, Junie, Kiro, Leap.new, Lovable, Manus, Notio",
       "score": 100,
       "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
@@ -70,7 +70,7 @@
     },
     {
       "label": "langchain-ai/langchain",
-      "value": "141316 stars",
+      "value": "141315 stars",
       "note": "The agent engineering platform.",
       "score": 100,
       "url": "https://github.com/langchain-ai/langchain",
@@ -79,7 +79,7 @@
     },
     {
       "label": "msitarzewski/agency-agents",
-      "value": "129272 stars",
+      "value": "129277 stars",
       "note": "A complete AI agency at your fingertips - From frontend wizards to Reddit community ninjas, from whimsy injectors to rea",
       "score": 100,
       "url": "https://github.com/msitarzewski/agency-agents",
