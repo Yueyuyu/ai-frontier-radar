@@ -80,14 +80,14 @@
     "accent": "#ff8f5f",
     "trustBand": "high",
     "sourceCount": 2,
-    "heatScore": 75,
+    "heatScore": 81,
     "impactScore": 93,
     "trend": [
-      57,
       63,
-      66,
-      71,
-      75
+      69,
+      72,
+      77,
+      81
     ],
     "tags": [
       "模型",
@@ -137,14 +137,14 @@
     "accent": "#8eb9ff",
     "trustBand": "high",
     "sourceCount": 2,
-    "heatScore": 75,
+    "heatScore": 81,
     "impactScore": 92,
     "trend": [
-      57,
       63,
-      66,
-      71,
-      75
+      69,
+      72,
+      77,
+      81
     ],
     "tags": [
       "模型",
