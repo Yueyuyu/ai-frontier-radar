@@ -13,7 +13,7 @@
   "items": [
     {
       "label": "punkpeye/awesome-mcp-servers",
-      "value": "90474 stars",
+      "value": "90475 stars",
       "note": "A collection of MCP servers.",
       "score": 100,
       "url": "https://github.com/punkpeye/awesome-mcp-servers",
@@ -58,7 +58,7 @@
     },
     {
       "label": "DeusData/codebase-memory-mcp",
-      "value": "28594 stars",
+      "value": "28612 stars",
       "note": "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in mil",
       "score": 100,
       "url": "https://github.com/DeusData/codebase-memory-mcp",
@@ -67,7 +67,7 @@
     },
     {
       "label": "PrefectHQ/fastmcp",
-      "value": "26045 stars",
+      "value": "26044 stars",
       "note": "🚀 The fast, Pythonic way to build MCP servers and clients.",
       "score": 100,
       "url": "https://github.com/PrefectHQ/fastmcp",
