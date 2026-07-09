@@ -12,6 +12,27 @@
   "cadence": "6 小时",
   "items": [
     {
+      "label": "OpenAI: GPT-5.6 Luna",
+      "value": "1050k ctx",
+      "note": "openai/gpt-5.6-luna",
+      "score": 100,
+      "url": "https://openrouter.ai/openai/gpt-5.6-luna"
+    },
+    {
+      "label": "OpenAI: GPT-5.6 Terra",
+      "value": "1050k ctx",
+      "note": "openai/gpt-5.6-terra",
+      "score": 100,
+      "url": "https://openrouter.ai/openai/gpt-5.6-terra"
+    },
+    {
+      "label": "OpenAI: GPT-5.6 Sol",
+      "value": "1050k ctx",
+      "note": "openai/gpt-5.6-sol",
+      "score": 100,
+      "url": "https://openrouter.ai/openai/gpt-5.6-sol"
+    },
+    {
       "label": "Anthropic: Claude Sonnet 5",
       "value": "1000k ctx",
       "note": "anthropic/claude-sonnet-5",
@@ -45,27 +66,6 @@
       "note": "anthropic/claude-opus-4.8-fast",
       "score": 100,
       "url": "https://openrouter.ai/anthropic/claude-opus-4.8-fast"
-    },
-    {
-      "label": "Anthropic: Claude Opus 4.8",
-      "value": "1000k ctx",
-      "note": "anthropic/claude-opus-4.8",
-      "score": 100,
-      "url": "https://openrouter.ai/anthropic/claude-opus-4.8"
-    },
-    {
-      "label": "Qwen: Qwen3.7 Max",
-      "value": "1000k ctx",
-      "note": "qwen/qwen3.7-max",
-      "score": 100,
-      "url": "https://openrouter.ai/qwen/qwen3.7-max"
-    },
-    {
-      "label": "Google: Gemini 3.5 Flash",
-      "value": "1049k ctx",
-      "note": "google/gemini-3.5-flash",
-      "score": 100,
-      "url": "https://openrouter.ai/google/gemini-3.5-flash"
     }
   ]
 }
