@@ -12,6 +12,13 @@
   "cadence": "6 小时",
   "items": [
     {
+      "label": "OpenAI: GPT-5.6 Luna Pro",
+      "value": "1050k ctx",
+      "note": "openai/gpt-5.6-luna-pro",
+      "score": 100,
+      "url": "https://openrouter.ai/openai/gpt-5.6-luna-pro"
+    },
+    {
       "label": "OpenAI: GPT-5.6 Luna",
       "value": "1050k ctx",
       "note": "openai/gpt-5.6-luna",
@@ -19,11 +26,25 @@
       "url": "https://openrouter.ai/openai/gpt-5.6-luna"
     },
     {
+      "label": "OpenAI: GPT-5.6 Terra Pro",
+      "value": "1050k ctx",
+      "note": "openai/gpt-5.6-terra-pro",
+      "score": 100,
+      "url": "https://openrouter.ai/openai/gpt-5.6-terra-pro"
+    },
+    {
       "label": "OpenAI: GPT-5.6 Terra",
       "value": "1050k ctx",
       "note": "openai/gpt-5.6-terra",
       "score": 100,
       "url": "https://openrouter.ai/openai/gpt-5.6-terra"
+    },
+    {
+      "label": "OpenAI: GPT-5.6 Sol Pro",
+      "value": "1050k ctx",
+      "note": "openai/gpt-5.6-sol-pro",
+      "score": 100,
+      "url": "https://openrouter.ai/openai/gpt-5.6-sol-pro"
     },
     {
       "label": "OpenAI: GPT-5.6 Sol",
@@ -45,27 +66,6 @@
       "note": "~anthropic/claude-fable-latest",
       "score": 100,
       "url": "https://openrouter.ai/~anthropic/claude-fable-latest"
-    },
-    {
-      "label": "Anthropic: Claude Fable 5",
-      "value": "1000k ctx",
-      "note": "anthropic/claude-fable-5",
-      "score": 100,
-      "url": "https://openrouter.ai/anthropic/claude-fable-5"
-    },
-    {
-      "label": "Qwen: Qwen3.7 Plus",
-      "value": "1000k ctx",
-      "note": "qwen/qwen3.7-plus",
-      "score": 100,
-      "url": "https://openrouter.ai/qwen/qwen3.7-plus"
-    },
-    {
-      "label": "Anthropic: Claude Opus 4.8 (Fast)",
-      "value": "1000k ctx",
-      "note": "anthropic/claude-opus-4.8-fast",
-      "score": 100,
-      "url": "https://openrouter.ai/anthropic/claude-opus-4.8-fast"
     }
   ]
 }
