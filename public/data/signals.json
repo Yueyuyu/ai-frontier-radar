@@ -16,14 +16,14 @@
     "accent": "#63f7d4",
     "trustBand": "high",
     "sourceCount": 3,
-    "heatScore": 87,
+    "heatScore": 91,
     "impactScore": 99,
     "trend": [
-      69,
-      75,
-      78,
-      83,
-      87
+      73,
+      79,
+      82,
+      87,
+      91
     ],
     "tags": [
       "模型",
