@@ -16,14 +16,14 @@
     "accent": "#63f7d4",
     "trustBand": "high",
     "sourceCount": 3,
-    "heatScore": 80,
+    "heatScore": 73,
     "impactScore": 99,
     "trend": [
-      62,
-      68,
-      71,
-      76,
-      80
+      55,
+      61,
+      64,
+      69,
+      73
     ],
     "tags": [
       "模型",
@@ -69,7 +69,7 @@
     "name": "GPT-5.6 Terra",
     "category": "模型",
     "level": "official",
-    "confidence": 99,
+    "confidence": 98,
     "firstSeen": "2026-06-26",
     "lastUpdate": "刚刚",
     "releaseWindow": "有限预览",
@@ -80,14 +80,14 @@
     "accent": "#ff8f5f",
     "trustBand": "high",
     "sourceCount": 2,
-    "heatScore": 75,
+    "heatScore": 68,
     "impactScore": 93,
     "trend": [
-      57,
-      63,
-      66,
-      71,
-      75
+      50,
+      56,
+      59,
+      64,
+      68
     ],
     "tags": [
       "模型",
@@ -126,7 +126,7 @@
     "name": "GPT-5.6 Luna",
     "category": "模型",
     "level": "official",
-    "confidence": 98,
+    "confidence": 97,
     "firstSeen": "2026-06-26",
     "lastUpdate": "刚刚",
     "releaseWindow": "有限预览",
@@ -137,14 +137,14 @@
     "accent": "#8eb9ff",
     "trustBand": "high",
     "sourceCount": 2,
-    "heatScore": 75,
+    "heatScore": 68,
     "impactScore": 92,
     "trend": [
-      57,
-      63,
-      66,
-      71,
-      75
+      50,
+      56,
+      59,
+      64,
+      68
     ],
     "tags": [
       "模型",
@@ -183,7 +183,7 @@
     "name": "Codex",
     "category": "AI 编程",
     "level": "platform",
-    "confidence": 98,
+    "confidence": 97,
     "firstSeen": "32 分钟前",
     "lastUpdate": "刚刚",
     "releaseWindow": "持续更新",
@@ -194,14 +194,14 @@
     "accent": "#8eb9ff",
     "trustBand": "high",
     "sourceCount": 2,
-    "heatScore": 99,
+    "heatScore": 92,
     "impactScore": 81,
     "trend": [
-      81,
-      87,
-      90,
-      95,
-      99
+      74,
+      80,
+      83,
+      88,
+      92
     ],
     "tags": [
       "AI 编程",
