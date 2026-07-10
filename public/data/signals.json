@@ -137,14 +137,14 @@
     "accent": "#8eb9ff",
     "trustBand": "high",
     "sourceCount": 2,
-    "heatScore": 74,
+    "heatScore": 80,
     "impactScore": 92,
     "trend": [
-      56,
       62,
-      65,
-      70,
-      74
+      68,
+      71,
+      76,
+      80
     ],
     "tags": [
       "模型",
