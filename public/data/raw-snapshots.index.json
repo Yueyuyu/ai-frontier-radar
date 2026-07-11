@@ -1,21 +1,11 @@
 [
   {
-    "id": "805f799b7242c883ab876f635f3d9aa0",
-    "provider": "OpenAI API Changelog",
-    "syncType": "openai-api-changelog",
-    "requestUrl": "https://developers.openai.com/api/docs/changelog",
-    "responseSha256": "8251d2b9f381fc6ca097d015c93aab7150fce9c6de13d64d9b7e015b0418ca1d",
-    "capturedAt": "2026-07-10T23:48:24.758Z",
-    "status": "ok",
-    "message": ""
-  },
-  {
     "id": "6020ceb5810f36848c8325172e5b261f",
     "provider": "Mistral Changelog",
     "syncType": "mistral-changelog",
     "requestUrl": "https://docs.mistral.ai/resources/changelogs",
     "responseSha256": "6dcb1c0029e3d118e44c1113685db618fa6f6b2e163b5137c923063c398f5a56",
-    "capturedAt": "2026-07-10T23:48:24.758Z",
+    "capturedAt": "2026-07-11T00:31:38.759Z",
     "status": "ok",
     "message": ""
   },
@@ -25,27 +15,27 @@
     "syncType": "deepseek-docs",
     "requestUrl": "https://api-docs.deepseek.com/",
     "responseSha256": "03586d0caabc09d38f2b1034ace39c6212dde8f0baed114be141eaf64af97c69",
-    "capturedAt": "2026-07-10T23:48:24.758Z",
+    "capturedAt": "2026-07-11T00:31:38.759Z",
     "status": "ok",
     "message": ""
   },
   {
-    "id": "38439377ec276f4fc608942c6fe7753b",
-    "provider": "OpenRouter Models",
-    "syncType": "openrouter-models",
-    "requestUrl": "https://openrouter.ai/api/v1/models",
-    "responseSha256": "3803f2fd5a64a01c9d1f7207b04feb00bd0d455a444ce0e2cfcdff8ac589306e",
-    "capturedAt": "2026-07-10T23:48:24.758Z",
-    "status": "ok",
-    "message": ""
-  },
-  {
-    "id": "b7354efa811968d07a3a2a31e01ff88b",
+    "id": "407b09a7fa0a71932c9ae1ddc7f1c74a",
     "provider": "Claude Release Notes",
     "syncType": "anthropic-release-notes",
     "requestUrl": "https://support.claude.com/en/articles/12138966-release-notes",
-    "responseSha256": "4f5622dc6f42dd6d96f1c1f9bf1c11131e47c853768e42ebadfd64a4cc380489",
-    "capturedAt": "2026-07-10T23:48:24.758Z",
+    "responseSha256": "b3d7b9752df86b110759de5e46a7e581ce44548bb987c88ea75405bb96f3b92b",
+    "capturedAt": "2026-07-11T00:31:38.759Z",
+    "status": "ok",
+    "message": ""
+  },
+  {
+    "id": "c3b53cadedff2315cac8e6f54674362d",
+    "provider": "OpenRouter Models",
+    "syncType": "openrouter-models",
+    "requestUrl": "https://openrouter.ai/api/v1/models",
+    "responseSha256": "8824cf9ae5b9089148389c2d81f8f3f27bb956ddb81e7b84d69ed51e6b86bb49",
+    "capturedAt": "2026-07-11T00:31:38.759Z",
     "status": "ok",
     "message": ""
   },
@@ -55,17 +45,7 @@
     "syncType": "hf-agent",
     "requestUrl": "https://huggingface.co/api/models?search=agent&sort=downloads&direction=-1&limit=10",
     "responseSha256": "3c140b9023b5ceec5727f508413917f8dbc4e280ba1bf876966440174fd638a9",
-    "capturedAt": "2026-07-10T23:48:24.758Z",
-    "status": "ok",
-    "message": ""
-  },
-  {
-    "id": "73786b01a23eee2777478bff9415803a",
-    "provider": "arXiv API",
-    "syncType": "arxiv-agent-llm",
-    "requestUrl": "https://export.arxiv.org/api/query?search_query=all:%22AI%20agent%22%20OR%20all:%22large%20language%20model%22&start=0&max_results=10&sortBy=submittedDate&sortOrder=descending",
-    "responseSha256": "fe4b1026c48aaed152963dcc10df71e00aac09411e47184f727394b48ed0467d",
-    "capturedAt": "2026-07-10T23:48:24.758Z",
+    "capturedAt": "2026-07-11T00:31:38.759Z",
     "status": "ok",
     "message": ""
   },
@@ -75,17 +55,7 @@
     "syncType": "hf-mcp",
     "requestUrl": "https://huggingface.co/api/models?search=mcp&sort=downloads&direction=-1&limit=10",
     "responseSha256": "ab877a33816bd17633295163b7d25813eb9413d05883b33ea0c10af66fb718cb",
-    "capturedAt": "2026-07-10T23:48:24.758Z",
-    "status": "ok",
-    "message": ""
-  },
-  {
-    "id": "350915d3c0fb1cf63b5715ddcef3c9ab",
-    "provider": "Steel.dev Agent Leaderboard",
-    "syncType": "steel-leaderboard",
-    "requestUrl": "https://leaderboard.steel.dev/",
-    "responseSha256": "6ee90e13b29f5aef24b7325f58e004c9ac952a72785baec808a9a64134521e8b",
-    "capturedAt": "2026-07-10T23:48:24.758Z",
+    "capturedAt": "2026-07-11T00:31:38.759Z",
     "status": "ok",
     "message": ""
   },
@@ -95,17 +65,7 @@
     "syncType": "hf-coding-agent",
     "requestUrl": "https://huggingface.co/api/models?search=coding%20agent&sort=downloads&direction=-1&limit=10",
     "responseSha256": "69d172b9441cb8494eabf5ecf03b11bf88869df232f8d1fc8134f2d84eef5241",
-    "capturedAt": "2026-07-10T23:48:24.758Z",
-    "status": "ok",
-    "message": ""
-  },
-  {
-    "id": "380dc329bf32e18d7413db384523cf19",
-    "provider": "Hacker News - GPT-5.6",
-    "syncType": "hn-gpt-5-6",
-    "requestUrl": "https://hn.algolia.com/api/v1/search_by_date?query=GPT-5.6&tags=story&hitsPerPage=10",
-    "responseSha256": "04b3f1d060dc15caefa0c0f6bf9e5a5c1dd68023ab01a3a884aba310859d7885",
-    "capturedAt": "2026-07-10T23:48:24.758Z",
+    "capturedAt": "2026-07-11T00:31:38.759Z",
     "status": "ok",
     "message": ""
   },
@@ -115,37 +75,117 @@
     "syncType": "hf-reasoning-model",
     "requestUrl": "https://huggingface.co/api/models?search=reasoning%20model&sort=downloads&direction=-1&limit=10",
     "responseSha256": "a51ef76a39c9911747a5787482e2eec97d0d2ad0f0fd80798fd47ba8c0f7a19b",
-    "capturedAt": "2026-07-10T23:48:24.758Z",
+    "capturedAt": "2026-07-11T00:31:38.759Z",
     "status": "ok",
     "message": ""
   },
   {
-    "id": "07d283850f736b11a795d881fc197112",
+    "id": "81c535b26ded6a7a9d66a69949bac4e5",
+    "provider": "Hacker News - GPT-5.6",
+    "syncType": "hn-gpt-5-6",
+    "requestUrl": "https://hn.algolia.com/api/v1/search_by_date?query=GPT-5.6&tags=story&hitsPerPage=10",
+    "responseSha256": "85048b1ab8a8f30c5a1e4ba08c544cc32bc4416e56bf8a2e997eeadacb3eff96",
+    "capturedAt": "2026-07-11T00:31:38.759Z",
+    "status": "ok",
+    "message": ""
+  },
+  {
+    "id": "350915d3c0fb1cf63b5715ddcef3c9ab",
+    "provider": "Steel.dev Agent Leaderboard",
+    "syncType": "steel-leaderboard",
+    "requestUrl": "https://leaderboard.steel.dev/",
+    "responseSha256": "6ee90e13b29f5aef24b7325f58e004c9ac952a72785baec808a9a64134521e8b",
+    "capturedAt": "2026-07-11T00:31:38.759Z",
+    "status": "ok",
+    "message": ""
+  },
+  {
+    "id": "805f799b7242c883ab876f635f3d9aa0",
+    "provider": "OpenAI API Changelog",
+    "syncType": "openai-api-changelog",
+    "requestUrl": "https://developers.openai.com/api/docs/changelog",
+    "responseSha256": "8251d2b9f381fc6ca097d015c93aab7150fce9c6de13d64d9b7e015b0418ca1d",
+    "capturedAt": "2026-07-11T00:31:38.759Z",
+    "status": "ok",
+    "message": ""
+  },
+  {
+    "id": "a04fb6e81132f724725df9aadfdfc7c5",
     "provider": "GitHub Search - AI Agent",
     "syncType": "github-agent",
-    "requestUrl": "https://api.github.com/search/repositories?q=ai%20agent%20pushed%3A%3E%3D2026-05-26%20stars%3A%3E50&sort=stars&order=desc&per_page=10",
-    "responseSha256": "43a881759def7b99e6ee41a4b392a74754b66c175f372dc1cdbe80fc6c02fb7f",
-    "capturedAt": "2026-07-10T23:48:24.758Z",
+    "requestUrl": "https://api.github.com/search/repositories?q=ai%20agent%20pushed%3A%3E%3D2026-05-27%20stars%3A%3E50&sort=stars&order=desc&per_page=10",
+    "responseSha256": "51d2f7592aebf5606df9f4a61fdef0868eeee3fbd10f6d1363f6c5fb355a1ae5",
+    "capturedAt": "2026-07-11T00:31:38.759Z",
     "status": "ok",
     "message": ""
   },
   {
-    "id": "78482a4cd951fb98f2b4ff8d7cc8cb4c",
+    "id": "9b62a15a0e29ec9cb3eeacaaf7214f34",
+    "provider": "arXiv API",
+    "syncType": "arxiv-agent-llm",
+    "requestUrl": "https://export.arxiv.org/api/query?search_query=all:%22AI%20agent%22%20OR%20all:%22large%20language%20model%22&start=0&max_results=10&sortBy=submittedDate&sortOrder=descending",
+    "responseSha256": "e421ba4e398d35fa396706b3c78c85ed95b59e4b076417ded737c7b8eee38d8f",
+    "capturedAt": "2026-07-11T00:31:38.759Z",
+    "status": "ok",
+    "message": ""
+  },
+  {
+    "id": "caf0d4876aedb62426aa57942dc9837c",
     "provider": "Hacker News - AI agent",
     "syncType": "hn-ai-agent",
     "requestUrl": "https://hn.algolia.com/api/v1/search_by_date?query=AI%20agent&tags=story&hitsPerPage=10",
-    "responseSha256": "deaeea07a11d2861afba348c918de919dd36fc4da906080b9f496613c875bc5c",
-    "capturedAt": "2026-07-10T23:48:24.758Z",
+    "responseSha256": "1b51a89aec07d070d225523531dbdc99004c2c06710bd8bf1b561b23b9fd61a9",
+    "capturedAt": "2026-07-11T00:31:38.759Z",
     "status": "ok",
     "message": ""
   },
   {
-    "id": "a6acef2a1919ae5bf3d2864678fbc8cf",
+    "id": "c20283c86dd76a141b06af586015ee92",
     "provider": "OpenAI News",
     "syncType": "openai-news",
     "requestUrl": "https://openai.com/news/rss.xml",
-    "responseSha256": "4d394962e89e072062a5d0aea58c1f301931f06d8649212f0c313ceab6a07e40",
-    "capturedAt": "2026-07-10T23:48:24.758Z",
+    "responseSha256": "bf62bb5cf17a66a854e7f3b1f782aba043ca2bdf1f47678343ef35b7f13acafc",
+    "capturedAt": "2026-07-11T00:31:38.759Z",
+    "status": "ok",
+    "message": ""
+  },
+  {
+    "id": "78ddff6d81c727b276f546898ae282e2",
+    "provider": "Hacker News - Claude Code",
+    "syncType": "hn-claude-code",
+    "requestUrl": "https://hn.algolia.com/api/v1/search_by_date?query=Claude%20Code&tags=story&hitsPerPage=10",
+    "responseSha256": "5cc704d4e05938347a70b0afa307d5c176cd2cdbc8bb95ec8eade50213645895",
+    "capturedAt": "2026-07-11T00:31:38.759Z",
+    "status": "ok",
+    "message": ""
+  },
+  {
+    "id": "c80c027bee9d37cd5f529ba490460079",
+    "provider": "GitHub Search - MCP Server",
+    "syncType": "github-mcp",
+    "requestUrl": "https://api.github.com/search/repositories?q=mcp%20server%20pushed%3A%3E%3D2026-05-27%20stars%3A%3E20&sort=stars&order=desc&per_page=10",
+    "responseSha256": "56c34c09d798f99663ff80966490169c37707c1275bf3e53335eca52a0f455d2",
+    "capturedAt": "2026-07-11T00:31:38.759Z",
+    "status": "ok",
+    "message": ""
+  },
+  {
+    "id": "f1659178adb60e99d6cdedc581e5df2f",
+    "provider": "Gemini API Changelog",
+    "syncType": "gemini-changelog",
+    "requestUrl": "https://ai.google.dev/gemini-api/docs/changelog",
+    "responseSha256": "64971c9926ff3eb92839f0014cd1537943885bc3265d03748785e832acea8617",
+    "capturedAt": "2026-07-11T00:31:38.759Z",
+    "status": "ok",
+    "message": ""
+  },
+  {
+    "id": "b40581da511b62f21a5ad67d2919f283",
+    "provider": "Hacker News - MCP server",
+    "syncType": "hn-mcp-server",
+    "requestUrl": "https://hn.algolia.com/api/v1/search_by_date?query=MCP%20server&tags=story&hitsPerPage=10",
+    "responseSha256": "a35f1e2ea4add2928688c52b24d01e27484f1ff00004e00f8e7ec282c54e0a27",
+    "capturedAt": "2026-07-11T00:31:38.759Z",
     "status": "ok",
     "message": ""
   },
@@ -155,77 +195,37 @@
     "syncType": "kimi-docs",
     "requestUrl": "https://platform.kimi.ai/docs/overview",
     "responseSha256": "aaf26d61a589667ebebea3ca66e63b336e66bf2914e6a6d5c86978e6d068ae3a",
-    "capturedAt": "2026-07-10T23:48:24.758Z",
+    "capturedAt": "2026-07-11T00:31:38.759Z",
     "status": "ok",
     "message": ""
   },
   {
-    "id": "7d01e581f935a0be970034e922545f0f",
-    "provider": "Gemini API Changelog",
-    "syncType": "gemini-changelog",
-    "requestUrl": "https://ai.google.dev/gemini-api/docs/changelog",
-    "responseSha256": "76d245f83b2a6ca767bbfe7487bc4da6f6c38934771a92edec05fce505ac2881",
-    "capturedAt": "2026-07-10T23:48:24.758Z",
-    "status": "ok",
-    "message": ""
-  },
-  {
-    "id": "6cf12869a0e95c9b8272ac2a7fa645c8",
-    "provider": "GitHub Search - MCP Server",
-    "syncType": "github-mcp",
-    "requestUrl": "https://api.github.com/search/repositories?q=mcp%20server%20pushed%3A%3E%3D2026-05-26%20stars%3A%3E20&sort=stars&order=desc&per_page=10",
-    "responseSha256": "35648a236f25d4efbd68e80caa4589ecefe636e2a21e46894367ab5a86463f0a",
-    "capturedAt": "2026-07-10T23:48:24.758Z",
-    "status": "ok",
-    "message": ""
-  },
-  {
-    "id": "e5f257a96a0f37b7dfc18dbce758bbf4",
-    "provider": "Hacker News - Claude Code",
-    "syncType": "hn-claude-code",
-    "requestUrl": "https://hn.algolia.com/api/v1/search_by_date?query=Claude%20Code&tags=story&hitsPerPage=10",
-    "responseSha256": "f21af622831cec08f43213f04308e7328a38c7c45115cc30af9644453e60b801",
-    "capturedAt": "2026-07-10T23:48:24.758Z",
-    "status": "ok",
-    "message": ""
-  },
-  {
-    "id": "57aca11846362028e49406dcbd8c8c36",
+    "id": "08b8851903f005d8c0ad01fcba5cb5d1",
     "provider": "Agent Arena",
     "syncType": "agent-arena",
     "requestUrl": "https://arena.ai/leaderboard/agent",
-    "responseSha256": "4eaebc622ab28fd88e51db0cee8991b914ba43dbf96990a361b54404d4119790",
-    "capturedAt": "2026-07-10T23:48:24.758Z",
+    "responseSha256": "163656f0def5f38d85c5082f5ba238da01cde5bfff1753d613b2d35be9db7030",
+    "capturedAt": "2026-07-11T00:31:38.759Z",
     "status": "ok",
     "message": ""
   },
   {
-    "id": "8c91951c0dcddb165fef89df0a977e3c",
-    "provider": "GitHub Search - Coding Agent",
-    "syncType": "github-coding-agent",
-    "requestUrl": "https://api.github.com/search/repositories?q=coding%20agent%20pushed%3A%3E%3D2026-05-26%20stars%3A%3E20&sort=stars&order=desc&per_page=10",
-    "responseSha256": "dd452218f74d65997fa101aad69987453824a5e80f160f6475f2ffabc0a98ef3",
-    "capturedAt": "2026-07-10T23:48:24.758Z",
-    "status": "ok",
-    "message": ""
-  },
-  {
-    "id": "e202727fdaccb53f0da72ce05a426de0",
-    "provider": "Hacker News - MCP server",
-    "syncType": "hn-mcp-server",
-    "requestUrl": "https://hn.algolia.com/api/v1/search_by_date?query=MCP%20server&tags=story&hitsPerPage=10",
-    "responseSha256": "98491959ba4417cb6060e50579d263ad2e22ca25885b55be10b55eabf43472f0",
-    "capturedAt": "2026-07-10T23:48:24.758Z",
-    "status": "ok",
-    "message": ""
-  },
-  {
-    "id": "7aa541916413865632b4f9393518809c",
+    "id": "19d732e48d84183a17f77a6dd5cf4e2f",
     "provider": "Hacker News - Hammers AI agent",
     "syncType": "hn-hammers-ai-agent",
     "requestUrl": "https://hn.algolia.com/api/v1/search_by_date?query=Hammers%20AI%20agent&tags=story&hitsPerPage=10",
-    "responseSha256": "6c4b8799a954ac4266f6d1bdaf567d4646fa7bcdda42f8063acd941a1eeaad73",
-    "capturedAt": "2026-07-10T23:48:24.758Z",
+    "responseSha256": "ad53b5e5348941508d2a6250ffec80e3db11ba36ef8d251a08ca37688f18a0fd",
+    "capturedAt": "2026-07-11T00:31:38.759Z",
+    "status": "ok",
+    "message": ""
+  },
+  {
+    "id": "da8615fd74429f14483c5594b1c5094f",
+    "provider": "GitHub Search - Coding Agent",
+    "syncType": "github-coding-agent",
+    "requestUrl": "https://api.github.com/search/repositories?q=coding%20agent%20pushed%3A%3E%3D2026-05-27%20stars%3A%3E20&sort=stars&order=desc&per_page=10",
+    "responseSha256": "b5d3717442ddb950919e171ef7d304b7a73dd8dc6bbe131d887a42f954a467b1",
+    "capturedAt": "2026-07-11T00:31:38.759Z",
     "status": "ok",
     "message": ""
   },
@@ -235,7 +235,7 @@
     "syncType": "hal-princeton",
     "requestUrl": "https://hal.cs.princeton.edu/",
     "responseSha256": "3c433d24726170796d650ca00d73920c48941023c957286126b542ff7f8fb7d2",
-    "capturedAt": "2026-07-10T23:48:24.758Z",
+    "capturedAt": "2026-07-11T00:31:38.759Z",
     "status": "ok",
     "message": ""
   },
@@ -245,7 +245,7 @@
     "syncType": "skillsbench",
     "requestUrl": "https://www.skillsbench.ai/leaderboard",
     "responseSha256": "1355c5e6032517d9a2b39520d3981754a4192b4adab4fed9182a8c21e48428d9",
-    "capturedAt": "2026-07-10T23:48:24.758Z",
+    "capturedAt": "2026-07-11T00:31:38.759Z",
     "status": "ok",
     "message": ""
   },
@@ -255,7 +255,7 @@
     "syncType": "osworld",
     "requestUrl": "https://os-world.github.io/",
     "responseSha256": "28ab13788e2b99f27bd539f03c3f0b86e6e3269201b84d6b55332ff65dc24501",
-    "capturedAt": "2026-07-10T23:48:24.758Z",
+    "capturedAt": "2026-07-11T00:31:38.759Z",
     "status": "ok",
     "message": ""
   },
@@ -265,7 +265,7 @@
     "syncType": "webarena",
     "requestUrl": "https://webarena.dev/",
     "responseSha256": "e3c0fc9931f63f109a9ad58e345916a42b23d59d661a4da266a0f05aa4b5b03d",
-    "capturedAt": "2026-07-10T23:48:24.758Z",
+    "capturedAt": "2026-07-11T00:31:38.759Z",
     "status": "ok",
     "message": ""
   }
