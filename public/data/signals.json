@@ -183,7 +183,7 @@
     "name": "Codex",
     "category": "AI 编程",
     "level": "platform",
-    "confidence": 97,
+    "confidence": 98,
     "firstSeen": "32 分钟前",
     "lastUpdate": "刚刚",
     "releaseWindow": "持续更新",
@@ -194,14 +194,14 @@
     "accent": "#8eb9ff",
     "trustBand": "high",
     "sourceCount": 2,
-    "heatScore": 92,
+    "heatScore": 100,
     "impactScore": 81,
     "trend": [
-      74,
-      80,
-      83,
+      82,
       88,
-      92
+      91,
+      96,
+      100
     ],
     "tags": [
       "AI 编程",
