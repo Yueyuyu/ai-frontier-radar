@@ -22,7 +22,7 @@
     },
     {
       "label": "headroomlabs-ai/headroom",
-      "value": "58488 stars",
+      "value": "58493 stars",
       "note": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 60-95% fewer tokens, same answers. Library",
       "score": 100,
       "url": "https://github.com/headroomlabs-ai/headroom",
@@ -49,7 +49,7 @@
     },
     {
       "label": "github/github-mcp-server",
-      "value": "31359 stars",
+      "value": "31360 stars",
       "note": "GitHub's official MCP Server",
       "score": 100,
       "url": "https://github.com/github/github-mcp-server",
@@ -58,7 +58,7 @@
     },
     {
       "label": "DeusData/codebase-memory-mcp",
-      "value": "29905 stars",
+      "value": "29913 stars",
       "note": "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in mil",
       "score": 100,
       "url": "https://github.com/DeusData/codebase-memory-mcp",
