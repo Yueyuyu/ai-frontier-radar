@@ -16,14 +16,14 @@
     "accent": "#63f7d4",
     "trustBand": "high",
     "sourceCount": 3,
-    "heatScore": 81,
+    "heatScore": 74,
     "impactScore": 99,
     "trend": [
-      63,
-      69,
-      72,
-      77,
-      81
+      56,
+      62,
+      65,
+      70,
+      74
     ],
     "tags": [
       "模型",
@@ -69,7 +69,7 @@
     "name": "GPT-5.6 Terra",
     "category": "模型",
     "level": "official",
-    "confidence": 99,
+    "confidence": 98,
     "firstSeen": "2026-06-26",
     "lastUpdate": "刚刚",
     "releaseWindow": "有限预览",
@@ -80,14 +80,14 @@
     "accent": "#ff8f5f",
     "trustBand": "high",
     "sourceCount": 2,
-    "heatScore": 74,
+    "heatScore": 68,
     "impactScore": 93,
     "trend": [
+      50,
       56,
-      62,
-      65,
-      70,
-      74
+      59,
+      64,
+      68
     ],
     "tags": [
       "模型",
@@ -126,7 +126,7 @@
     "name": "GPT-5.6 Luna",
     "category": "模型",
     "level": "official",
-    "confidence": 98,
+    "confidence": 97,
     "firstSeen": "2026-06-26",
     "lastUpdate": "刚刚",
     "releaseWindow": "有限预览",
@@ -137,14 +137,14 @@
     "accent": "#8eb9ff",
     "trustBand": "high",
     "sourceCount": 2,
-    "heatScore": 74,
+    "heatScore": 68,
     "impactScore": 92,
     "trend": [
+      50,
       56,
-      62,
-      65,
-      70,
-      74
+      59,
+      64,
+      68
     ],
     "tags": [
       "模型",
@@ -457,7 +457,7 @@
     "name": "Gemini 3.1 Pro",
     "category": "模型",
     "level": "platform",
-    "confidence": 94,
+    "confidence": 93,
     "firstSeen": "46 分钟前",
     "lastUpdate": "刚刚",
     "releaseWindow": "约 2-5 周",
@@ -468,14 +468,14 @@
     "accent": "#4b8cff",
     "trustBand": "high",
     "sourceCount": 2,
-    "heatScore": 86,
+    "heatScore": 80,
     "impactScore": 78,
     "trend": [
+      62,
       68,
-      74,
-      77,
-      82,
-      86
+      71,
+      76,
+      80
     ],
     "tags": [
       "模型",
