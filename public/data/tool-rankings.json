@@ -13,7 +13,7 @@
   "items": [
     {
       "label": "punkpeye/awesome-mcp-servers",
-      "value": "90652 stars",
+      "value": "90653 stars",
       "note": "A collection of MCP servers.",
       "score": 100,
       "url": "https://github.com/punkpeye/awesome-mcp-servers",
@@ -22,7 +22,7 @@
     },
     {
       "label": "headroomlabs-ai/headroom",
-      "value": "58734 stars",
+      "value": "58737 stars",
       "note": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 60-95% fewer tokens, same answers. Library",
       "score": 100,
       "url": "https://github.com/headroomlabs-ai/headroom",
@@ -58,7 +58,7 @@
     },
     {
       "label": "DeusData/codebase-memory-mcp",
-      "value": "30574 stars",
+      "value": "30581 stars",
       "note": "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in mil",
       "score": 100,
       "url": "https://github.com/DeusData/codebase-memory-mcp",
