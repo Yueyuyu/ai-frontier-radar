@@ -16,7 +16,7 @@
   "items": [
     {
       "label": "obra/superpowers",
-      "value": "252943 stars",
+      "value": "252945 stars",
       "note": "An agentic skills framework & software development methodology that works.",
       "score": 100,
       "url": "https://github.com/obra/superpowers",
@@ -25,7 +25,7 @@
     },
     {
       "label": "NousResearch/hermes-agent",
-      "value": "213647 stars",
+      "value": "213651 stars",
       "note": "The agent that grows with you",
       "score": 100,
       "url": "https://github.com/NousResearch/hermes-agent",
@@ -43,7 +43,7 @@
     },
     {
       "label": "langflow-ai/langflow",
-      "value": "151766 stars",
+      "value": "151767 stars",
       "note": "Langflow is a powerful tool for building and deploying AI-powered agents and workflows.",
       "score": 100,
       "url": "https://github.com/langflow-ai/langflow",
@@ -52,7 +52,7 @@
     },
     {
       "label": "langgenius/dify",
-      "value": "148599 stars",
+      "value": "148600 stars",
       "note": "Production-ready platform for agentic workflow development.",
       "score": 100,
       "url": "https://github.com/langgenius/dify",
@@ -79,7 +79,7 @@
     },
     {
       "label": "msitarzewski/agency-agents",
-      "value": "130735 stars",
+      "value": "130736 stars",
       "note": "A complete AI agency at your fingertips - From frontend wizards to Reddit community ninjas, from whimsy injectors to rea",
       "score": 100,
       "url": "https://github.com/msitarzewski/agency-agents",
