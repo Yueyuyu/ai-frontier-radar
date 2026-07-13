@@ -13,7 +13,7 @@
   "items": [
     {
       "label": "punkpeye/awesome-mcp-servers",
-      "value": "90710 stars",
+      "value": "90712 stars",
       "note": "A collection of MCP servers.",
       "score": 100,
       "url": "https://github.com/punkpeye/awesome-mcp-servers",
@@ -22,7 +22,7 @@
     },
     {
       "label": "headroomlabs-ai/headroom",
-      "value": "58949 stars",
+      "value": "58950 stars",
       "note": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 60-95% fewer tokens, same answers. Library",
       "score": 100,
       "url": "https://github.com/headroomlabs-ai/headroom",
@@ -49,7 +49,7 @@
     },
     {
       "label": "github/github-mcp-server",
-      "value": "31410 stars",
+      "value": "31411 stars",
       "note": "GitHub's official MCP Server",
       "score": 100,
       "url": "https://github.com/github/github-mcp-server",
@@ -58,7 +58,7 @@
     },
     {
       "label": "DeusData/codebase-memory-mcp",
-      "value": "31062 stars",
+      "value": "31074 stars",
       "note": "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in mil",
       "score": 100,
       "url": "https://github.com/DeusData/codebase-memory-mcp",
@@ -67,7 +67,7 @@
     },
     {
       "label": "PrefectHQ/fastmcp",
-      "value": "26179 stars",
+      "value": "26180 stars",
       "note": "🚀 The fast, Pythonic way to build MCP servers and clients.",
       "score": 100,
       "url": "https://github.com/PrefectHQ/fastmcp",
