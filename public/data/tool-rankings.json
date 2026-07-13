@@ -13,7 +13,7 @@
   "items": [
     {
       "label": "punkpeye/awesome-mcp-servers",
-      "value": "90699 stars",
+      "value": "90700 stars",
       "note": "A collection of MCP servers.",
       "score": 100,
       "url": "https://github.com/punkpeye/awesome-mcp-servers",
@@ -40,7 +40,7 @@
     },
     {
       "label": "microsoft/playwright-mcp",
-      "value": "35034 stars",
+      "value": "35035 stars",
       "note": "Playwright MCP server",
       "score": 100,
       "url": "https://github.com/microsoft/playwright-mcp",
@@ -58,7 +58,7 @@
     },
     {
       "label": "DeusData/codebase-memory-mcp",
-      "value": "31024 stars",
+      "value": "31027 stars",
       "note": "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in mil",
       "score": 100,
       "url": "https://github.com/DeusData/codebase-memory-mcp",
