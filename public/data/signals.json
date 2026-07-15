@@ -126,7 +126,7 @@
     "name": "GPT-5.6 Luna",
     "category": "模型",
     "level": "official",
-    "confidence": 98,
+    "confidence": 97,
     "firstSeen": "2026-06-26",
     "lastUpdate": "刚刚",
     "releaseWindow": "有限预览",
@@ -137,14 +137,14 @@
     "accent": "#8eb9ff",
     "trustBand": "high",
     "sourceCount": 2,
-    "heatScore": 74,
+    "heatScore": 68,
     "impactScore": 92,
     "trend": [
+      50,
       56,
-      62,
-      65,
-      70,
-      74
+      59,
+      64,
+      68
     ],
     "tags": [
       "模型",
