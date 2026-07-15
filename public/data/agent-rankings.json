@@ -16,7 +16,7 @@
   "items": [
     {
       "label": "obra/superpowers",
-      "value": "254900 stars",
+      "value": "254916 stars",
       "note": "An agentic skills framework & software development methodology that works.",
       "score": 100,
       "url": "https://github.com/obra/superpowers",
@@ -25,7 +25,7 @@
     },
     {
       "label": "NousResearch/hermes-agent",
-      "value": "215028 stars",
+      "value": "215035 stars",
       "note": "The agent that grows with you",
       "score": 100,
       "url": "https://github.com/NousResearch/hermes-agent",
@@ -52,7 +52,7 @@
     },
     {
       "label": "langgenius/dify",
-      "value": "148874 stars",
+      "value": "148876 stars",
       "note": "Production-ready platform for agentic workflow development.",
       "score": 100,
       "url": "https://github.com/langgenius/dify",
@@ -61,7 +61,7 @@
     },
     {
       "label": "x1xhlol/system-prompts-and-models-of-ai-tools",
-      "value": "141932 stars",
+      "value": "141933 stars",
       "note": "FULL Augment Code, Claude Code, Cluely, CodeBuddy, Comet, Cursor, Devin AI, Junie, Kiro, Leap.new, Lovable, Manus, Notio",
       "score": 100,
       "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
@@ -70,7 +70,7 @@
     },
     {
       "label": "langchain-ai/langchain",
-      "value": "141805 stars",
+      "value": "141806 stars",
       "note": "The agent engineering platform.",
       "score": 100,
       "url": "https://github.com/langchain-ai/langchain",
