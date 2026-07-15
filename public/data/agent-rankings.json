@@ -16,7 +16,7 @@
   "items": [
     {
       "label": "obra/superpowers",
-      "value": "255361 stars",
+      "value": "255373 stars",
       "note": "An agentic skills framework & software development methodology that works.",
       "score": 100,
       "url": "https://github.com/obra/superpowers",
@@ -25,7 +25,7 @@
     },
     {
       "label": "NousResearch/hermes-agent",
-      "value": "215418 stars",
+      "value": "215425 stars",
       "note": "The agent that grows with you",
       "score": 100,
       "url": "https://github.com/NousResearch/hermes-agent",
@@ -34,7 +34,7 @@
     },
     {
       "label": "Snailclimb/JavaGuide",
-      "value": "157053 stars",
+      "value": "157054 stars",
       "note": "Java 面试 & 后端通用面试指南，覆盖计算机基础、数据库、分布式、高并发、系统设计与 AI 应用开发",
       "score": 100,
       "url": "https://github.com/Snailclimb/JavaGuide",
@@ -43,7 +43,7 @@
     },
     {
       "label": "langflow-ai/langflow",
-      "value": "151917 stars",
+      "value": "151918 stars",
       "note": "Langflow is a powerful tool for building and deploying AI-powered agents and workflows.",
       "score": 100,
       "url": "https://github.com/langflow-ai/langflow",
@@ -52,7 +52,7 @@
     },
     {
       "label": "langgenius/dify",
-      "value": "148952 stars",
+      "value": "148953 stars",
       "note": "Production-ready platform for agentic workflow development.",
       "score": 100,
       "url": "https://github.com/langgenius/dify",
@@ -70,7 +70,7 @@
     },
     {
       "label": "langchain-ai/langchain",
-      "value": "141854 stars",
+      "value": "141856 stars",
       "note": "The agent engineering platform.",
       "score": 100,
       "url": "https://github.com/langchain-ai/langchain",
@@ -79,7 +79,7 @@
     },
     {
       "label": "msitarzewski/agency-agents",
-      "value": "131747 stars",
+      "value": "131754 stars",
       "note": "A complete AI agency at your fingertips - From frontend wizards to Reddit community ninjas, from whimsy injectors to rea",
       "score": 100,
       "url": "https://github.com/msitarzewski/agency-agents",
