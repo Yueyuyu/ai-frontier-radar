@@ -13,7 +13,7 @@
   "items": [
     {
       "label": "punkpeye/awesome-mcp-servers",
-      "value": "90840 stars",
+      "value": "90842 stars",
       "note": "A collection of MCP servers.",
       "score": 100,
       "url": "https://github.com/punkpeye/awesome-mcp-servers",
@@ -22,7 +22,7 @@
     },
     {
       "label": "headroomlabs-ai/headroom",
-      "value": "59474 stars",
+      "value": "59480 stars",
       "note": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95%",
       "score": 100,
       "url": "https://github.com/headroomlabs-ai/headroom",
@@ -40,7 +40,7 @@
     },
     {
       "label": "microsoft/playwright-mcp",
-      "value": "35158 stars",
+      "value": "35159 stars",
       "note": "Playwright MCP server",
       "score": 100,
       "url": "https://github.com/microsoft/playwright-mcp",
@@ -49,7 +49,7 @@
     },
     {
       "label": "DeusData/codebase-memory-mcp",
-      "value": "32076 stars",
+      "value": "32085 stars",
       "note": "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in mil",
       "score": 100,
       "url": "https://github.com/DeusData/codebase-memory-mcp",
