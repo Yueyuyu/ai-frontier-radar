@@ -22,7 +22,7 @@
     },
     {
       "label": "headroomlabs-ai/headroom",
-      "value": "59391 stars",
+      "value": "59402 stars",
       "note": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95%",
       "score": 100,
       "url": "https://github.com/headroomlabs-ai/headroom",
@@ -31,7 +31,7 @@
     },
     {
       "label": "zylon-ai/private-gpt",
-      "value": "57333 stars",
+      "value": "57335 stars",
       "note": "Complete API layer for private AI applications on local models: RAG, skills, tools, MCP, text-to-sql, and more. Works wi",
       "score": 100,
       "url": "https://github.com/zylon-ai/private-gpt",
@@ -49,7 +49,7 @@
     },
     {
       "label": "DeusData/codebase-memory-mcp",
-      "value": "31954 stars",
+      "value": "31972 stars",
       "note": "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in mil",
       "score": 100,
       "url": "https://github.com/DeusData/codebase-memory-mcp",
@@ -58,7 +58,7 @@
     },
     {
       "label": "github/github-mcp-server",
-      "value": "31476 stars",
+      "value": "31478 stars",
       "note": "GitHub's official MCP Server",
       "score": 100,
       "url": "https://github.com/github/github-mcp-server",
@@ -76,7 +76,7 @@
     },
     {
       "label": "activepieces/activepieces",
-      "value": "23281 stars",
+      "value": "23282 stars",
       "note": "AI Agents & MCPs & AI Workflow Automation • (~400 MCP servers for AI agents) • AI Automation / AI Agent with MCPs • AI W",
       "score": 100,
       "url": "https://github.com/activepieces/activepieces",
