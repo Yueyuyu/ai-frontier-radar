@@ -50,19 +50,19 @@
       "url": "https://os-world.github.io/"
     },
     {
+      "label": "LM Studio Bionic: the AI agent for open models",
+      "value": "103 pts",
+      "note": "AI agent / 36 comments",
+      "score": 86,
+      "url": "https://lmstudio.ai/blog/introducing-lm-studio-bionic",
+      "query": "AI agent"
+    },
+    {
       "label": "WebArena",
       "value": "可访问",
       "note": "webarena.dev / 命中 2 个关键词",
       "score": 84,
       "url": "https://webarena.dev/"
-    },
-    {
-      "label": "LM Studio Bionic: the AI agent for open models",
-      "value": "86 pts",
-      "note": "AI agent / 29 comments",
-      "score": 84,
-      "url": "https://lmstudio.ai/blog/introducing-lm-studio-bionic",
-      "query": "AI agent"
     },
     {
       "label": "Show HN: How to analyze your LLM output – A behavioural health monitor for LLMs",

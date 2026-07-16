@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-07-16T22:48:29.590Z",
+  "generatedAt": "2026-07-16T23:19:03.933Z",
   "stats": {
     "totalEntities": 54,
     "totalSources": 31,
     "verifiedSources": 24,
     "updatedLabel": "实时刷新",
-    "generatedAt": "2026-07-16T22:48:29.590Z",
+    "generatedAt": "2026-07-16T23:19:03.933Z",
     "databaseStatus": "未配置"
   },
   "workspaceNav": [
@@ -1368,28 +1368,6 @@
   ],
   "sourceHealth": [
     {
-      "name": "OpenAI API Changelog",
-      "detail": "官网 / 文档",
-      "type": "official",
-      "influence": 96,
-      "coverage": 88,
-      "accent": "#16c8be",
-      "url": "https://developers.openai.com/api/docs/changelog",
-      "status": "ok",
-      "lastCheckedAt": "2026-07-16T22:48:29.926Z",
-      "accessMethod": "official-page",
-      "authRequired": false,
-      "freshnessSla": "30m-1h",
-      "weight": 1,
-      "runCount": 1,
-      "failedRuns": 0,
-      "attemptCount": 1,
-      "failedAttempts": 0,
-      "retryCount": 0,
-      "failureRate": 0,
-      "averageLatencyMs": 172
-    },
-    {
       "name": "Claude Release Notes",
       "detail": "官网 / 文档",
       "type": "official",
@@ -1398,7 +1376,7 @@
       "accent": "#16c8be",
       "url": "https://support.claude.com/en/articles/12138966-release-notes",
       "status": "ok",
-      "lastCheckedAt": "2026-07-16T22:48:30.023Z",
+      "lastCheckedAt": "2026-07-16T23:19:04.236Z",
       "accessMethod": "official-page",
       "authRequired": false,
       "freshnessSla": "30m-1h",
@@ -1409,7 +1387,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 267
+      "averageLatencyMs": 263
     },
     {
       "name": "Mistral Changelog",
@@ -1420,7 +1398,7 @@
       "accent": "#16c8be",
       "url": "https://docs.mistral.ai/resources/changelogs",
       "status": "ok",
-      "lastCheckedAt": "2026-07-16T22:48:30.158Z",
+      "lastCheckedAt": "2026-07-16T23:19:04.262Z",
       "accessMethod": "official-page",
       "authRequired": false,
       "freshnessSla": "30m-1h",
@@ -1431,7 +1409,29 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 400
+      "averageLatencyMs": 287
+    },
+    {
+      "name": "OpenAI API Changelog",
+      "detail": "官网 / 文档",
+      "type": "official",
+      "influence": 96,
+      "coverage": 88,
+      "accent": "#16c8be",
+      "url": "https://developers.openai.com/api/docs/changelog",
+      "status": "ok",
+      "lastCheckedAt": "2026-07-16T23:19:04.314Z",
+      "accessMethod": "official-page",
+      "authRequired": false,
+      "freshnessSla": "30m-1h",
+      "weight": 1,
+      "runCount": 1,
+      "failedRuns": 0,
+      "attemptCount": 1,
+      "failedAttempts": 0,
+      "retryCount": 0,
+      "failureRate": 0,
+      "averageLatencyMs": 342
     },
     {
       "name": "DeepSeek API Docs",
@@ -1442,7 +1442,7 @@
       "accent": "#16c8be",
       "url": "https://api-docs.deepseek.com/",
       "status": "ok",
-      "lastCheckedAt": "2026-07-16T22:48:30.234Z",
+      "lastCheckedAt": "2026-07-16T23:19:04.348Z",
       "accessMethod": "official-page",
       "authRequired": false,
       "freshnessSla": "30m-1h",
@@ -1453,7 +1453,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 475
+      "averageLatencyMs": 371
     },
     {
       "name": "Gemini API Changelog",
@@ -1464,7 +1464,7 @@
       "accent": "#16c8be",
       "url": "https://ai.google.dev/gemini-api/docs/changelog",
       "status": "ok",
-      "lastCheckedAt": "2026-07-16T22:48:30.600Z",
+      "lastCheckedAt": "2026-07-16T23:19:04.508Z",
       "accessMethod": "official-page",
       "authRequired": false,
       "freshnessSla": "30m-1h",
@@ -1475,7 +1475,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 843
+      "averageLatencyMs": 534
     },
     {
       "name": "OpenAI News",
@@ -1486,7 +1486,7 @@
       "accent": "#16c8be",
       "url": "https://openai.com/news/rss.xml",
       "status": "ok",
-      "lastCheckedAt": "2026-07-16T22:48:31.034Z",
+      "lastCheckedAt": "2026-07-16T23:19:04.959Z",
       "accessMethod": "official-page",
       "authRequired": false,
       "freshnessSla": "30m-1h",
@@ -1497,7 +1497,7 @@
       "failedAttempts": 2,
       "retryCount": 2,
       "failureRate": 0.67,
-      "averageLatencyMs": 1444
+      "averageLatencyMs": 1025
     },
     {
       "name": "Kimi API Docs",
@@ -1508,7 +1508,7 @@
       "accent": "#16c8be",
       "url": "https://platform.kimi.ai/docs/overview",
       "status": "ok",
-      "lastCheckedAt": "2026-07-16T22:48:31.083Z",
+      "lastCheckedAt": "2026-07-16T23:19:05.240Z",
       "accessMethod": "official-page",
       "authRequired": false,
       "freshnessSla": "30m-1h",
@@ -1519,7 +1519,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 1323
+      "averageLatencyMs": 1263
     },
     {
       "name": "OpenRouter Models",
@@ -1530,7 +1530,7 @@
       "accent": "#16c8be",
       "url": "https://openrouter.ai/api/v1/models",
       "status": "ok",
-      "lastCheckedAt": "2026-07-16T22:48:30.271Z",
+      "lastCheckedAt": "2026-07-16T23:19:04.376Z",
       "accessMethod": "public-api",
       "authRequired": false,
       "freshnessSla": "1h",
@@ -1541,7 +1541,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 510
+      "averageLatencyMs": 398
     },
     {
       "name": "Hugging Face - agent",
@@ -1552,7 +1552,7 @@
       "accent": "#16c8be",
       "url": "https://huggingface.co/api/models?search=agent&sort=downloads&direction=-1&limit=10",
       "status": "ok",
-      "lastCheckedAt": "2026-07-16T22:48:30.333Z",
+      "lastCheckedAt": "2026-07-16T23:19:04.422Z",
       "accessMethod": "public-api",
       "authRequired": false,
       "freshnessSla": "1h",
@@ -1563,29 +1563,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 567
-    },
-    {
-      "name": "Hugging Face - mcp",
-      "detail": "模型排行榜",
-      "type": "platform",
-      "influence": 88,
-      "coverage": 88,
-      "accent": "#16c8be",
-      "url": "https://huggingface.co/api/models?search=mcp&sort=downloads&direction=-1&limit=10",
-      "status": "ok",
-      "lastCheckedAt": "2026-07-16T22:48:30.360Z",
-      "accessMethod": "public-api",
-      "authRequired": false,
-      "freshnessSla": "1h",
-      "weight": 0.82,
-      "runCount": 1,
-      "failedRuns": 0,
-      "attemptCount": 1,
-      "failedAttempts": 0,
-      "retryCount": 0,
-      "failureRate": 0,
-      "averageLatencyMs": 26
+      "averageLatencyMs": 438
     },
     {
       "name": "arXiv API",
@@ -1596,7 +1574,7 @@
       "accent": "#16c8be",
       "url": "https://export.arxiv.org/api/query?search_query=all:%22AI%20agent%22%20OR%20all:%22large%20language%20model%22&start=0&max_results=10&sortBy=submittedDate&sortOrder=descending",
       "status": "ok",
-      "lastCheckedAt": "2026-07-16T22:48:30.367Z",
+      "lastCheckedAt": "2026-07-16T23:19:04.438Z",
       "accessMethod": "public-api",
       "authRequired": false,
       "freshnessSla": "1h",
@@ -1607,7 +1585,29 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 600
+      "averageLatencyMs": 453
+    },
+    {
+      "name": "Hugging Face - mcp",
+      "detail": "模型排行榜",
+      "type": "platform",
+      "influence": 88,
+      "coverage": 88,
+      "accent": "#16c8be",
+      "url": "https://huggingface.co/api/models?search=mcp&sort=downloads&direction=-1&limit=10",
+      "status": "ok",
+      "lastCheckedAt": "2026-07-16T23:19:04.442Z",
+      "accessMethod": "public-api",
+      "authRequired": false,
+      "freshnessSla": "1h",
+      "weight": 0.82,
+      "runCount": 1,
+      "failedRuns": 0,
+      "attemptCount": 1,
+      "failedAttempts": 0,
+      "retryCount": 0,
+      "failureRate": 0,
+      "averageLatencyMs": 19
     },
     {
       "name": "Hugging Face - coding agent",
@@ -1618,7 +1618,7 @@
       "accent": "#16c8be",
       "url": "https://huggingface.co/api/models?search=coding%20agent&sort=downloads&direction=-1&limit=10",
       "status": "ok",
-      "lastCheckedAt": "2026-07-16T22:48:30.386Z",
+      "lastCheckedAt": "2026-07-16T23:19:04.465Z",
       "accessMethod": "public-api",
       "authRequired": false,
       "freshnessSla": "1h",
@@ -1629,7 +1629,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 26
+      "averageLatencyMs": 22
     },
     {
       "name": "Hugging Face - reasoning model",
@@ -1640,7 +1640,7 @@
       "accent": "#16c8be",
       "url": "https://huggingface.co/api/models?search=reasoning%20model&sort=downloads&direction=-1&limit=10",
       "status": "ok",
-      "lastCheckedAt": "2026-07-16T22:48:30.410Z",
+      "lastCheckedAt": "2026-07-16T23:19:04.488Z",
       "accessMethod": "public-api",
       "authRequired": false,
       "freshnessSla": "1h",
@@ -1651,7 +1651,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 24
+      "averageLatencyMs": 22
     },
     {
       "name": "Hacker News - GPT-5.6",
@@ -1662,7 +1662,7 @@
       "accent": "#16c8be",
       "url": "https://hn.algolia.com/api/v1/search_by_date?query=GPT-5.6&tags=story&hitsPerPage=10",
       "status": "ok",
-      "lastCheckedAt": "2026-07-16T22:48:30.519Z",
+      "lastCheckedAt": "2026-07-16T23:19:04.564Z",
       "accessMethod": "public-api",
       "authRequired": false,
       "freshnessSla": "1h",
@@ -1673,7 +1673,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 755
+      "averageLatencyMs": 582
     },
     {
       "name": "Hacker News - AI agent",
@@ -1684,7 +1684,7 @@
       "accent": "#16c8be",
       "url": "https://hn.algolia.com/api/v1/search_by_date?query=AI%20agent&tags=story&hitsPerPage=10",
       "status": "ok",
-      "lastCheckedAt": "2026-07-16T22:48:30.829Z",
+      "lastCheckedAt": "2026-07-16T23:19:04.899Z",
       "accessMethod": "public-api",
       "authRequired": false,
       "freshnessSla": "1h",
@@ -1695,7 +1695,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 309
+      "averageLatencyMs": 334
     },
     {
       "name": "Hacker News - Claude Code",
@@ -1706,7 +1706,7 @@
       "accent": "#16c8be",
       "url": "https://hn.algolia.com/api/v1/search_by_date?query=Claude%20Code&tags=story&hitsPerPage=10",
       "status": "ok",
-      "lastCheckedAt": "2026-07-16T22:48:31.011Z",
+      "lastCheckedAt": "2026-07-16T23:19:05.109Z",
       "accessMethod": "public-api",
       "authRequired": false,
       "freshnessSla": "1h",
@@ -1717,7 +1717,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 181
+      "averageLatencyMs": 210
     },
     {
       "name": "Hacker News - MCP server",
@@ -1728,7 +1728,7 @@
       "accent": "#16c8be",
       "url": "https://hn.algolia.com/api/v1/search_by_date?query=MCP%20server&tags=story&hitsPerPage=10",
       "status": "ok",
-      "lastCheckedAt": "2026-07-16T22:48:31.262Z",
+      "lastCheckedAt": "2026-07-16T23:19:05.314Z",
       "accessMethod": "public-api",
       "authRequired": false,
       "freshnessSla": "1h",
@@ -1739,7 +1739,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 250
+      "averageLatencyMs": 204
     },
     {
       "name": "Hacker News - Hammers AI agent",
@@ -1750,7 +1750,7 @@
       "accent": "#16c8be",
       "url": "https://hn.algolia.com/api/v1/search_by_date?query=Hammers%20AI%20agent&tags=story&hitsPerPage=10",
       "status": "ok",
-      "lastCheckedAt": "2026-07-16T22:48:31.523Z",
+      "lastCheckedAt": "2026-07-16T23:19:05.565Z",
       "accessMethod": "public-api",
       "authRequired": false,
       "freshnessSla": "1h",
@@ -1761,7 +1761,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 261
+      "averageLatencyMs": 251
     },
     {
       "name": "Steel.dev Agent Leaderboard",
@@ -1772,7 +1772,7 @@
       "accent": "#16c8be",
       "url": "https://leaderboard.steel.dev/",
       "status": "ok",
-      "lastCheckedAt": "2026-07-16T22:48:30.429Z",
+      "lastCheckedAt": "2026-07-16T23:19:04.595Z",
       "accessMethod": "html-page",
       "authRequired": false,
       "freshnessSla": "daily",
@@ -1783,7 +1783,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 662
+      "averageLatencyMs": 610
     },
     {
       "name": "Agent Arena",
@@ -1794,7 +1794,7 @@
       "accent": "#16c8be",
       "url": "https://arena.ai/leaderboard/agent",
       "status": "ok",
-      "lastCheckedAt": "2026-07-16T22:48:31.230Z",
+      "lastCheckedAt": "2026-07-16T23:19:05.130Z",
       "accessMethod": "html-page",
       "authRequired": false,
       "freshnessSla": "daily",
@@ -1805,7 +1805,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 800
+      "averageLatencyMs": 534
     },
     {
       "name": "HAL Princeton",
@@ -1816,7 +1816,7 @@
       "accent": "#16c8be",
       "url": "https://hal.cs.princeton.edu/",
       "status": "ok",
-      "lastCheckedAt": "2026-07-16T22:48:32.942Z",
+      "lastCheckedAt": "2026-07-16T23:19:06.847Z",
       "accessMethod": "html-page",
       "authRequired": false,
       "freshnessSla": "daily",
@@ -1827,7 +1827,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 1708
+      "averageLatencyMs": 1712
     },
     {
       "name": "SkillsBench",
@@ -1838,7 +1838,7 @@
       "accent": "#16c8be",
       "url": "https://www.skillsbench.ai/leaderboard",
       "status": "ok",
-      "lastCheckedAt": "2026-07-16T22:48:33.105Z",
+      "lastCheckedAt": "2026-07-16T23:19:07.265Z",
       "accessMethod": "html-page",
       "authRequired": false,
       "freshnessSla": "daily",
@@ -1849,7 +1849,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 162
+      "averageLatencyMs": 417
     },
     {
       "name": "OSWorld",
@@ -1860,7 +1860,7 @@
       "accent": "#16c8be",
       "url": "https://os-world.github.io/",
       "status": "ok",
-      "lastCheckedAt": "2026-07-16T22:48:33.196Z",
+      "lastCheckedAt": "2026-07-16T23:19:07.375Z",
       "accessMethod": "html-page",
       "authRequired": false,
       "freshnessSla": "daily",
@@ -1871,7 +1871,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 90
+      "averageLatencyMs": 109
     },
     {
       "name": "WebArena",
@@ -1882,7 +1882,7 @@
       "accent": "#16c8be",
       "url": "https://webarena.dev/",
       "status": "ok",
-      "lastCheckedAt": "2026-07-16T22:48:33.372Z",
+      "lastCheckedAt": "2026-07-16T23:19:07.586Z",
       "accessMethod": "html-page",
       "authRequired": false,
       "freshnessSla": "daily",
@@ -1893,7 +1893,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 175
+      "averageLatencyMs": 210
     },
     {
       "name": "X Recent Search",
@@ -1904,7 +1904,7 @@
       "accent": "#ffb86b",
       "url": "https://api.x.com/2/tweets/search/recent",
       "status": "skipped",
-      "lastCheckedAt": "2026-07-16T22:48:29.590Z",
+      "lastCheckedAt": "2026-07-16T23:19:03.933Z",
       "accessMethod": "api-key",
       "authRequired": true,
       "freshnessSla": "15m-6h",
@@ -1926,7 +1926,7 @@
       "accent": "#ffb86b",
       "url": "https://api.producthunt.com/v2/api/graphql",
       "status": "skipped",
-      "lastCheckedAt": "2026-07-16T22:48:29.590Z",
+      "lastCheckedAt": "2026-07-16T23:19:03.933Z",
       "accessMethod": "api-key",
       "authRequired": true,
       "freshnessSla": "15m-6h",
@@ -1948,7 +1948,7 @@
       "accent": "#ffb86b",
       "url": "https://artificialanalysis.ai/data-api",
       "status": "skipped",
-      "lastCheckedAt": "2026-07-16T22:48:29.590Z",
+      "lastCheckedAt": "2026-07-16T23:19:03.933Z",
       "accessMethod": "api-key",
       "authRequired": true,
       "freshnessSla": "15m-6h",
@@ -1970,7 +1970,7 @@
       "accent": "#ff6f6f",
       "url": "https://api.github.com/search/repositories?q=ai%20agent%20pushed%3A%3E%3D2026-06-01%20stars%3A%3E50&sort=stars&order=desc&per_page=10",
       "status": "error",
-      "lastCheckedAt": "2026-07-16T22:48:30.611Z",
+      "lastCheckedAt": "2026-07-16T23:19:04.714Z",
       "accessMethod": "public-api",
       "authRequired": false,
       "freshnessSla": "1h",
@@ -1981,7 +1981,7 @@
       "failedAttempts": 2,
       "retryCount": 1,
       "failureRate": 1,
-      "averageLatencyMs": 849
+      "averageLatencyMs": 734
     },
     {
       "name": "GitHub Search - MCP Server",
@@ -1992,7 +1992,7 @@
       "accent": "#ff6f6f",
       "url": "https://api.github.com/search/repositories?q=mcp%20server%20pushed%3A%3E%3D2026-06-01%20stars%3A%3E20&sort=stars&order=desc&per_page=10",
       "status": "error",
-      "lastCheckedAt": "2026-07-16T22:48:30.913Z",
+      "lastCheckedAt": "2026-07-16T23:19:05.074Z",
       "accessMethod": "public-api",
       "authRequired": false,
       "freshnessSla": "1h",
@@ -2003,7 +2003,7 @@
       "failedAttempts": 2,
       "retryCount": 1,
       "failureRate": 1,
-      "averageLatencyMs": 301
+      "averageLatencyMs": 360
     },
     {
       "name": "GitHub Search - Coding Agent",
@@ -2014,7 +2014,7 @@
       "accent": "#ff6f6f",
       "url": "https://api.github.com/search/repositories?q=coding%20agent%20pushed%3A%3E%3D2026-06-01%20stars%3A%3E20&sort=stars&order=desc&per_page=10",
       "status": "error",
-      "lastCheckedAt": "2026-07-16T22:48:31.307Z",
+      "lastCheckedAt": "2026-07-16T23:19:05.399Z",
       "accessMethod": "public-api",
       "authRequired": false,
       "freshnessSla": "1h",
@@ -2025,7 +2025,7 @@
       "failedAttempts": 2,
       "retryCount": 1,
       "failureRate": 1,
-      "averageLatencyMs": 394
+      "averageLatencyMs": 325
     },
     {
       "name": "MySQL 持久化",
@@ -2036,7 +2036,7 @@
       "accent": "#ffb86b",
       "url": "DATABASE_URL",
       "status": "skipped",
-      "lastCheckedAt": "2026-07-16T22:48:29.590Z",
+      "lastCheckedAt": "2026-07-16T23:19:03.933Z",
       "accessMethod": "database",
       "authRequired": false,
       "freshnessSla": "daily",
@@ -2052,28 +2052,6 @@
   ],
   "sources": [
     {
-      "id": "openai-api-changelog",
-      "name": "OpenAI API Changelog",
-      "url": "https://developers.openai.com/api/docs/changelog",
-      "sourceType": "official-confirmation",
-      "accessMethod": "official-page",
-      "authRequired": false,
-      "weight": 1,
-      "freshnessSla": "30m-1h",
-      "status": "ok",
-      "requiredEnv": [],
-      "lastCheckedAt": "2026-07-16T22:48:29.926Z",
-      "message": "命中 4/4 个关键词",
-      "itemCount": 4,
-      "runCount": 1,
-      "failedRuns": 0,
-      "attemptCount": 1,
-      "failedAttempts": 0,
-      "retryCount": 0,
-      "failureRate": 0,
-      "averageLatencyMs": 172
-    },
-    {
       "id": "anthropic-release-notes",
       "name": "Claude Release Notes",
       "url": "https://support.claude.com/en/articles/12138966-release-notes",
@@ -2084,7 +2062,7 @@
       "freshnessSla": "30m-1h",
       "status": "ok",
       "requiredEnv": [],
-      "lastCheckedAt": "2026-07-16T22:48:30.023Z",
+      "lastCheckedAt": "2026-07-16T23:19:04.236Z",
       "message": "命中 3/3 个关键词",
       "itemCount": 3,
       "runCount": 1,
@@ -2093,7 +2071,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 267
+      "averageLatencyMs": 263
     },
     {
       "id": "mistral-changelog",
@@ -2106,7 +2084,7 @@
       "freshnessSla": "30m-1h",
       "status": "ok",
       "requiredEnv": [],
-      "lastCheckedAt": "2026-07-16T22:48:30.158Z",
+      "lastCheckedAt": "2026-07-16T23:19:04.262Z",
       "message": "命中 3/3 个关键词",
       "itemCount": 3,
       "runCount": 1,
@@ -2115,7 +2093,29 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 400
+      "averageLatencyMs": 287
+    },
+    {
+      "id": "openai-api-changelog",
+      "name": "OpenAI API Changelog",
+      "url": "https://developers.openai.com/api/docs/changelog",
+      "sourceType": "official-confirmation",
+      "accessMethod": "official-page",
+      "authRequired": false,
+      "weight": 1,
+      "freshnessSla": "30m-1h",
+      "status": "ok",
+      "requiredEnv": [],
+      "lastCheckedAt": "2026-07-16T23:19:04.314Z",
+      "message": "命中 4/4 个关键词",
+      "itemCount": 4,
+      "runCount": 1,
+      "failedRuns": 0,
+      "attemptCount": 1,
+      "failedAttempts": 0,
+      "retryCount": 0,
+      "failureRate": 0,
+      "averageLatencyMs": 342
     },
     {
       "id": "deepseek-docs",
@@ -2128,7 +2128,7 @@
       "freshnessSla": "30m-1h",
       "status": "ok",
       "requiredEnv": [],
-      "lastCheckedAt": "2026-07-16T22:48:30.234Z",
+      "lastCheckedAt": "2026-07-16T23:19:04.348Z",
       "message": "命中 3/3 个关键词",
       "itemCount": 3,
       "runCount": 1,
@@ -2137,7 +2137,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 475
+      "averageLatencyMs": 371
     },
     {
       "id": "gemini-changelog",
@@ -2150,7 +2150,7 @@
       "freshnessSla": "30m-1h",
       "status": "ok",
       "requiredEnv": [],
-      "lastCheckedAt": "2026-07-16T22:48:30.600Z",
+      "lastCheckedAt": "2026-07-16T23:19:04.508Z",
       "message": "命中 3/3 个关键词",
       "itemCount": 3,
       "runCount": 1,
@@ -2159,7 +2159,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 843
+      "averageLatencyMs": 534
     },
     {
       "id": "openai-news",
@@ -2172,7 +2172,7 @@
       "freshnessSla": "30m-1h",
       "status": "ok",
       "requiredEnv": [],
-      "lastCheckedAt": "2026-07-16T22:48:31.034Z",
+      "lastCheckedAt": "2026-07-16T23:19:04.959Z",
       "message": "命中 4/4 个关键词，fallback 到 https://openai.com/news/rss.xml",
       "itemCount": 4,
       "runCount": 1,
@@ -2181,7 +2181,7 @@
       "failedAttempts": 2,
       "retryCount": 2,
       "failureRate": 0.67,
-      "averageLatencyMs": 1444
+      "averageLatencyMs": 1025
     },
     {
       "id": "kimi-docs",
@@ -2194,7 +2194,7 @@
       "freshnessSla": "30m-1h",
       "status": "ok",
       "requiredEnv": [],
-      "lastCheckedAt": "2026-07-16T22:48:31.083Z",
+      "lastCheckedAt": "2026-07-16T23:19:05.240Z",
       "message": "命中 3/3 个关键词",
       "itemCount": 3,
       "runCount": 1,
@@ -2203,7 +2203,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 1323
+      "averageLatencyMs": 1263
     },
     {
       "id": "openrouter-models",
@@ -2216,7 +2216,7 @@
       "freshnessSla": "1h",
       "status": "ok",
       "requiredEnv": [],
-      "lastCheckedAt": "2026-07-16T22:48:30.271Z",
+      "lastCheckedAt": "2026-07-16T23:19:04.376Z",
       "message": "刷新成功",
       "itemCount": 344,
       "runCount": 1,
@@ -2225,7 +2225,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 510
+      "averageLatencyMs": 398
     },
     {
       "id": "hf-agent",
@@ -2238,7 +2238,7 @@
       "freshnessSla": "1h",
       "status": "ok",
       "requiredEnv": [],
-      "lastCheckedAt": "2026-07-16T22:48:30.333Z",
+      "lastCheckedAt": "2026-07-16T23:19:04.422Z",
       "message": "刷新成功",
       "itemCount": 10,
       "runCount": 1,
@@ -2247,7 +2247,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 567
+      "averageLatencyMs": 438
     },
     {
       "id": "hf-mcp",
@@ -2260,7 +2260,7 @@
       "freshnessSla": "1h",
       "status": "ok",
       "requiredEnv": [],
-      "lastCheckedAt": "2026-07-16T22:48:30.360Z",
+      "lastCheckedAt": "2026-07-16T23:19:04.442Z",
       "message": "刷新成功",
       "itemCount": 10,
       "runCount": 1,
@@ -2269,7 +2269,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 26
+      "averageLatencyMs": 19
     },
     {
       "id": "hf-coding-agent",
@@ -2282,7 +2282,7 @@
       "freshnessSla": "1h",
       "status": "ok",
       "requiredEnv": [],
-      "lastCheckedAt": "2026-07-16T22:48:30.386Z",
+      "lastCheckedAt": "2026-07-16T23:19:04.465Z",
       "message": "刷新成功",
       "itemCount": 10,
       "runCount": 1,
@@ -2291,7 +2291,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 26
+      "averageLatencyMs": 22
     },
     {
       "id": "hf-reasoning-model",
@@ -2304,7 +2304,7 @@
       "freshnessSla": "1h",
       "status": "ok",
       "requiredEnv": [],
-      "lastCheckedAt": "2026-07-16T22:48:30.410Z",
+      "lastCheckedAt": "2026-07-16T23:19:04.488Z",
       "message": "刷新成功",
       "itemCount": 10,
       "runCount": 1,
@@ -2313,7 +2313,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 24
+      "averageLatencyMs": 22
     },
     {
       "id": "steel-leaderboard",
@@ -2326,7 +2326,7 @@
       "freshnessSla": "daily",
       "status": "ok",
       "requiredEnv": [],
-      "lastCheckedAt": "2026-07-16T22:48:30.429Z",
+      "lastCheckedAt": "2026-07-16T23:19:04.595Z",
       "message": "命中 3/3 个关键词",
       "itemCount": 3,
       "runCount": 1,
@@ -2335,7 +2335,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 662
+      "averageLatencyMs": 610
     },
     {
       "id": "agent-arena",
@@ -2348,7 +2348,7 @@
       "freshnessSla": "daily",
       "status": "ok",
       "requiredEnv": [],
-      "lastCheckedAt": "2026-07-16T22:48:31.230Z",
+      "lastCheckedAt": "2026-07-16T23:19:05.130Z",
       "message": "命中 3/3 个关键词",
       "itemCount": 3,
       "runCount": 1,
@@ -2357,7 +2357,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 800
+      "averageLatencyMs": 534
     },
     {
       "id": "hal-princeton",
@@ -2370,7 +2370,7 @@
       "freshnessSla": "daily",
       "status": "ok",
       "requiredEnv": [],
-      "lastCheckedAt": "2026-07-16T22:48:32.942Z",
+      "lastCheckedAt": "2026-07-16T23:19:06.847Z",
       "message": "命中 3/3 个关键词",
       "itemCount": 3,
       "runCount": 1,
@@ -2379,7 +2379,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 1708
+      "averageLatencyMs": 1712
     },
     {
       "id": "skillsbench",
@@ -2392,7 +2392,7 @@
       "freshnessSla": "daily",
       "status": "ok",
       "requiredEnv": [],
-      "lastCheckedAt": "2026-07-16T22:48:33.105Z",
+      "lastCheckedAt": "2026-07-16T23:19:07.265Z",
       "message": "命中 3/3 个关键词",
       "itemCount": 3,
       "runCount": 1,
@@ -2401,7 +2401,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 162
+      "averageLatencyMs": 417
     },
     {
       "id": "osworld",
@@ -2414,7 +2414,7 @@
       "freshnessSla": "daily",
       "status": "ok",
       "requiredEnv": [],
-      "lastCheckedAt": "2026-07-16T22:48:33.196Z",
+      "lastCheckedAt": "2026-07-16T23:19:07.375Z",
       "message": "命中 3/3 个关键词",
       "itemCount": 3,
       "runCount": 1,
@@ -2423,7 +2423,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 90
+      "averageLatencyMs": 109
     },
     {
       "id": "webarena",
@@ -2436,7 +2436,7 @@
       "freshnessSla": "daily",
       "status": "ok",
       "requiredEnv": [],
-      "lastCheckedAt": "2026-07-16T22:48:33.372Z",
+      "lastCheckedAt": "2026-07-16T23:19:07.586Z",
       "message": "命中 2/3 个关键词",
       "itemCount": 2,
       "runCount": 1,
@@ -2445,7 +2445,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 175
+      "averageLatencyMs": 210
     },
     {
       "id": "arxiv-agent-llm",
@@ -2458,7 +2458,7 @@
       "freshnessSla": "1h",
       "status": "ok",
       "requiredEnv": [],
-      "lastCheckedAt": "2026-07-16T22:48:30.367Z",
+      "lastCheckedAt": "2026-07-16T23:19:04.438Z",
       "message": "命中 1/1 个关键词",
       "itemCount": 1,
       "runCount": 1,
@@ -2467,7 +2467,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 600
+      "averageLatencyMs": 453
     },
     {
       "id": "hn-gpt-5-6",
@@ -2480,7 +2480,7 @@
       "freshnessSla": "1h",
       "status": "ok",
       "requiredEnv": [],
-      "lastCheckedAt": "2026-07-16T22:48:30.519Z",
+      "lastCheckedAt": "2026-07-16T23:19:04.564Z",
       "message": "刷新成功",
       "itemCount": 1,
       "runCount": 1,
@@ -2489,7 +2489,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 755
+      "averageLatencyMs": 582
     },
     {
       "id": "hn-ai-agent",
@@ -2502,7 +2502,7 @@
       "freshnessSla": "1h",
       "status": "ok",
       "requiredEnv": [],
-      "lastCheckedAt": "2026-07-16T22:48:30.829Z",
+      "lastCheckedAt": "2026-07-16T23:19:04.899Z",
       "message": "刷新成功",
       "itemCount": 1,
       "runCount": 1,
@@ -2511,7 +2511,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 309
+      "averageLatencyMs": 334
     },
     {
       "id": "hn-claude-code",
@@ -2524,7 +2524,7 @@
       "freshnessSla": "1h",
       "status": "ok",
       "requiredEnv": [],
-      "lastCheckedAt": "2026-07-16T22:48:31.011Z",
+      "lastCheckedAt": "2026-07-16T23:19:05.109Z",
       "message": "刷新成功",
       "itemCount": 1,
       "runCount": 1,
@@ -2533,7 +2533,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 181
+      "averageLatencyMs": 210
     },
     {
       "id": "hn-mcp-server",
@@ -2546,7 +2546,7 @@
       "freshnessSla": "1h",
       "status": "ok",
       "requiredEnv": [],
-      "lastCheckedAt": "2026-07-16T22:48:31.262Z",
+      "lastCheckedAt": "2026-07-16T23:19:05.314Z",
       "message": "刷新成功",
       "itemCount": 1,
       "runCount": 1,
@@ -2555,7 +2555,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 250
+      "averageLatencyMs": 204
     },
     {
       "id": "hn-hammers-ai-agent",
@@ -2568,7 +2568,7 @@
       "freshnessSla": "1h",
       "status": "ok",
       "requiredEnv": [],
-      "lastCheckedAt": "2026-07-16T22:48:31.523Z",
+      "lastCheckedAt": "2026-07-16T23:19:05.565Z",
       "message": "刷新成功",
       "itemCount": 1,
       "runCount": 1,
@@ -2577,7 +2577,7 @@
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "averageLatencyMs": 261
+      "averageLatencyMs": 251
     },
     {
       "id": "artificial-analysis",
@@ -2593,7 +2593,7 @@
         "ARTIFICIAL_ANALYSIS_API_KEY",
         "ARTIFICIAL_ANALYSIS_API_URL"
       ],
-      "lastCheckedAt": "2026-07-16T22:48:29.590Z",
+      "lastCheckedAt": "2026-07-16T23:19:03.933Z",
       "message": "未配置 ARTIFICIAL_ANALYSIS_API_KEY 和 ARTIFICIAL_ANALYSIS_API_URL，跳过该商业 API",
       "itemCount": 0,
       "runCount": 1,
@@ -2617,7 +2617,7 @@
       "requiredEnv": [
         "PRODUCT_HUNT_TOKEN"
       ],
-      "lastCheckedAt": "2026-07-16T22:48:29.590Z",
+      "lastCheckedAt": "2026-07-16T23:19:03.933Z",
       "message": "未配置 PRODUCT_HUNT_TOKEN，跳过 Product Hunt 数据刷新",
       "itemCount": 0,
       "runCount": 1,
@@ -2641,7 +2641,7 @@
       "requiredEnv": [
         "X_BEARER_TOKEN"
       ],
-      "lastCheckedAt": "2026-07-16T22:48:29.590Z",
+      "lastCheckedAt": "2026-07-16T23:19:03.933Z",
       "message": "未配置 X_BEARER_TOKEN，跳过 X 数据刷新",
       "itemCount": 0,
       "runCount": 1,
@@ -2663,7 +2663,7 @@
       "freshnessSla": "1h",
       "status": "error",
       "requiredEnv": [],
-      "lastCheckedAt": "2026-07-16T22:48:30.611Z",
+      "lastCheckedAt": "2026-07-16T23:19:04.714Z",
       "message": "https://api.github.com/search/repositories?q=ai%20agent%20pushed%3A%3E%3D2026-06-01%20stars%3A%3E50&sort=stars&order=desc&per_page=10: HTTP 503；https://api.github.com/search/repositories?q=ai%20agent%20pushed%3A%3E%3D2026-06-01%20stars%3A%3E50&sort=stars&order=desc&per_page=10: HTTP 503",
       "itemCount": 0,
       "runCount": 1,
@@ -2672,7 +2672,7 @@
       "failedAttempts": 2,
       "retryCount": 1,
       "failureRate": 1,
-      "averageLatencyMs": 849
+      "averageLatencyMs": 734
     },
     {
       "id": "github-mcp",
@@ -2685,7 +2685,7 @@
       "freshnessSla": "1h",
       "status": "error",
       "requiredEnv": [],
-      "lastCheckedAt": "2026-07-16T22:48:30.913Z",
+      "lastCheckedAt": "2026-07-16T23:19:05.074Z",
       "message": "https://api.github.com/search/repositories?q=mcp%20server%20pushed%3A%3E%3D2026-06-01%20stars%3A%3E20&sort=stars&order=desc&per_page=10: HTTP 503；https://api.github.com/search/repositories?q=mcp%20server%20pushed%3A%3E%3D2026-06-01%20stars%3A%3E20&sort=stars&order=desc&per_page=10: HTTP 503",
       "itemCount": 0,
       "runCount": 1,
@@ -2694,7 +2694,7 @@
       "failedAttempts": 2,
       "retryCount": 1,
       "failureRate": 1,
-      "averageLatencyMs": 301
+      "averageLatencyMs": 360
     },
     {
       "id": "github-coding-agent",
@@ -2707,7 +2707,7 @@
       "freshnessSla": "1h",
       "status": "error",
       "requiredEnv": [],
-      "lastCheckedAt": "2026-07-16T22:48:31.307Z",
+      "lastCheckedAt": "2026-07-16T23:19:05.399Z",
       "message": "https://api.github.com/search/repositories?q=coding%20agent%20pushed%3A%3E%3D2026-06-01%20stars%3A%3E20&sort=stars&order=desc&per_page=10: HTTP 503；https://api.github.com/search/repositories?q=coding%20agent%20pushed%3A%3E%3D2026-06-01%20stars%3A%3E20&sort=stars&order=desc&per_page=10: HTTP 503",
       "itemCount": 0,
       "runCount": 1,
@@ -2716,7 +2716,7 @@
       "failedAttempts": 2,
       "retryCount": 1,
       "failureRate": 1,
-      "averageLatencyMs": 394
+      "averageLatencyMs": 325
     },
     {
       "id": "mysql-database",
@@ -2733,7 +2733,7 @@
         "DB_HOST",
         "DB_NAME"
       ],
-      "lastCheckedAt": "2026-07-16T22:48:29.590Z",
+      "lastCheckedAt": "2026-07-16T23:19:03.933Z",
       "message": "未配置 DATABASE_URL 或 DB_HOST/DB_NAME，跳过数据库同步",
       "itemCount": 0,
       "runCount": 1,
@@ -2747,15 +2747,15 @@
   ],
   "sourceRuns": [
     {
-      "checkedAt": "2026-07-16T22:48:29.590Z",
-      "startedAt": "2026-07-16T22:48:29.590Z",
-      "finishedAt": "2026-07-16T22:48:29.590Z",
+      "checkedAt": "2026-07-16T23:19:03.933Z",
+      "startedAt": "2026-07-16T23:19:03.933Z",
+      "finishedAt": "2026-07-16T23:19:03.933Z",
       "latencyMs": 0,
       "attemptCount": 0,
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "nextRunAt": "2026-07-16T23:03:29.590Z",
+      "nextRunAt": "2026-07-16T23:34:03.933Z",
       "id": "x-recent-search",
       "name": "X Recent Search",
       "column": "社区 / X",
@@ -2766,15 +2766,15 @@
       "message": "未配置 X_BEARER_TOKEN，跳过 X 数据刷新"
     },
     {
-      "checkedAt": "2026-07-16T22:48:29.590Z",
-      "startedAt": "2026-07-16T22:48:29.590Z",
-      "finishedAt": "2026-07-16T22:48:29.590Z",
+      "checkedAt": "2026-07-16T23:19:03.933Z",
+      "startedAt": "2026-07-16T23:19:03.933Z",
+      "finishedAt": "2026-07-16T23:19:03.933Z",
       "latencyMs": 0,
       "attemptCount": 0,
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "nextRunAt": "2026-07-16T23:03:29.590Z",
+      "nextRunAt": "2026-07-16T23:34:03.933Z",
       "id": "product-hunt",
       "name": "Product Hunt API",
       "column": "工具 / 插件热度",
@@ -2785,15 +2785,15 @@
       "message": "未配置 PRODUCT_HUNT_TOKEN，跳过 Product Hunt 数据刷新"
     },
     {
-      "checkedAt": "2026-07-16T22:48:29.590Z",
-      "startedAt": "2026-07-16T22:48:29.590Z",
-      "finishedAt": "2026-07-16T22:48:29.590Z",
+      "checkedAt": "2026-07-16T23:19:03.933Z",
+      "startedAt": "2026-07-16T23:19:03.933Z",
+      "finishedAt": "2026-07-16T23:19:03.933Z",
       "latencyMs": 0,
       "attemptCount": 0,
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "nextRunAt": "2026-07-16T23:03:29.590Z",
+      "nextRunAt": "2026-07-16T23:34:03.933Z",
       "id": "artificial-analysis",
       "name": "Artificial Analysis Data API",
       "column": "模型排行榜",
@@ -2804,34 +2804,15 @@
       "message": "未配置 ARTIFICIAL_ANALYSIS_API_KEY 和 ARTIFICIAL_ANALYSIS_API_URL，跳过该商业 API"
     },
     {
-      "checkedAt": "2026-07-16T22:48:29.926Z",
-      "startedAt": "2026-07-16T22:48:29.754Z",
-      "finishedAt": "2026-07-16T22:48:29.926Z",
-      "latencyMs": 172,
+      "checkedAt": "2026-07-16T23:19:04.236Z",
+      "startedAt": "2026-07-16T23:19:03.973Z",
+      "finishedAt": "2026-07-16T23:19:04.236Z",
+      "latencyMs": 263,
       "attemptCount": 1,
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "nextRunAt": "2026-07-16T23:18:29.926Z",
-      "id": "openai-api-changelog",
-      "name": "OpenAI API Changelog",
-      "column": "官网 / 文档",
-      "url": "https://developers.openai.com/api/docs/changelog",
-      "access": "official-page",
-      "status": "ok",
-      "itemCount": 4,
-      "message": "命中 4/4 个关键词"
-    },
-    {
-      "checkedAt": "2026-07-16T22:48:30.023Z",
-      "startedAt": "2026-07-16T22:48:29.756Z",
-      "finishedAt": "2026-07-16T22:48:30.023Z",
-      "latencyMs": 267,
-      "attemptCount": 1,
-      "failedAttempts": 0,
-      "retryCount": 0,
-      "failureRate": 0,
-      "nextRunAt": "2026-07-16T23:18:30.023Z",
+      "nextRunAt": "2026-07-16T23:49:04.236Z",
       "id": "anthropic-release-notes",
       "name": "Claude Release Notes",
       "column": "官网 / 文档",
@@ -2842,15 +2823,15 @@
       "message": "命中 3/3 个关键词"
     },
     {
-      "checkedAt": "2026-07-16T22:48:30.158Z",
-      "startedAt": "2026-07-16T22:48:29.758Z",
-      "finishedAt": "2026-07-16T22:48:30.158Z",
-      "latencyMs": 400,
+      "checkedAt": "2026-07-16T23:19:04.262Z",
+      "startedAt": "2026-07-16T23:19:03.975Z",
+      "finishedAt": "2026-07-16T23:19:04.262Z",
+      "latencyMs": 287,
       "attemptCount": 1,
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "nextRunAt": "2026-07-16T23:18:30.158Z",
+      "nextRunAt": "2026-07-16T23:49:04.262Z",
       "id": "mistral-changelog",
       "name": "Mistral Changelog",
       "column": "官网 / 文档",
@@ -2861,15 +2842,34 @@
       "message": "命中 3/3 个关键词"
     },
     {
-      "checkedAt": "2026-07-16T22:48:30.234Z",
-      "startedAt": "2026-07-16T22:48:29.759Z",
-      "finishedAt": "2026-07-16T22:48:30.234Z",
-      "latencyMs": 475,
+      "checkedAt": "2026-07-16T23:19:04.314Z",
+      "startedAt": "2026-07-16T23:19:03.972Z",
+      "finishedAt": "2026-07-16T23:19:04.314Z",
+      "latencyMs": 342,
       "attemptCount": 1,
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "nextRunAt": "2026-07-16T23:18:30.234Z",
+      "nextRunAt": "2026-07-16T23:49:04.314Z",
+      "id": "openai-api-changelog",
+      "name": "OpenAI API Changelog",
+      "column": "官网 / 文档",
+      "url": "https://developers.openai.com/api/docs/changelog",
+      "access": "official-page",
+      "status": "ok",
+      "itemCount": 4,
+      "message": "命中 4/4 个关键词"
+    },
+    {
+      "checkedAt": "2026-07-16T23:19:04.348Z",
+      "startedAt": "2026-07-16T23:19:03.977Z",
+      "finishedAt": "2026-07-16T23:19:04.348Z",
+      "latencyMs": 371,
+      "attemptCount": 1,
+      "failedAttempts": 0,
+      "retryCount": 0,
+      "failureRate": 0,
+      "nextRunAt": "2026-07-16T23:49:04.348Z",
       "id": "deepseek-docs",
       "name": "DeepSeek API Docs",
       "column": "官网 / 文档",
@@ -2880,15 +2880,15 @@
       "message": "命中 3/3 个关键词"
     },
     {
-      "checkedAt": "2026-07-16T22:48:30.271Z",
-      "startedAt": "2026-07-16T22:48:29.761Z",
-      "finishedAt": "2026-07-16T22:48:30.271Z",
-      "latencyMs": 510,
+      "checkedAt": "2026-07-16T23:19:04.376Z",
+      "startedAt": "2026-07-16T23:19:03.978Z",
+      "finishedAt": "2026-07-16T23:19:04.376Z",
+      "latencyMs": 398,
       "attemptCount": 1,
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "nextRunAt": "2026-07-16T23:48:30.271Z",
+      "nextRunAt": "2026-07-17T00:19:04.376Z",
       "id": "openrouter-models",
       "name": "OpenRouter Models",
       "column": "模型排行榜",
@@ -2899,15 +2899,15 @@
       "message": "刷新成功"
     },
     {
-      "checkedAt": "2026-07-16T22:48:30.333Z",
-      "startedAt": "2026-07-16T22:48:29.766Z",
-      "finishedAt": "2026-07-16T22:48:30.333Z",
-      "latencyMs": 567,
+      "checkedAt": "2026-07-16T23:19:04.422Z",
+      "startedAt": "2026-07-16T23:19:03.984Z",
+      "finishedAt": "2026-07-16T23:19:04.422Z",
+      "latencyMs": 438,
       "attemptCount": 1,
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "nextRunAt": "2026-07-16T23:48:30.333Z",
+      "nextRunAt": "2026-07-17T00:19:04.422Z",
       "id": "hf-agent",
       "name": "Hugging Face - agent",
       "column": "模型排行榜",
@@ -2918,34 +2918,15 @@
       "message": "刷新成功"
     },
     {
-      "checkedAt": "2026-07-16T22:48:30.360Z",
-      "startedAt": "2026-07-16T22:48:30.334Z",
-      "finishedAt": "2026-07-16T22:48:30.360Z",
-      "latencyMs": 26,
+      "checkedAt": "2026-07-16T23:19:04.438Z",
+      "startedAt": "2026-07-16T23:19:03.985Z",
+      "finishedAt": "2026-07-16T23:19:04.438Z",
+      "latencyMs": 453,
       "attemptCount": 1,
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "nextRunAt": "2026-07-16T23:48:30.360Z",
-      "id": "hf-mcp",
-      "name": "Hugging Face - mcp",
-      "column": "模型排行榜",
-      "url": "https://huggingface.co/api/models?search=mcp&sort=downloads&direction=-1&limit=10",
-      "access": "public-api",
-      "status": "ok",
-      "itemCount": 10,
-      "message": "刷新成功"
-    },
-    {
-      "checkedAt": "2026-07-16T22:48:30.367Z",
-      "startedAt": "2026-07-16T22:48:29.767Z",
-      "finishedAt": "2026-07-16T22:48:30.367Z",
-      "latencyMs": 600,
-      "attemptCount": 1,
-      "failedAttempts": 0,
-      "retryCount": 0,
-      "failureRate": 0,
-      "nextRunAt": "2026-07-16T23:48:30.367Z",
+      "nextRunAt": "2026-07-17T00:19:04.438Z",
       "id": "arxiv-agent-llm",
       "name": "arXiv API",
       "column": "论文 / 研究",
@@ -2956,15 +2937,34 @@
       "message": "命中 1/1 个关键词"
     },
     {
-      "checkedAt": "2026-07-16T22:48:30.386Z",
-      "startedAt": "2026-07-16T22:48:30.360Z",
-      "finishedAt": "2026-07-16T22:48:30.386Z",
-      "latencyMs": 26,
+      "checkedAt": "2026-07-16T23:19:04.442Z",
+      "startedAt": "2026-07-16T23:19:04.423Z",
+      "finishedAt": "2026-07-16T23:19:04.442Z",
+      "latencyMs": 19,
       "attemptCount": 1,
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "nextRunAt": "2026-07-16T23:48:30.386Z",
+      "nextRunAt": "2026-07-17T00:19:04.442Z",
+      "id": "hf-mcp",
+      "name": "Hugging Face - mcp",
+      "column": "模型排行榜",
+      "url": "https://huggingface.co/api/models?search=mcp&sort=downloads&direction=-1&limit=10",
+      "access": "public-api",
+      "status": "ok",
+      "itemCount": 10,
+      "message": "刷新成功"
+    },
+    {
+      "checkedAt": "2026-07-16T23:19:04.465Z",
+      "startedAt": "2026-07-16T23:19:04.443Z",
+      "finishedAt": "2026-07-16T23:19:04.465Z",
+      "latencyMs": 22,
+      "attemptCount": 1,
+      "failedAttempts": 0,
+      "retryCount": 0,
+      "failureRate": 0,
+      "nextRunAt": "2026-07-17T00:19:04.465Z",
       "id": "hf-coding-agent",
       "name": "Hugging Face - coding agent",
       "column": "模型排行榜",
@@ -2975,15 +2975,15 @@
       "message": "刷新成功"
     },
     {
-      "checkedAt": "2026-07-16T22:48:30.410Z",
-      "startedAt": "2026-07-16T22:48:30.386Z",
-      "finishedAt": "2026-07-16T22:48:30.410Z",
-      "latencyMs": 24,
+      "checkedAt": "2026-07-16T23:19:04.488Z",
+      "startedAt": "2026-07-16T23:19:04.466Z",
+      "finishedAt": "2026-07-16T23:19:04.488Z",
+      "latencyMs": 22,
       "attemptCount": 1,
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "nextRunAt": "2026-07-16T23:48:30.410Z",
+      "nextRunAt": "2026-07-17T00:19:04.488Z",
       "id": "hf-reasoning-model",
       "name": "Hugging Face - reasoning model",
       "column": "模型排行榜",
@@ -2994,53 +2994,15 @@
       "message": "刷新成功"
     },
     {
-      "checkedAt": "2026-07-16T22:48:30.429Z",
-      "startedAt": "2026-07-16T22:48:29.767Z",
-      "finishedAt": "2026-07-16T22:48:30.429Z",
-      "latencyMs": 662,
+      "checkedAt": "2026-07-16T23:19:04.508Z",
+      "startedAt": "2026-07-16T23:19:03.974Z",
+      "finishedAt": "2026-07-16T23:19:04.508Z",
+      "latencyMs": 534,
       "attemptCount": 1,
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "nextRunAt": "2026-07-17T22:48:30.429Z",
-      "id": "steel-leaderboard",
-      "name": "Steel.dev Agent Leaderboard",
-      "column": "Agent 排行榜",
-      "url": "https://leaderboard.steel.dev/",
-      "access": "html-page",
-      "status": "ok",
-      "itemCount": 3,
-      "message": "命中 3/3 个关键词"
-    },
-    {
-      "checkedAt": "2026-07-16T22:48:30.519Z",
-      "startedAt": "2026-07-16T22:48:29.764Z",
-      "finishedAt": "2026-07-16T22:48:30.519Z",
-      "latencyMs": 755,
-      "attemptCount": 1,
-      "failedAttempts": 0,
-      "retryCount": 0,
-      "failureRate": 0,
-      "nextRunAt": "2026-07-16T23:48:30.519Z",
-      "id": "hn-gpt-5-6",
-      "name": "Hacker News - GPT-5.6",
-      "column": "社区 / X",
-      "url": "https://hn.algolia.com/api/v1/search_by_date?query=GPT-5.6&tags=story&hitsPerPage=10",
-      "access": "public-api",
-      "status": "ok",
-      "itemCount": 1,
-      "message": "刷新成功"
-    },
-    {
-      "checkedAt": "2026-07-16T22:48:30.600Z",
-      "startedAt": "2026-07-16T22:48:29.757Z",
-      "finishedAt": "2026-07-16T22:48:30.600Z",
-      "latencyMs": 843,
-      "attemptCount": 1,
-      "failedAttempts": 0,
-      "retryCount": 0,
-      "failureRate": 0,
-      "nextRunAt": "2026-07-16T23:18:30.600Z",
+      "nextRunAt": "2026-07-16T23:49:04.508Z",
       "id": "gemini-changelog",
       "name": "Gemini API Changelog",
       "column": "官网 / 文档",
@@ -3051,15 +3013,53 @@
       "message": "命中 3/3 个关键词"
     },
     {
-      "checkedAt": "2026-07-16T22:48:30.611Z",
-      "startedAt": "2026-07-16T22:48:29.762Z",
-      "finishedAt": "2026-07-16T22:48:30.611Z",
-      "latencyMs": 849,
+      "checkedAt": "2026-07-16T23:19:04.564Z",
+      "startedAt": "2026-07-16T23:19:03.982Z",
+      "finishedAt": "2026-07-16T23:19:04.564Z",
+      "latencyMs": 582,
+      "attemptCount": 1,
+      "failedAttempts": 0,
+      "retryCount": 0,
+      "failureRate": 0,
+      "nextRunAt": "2026-07-17T00:19:04.564Z",
+      "id": "hn-gpt-5-6",
+      "name": "Hacker News - GPT-5.6",
+      "column": "社区 / X",
+      "url": "https://hn.algolia.com/api/v1/search_by_date?query=GPT-5.6&tags=story&hitsPerPage=10",
+      "access": "public-api",
+      "status": "ok",
+      "itemCount": 1,
+      "message": "刷新成功"
+    },
+    {
+      "checkedAt": "2026-07-16T23:19:04.595Z",
+      "startedAt": "2026-07-16T23:19:03.985Z",
+      "finishedAt": "2026-07-16T23:19:04.595Z",
+      "latencyMs": 610,
+      "attemptCount": 1,
+      "failedAttempts": 0,
+      "retryCount": 0,
+      "failureRate": 0,
+      "nextRunAt": "2026-07-17T23:19:04.595Z",
+      "id": "steel-leaderboard",
+      "name": "Steel.dev Agent Leaderboard",
+      "column": "Agent 排行榜",
+      "url": "https://leaderboard.steel.dev/",
+      "access": "html-page",
+      "status": "ok",
+      "itemCount": 3,
+      "message": "命中 3/3 个关键词"
+    },
+    {
+      "checkedAt": "2026-07-16T23:19:04.714Z",
+      "startedAt": "2026-07-16T23:19:03.980Z",
+      "finishedAt": "2026-07-16T23:19:04.714Z",
+      "latencyMs": 734,
       "attemptCount": 2,
       "failedAttempts": 2,
       "retryCount": 1,
       "failureRate": 1,
-      "nextRunAt": "2026-07-16T23:48:30.611Z",
+      "nextRunAt": "2026-07-17T00:19:04.714Z",
       "id": "github-agent",
       "name": "GitHub Search - AI Agent",
       "column": "Agent 排行榜",
@@ -3070,15 +3070,15 @@
       "message": "https://api.github.com/search/repositories?q=ai%20agent%20pushed%3A%3E%3D2026-06-01%20stars%3A%3E50&sort=stars&order=desc&per_page=10: HTTP 503；https://api.github.com/search/repositories?q=ai%20agent%20pushed%3A%3E%3D2026-06-01%20stars%3A%3E50&sort=stars&order=desc&per_page=10: HTTP 503"
     },
     {
-      "checkedAt": "2026-07-16T22:48:30.829Z",
-      "startedAt": "2026-07-16T22:48:30.520Z",
-      "finishedAt": "2026-07-16T22:48:30.829Z",
-      "latencyMs": 309,
+      "checkedAt": "2026-07-16T23:19:04.899Z",
+      "startedAt": "2026-07-16T23:19:04.565Z",
+      "finishedAt": "2026-07-16T23:19:04.899Z",
+      "latencyMs": 334,
       "attemptCount": 1,
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "nextRunAt": "2026-07-16T23:48:30.829Z",
+      "nextRunAt": "2026-07-17T00:19:04.899Z",
       "id": "hn-ai-agent",
       "name": "Hacker News - AI agent",
       "column": "社区 / X",
@@ -3089,53 +3089,15 @@
       "message": "刷新成功"
     },
     {
-      "checkedAt": "2026-07-16T22:48:30.913Z",
-      "startedAt": "2026-07-16T22:48:30.612Z",
-      "finishedAt": "2026-07-16T22:48:30.913Z",
-      "latencyMs": 301,
-      "attemptCount": 2,
-      "failedAttempts": 2,
-      "retryCount": 1,
-      "failureRate": 1,
-      "nextRunAt": "2026-07-16T23:48:30.913Z",
-      "id": "github-mcp",
-      "name": "GitHub Search - MCP Server",
-      "column": "工具 / 插件热度",
-      "url": "https://api.github.com/search/repositories?q=mcp%20server%20pushed%3A%3E%3D2026-06-01%20stars%3A%3E20&sort=stars&order=desc&per_page=10",
-      "access": "public-api",
-      "status": "error",
-      "itemCount": 0,
-      "message": "https://api.github.com/search/repositories?q=mcp%20server%20pushed%3A%3E%3D2026-06-01%20stars%3A%3E20&sort=stars&order=desc&per_page=10: HTTP 503；https://api.github.com/search/repositories?q=mcp%20server%20pushed%3A%3E%3D2026-06-01%20stars%3A%3E20&sort=stars&order=desc&per_page=10: HTTP 503"
-    },
-    {
-      "checkedAt": "2026-07-16T22:48:31.011Z",
-      "startedAt": "2026-07-16T22:48:30.830Z",
-      "finishedAt": "2026-07-16T22:48:31.011Z",
-      "latencyMs": 181,
-      "attemptCount": 1,
-      "failedAttempts": 0,
-      "retryCount": 0,
-      "failureRate": 0,
-      "nextRunAt": "2026-07-16T23:48:31.011Z",
-      "id": "hn-claude-code",
-      "name": "Hacker News - Claude Code",
-      "column": "社区 / X",
-      "url": "https://hn.algolia.com/api/v1/search_by_date?query=Claude%20Code&tags=story&hitsPerPage=10",
-      "access": "public-api",
-      "status": "ok",
-      "itemCount": 1,
-      "message": "刷新成功"
-    },
-    {
-      "checkedAt": "2026-07-16T22:48:31.034Z",
-      "startedAt": "2026-07-16T22:48:29.590Z",
-      "finishedAt": "2026-07-16T22:48:31.034Z",
-      "latencyMs": 1444,
+      "checkedAt": "2026-07-16T23:19:04.959Z",
+      "startedAt": "2026-07-16T23:19:03.934Z",
+      "finishedAt": "2026-07-16T23:19:04.959Z",
+      "latencyMs": 1025,
       "attemptCount": 3,
       "failedAttempts": 2,
       "retryCount": 2,
       "failureRate": 0.67,
-      "nextRunAt": "2026-07-16T23:18:31.034Z",
+      "nextRunAt": "2026-07-16T23:49:04.959Z",
       "id": "openai-news",
       "name": "OpenAI News",
       "column": "官网 / 文档",
@@ -3146,34 +3108,53 @@
       "message": "命中 4/4 个关键词，fallback 到 https://openai.com/news/rss.xml"
     },
     {
-      "checkedAt": "2026-07-16T22:48:31.083Z",
-      "startedAt": "2026-07-16T22:48:29.760Z",
-      "finishedAt": "2026-07-16T22:48:31.083Z",
-      "latencyMs": 1323,
-      "attemptCount": 1,
-      "failedAttempts": 0,
-      "retryCount": 0,
-      "failureRate": 0,
-      "nextRunAt": "2026-07-16T23:18:31.083Z",
-      "id": "kimi-docs",
-      "name": "Kimi API Docs",
-      "column": "官网 / 文档",
-      "url": "https://platform.kimi.ai/docs/overview",
-      "access": "official-page",
-      "status": "ok",
-      "itemCount": 3,
-      "message": "命中 3/3 个关键词"
+      "checkedAt": "2026-07-16T23:19:05.074Z",
+      "startedAt": "2026-07-16T23:19:04.714Z",
+      "finishedAt": "2026-07-16T23:19:05.074Z",
+      "latencyMs": 360,
+      "attemptCount": 2,
+      "failedAttempts": 2,
+      "retryCount": 1,
+      "failureRate": 1,
+      "nextRunAt": "2026-07-17T00:19:05.074Z",
+      "id": "github-mcp",
+      "name": "GitHub Search - MCP Server",
+      "column": "工具 / 插件热度",
+      "url": "https://api.github.com/search/repositories?q=mcp%20server%20pushed%3A%3E%3D2026-06-01%20stars%3A%3E20&sort=stars&order=desc&per_page=10",
+      "access": "public-api",
+      "status": "error",
+      "itemCount": 0,
+      "message": "https://api.github.com/search/repositories?q=mcp%20server%20pushed%3A%3E%3D2026-06-01%20stars%3A%3E20&sort=stars&order=desc&per_page=10: HTTP 503；https://api.github.com/search/repositories?q=mcp%20server%20pushed%3A%3E%3D2026-06-01%20stars%3A%3E20&sort=stars&order=desc&per_page=10: HTTP 503"
     },
     {
-      "checkedAt": "2026-07-16T22:48:31.230Z",
-      "startedAt": "2026-07-16T22:48:30.430Z",
-      "finishedAt": "2026-07-16T22:48:31.230Z",
-      "latencyMs": 800,
+      "checkedAt": "2026-07-16T23:19:05.109Z",
+      "startedAt": "2026-07-16T23:19:04.899Z",
+      "finishedAt": "2026-07-16T23:19:05.109Z",
+      "latencyMs": 210,
       "attemptCount": 1,
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "nextRunAt": "2026-07-17T22:48:31.230Z",
+      "nextRunAt": "2026-07-17T00:19:05.109Z",
+      "id": "hn-claude-code",
+      "name": "Hacker News - Claude Code",
+      "column": "社区 / X",
+      "url": "https://hn.algolia.com/api/v1/search_by_date?query=Claude%20Code&tags=story&hitsPerPage=10",
+      "access": "public-api",
+      "status": "ok",
+      "itemCount": 1,
+      "message": "刷新成功"
+    },
+    {
+      "checkedAt": "2026-07-16T23:19:05.130Z",
+      "startedAt": "2026-07-16T23:19:04.596Z",
+      "finishedAt": "2026-07-16T23:19:05.130Z",
+      "latencyMs": 534,
+      "attemptCount": 1,
+      "failedAttempts": 0,
+      "retryCount": 0,
+      "failureRate": 0,
+      "nextRunAt": "2026-07-17T23:19:05.130Z",
       "id": "agent-arena",
       "name": "Agent Arena",
       "column": "Agent 排行榜",
@@ -3184,15 +3165,34 @@
       "message": "命中 3/3 个关键词"
     },
     {
-      "checkedAt": "2026-07-16T22:48:31.262Z",
-      "startedAt": "2026-07-16T22:48:31.012Z",
-      "finishedAt": "2026-07-16T22:48:31.262Z",
-      "latencyMs": 250,
+      "checkedAt": "2026-07-16T23:19:05.240Z",
+      "startedAt": "2026-07-16T23:19:03.977Z",
+      "finishedAt": "2026-07-16T23:19:05.240Z",
+      "latencyMs": 1263,
       "attemptCount": 1,
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "nextRunAt": "2026-07-16T23:48:31.262Z",
+      "nextRunAt": "2026-07-16T23:49:05.240Z",
+      "id": "kimi-docs",
+      "name": "Kimi API Docs",
+      "column": "官网 / 文档",
+      "url": "https://platform.kimi.ai/docs/overview",
+      "access": "official-page",
+      "status": "ok",
+      "itemCount": 3,
+      "message": "命中 3/3 个关键词"
+    },
+    {
+      "checkedAt": "2026-07-16T23:19:05.314Z",
+      "startedAt": "2026-07-16T23:19:05.110Z",
+      "finishedAt": "2026-07-16T23:19:05.314Z",
+      "latencyMs": 204,
+      "attemptCount": 1,
+      "failedAttempts": 0,
+      "retryCount": 0,
+      "failureRate": 0,
+      "nextRunAt": "2026-07-17T00:19:05.314Z",
       "id": "hn-mcp-server",
       "name": "Hacker News - MCP server",
       "column": "社区 / X",
@@ -3203,15 +3203,15 @@
       "message": "刷新成功"
     },
     {
-      "checkedAt": "2026-07-16T22:48:31.307Z",
-      "startedAt": "2026-07-16T22:48:30.913Z",
-      "finishedAt": "2026-07-16T22:48:31.307Z",
-      "latencyMs": 394,
+      "checkedAt": "2026-07-16T23:19:05.399Z",
+      "startedAt": "2026-07-16T23:19:05.074Z",
+      "finishedAt": "2026-07-16T23:19:05.399Z",
+      "latencyMs": 325,
       "attemptCount": 2,
       "failedAttempts": 2,
       "retryCount": 1,
       "failureRate": 1,
-      "nextRunAt": "2026-07-16T23:48:31.307Z",
+      "nextRunAt": "2026-07-17T00:19:05.399Z",
       "id": "github-coding-agent",
       "name": "GitHub Search - Coding Agent",
       "column": "工具 / 插件热度",
@@ -3222,15 +3222,15 @@
       "message": "https://api.github.com/search/repositories?q=coding%20agent%20pushed%3A%3E%3D2026-06-01%20stars%3A%3E20&sort=stars&order=desc&per_page=10: HTTP 503；https://api.github.com/search/repositories?q=coding%20agent%20pushed%3A%3E%3D2026-06-01%20stars%3A%3E20&sort=stars&order=desc&per_page=10: HTTP 503"
     },
     {
-      "checkedAt": "2026-07-16T22:48:31.523Z",
-      "startedAt": "2026-07-16T22:48:31.262Z",
-      "finishedAt": "2026-07-16T22:48:31.523Z",
-      "latencyMs": 261,
+      "checkedAt": "2026-07-16T23:19:05.565Z",
+      "startedAt": "2026-07-16T23:19:05.314Z",
+      "finishedAt": "2026-07-16T23:19:05.565Z",
+      "latencyMs": 251,
       "attemptCount": 1,
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "nextRunAt": "2026-07-16T23:48:31.523Z",
+      "nextRunAt": "2026-07-17T00:19:05.565Z",
       "id": "hn-hammers-ai-agent",
       "name": "Hacker News - Hammers AI agent",
       "column": "社区 / X",
@@ -3241,15 +3241,15 @@
       "message": "刷新成功"
     },
     {
-      "checkedAt": "2026-07-16T22:48:32.942Z",
-      "startedAt": "2026-07-16T22:48:31.234Z",
-      "finishedAt": "2026-07-16T22:48:32.942Z",
-      "latencyMs": 1708,
+      "checkedAt": "2026-07-16T23:19:06.847Z",
+      "startedAt": "2026-07-16T23:19:05.135Z",
+      "finishedAt": "2026-07-16T23:19:06.847Z",
+      "latencyMs": 1712,
       "attemptCount": 1,
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "nextRunAt": "2026-07-17T22:48:32.942Z",
+      "nextRunAt": "2026-07-17T23:19:06.847Z",
       "id": "hal-princeton",
       "name": "HAL Princeton",
       "column": "Agent 排行榜",
@@ -3260,15 +3260,15 @@
       "message": "命中 3/3 个关键词"
     },
     {
-      "checkedAt": "2026-07-16T22:48:33.105Z",
-      "startedAt": "2026-07-16T22:48:32.943Z",
-      "finishedAt": "2026-07-16T22:48:33.105Z",
-      "latencyMs": 162,
+      "checkedAt": "2026-07-16T23:19:07.265Z",
+      "startedAt": "2026-07-16T23:19:06.848Z",
+      "finishedAt": "2026-07-16T23:19:07.265Z",
+      "latencyMs": 417,
       "attemptCount": 1,
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "nextRunAt": "2026-07-17T22:48:33.105Z",
+      "nextRunAt": "2026-07-17T23:19:07.265Z",
       "id": "skillsbench",
       "name": "SkillsBench",
       "column": "Agent 排行榜",
@@ -3279,15 +3279,15 @@
       "message": "命中 3/3 个关键词"
     },
     {
-      "checkedAt": "2026-07-16T22:48:33.196Z",
-      "startedAt": "2026-07-16T22:48:33.106Z",
-      "finishedAt": "2026-07-16T22:48:33.196Z",
-      "latencyMs": 90,
+      "checkedAt": "2026-07-16T23:19:07.375Z",
+      "startedAt": "2026-07-16T23:19:07.266Z",
+      "finishedAt": "2026-07-16T23:19:07.375Z",
+      "latencyMs": 109,
       "attemptCount": 1,
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "nextRunAt": "2026-07-17T22:48:33.196Z",
+      "nextRunAt": "2026-07-17T23:19:07.375Z",
       "id": "osworld",
       "name": "OSWorld",
       "column": "Agent 排行榜",
@@ -3298,15 +3298,15 @@
       "message": "命中 3/3 个关键词"
     },
     {
-      "checkedAt": "2026-07-16T22:48:33.372Z",
-      "startedAt": "2026-07-16T22:48:33.197Z",
-      "finishedAt": "2026-07-16T22:48:33.372Z",
-      "latencyMs": 175,
+      "checkedAt": "2026-07-16T23:19:07.586Z",
+      "startedAt": "2026-07-16T23:19:07.376Z",
+      "finishedAt": "2026-07-16T23:19:07.586Z",
+      "latencyMs": 210,
       "attemptCount": 1,
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "nextRunAt": "2026-07-17T22:48:33.372Z",
+      "nextRunAt": "2026-07-17T23:19:07.586Z",
       "id": "webarena",
       "name": "WebArena",
       "column": "Agent 排行榜",
@@ -3317,15 +3317,15 @@
       "message": "命中 2/3 个关键词"
     },
     {
-      "checkedAt": "2026-07-16T22:48:29.590Z",
-      "startedAt": "2026-07-16T22:48:29.590Z",
-      "finishedAt": "2026-07-16T22:48:29.590Z",
+      "checkedAt": "2026-07-16T23:19:03.933Z",
+      "startedAt": "2026-07-16T23:19:03.933Z",
+      "finishedAt": "2026-07-16T23:19:03.933Z",
       "latencyMs": 0,
       "attemptCount": 0,
       "failedAttempts": 0,
       "retryCount": 0,
       "failureRate": 0,
-      "nextRunAt": "2026-07-16T23:48:29.590Z",
+      "nextRunAt": "2026-07-17T00:19:03.933Z",
       "id": "mysql-database",
       "name": "MySQL 持久化",
       "column": "数据库",
@@ -3460,19 +3460,19 @@
           "url": "https://os-world.github.io/"
         },
         {
+          "label": "LM Studio Bionic: the AI agent for open models",
+          "value": "103 pts",
+          "note": "AI agent / 36 comments",
+          "score": 86,
+          "url": "https://lmstudio.ai/blog/introducing-lm-studio-bionic",
+          "query": "AI agent"
+        },
+        {
           "label": "WebArena",
           "value": "可访问",
           "note": "webarena.dev / 命中 2 个关键词",
           "score": 84,
           "url": "https://webarena.dev/"
-        },
-        {
-          "label": "LM Studio Bionic: the AI agent for open models",
-          "value": "86 pts",
-          "note": "AI agent / 29 comments",
-          "score": 84,
-          "url": "https://lmstudio.ai/blog/introducing-lm-studio-bionic",
-          "query": "AI agent"
         },
         {
           "label": "Show HN: How to analyze your LLM output – A behavioural health monitor for LLMs",
@@ -3514,6 +3514,14 @@
           "query": "MCP server"
         },
         {
+          "label": "Ask HN: cybersecurity refusal for turning a jailbroken kindle into a monitor",
+          "value": "8 pts",
+          "note": "Claude Code / 2 comments",
+          "score": 60,
+          "url": "https://news.ycombinator.com/item?id=48940976",
+          "query": "Claude Code"
+        },
+        {
           "label": "Show HN: A map of cafes that are in the sun",
           "value": "8 pts",
           "note": "MCP server / 2 comments",
@@ -3528,14 +3536,6 @@
           "score": 59,
           "url": "https://github.com/cwooddgr/bezelbub/tree/main/bezelbub-mcp",
           "query": "MCP server"
-        },
-        {
-          "label": "Ask HN: cybersecurity refusal for turning a jailbroken kindle into a monitor",
-          "value": "7 pts",
-          "note": "Claude Code / 1 comments",
-          "score": 57,
-          "url": "https://news.ycombinator.com/item?id=48940976",
-          "query": "Claude Code"
         },
         {
           "label": "Show HN: Statey – the database your AI shares across every chat, over MCP",

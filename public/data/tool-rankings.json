@@ -28,6 +28,14 @@
       "query": "MCP server"
     },
     {
+      "label": "Ask HN: cybersecurity refusal for turning a jailbroken kindle into a monitor",
+      "value": "8 pts",
+      "note": "Claude Code / 2 comments",
+      "score": 60,
+      "url": "https://news.ycombinator.com/item?id=48940976",
+      "query": "Claude Code"
+    },
+    {
       "label": "Show HN: A map of cafes that are in the sun",
       "value": "8 pts",
       "note": "MCP server / 2 comments",
@@ -42,14 +50,6 @@
       "score": 59,
       "url": "https://github.com/cwooddgr/bezelbub/tree/main/bezelbub-mcp",
       "query": "MCP server"
-    },
-    {
-      "label": "Ask HN: cybersecurity refusal for turning a jailbroken kindle into a monitor",
-      "value": "7 pts",
-      "note": "Claude Code / 1 comments",
-      "score": 57,
-      "url": "https://news.ycombinator.com/item?id=48940976",
-      "query": "Claude Code"
     },
     {
       "label": "Show HN: Statey – the database your AI shares across every chat, over MCP",
