@@ -13,9 +13,9 @@
   "items": [
     {
       "label": "Launch HN: Traceforce (YC S26) – Company-wide security monitoring for AI apps",
-      "value": "20 pts",
-      "note": "Claude Code / 9 comments",
-      "score": 71,
+      "value": "21 pts",
+      "note": "Claude Code / 10 comments",
+      "score": 72,
       "url": "https://news.ycombinator.com/item?id=48937020",
       "query": "Claude Code"
     },
@@ -44,6 +44,22 @@
       "query": "MCP server"
     },
     {
+      "label": "Ask HN: cybersecurity refusal for turning a jailbroken kindle into a monitor",
+      "value": "7 pts",
+      "note": "Claude Code / 1 comments",
+      "score": 57,
+      "url": "https://news.ycombinator.com/item?id=48940976",
+      "query": "Claude Code"
+    },
+    {
+      "label": "Show HN: Statey – the database your AI shares across every chat, over MCP",
+      "value": "4 pts",
+      "note": "Hammers AI agent / 3 comments",
+      "score": 57,
+      "url": "https://www.statey.ai",
+      "query": "Hammers AI agent"
+    },
+    {
       "label": "Claude – Errors for multiple models",
       "value": "6 pts",
       "note": "Claude Code / 1 comments",
@@ -57,22 +73,6 @@
       "note": "Claude Code / 6 comments",
       "score": 55,
       "url": "https://news.ycombinator.com/item?id=48939454",
-      "query": "Claude Code"
-    },
-    {
-      "label": "Call GPT 5.6-Sol Pro, Fable 5, SuperGrok Subscripions from Codex, Claude",
-      "value": "3 pts",
-      "note": "GPT-5.6 / 0 comments",
-      "score": 52,
-      "url": "https://github.com/agentify-sh/desktop",
-      "query": "GPT-5.6"
-    },
-    {
-      "label": "Claudeisms: A list of words Claude Code overuses",
-      "value": "3 pts",
-      "note": "Claude Code / 0 comments",
-      "score": 52,
-      "url": "https://github.com/archiewood/claudeisms",
       "query": "Claude Code"
     }
   ]

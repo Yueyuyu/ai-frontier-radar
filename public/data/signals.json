@@ -16,14 +16,14 @@
     "accent": "#63f7d4",
     "trustBand": "high",
     "sourceCount": 3,
-    "heatScore": 85,
+    "heatScore": 86,
     "impactScore": 99,
     "trend": [
-      67,
-      73,
-      76,
-      81,
-      85
+      68,
+      74,
+      77,
+      82,
+      86
     ],
     "tags": [
       "模型",
@@ -457,7 +457,7 @@
     "name": "Gemini 3.1 Pro",
     "category": "模型",
     "level": "platform",
-    "confidence": 92,
+    "confidence": 91,
     "firstSeen": "46 分钟前",
     "lastUpdate": "刚刚",
     "releaseWindow": "约 2-5 周",
@@ -468,14 +468,14 @@
     "accent": "#4b8cff",
     "trustBand": "high",
     "sourceCount": 2,
-    "heatScore": 68,
+    "heatScore": 56,
     "impactScore": 78,
     "trend": [
-      50,
-      56,
-      59,
-      64,
-      68
+      38,
+      44,
+      47,
+      52,
+      56
     ],
     "tags": [
       "模型",
