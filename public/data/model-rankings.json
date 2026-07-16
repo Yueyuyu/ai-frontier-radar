@@ -12,6 +12,13 @@
   "cadence": "6 小时",
   "items": [
     {
+      "label": "MoonshotAI: Kimi K3",
+      "value": "1049k ctx",
+      "note": "moonshotai/kimi-k3",
+      "score": 100,
+      "url": "https://openrouter.ai/moonshotai/kimi-k3"
+    },
+    {
       "label": "OpenAI: GPT-5.6 Luna Pro",
       "value": "1050k ctx",
       "note": "openai/gpt-5.6-luna-pro",
@@ -59,13 +66,6 @@
       "note": "anthropic/claude-sonnet-5",
       "score": 100,
       "url": "https://openrouter.ai/anthropic/claude-sonnet-5"
-    },
-    {
-      "label": "Anthropic: Claude Fable Latest",
-      "value": "1000k ctx",
-      "note": "~anthropic/claude-fable-latest",
-      "score": 100,
-      "url": "https://openrouter.ai/~anthropic/claude-fable-latest"
     }
   ]
 }
