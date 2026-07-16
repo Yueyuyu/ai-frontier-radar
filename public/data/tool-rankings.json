@@ -12,68 +12,76 @@
   "cadence": "1 小时",
   "items": [
     {
-      "label": "Launch HN: Traceforce (YC S26) – Company-wide security monitoring for AI apps",
-      "value": "21 pts",
-      "note": "Claude Code / 10 comments",
-      "score": 72,
-      "url": "https://news.ycombinator.com/item?id=48937020",
-      "query": "Claude Code"
+      "label": "punkpeye/awesome-mcp-servers",
+      "value": "90853 stars",
+      "note": "A collection of MCP servers.",
+      "score": 100,
+      "url": "https://github.com/punkpeye/awesome-mcp-servers",
+      "query": "MCP Server",
+      "license": "MIT"
     },
     {
-      "label": "Show HN: Docs.dev Your Own Hosted Docs Platform in Minutes",
-      "value": "8 pts",
-      "note": "MCP server / 4 comments",
-      "score": 62,
-      "url": "https://docs.dev",
-      "query": "MCP server"
+      "label": "headroomlabs-ai/headroom",
+      "value": "59529 stars",
+      "note": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95%",
+      "score": 100,
+      "url": "https://github.com/headroomlabs-ai/headroom",
+      "query": "MCP Server",
+      "license": "Apache-2.0"
     },
     {
-      "label": "Ask HN: cybersecurity refusal for turning a jailbroken kindle into a monitor",
-      "value": "8 pts",
-      "note": "Claude Code / 2 comments",
-      "score": 60,
-      "url": "https://news.ycombinator.com/item?id=48940976",
-      "query": "Claude Code"
+      "label": "zylon-ai/private-gpt",
+      "value": "57335 stars",
+      "note": "Complete API layer for private AI applications on local models: RAG, skills, tools, MCP, text-to-sql, and more. Works wi",
+      "score": 100,
+      "url": "https://github.com/zylon-ai/private-gpt",
+      "query": "MCP Server",
+      "license": "Apache-2.0"
     },
     {
-      "label": "Show HN: A map of cafes that are in the sun",
-      "value": "8 pts",
-      "note": "MCP server / 2 comments",
-      "score": 60,
-      "url": "https://sunny.coffee/",
-      "query": "MCP server"
+      "label": "microsoft/playwright-mcp",
+      "value": "35173 stars",
+      "note": "Playwright MCP server",
+      "score": 100,
+      "url": "https://github.com/microsoft/playwright-mcp",
+      "query": "MCP Server",
+      "license": "Apache-2.0"
     },
     {
-      "label": "Show HN: An MCP server that frames screen recordings and shots in Apple bezels",
-      "value": "5 pts",
-      "note": "MCP server / 3 comments",
-      "score": 59,
-      "url": "https://github.com/cwooddgr/bezelbub/tree/main/bezelbub-mcp",
-      "query": "MCP server"
+      "label": "DeusData/codebase-memory-mcp",
+      "value": "32128 stars",
+      "note": "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in mil",
+      "score": 100,
+      "url": "https://github.com/DeusData/codebase-memory-mcp",
+      "query": "MCP Server",
+      "license": "MIT"
     },
     {
-      "label": "Show HN: Statey – the database your AI shares across every chat, over MCP",
-      "value": "4 pts",
-      "note": "Hammers AI agent / 3 comments",
-      "score": 57,
-      "url": "https://www.statey.ai",
-      "query": "Hammers AI agent"
+      "label": "github/github-mcp-server",
+      "value": "31500 stars",
+      "note": "GitHub's official MCP Server",
+      "score": 100,
+      "url": "https://github.com/github/github-mcp-server",
+      "query": "MCP Server",
+      "license": "MIT"
     },
     {
-      "label": "Claude – Errors for multiple models",
-      "value": "6 pts",
-      "note": "Claude Code / 1 comments",
-      "score": 56,
-      "url": "https://status.claude.com/incidents/kqbd7wm6hnnr",
-      "query": "Claude Code"
+      "label": "PrefectHQ/fastmcp",
+      "value": "26234 stars",
+      "note": "🚀 The fast, Pythonic way to build MCP servers and clients.",
+      "score": 100,
+      "url": "https://github.com/PrefectHQ/fastmcp",
+      "query": "MCP Server",
+      "license": "Apache-2.0"
     },
     {
-      "label": "Ask HN: How companies are protecting Claude Code from reading IP and PII data",
-      "value": "2 pts",
-      "note": "Claude Code / 6 comments",
-      "score": 55,
-      "url": "https://news.ycombinator.com/item?id=48939454",
-      "query": "Claude Code"
+      "label": "activepieces/activepieces",
+      "value": "23294 stars",
+      "note": "AI Agents & MCPs & AI Workflow Automation • (~400 MCP servers for AI agents) • AI Automation / AI Agent with MCPs • AI W",
+      "score": 100,
+      "url": "https://github.com/activepieces/activepieces",
+      "query": "MCP Server",
+      "license": "NOASSERTION"
     }
   ]
 }

@@ -16,14 +16,14 @@
     "accent": "#63f7d4",
     "trustBand": "high",
     "sourceCount": 3,
-    "heatScore": 86,
+    "heatScore": 98,
     "impactScore": 99,
     "trend": [
-      68,
-      74,
-      77,
-      82,
-      86
+      80,
+      86,
+      89,
+      94,
+      98
     ],
     "tags": [
       "模型",
@@ -69,7 +69,7 @@
     "name": "GPT-5.6 Terra",
     "category": "模型",
     "level": "official",
-    "confidence": 97,
+    "confidence": 98,
     "firstSeen": "2026-06-26",
     "lastUpdate": "刚刚",
     "releaseWindow": "有限预览",
@@ -80,14 +80,14 @@
     "accent": "#ff8f5f",
     "trustBand": "high",
     "sourceCount": 2,
-    "heatScore": 56,
+    "heatScore": 68,
     "impactScore": 93,
     "trend": [
-      38,
-      44,
-      47,
-      52,
-      56
+      50,
+      56,
+      59,
+      64,
+      68
     ],
     "tags": [
       "模型",
@@ -126,7 +126,7 @@
     "name": "GPT-5.6 Luna",
     "category": "模型",
     "level": "official",
-    "confidence": 96,
+    "confidence": 97,
     "firstSeen": "2026-06-26",
     "lastUpdate": "刚刚",
     "releaseWindow": "有限预览",
@@ -137,14 +137,14 @@
     "accent": "#8eb9ff",
     "trustBand": "high",
     "sourceCount": 2,
-    "heatScore": 56,
+    "heatScore": 68,
     "impactScore": 92,
     "trend": [
-      38,
-      44,
-      47,
-      52,
-      56
+      50,
+      56,
+      59,
+      64,
+      68
     ],
     "tags": [
       "模型",
@@ -183,7 +183,7 @@
     "name": "Codex",
     "category": "AI 编程",
     "level": "platform",
-    "confidence": 95,
+    "confidence": 98,
     "firstSeen": "32 分钟前",
     "lastUpdate": "刚刚",
     "releaseWindow": "持续更新",
@@ -194,14 +194,14 @@
     "accent": "#8eb9ff",
     "trustBand": "high",
     "sourceCount": 2,
-    "heatScore": 68,
+    "heatScore": 100,
     "impactScore": 81,
     "trend": [
-      50,
-      56,
-      59,
-      64,
-      68
+      82,
+      88,
+      91,
+      96,
+      100
     ],
     "tags": [
       "AI 编程",
@@ -457,7 +457,7 @@
     "name": "Gemini 3.1 Pro",
     "category": "模型",
     "level": "platform",
-    "confidence": 91,
+    "confidence": 93,
     "firstSeen": "46 分钟前",
     "lastUpdate": "刚刚",
     "releaseWindow": "约 2-5 周",
@@ -468,14 +468,14 @@
     "accent": "#4b8cff",
     "trustBand": "high",
     "sourceCount": 2,
-    "heatScore": 56,
+    "heatScore": 80,
     "impactScore": 78,
     "trend": [
-      38,
-      44,
-      47,
-      52,
-      56
+      62,
+      68,
+      71,
+      76,
+      80
     ],
     "tags": [
       "模型",

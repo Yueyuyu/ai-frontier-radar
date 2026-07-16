@@ -15,62 +15,76 @@
   "cadence": "每日",
   "items": [
     {
-      "label": "Steel.dev Agent Leaderboard",
-      "value": "可访问",
-      "note": "leaderboard.steel.dev / 命中 3 个关键词",
-      "score": 88,
-      "url": "https://leaderboard.steel.dev/"
+      "label": "obra/superpowers",
+      "value": "255948 stars",
+      "note": "An agentic skills framework & software development methodology that works.",
+      "score": 100,
+      "url": "https://github.com/obra/superpowers",
+      "query": "AI Agent",
+      "license": "MIT"
     },
     {
-      "label": "Agent Arena",
-      "value": "可访问",
-      "note": "arena.ai / 命中 3 个关键词",
-      "score": 88,
-      "url": "https://arena.ai/leaderboard/agent"
+      "label": "NousResearch/hermes-agent",
+      "value": "215972 stars",
+      "note": "The agent that grows with you",
+      "score": 100,
+      "url": "https://github.com/NousResearch/hermes-agent",
+      "query": "AI Agent",
+      "license": "MIT"
     },
     {
-      "label": "HAL Princeton",
-      "value": "可访问",
-      "note": "hal.cs.princeton.edu / 命中 3 个关键词",
-      "score": 88,
-      "url": "https://hal.cs.princeton.edu/"
+      "label": "Snailclimb/JavaGuide",
+      "value": "157079 stars",
+      "note": "Java 面试 & 后端通用面试指南，覆盖计算机基础、数据库、分布式、高并发、系统设计与 AI 应用开发",
+      "score": 100,
+      "url": "https://github.com/Snailclimb/JavaGuide",
+      "query": "AI Agent",
+      "license": "Apache-2.0"
     },
     {
-      "label": "SkillsBench",
-      "value": "可访问",
-      "note": "www.skillsbench.ai / 命中 3 个关键词",
-      "score": 88,
-      "url": "https://www.skillsbench.ai/leaderboard"
+      "label": "langflow-ai/langflow",
+      "value": "151919 stars",
+      "note": "Langflow is a powerful tool for building and deploying AI-powered agents and workflows.",
+      "score": 100,
+      "url": "https://github.com/langflow-ai/langflow",
+      "query": "AI Agent",
+      "license": "MIT"
     },
     {
-      "label": "OSWorld",
-      "value": "可访问",
-      "note": "os-world.github.io / 命中 3 个关键词",
-      "score": 88,
-      "url": "https://os-world.github.io/"
+      "label": "langgenius/dify",
+      "value": "149072 stars",
+      "note": "Production-ready platform for agentic workflow development.",
+      "score": 100,
+      "url": "https://github.com/langgenius/dify",
+      "query": "AI Agent",
+      "license": "NOASSERTION"
     },
     {
-      "label": "LM Studio Bionic: the AI agent for open models",
-      "value": "103 pts",
-      "note": "AI agent / 36 comments",
-      "score": 86,
-      "url": "https://lmstudio.ai/blog/introducing-lm-studio-bionic",
-      "query": "AI agent"
+      "label": "x1xhlol/system-prompts-and-models-of-ai-tools",
+      "value": "141980 stars",
+      "note": "FULL Augment Code, Claude Code, Cluely, CodeBuddy, Comet, Cursor, Devin AI, Junie, Kiro, Leap.new, Lovable, Manus, Notio",
+      "score": 100,
+      "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
+      "query": "AI Agent",
+      "license": "GPL-3.0"
     },
     {
-      "label": "WebArena",
-      "value": "可访问",
-      "note": "webarena.dev / 命中 2 个关键词",
-      "score": 84,
-      "url": "https://webarena.dev/"
+      "label": "langchain-ai/langchain",
+      "value": "141928 stars",
+      "note": "The agent engineering platform.",
+      "score": 100,
+      "url": "https://github.com/langchain-ai/langchain",
+      "query": "AI Agent",
+      "license": "MIT"
     },
     {
-      "label": "Show HN: How to analyze your LLM output – A behavioural health monitor for LLMs",
-      "value": "10 pts",
-      "note": "Hammers AI agent / 7 comments",
-      "score": 66,
-      "url": "https://splabs.io",
-      "query": "Hammers AI agent"
+      "label": "msitarzewski/agency-agents",
+      "value": "132040 stars",
+      "note": "A complete AI agency at your fingertips - From frontend wizards to Reddit community ninjas, from whimsy injectors to rea",
+      "score": 100,
+      "url": "https://github.com/msitarzewski/agency-agents",
+      "query": "AI Agent",
+      "license": "MIT"
     }
   ]
 }
