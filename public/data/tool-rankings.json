@@ -22,7 +22,7 @@
     },
     {
       "label": "headroomlabs-ai/headroom",
-      "value": "59423 stars",
+      "value": "59432 stars",
       "note": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95%",
       "score": 100,
       "url": "https://github.com/headroomlabs-ai/headroom",
@@ -40,7 +40,7 @@
     },
     {
       "label": "microsoft/playwright-mcp",
-      "value": "35146 stars",
+      "value": "35148 stars",
       "note": "Playwright MCP server",
       "score": 100,
       "url": "https://github.com/microsoft/playwright-mcp",
@@ -49,7 +49,7 @@
     },
     {
       "label": "DeusData/codebase-memory-mcp",
-      "value": "32010 stars",
+      "value": "32024 stars",
       "note": "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in mil",
       "score": 100,
       "url": "https://github.com/DeusData/codebase-memory-mcp",
@@ -58,7 +58,7 @@
     },
     {
       "label": "github/github-mcp-server",
-      "value": "31480 stars",
+      "value": "31481 stars",
       "note": "GitHub's official MCP Server",
       "score": 100,
       "url": "https://github.com/github/github-mcp-server",
@@ -67,7 +67,7 @@
     },
     {
       "label": "PrefectHQ/fastmcp",
-      "value": "26226 stars",
+      "value": "26230 stars",
       "note": "🚀 The fast, Pythonic way to build MCP servers and clients.",
       "score": 100,
       "url": "https://github.com/PrefectHQ/fastmcp",
@@ -76,7 +76,7 @@
     },
     {
       "label": "activepieces/activepieces",
-      "value": "23283 stars",
+      "value": "23284 stars",
       "note": "AI Agents & MCPs & AI Workflow Automation • (~400 MCP servers for AI agents) • AI Automation / AI Agent with MCPs • AI W",
       "score": 100,
       "url": "https://github.com/activepieces/activepieces",
