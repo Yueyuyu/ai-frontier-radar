@@ -22,7 +22,7 @@
     },
     {
       "label": "headroomlabs-ai/headroom",
-      "value": "59753 stars",
+      "value": "59758 stars",
       "note": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95%",
       "score": 100,
       "url": "https://github.com/headroomlabs-ai/headroom",
@@ -40,7 +40,7 @@
     },
     {
       "label": "microsoft/playwright-mcp",
-      "value": "35222 stars",
+      "value": "35224 stars",
       "note": "Playwright MCP server",
       "score": 100,
       "url": "https://github.com/microsoft/playwright-mcp",
@@ -49,7 +49,7 @@
     },
     {
       "label": "DeusData/codebase-memory-mcp",
-      "value": "32537 stars",
+      "value": "32546 stars",
       "note": "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in mil",
       "score": 100,
       "url": "https://github.com/DeusData/codebase-memory-mcp",
