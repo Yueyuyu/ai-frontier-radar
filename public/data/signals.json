@@ -16,14 +16,14 @@
     "accent": "#63f7d4",
     "trustBand": "high",
     "sourceCount": 3,
-    "heatScore": 100,
+    "heatScore": 95,
     "impactScore": 99,
     "trend": [
-      82,
-      88,
+      77,
+      83,
+      86,
       91,
-      96,
-      100
+      95
     ],
     "tags": [
       "模型",
@@ -194,14 +194,14 @@
     "accent": "#8eb9ff",
     "trustBand": "high",
     "sourceCount": 2,
-    "heatScore": 100,
+    "heatScore": 99,
     "impactScore": 81,
     "trend": [
-      82,
-      88,
-      91,
-      96,
-      100
+      81,
+      87,
+      90,
+      95,
+      99
     ],
     "tags": [
       "AI 编程",
