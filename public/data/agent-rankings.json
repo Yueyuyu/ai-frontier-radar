@@ -16,7 +16,7 @@
   "items": [
     {
       "label": "obra/superpowers",
-      "value": "257003 stars",
+      "value": "257005 stars",
       "note": "An agentic skills framework & software development methodology that works.",
       "score": 100,
       "url": "https://github.com/obra/superpowers",
@@ -25,7 +25,7 @@
     },
     {
       "label": "NousResearch/hermes-agent",
-      "value": "216779 stars",
+      "value": "216781 stars",
       "note": "The agent that grows with you",
       "score": 100,
       "url": "https://github.com/NousResearch/hermes-agent",
@@ -52,12 +52,21 @@
     },
     {
       "label": "langgenius/dify",
-      "value": "149247 stars",
+      "value": "149249 stars",
       "note": "Production-ready platform for agentic workflow development.",
       "score": 100,
       "url": "https://github.com/langgenius/dify",
       "query": "AI Agent",
       "license": "NOASSERTION"
+    },
+    {
+      "label": "langchain-ai/langchain",
+      "value": "142056 stars",
+      "note": "The agent engineering platform.",
+      "score": 100,
+      "url": "https://github.com/langchain-ai/langchain",
+      "query": "AI Agent",
+      "license": "MIT"
     },
     {
       "label": "x1xhlol/system-prompts-and-models-of-ai-tools",
@@ -69,17 +78,8 @@
       "license": "GPL-3.0"
     },
     {
-      "label": "langchain-ai/langchain",
-      "value": "142055 stars",
-      "note": "The agent engineering platform.",
-      "score": 100,
-      "url": "https://github.com/langchain-ai/langchain",
-      "query": "AI Agent",
-      "license": "MIT"
-    },
-    {
       "label": "msitarzewski/agency-agents",
-      "value": "132943 stars",
+      "value": "132950 stars",
       "note": "A complete AI agency at your fingertips - From frontend wizards to Reddit community ninjas, from whimsy injectors to rea",
       "score": 100,
       "url": "https://github.com/msitarzewski/agency-agents",
