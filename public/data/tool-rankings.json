@@ -22,7 +22,7 @@
     },
     {
       "label": "headroomlabs-ai/headroom",
-      "value": "59731 stars",
+      "value": "59733 stars",
       "note": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95%",
       "score": 100,
       "url": "https://github.com/headroomlabs-ai/headroom",
