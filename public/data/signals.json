@@ -80,14 +80,14 @@
     "accent": "#ff8f5f",
     "trustBand": "high",
     "sourceCount": 2,
-    "heatScore": 74,
+    "heatScore": 75,
     "impactScore": 93,
     "trend": [
-      56,
-      62,
-      65,
-      70,
-      74
+      57,
+      63,
+      66,
+      71,
+      75
     ],
     "tags": [
       "模型",
@@ -137,14 +137,14 @@
     "accent": "#8eb9ff",
     "trustBand": "high",
     "sourceCount": 2,
-    "heatScore": 74,
+    "heatScore": 75,
     "impactScore": 92,
     "trend": [
-      56,
-      62,
-      65,
-      70,
-      74
+      57,
+      63,
+      66,
+      71,
+      75
     ],
     "tags": [
       "模型",
@@ -194,14 +194,14 @@
     "accent": "#8eb9ff",
     "trustBand": "high",
     "sourceCount": 2,
-    "heatScore": 98,
+    "heatScore": 99,
     "impactScore": 81,
     "trend": [
-      80,
-      86,
-      89,
-      94,
-      98
+      81,
+      87,
+      90,
+      95,
+      99
     ],
     "tags": [
       "AI 编程",
