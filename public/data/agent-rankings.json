@@ -16,7 +16,7 @@
   "items": [
     {
       "label": "obra/superpowers",
-      "value": "257407 stars",
+      "value": "257421 stars",
       "note": "An agentic skills framework & software development methodology that works.",
       "score": 100,
       "url": "https://github.com/obra/superpowers",
@@ -34,7 +34,7 @@
     },
     {
       "label": "Snailclimb/JavaGuide",
-      "value": "157120 stars",
+      "value": "157121 stars",
       "note": "Java 面试 & 后端通用面试指南，覆盖计算机基础、数据库、分布式、高并发、系统设计与 AI 应用开发",
       "score": 100,
       "url": "https://github.com/Snailclimb/JavaGuide",
@@ -52,7 +52,7 @@
     },
     {
       "label": "langgenius/dify",
-      "value": "149321 stars",
+      "value": "149320 stars",
       "note": "Production-ready platform for agentic workflow development.",
       "score": 100,
       "url": "https://github.com/langgenius/dify",
@@ -79,7 +79,7 @@
     },
     {
       "label": "msitarzewski/agency-agents",
-      "value": "133688 stars",
+      "value": "133716 stars",
       "note": "A complete AI agency at your fingertips - From frontend wizards to Reddit community ninjas, from whimsy injectors to rea",
       "score": 100,
       "url": "https://github.com/msitarzewski/agency-agents",
