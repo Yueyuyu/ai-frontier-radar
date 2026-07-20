@@ -1,25 +1,9 @@
 name: Refresh Frontier Intel Data
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - ".github/workflows/refresh-frontier-intel.yml"
-      - "package.json"
-      - "package-lock.json"
-      - "pnpm-lock.yaml"
-      - "index.html"
-      - "vite.config.ts"
-      - "scripts/**"
-      - "src/**"
-  schedule:
     # 高频来源：30 分钟一次。
-    - cron: "*/30 * * * *"
     # 榜单和来源校准：每 6 小时一次。
-    - cron: "17 */6 * * *"
     # 每日全量校验：每天 UTC 02:41。
-    - cron: "41 2 * * *"
   workflow_dispatch:
 
 permissions:
